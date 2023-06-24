@@ -1,5 +1,3 @@
-import "../styles/EncabezadoLogin.css";
-
 export default function EncabezadoLogin() {
   return (
     <div className="encabezado rounded-t-lg relative mb-6 bg-slate-500 -mx-12 -mt-5 px-8 pt-4">

@@ -29,6 +29,10 @@ export default function Index() {
       <Link to="/publish" data-cy="btn-publish">
         Publica tu comida sana
       </Link>
+      <br />
+      <Link to="/login">
+        Inisio de sesion
+      </Link>
 
       {
         posts.map(post => (

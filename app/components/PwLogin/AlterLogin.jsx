@@ -7,7 +7,7 @@ export default function AlterLogin() {
     style: `text-semibase font-semibold inline-block relative `
   }
 
-  const styleBoton = "face-login w-2/5 text-center text-white text-lg font-medium bg-slate-600 px-5 py-1 border-spacing-1 border-2 border-slate-700 rounded-lg shadow-sm shadow-slate-800 hover:shadow-md hover:shadow-slate-700";
+  const styleBoton = "face-login w-2/5 text-center text-white text-lg font-medium bg-slate-600 px-5 py-1 border-spacing-1 border-2 border-slate-700 rounded-lg shadow-sm shadow-slate-800 hover:shadow-md hover:shadow-slate-700 flex justify-center";
 
   return (
     <div className="alter-login mb-6">
@@ -15,7 +15,7 @@ export default function AlterLogin() {
         <p className={styleDescripcion.before + styleDescripcion.style + styleDescripcion.after}>Puede ingresar con</p>
       </div>
       <div className="botones flex justify-around">
-        <div className={styleBoton}>
+        <div className={`${styleBoton}`}>
           <button className='h-12 w-28 flex justify-around items-center'><SiFacebook />Facebook</button>
         </div>
         <div className={styleBoton}>

@@ -20,6 +20,7 @@ import app from "~/firebase/firebase.client";
 import * as auth from "firebase/auth";
 import type { UserCredential } from "firebase/auth";
 import TextField from "~/components/TextField/TextField";
+import FormLogin from "~/components/PwLogin/FormLogin";
 
 export const loader = async ({ request }: LoaderArgs) => {
   const session = await getSession(request.headers.get("cookie"));
@@ -123,11 +124,13 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h1>Iniciar sesión</h1>
+    <div className="w-screen">
       {clientAction?.error || actionData?.error ? (
         <p>{clientAction?.error || actionData?.error}</p>
       ) : null}
+
+      <FormLogin />
+
       <form method="post" onSubmit={handleSubmit} data-cy="login-form">
         <TextField
           label="Correo electrónico"
