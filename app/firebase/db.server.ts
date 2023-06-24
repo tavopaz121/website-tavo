@@ -12,26 +12,24 @@ const dataPoint = <T extends FirebaseFirestore.DocumentData>(
   collectionPath: string
 ) => getFirestore().collection(collectionPath).withConverter(converter<T>());
 
-type Todo = {
+type Post = {
   id: string;
   title: string;
+  description: string;
+  price: number;
+  images: string[]
 };
 
 const db = {
-  userTodos: (uid: string) => dataPoint<Todo>(`users/${uid}/todos`),
+  posts: () => dataPoint<Post>(`/posts`),
 };
 
-export const getUserTodos = async (uid: string) => {
-  const todoSnap = await db.userTodos(uid).get();
-  const todoData = todoSnap.docs.map((doc) => doc.data());
-  return todoData;
-};
+export async function getPosts() {
+  const posts = await db.posts().get();
+  const postData = posts.docs.map(doc => {
+    return { ...doc.data(), id: doc.id }
+  });
 
-export const addTodo = async (uid: string, title: string) => {
-  const newTodoRef = db.userTodos(uid).doc();
-  await newTodoRef.set({ title, id: newTodoRef.id });
-};
+  return postData
+}
 
-export const removeTodo = async (uid: string, todoId: string) => {
-  await db.userTodos(uid).doc(todoId).delete();
-};

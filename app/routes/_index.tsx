@@ -3,11 +3,14 @@ import { json } from "@remix-run/node";
 import { Link, useLoaderData, Form } from "@remix-run/react";
 import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
+import { getPosts } from "~/firebase/db.server";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
+  const posts = await getPosts();
+  console.log(posts);
 
-  return json(user);
+  return json({ user, posts });
 }
 
 export const action = async ({ request }: ActionArgs) => {
@@ -17,8 +20,9 @@ export const action = async ({ request }: ActionArgs) => {
 };
 
 export default function Index() {
-  const user = useLoaderData();
-
+  const loaderData = useLoaderData();
+  const { user, posts } = loaderData;
+  
   return (
     <div>
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
@@ -26,6 +30,16 @@ export default function Index() {
       <Link to="/publish" data-cy="btn-publish">
         Publica tu comida sana
       </Link>
+
+      {
+        posts.map(post => (
+          <div key={post.id}>
+            <h2>{post.title}</h2>
+            <p>{post.description}</p>
+          </div>
+          )
+        )
+      }
 
       {user && (
         <Form method="post" action="/logout">
