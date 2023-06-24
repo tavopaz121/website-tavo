@@ -9,6 +9,7 @@
     "start": "remix-serve build",
     "typecheck": "tsc",
     "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --ui"
