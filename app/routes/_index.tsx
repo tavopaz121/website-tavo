@@ -8,7 +8,6 @@ import { getPosts } from "~/firebase/db.server";
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
   const posts = await getPosts();
-  console.log(posts);
 
   return json({ user, posts });
 }
