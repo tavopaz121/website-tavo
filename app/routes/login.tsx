@@ -30,18 +30,25 @@ export async function action({ request }: ActionArgs) {
 export default function Login() {
   const actionData = useActionData<typeof action>();
   const restConfig = useLoaderData<typeof loader>();
-  const { handleSubmit, loginWithGoogle, loginWithFacebook, clientAction } =
-    useLogin(restConfig);
+  const { handleSubmit, loginWithGoogle, loginWithFacebook, clientAction } = useLogin(restConfig);
 
   return (
-    <div className="w-screen">
+    <div className="w-screen h-screen flex flex-col items-center justify-center">
       {clientAction?.error || actionData?.error ? (
         <p>{clientAction?.error || actionData?.error}</p>
       ) : null}
 
-      <FormLogin />
+      <FormLogin onSubmit={handleSubmit} onGoogle={loginWithGoogle} onFace={loginWithFacebook} />
 
-      <form method="post" onSubmit={handleSubmit} data-cy="login-form">
+    </div>
+  );
+}
+
+
+/*
+<FormLogin onSubmit={handleSubmit} onGoogle={loginWithGoogle} onFace={loginWithFacebook} />
+
+<form method="post" onSubmit={handleSubmit} data-cy="login-form">
         <TextField
           label="Correo electrónico"
           name="email"
@@ -60,12 +67,7 @@ export default function Login() {
           Iniciar sesión
         </button>
       </form>
-      <button onClick={loginWithGoogle}>Entrar con google</button>
-      <button onClick={loginWithFacebook}>Entrar con Facebook</button>
 
-      <p>
-        <Link to="/join">Registrarme</Link>
-      </p>
-    </div>
-  );
-}
+<button onClick={loginWithGoogle}>Entrar con google</button>
+      <button onClick={loginWithFacebook}>Entrar con Facebook</button>
+*/

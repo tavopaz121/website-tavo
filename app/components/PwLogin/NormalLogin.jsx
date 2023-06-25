@@ -6,9 +6,9 @@ export default function NormalLogin() {
   return (
     <div className="text-center">
       <p
-        className={pBefore + pStyle + pAfter}
+        className={pStyle}
       >
-        Oh bien con su cuenta healty food
+        O cuenta healty food
       </p>
     </div>
   );

@@ -4,8 +4,8 @@ import TextField from '../TextField/TextField';
 export default function InputPassLogin() {
   return (
     <div className="input-password-login">
-      <label for="input-group-2" class="block mb-2 text-xl font-medium text-gray-900">Contraseña</label>
-      <div class="relative mb-6">
+      <label className="block mb-2 text-xl font-medium text-gray-900">Contraseña</label>
+      <div className="relative mb-6">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-800">
           <IoKeySharp />
         </div>

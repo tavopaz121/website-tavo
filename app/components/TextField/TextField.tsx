@@ -3,7 +3,7 @@ import type { ForwardedRef } from "react";
 import { XcircleSolidIcon } from "../Icons";
 import type { TextFieldProps } from "./TextField.d";
 
-//const inputClassName = "w-full rounded border border-gray-500 px-2 py-1 text-lg dark:text-black";
+const inputClassName = "w-full rounded border border-gray-500 px-2 py-1 text-lg dark:text-black";
 const errorClassName = "pt-1 flex items-center gap-1 text-red-700 dark:text-red-400";
 
 export default forwardRef(TextField);
@@ -12,7 +12,6 @@ function TextField(
   {
     isInvalid,
     label,
-    inputClassName = "w-full rounded border border-gray-500 px-2 py-1 text-lg dark:text-black",
     required,
     autoFocus,
     name,
@@ -58,7 +57,6 @@ function TextField(
           {error}
         </div>
       )}
-
       {children}
     </div>
   );

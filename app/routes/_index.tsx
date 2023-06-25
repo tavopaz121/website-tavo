@@ -23,7 +23,7 @@ export default function Index() {
   const { user, posts } = loaderData;
   
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
 
       <Link to="/publish" data-cy="btn-publish">
@@ -33,7 +33,7 @@ export default function Index() {
       <Link to="/login">
         Inisio de sesion
       </Link>
-
+      <br />
       {
         posts.map(post => (
           <div key={post.id}>
