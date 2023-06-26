@@ -1,11 +1,12 @@
-import { Form, useLoaderData } from "@remix-run/react";
+import { useActionData, useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { requireAuth } from "~/firebase/auth.server";
 import type { LoaderArgs } from "@remix-run/node";
+import PwPublisForm from '../components/PwPublishForm/PwPublishForm'
 
 export function meta() {
   return [
-    { title: "Publica tu comida sana" },
+    { title: "HealthyFood | Crear Publicación" },
     { name: "description", content: "Publica tu comida sana" },
   ];
 }
@@ -21,30 +22,18 @@ export async function loader({ request }: LoaderArgs) {
 export async function action({ request }: LoaderArgs) {
   const { uid } = await requireAuth(request)
   const form = await request.formData();
-  console.log(uid, form);
+  return { uid, form };
 }
 
-export default function () {
+export default function Publish() {
   const user = useLoaderData();
-  return (
-    <section>
-      <h2>{user.displayName}, publica tu nueva comida sana</h2>
-      <Form method="POST">
-        <label>
-          Titulo
-          <input name="title" />
-        </label>
-        <label>
-          Descripción
-          <input name="description" />
-        </label>
-        <label>
-          Imagen
-          <input type="file" />
-        </label>
+  const res = useActionData()
 
-        <button>Publicar</button>
-      </Form>
-    </section>
+  console.log(res)
+
+  return (
+    <main className="p-5">
+      <PwPublisForm userName={user.displayName} />
+    </main>
   );
 }
