@@ -12,6 +12,7 @@ export default function BotonLogin({ isSubmit, changeSubmit }) {
       <button
         type="submit"
         className={`${styleBoton} ${hoverBoton} ${bgColor} max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto`}
+        data-cy="login-button"
       >
         Ingresar
       </button>

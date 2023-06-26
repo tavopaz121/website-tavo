@@ -12,6 +12,7 @@ export default function FormLogin({ onSubmit, onGoogle, onFace }) {
   return (
     <div
       className="flex flex-col justify-center bg-slate-100 px-12 pt-5 pb-8 border-solid border-2 border-slate-500 rounded-lg shadow-xl shadow-slate-700 w-3/5 max-w-screen-sm max-[640px]:px-6 max-[640px]:w-4/5"
+      data-testid="FormLogin"
     >
       <EncabezadoLogin />
       <AlterLogin onClickGoogle={onGoogle} onClickFace={onFace} isSubmit={sending} />

@@ -14,6 +14,7 @@ export default function InputPassLogin() {
           placeholder="Tu contraseña"
           type="password"
           className="bg-slate-100 border border-gray-600 text-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 placeholder-gray-800"
+          data-cy="password-field"
         >
         </TextField>
       </div>

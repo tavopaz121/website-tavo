@@ -14,6 +14,7 @@ export default function InputCorreoLogin() {
           placeholder="tu@pensemosweb.com"
           type="email"
           required
+          data-cy="email-field"
         >
         </TextField>
       </div>
