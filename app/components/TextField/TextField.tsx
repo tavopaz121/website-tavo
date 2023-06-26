@@ -20,10 +20,10 @@ function TextField(
     value,
     type,
     autoComplete,
+    clsNInput,
     error,
     children,
     clsN,
-    clsNInput,
     placeholder,
     ...moreProps
   }: TextFieldProps,

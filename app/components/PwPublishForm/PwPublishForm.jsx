@@ -23,14 +23,14 @@ export default function PwPublishForm({ userName }) {
           <TextField
             required
             name="title"
-            clsNInput="border-none outline-none mt-1 text-base"
+            clsNInput="border-none mt-1 text-base outline-1 outline-yellow-400"
             type="text"
             label="Titulo de la publicación: "
           />
           <TextField
             required
             name="price"
-            clsNInput="border-none outline-none mt-1 text-base"
+            clsNInput="border-none mt-1 text-base outline-1 outline-yellow-400"
             type="number"
             label="Precio:"
             min="0"
@@ -40,13 +40,13 @@ export default function PwPublishForm({ userName }) {
         <SelectFile
           label="Seleccionar un archivo:"
           placeholder="Selecciona tu imagen..."
-          clsNInput="border-none rounded-lg"
+          clsNInput="border-2 border-transparent rounded-lg hover:border-2 hover:border-solid hover:border-yellow-400"
         />
 
         <TextArea
           required
           label="Descripción del producto:"
-          clsNInput="border-none outline-none text-base mt-1"
+          clsNInput="border-none text-base mt-1 outline-1 outline-yellow-400"
           rows={10}
           maxLength={250}
         />
