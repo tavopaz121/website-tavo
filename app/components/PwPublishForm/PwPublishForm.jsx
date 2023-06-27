@@ -39,7 +39,11 @@ export default function PwPublishForm({ userName }) {
         </Link>
       </div>
 
-      <Form method="POST" action="/publish" className="p-4">
+      <Form
+        method="POST"
+        action="/publish"
+        className="p-4"
+        encType="multipart/form-data">
         <div className="grid gap-4 grid-cols-7">
           <TextField
             autoFocus
@@ -66,6 +70,7 @@ export default function PwPublishForm({ userName }) {
           label="Seleccionar un archivo:"
           placeholder="Selecciona tu imagen..."
           clsNInput="border-2 border-transparent rounded-lg hover:border-2 hover:border-solid hover:border-yellow-400"
+          name="image"
         />
 
         {srcImage && (
@@ -84,6 +89,7 @@ export default function PwPublishForm({ userName }) {
         )}
 
         <TextArea
+          name="description"
           required
           label="Descripción del producto:"
           clsNInput="border-none text-base mt-1 outline-1 outline-yellow-400"
