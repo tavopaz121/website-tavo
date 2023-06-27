@@ -8,7 +8,6 @@ import Card from "~/components/Card/Card";
 
 function mapPosts(posts) {
   return posts.map((item) => {
-    console.log(item)
     return {
       id: item.id,
       title: item.title,
