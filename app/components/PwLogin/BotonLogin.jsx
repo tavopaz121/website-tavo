@@ -11,11 +11,13 @@ export default function BotonLogin({ isSubmit, changeSubmit }) {
     <div className="button-submit-login flex flex-row flex-wrap justify-evenly max-[640px]:flex-col max-[640px]:items-center">
       <button
         type="submit"
-        className={`${styleBoton} ${hoverBoton} ${bgColor} max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto`}
+        className={`${styleBoton} ${isSubmit ? "" : hoverBoton} ${isSubmit ? bgColorSub : bgColor} max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto`}
         data-cy="login-button"
+        disabled={isSubmit}
       >
         Ingresar
       </button>
+
       {
         isSubmit ?
           <div
@@ -35,6 +37,13 @@ export default function BotonLogin({ isSubmit, changeSubmit }) {
   );
 }
 /*
+<div
+        className={`${styleBoton} ${hoverBoton} ${bgColor} max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto select-none text-center`}
+        onClick={() => changeSubmit(!isSubmit)}
+      >
+        Cambiar
+      </div>
+
 <Link
             to="/join"
             className={`${styleBoton} ${hoverBoton} ${bgColor} text-center`}

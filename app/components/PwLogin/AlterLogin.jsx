@@ -19,8 +19,9 @@ export default function AlterLogin({ onClickGoogle, onClickFace, isSubmit }) {
       </div>
       <div className="botones flex justify-around max-[640px]:flex-col max-[640px]:items-center ">
         <button
-          onClick={isSubmit ? null : onClickFace}
+          onClick={onClickFace}
           className={`${styleBoton} ${isSubmit ? bgBotonSub : bgBoton} ${isSubmit ? "" : hoverBoton} max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto max-[640px]:mb-2`}
+          disabled={isSubmit}
         >
           <div
             className="h-12 w-28 flex justify-around items-center"
@@ -29,8 +30,9 @@ export default function AlterLogin({ onClickGoogle, onClickFace, isSubmit }) {
           </div>
         </button>
         <button
-          onClick={isSubmit ? null : onClickGoogle}
+          onClick={onClickGoogle}
           className={`${styleBoton} ${isSubmit ? bgBotonSub : bgBoton} ${isSubmit ? "" : hoverBoton} max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto`}
+          disabled={isSubmit}
         >
           <div className="h-12 w-28 flex justify-around items-center">
             <SiGoogle />Google
