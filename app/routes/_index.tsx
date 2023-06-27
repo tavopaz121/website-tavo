@@ -3,7 +3,7 @@ import { json } from "@remix-run/node";
 import { Link, useLoaderData, Form } from "@remix-run/react";
 import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
-import { getPosts } from "~/firebase/db.server";
+import { getPosts } from "~/firebase/models/posts.server";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);

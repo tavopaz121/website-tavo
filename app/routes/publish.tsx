@@ -1,7 +1,9 @@
 import { Form, useLoaderData } from "@remix-run/react";
-import { json } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import { requireAuth } from "~/firebase/auth.server";
 import type { LoaderArgs } from "@remix-run/node";
+import { createPost } from "~/firebase/models/posts.server";
+import type { Post } from "~/types/publish";
 
 export function meta() {
   return [
@@ -19,9 +21,13 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export async function action({ request }: LoaderArgs) {
-  const { uid } = await requireAuth(request)
-  const form = await request.formData();
-  console.log(uid, form);
+  const { uid, displayName, email, phoneNumber, photoURL } = await requireAuth(request);
+  const data = await request.formData();
+  const { image, ...post } = Object.fromEntries(data.entries());
+  
+  await createPost(post, image, { uid, displayName, email, phoneNumber, photoURL });
+
+  return redirect('/');
 }
 
 export default function () {
@@ -29,10 +35,14 @@ export default function () {
   return (
     <section>
       <h2>{user.displayName}, publica tu nueva comida sana</h2>
-      <Form method="POST">
+      <Form method="POST" encType="multipart/form-data">
         <label>
           Titulo
           <input name="title" />
+        </label>
+        <label>
+          Precio
+          <input name="price" />
         </label>
         <label>
           Descripción
@@ -40,7 +50,7 @@ export default function () {
         </label>
         <label>
           Imagen
-          <input type="file" />
+          <input name="image" type="file" />
         </label>
 
         <button>Publicar</button>

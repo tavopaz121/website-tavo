@@ -3,6 +3,7 @@ import {
   initializeApp as initializeServerApp,
   cert as serverCert,
 } from "firebase-admin/app";
+import { firestore as serverFirestore } from "firebase-admin";
 import { getAuth as getServerAuth } from "firebase-admin/auth";
 
 import * as firebaseRest from "./firebase-rest";
@@ -38,7 +39,7 @@ if (getServerApps().length === 0) {
     process.env.FIRESTORE_EMULATOR_HOST = "localhost:8080";
     process.env.FIREBASE_AUTH_EMULATOR_HOST = "localhost:9099";
     config = {
-      projectId: "remix-emulator",
+      projectId: process.env.PROJECT_ID || "healhty-food-2023-2024",
     };
   } else if (!process.env.SERVICE_ACCOUNT) {
     throw new Error("Missing SERVICE_ACCOUNT environment variable");
@@ -52,7 +53,11 @@ if (getServerApps().length === 0) {
       throw Error("Invalid SERVICE_ACCOUNT environment variable");
     }
   }
+
+  config.storageBucket = process.env.STORAGE_BUCKET || `${config.projectId}.appspot.com`;
+
   initializeServerApp(config);
+  serverFirestore().settings({ ignoreUndefinedProperties: true });
 }
 
 const signInWithPassword = async (email: string, password: string) => {
