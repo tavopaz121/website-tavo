@@ -24,6 +24,10 @@ export default function PwPublishForm({ userName }) {
     setSrcImage(imageUrl)
   }
 
+  const removeImage = () => {
+    setSrcImage(null)
+  }
+
   return (
     <section className="bg-[#ebecee]  rounded-t-lg w-full border border-gray-200 shadow-xl">
       <div className="bg-[#ecb30e] rounded-t-lg flex justify-center items-center">
@@ -36,10 +40,11 @@ export default function PwPublishForm({ userName }) {
       </div>
 
       <Form method="POST" action="/publish" className="p-4">
-        <div className="grid gap-4 grid-cols-2">
+        <div className="grid gap-4 grid-cols-7">
           <TextField
             autoFocus
             required
+            clsN="col-span-5"
             name="title"
             clsNInput="border-none mt-1 text-base outline-1 outline-yellow-400"
             type="text"
@@ -47,6 +52,7 @@ export default function PwPublishForm({ userName }) {
           />
           <TextField
             required
+            clsN="col-span-2"
             name="price"
             clsNInput="border-none mt-1 text-base outline-1 outline-yellow-400"
             type="number"
@@ -70,7 +76,7 @@ export default function PwPublishForm({ userName }) {
               className="min-w-full border-2 p-1 border-yellow-400 max-h-[300px] object-cover mb-4"
             />
             <button
-              onClick={() => setSrcImage('')}
+              onClick={removeImage}
               className="absolute bg-red-500 rounded-sm top-2.5 right-2.5">
               <IconClose />
             </button>
