@@ -3,13 +3,29 @@ import { json } from "@remix-run/node";
 import { Link, useLoaderData, Form } from "@remix-run/react";
 import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
-import { getPosts } from "~/firebase/db.server";
+import { getPosts } from "~/firebase/models/posts.server";
+import Card from "~/components/Card/Card";
+
+function mapPosts(posts) {
+  return posts.map((item) => {
+    return {
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      description: item.description,
+      image: {
+        src: item.image,
+        alt: item.title,
+      },
+    };
+  });
+}
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
   const posts = await getPosts();
 
-  return json({ user, posts });
+  return json({ user, posts: mapPosts(posts) });
 }
 
 export const action = async ({ request }: ActionArgs) => {
@@ -21,7 +37,7 @@ export const action = async ({ request }: ActionArgs) => {
 export default function Index() {
   const loaderData = useLoaderData();
   const { user, posts } = loaderData;
-  
+
   return (
     <div>
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
@@ -30,15 +46,9 @@ export default function Index() {
         Publica tu comida sana
       </Link>
 
-      {
-        posts.map(post => (
-          <div key={post.id}>
-            <h2>{post.title}</h2>
-            <p>{post.description}</p>
-          </div>
-          )
-        )
-      }
+      {posts.map(({ id, ...rest }) => (
+        <Card key={id} {...rest} />
+      ))}
 
       {user && (
         <Form method="post" action="/logout">
