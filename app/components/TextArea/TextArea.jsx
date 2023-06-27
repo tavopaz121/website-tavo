@@ -35,6 +35,7 @@ export default function TextArea({
         maxLength={maxLength || 250}
         cols={height}
         placeholder={placeholder}
+        {...moreProps}
         rows={rows}></textarea>
 
       {error ? (

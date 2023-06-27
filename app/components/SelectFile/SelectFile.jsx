@@ -1,4 +1,12 @@
-export default function SelectFile({ clsNInput, label, placeholder, clsN }) {
+export default function SelectFile({
+  clsNInput,
+  label,
+  placeholder,
+  clsN,
+  onChange,
+  children,
+  ...moreProps
+}) {
   return (
     <div className={`w-full mb-4 ${clsN}`}>
       {label && <p className="block text-sm mb-1 font-medium">{label}</p>}
@@ -16,9 +24,16 @@ export default function SelectFile({ clsNInput, label, placeholder, clsN }) {
           <span className="mt-1 text-sm font-medium leading-normal text-gray-600">
             {placeholder}
           </span>
-          <input type="file" className="hidden" />
+          <input
+            onChange={onChange}
+            type="file"
+            className="hidden"
+            {...moreProps}
+          />
         </label>
       </div>
+
+      {children}
     </div>
   )
 }

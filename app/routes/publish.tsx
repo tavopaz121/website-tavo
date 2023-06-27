@@ -1,4 +1,4 @@
-import { useActionData, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { requireAuth } from "~/firebase/auth.server";
 import type { LoaderArgs } from "@remix-run/node";
@@ -27,10 +27,6 @@ export async function action({ request }: LoaderArgs) {
 
 export default function Publish() {
   const user = useLoaderData();
-  const res = useActionData()
-
-  console.log(res)
-
   return (
     <main className="p-5">
       <PwPublisForm userName={user.displayName} />
