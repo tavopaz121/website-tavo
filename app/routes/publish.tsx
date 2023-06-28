@@ -1,12 +1,14 @@
 import { useLoaderData } from "@remix-run/react";
-import { json } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import { requireAuth } from "~/firebase/auth.server";
 import type { LoaderArgs } from "@remix-run/node";
+import { createPost } from "~/firebase/models/posts.server";
+import type { Post } from "~/types/publish";
 import PwPublisForm from '../components/PwPublishForm/PwPublishForm'
 
 export function meta() {
   return [
-    { title: "HealthyFood | Crear Publicación" },
+    { title: "Publica tu comida sana" },
     { name: "description", content: "Publica tu comida sana" },
   ];
 }
@@ -20,9 +22,13 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export async function action({ request }: LoaderArgs) {
-  const { uid } = await requireAuth(request)
-  const form = await request.formData();
-  return { uid, form };
+  const { uid, displayName, email, phoneNumber, photoURL } = await requireAuth(request);
+  const data = await request.formData();
+  const { image, ...post } = Object.fromEntries(data.entries());
+
+  await createPost(post, image, { uid, displayName, email, phoneNumber, photoURL });
+
+  return redirect('/');
 }
 
 export default function Publish() {
