@@ -30,7 +30,9 @@ export const getRestConfig = (): {
 const restConfig = getRestConfig();
 
 if (getServerApps().length === 0) {
-  let config;
+  let config = {
+    projectId: process.env.PROJECT_ID || "healhty-food-2023-2024",
+  };;
   if (process.env.NODE_ENV === "development" && !process.env.SERVICE_ACCOUNT) {
     console.warn(
       "Missing SERVICE_ACCOUNT environment variable, using local emulator"
@@ -38,24 +40,19 @@ if (getServerApps().length === 0) {
     // https://github.com/firebase/firebase-admin-node/issues/776
     process.env.FIRESTORE_EMULATOR_HOST = "localhost:8080";
     process.env.FIREBASE_AUTH_EMULATOR_HOST = "localhost:9099";
-    config = {
-      projectId: process.env.PROJECT_ID || "healhty-food-2023-2024",
-    };
   } else if (!process.env.SERVICE_ACCOUNT) {
     throw new Error("Missing SERVICE_ACCOUNT environment variable");
   } else {
     try {
       const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT);
-      config = {
-        credential: serverCert(serviceAccount),
-      };
+      config.credential = serverCert(serviceAccount);
     } catch {
       throw Error("Invalid SERVICE_ACCOUNT environment variable");
     }
   }
 
   config.storageBucket = process.env.STORAGE_BUCKET || `${config.projectId}.appspot.com`;
-
+  
   initializeServerApp(config);
   serverFirestore().settings({ ignoreUndefinedProperties: true });
 }
