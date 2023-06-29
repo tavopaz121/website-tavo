@@ -5,7 +5,8 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
-    "emulators": "firebase emulators:start --project healthy-food-2023-2024 --import=firebase-fixtures",
+    "emulators": "firebase emulators:start --project healhty-food-2023-2024 --import=firebase-fixtures",
+    "emulators:export": "firebase emulators:export --only=auth,firestore,storage ../firebase-fixtures",
     "start": "remix-serve build",
     "typecheck": "tsc",
     "cypress:open": "cypress open",

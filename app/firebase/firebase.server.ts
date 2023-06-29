@@ -16,7 +16,8 @@ export const getRestConfig = (): {
   if (process.env.NODE_ENV === "development" && !process.env.API_KEY) {
     return {
       apiKey: "fake-api-key",
-      domain: "http://localhost:9099/identitytoolkit.googleapis.com",
+      // Depending in your platform or containers, localhost can give you problems, so we use 127.0.0.1
+      domain: "http://127.0.0.1:9099/identitytoolkit.googleapis.com",
     };
   } else if (!process.env.API_KEY) {
     throw new Error("Missing API_KEY environment variable");
@@ -38,8 +39,11 @@ if (getServerApps().length === 0) {
       "Missing SERVICE_ACCOUNT environment variable, using local emulator"
     );
     // https://github.com/firebase/firebase-admin-node/issues/776
-    process.env.FIRESTORE_EMULATOR_HOST = "localhost:8080";
-    process.env.FIREBASE_AUTH_EMULATOR_HOST = "localhost:9099";
+    // Use serveral environment variable for emulators
+
+    // Use credential for emulators
+    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_EMULATORS || "{}");
+    config.credential = serverCert(serviceAccount);
   } else if (!process.env.SERVICE_ACCOUNT) {
     throw new Error("Missing SERVICE_ACCOUNT environment variable");
   } else {
