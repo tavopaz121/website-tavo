@@ -10,6 +10,7 @@ export default forwardRef(TextField);
 
 function TextField(
   {
+    idInput,
     isInvalid,
     label,
     required,
@@ -38,7 +39,7 @@ function TextField(
       ) : null}
       <input
         ref={ref}
-        id={id}
+        id={idInput}
         required={required}
         autoFocus={autoFocus}
         name={name}

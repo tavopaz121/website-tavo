@@ -1,20 +1,30 @@
-import { IoKeySharp } from 'react-icons/io5';
 import TextField from '../TextField/TextField';
+import { IoKeySharp } from 'react-icons/io5';
 
 export default function InputPassLogin() {
+  const stylesInput = {
+    label: "block mb-2 text-xl font-medium text-gray-900 ",
+    icon: "absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-800 ",
+    textField: "bg-slate-100 border border-gray-600 text-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 placeholder-gray-800 ",
+  }
+
   return (
     <div className="input-password-login">
-      <label className="block mb-2 text-xl font-medium text-gray-900">Contraseña</label>
+      <label htmlFor='password' className={`${stylesInput.label}`}>
+        Contraseña
+      </label>
       <div className="relative mb-6">
-        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-800">
+        <div className={`${stylesInput.icon}`}>
           <IoKeySharp />
         </div>
         <TextField
+          idInput='password'
           name="password"
           placeholder="Tu contraseña"
           type="password"
-          className="bg-slate-100 border border-gray-600 text-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 placeholder-gray-800"
+          required
           data-cy="password-field"
+          className={`${stylesInput.textField}`}
         >
         </TextField>
       </div>

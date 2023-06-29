@@ -19,7 +19,9 @@ export default function AlterLogin({ onClickGoogle, onClickFace, isSubmit }) {
   return (
     <div className="sign-in-with-google mb-6">
       <div className="contenedor-descripcion text-center mb-3">
-        <p className={`descripcion ${styleDescripcion.style}`}>Ingresar con</p>
+        <p className={`descripcion ${styleDescripcion.style}`}>
+          Ingresar con
+        </p>
       </div>
       <div className="botones flex justify-around max-[640px]:flex-col max-[640px]:items-center ">
         <button
