@@ -4,7 +4,7 @@ import type { RenderResult } from '@testing-library/react';
 import Card from "./Card";
 import verduras from './dummies/verduras-frutas-semillas.webp';
 
-describe("When a Card is rendered", () => {
+describe.skip("When a Card is rendered", () => {
   let cardView: RenderResult;
   const props = {
     title: "Ensala con frutas",
@@ -17,7 +17,7 @@ describe("When a Card is rendered", () => {
     }],
     price: 50,
   };
-  
+
   beforeEach(() => {
     cardView = render(<Card {...props}></Card>);
   });

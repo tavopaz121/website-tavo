@@ -11,7 +11,6 @@ export default function TextArea({
   label,
   maxLength,
   placeholder,
-  height,
   clsNInput,
   rows,
   error,
@@ -27,13 +26,13 @@ export default function TextArea({
     <div>
       {label && <label className="block text-sm font-medium">{label}</label>}
       <textarea
+        data-testid="TextArea"
         ref={ref}
         required={required || false}
         onChange={(evt) => setText(evt.target.value)}
         className={`${inputClassName} ${clsNInput}`}
         name={name}
         maxLength={maxLength || 250}
-        cols={height}
         placeholder={placeholder}
         {...moreProps}
         rows={rows}></textarea>

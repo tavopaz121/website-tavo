@@ -40,9 +40,11 @@ export default function PwPublishForm({ userName }) {
       </div>
 
       <Form
+        data-testid="form"
         method="POST"
         action="/publish"
         className="p-4"
+        data-cy="publish-form"
         encType="multipart/form-data">
         <div className="grid gap-4 grid-cols-7">
           <TextField
@@ -53,7 +55,9 @@ export default function PwPublishForm({ userName }) {
             clsNInput="border-none mt-1 text-base outline-1 outline-yellow-400"
             type="text"
             label="Titulo de la publicación: "
+            data-cy="title-publish"
           />
+
           <TextField
             required
             clsN="col-span-2"
@@ -62,6 +66,7 @@ export default function PwPublishForm({ userName }) {
             type="number"
             label="Precio:"
             min="0"
+            data-cy="price-publish"
           />
         </div>
 
@@ -71,6 +76,7 @@ export default function PwPublishForm({ userName }) {
           placeholder="Selecciona tu imagen..."
           clsNInput="border-2 border-transparent rounded-lg hover:border-2 hover:border-solid hover:border-yellow-400"
           name="image"
+          data-cy="image-publish"
         />
 
         {srcImage && (
@@ -95,6 +101,7 @@ export default function PwPublishForm({ userName }) {
           clsNInput="border-none text-base mt-1 outline-1 outline-yellow-400"
           rows={10}
           maxLength={250}
+          data-cy="description-publish"
         />
 
         <div className="flex justify-between gap-5 mt-4">
@@ -104,7 +111,9 @@ export default function PwPublishForm({ userName }) {
             Cancelar
           </Link>
 
-          <button className="text-white w-full text-center bg-[#FF9119] hover:bg-[#FF9119]/80 font-bold rounded-lg text-sm px-5 py-2.5 items-center mr-2 mb-2">
+          <button
+            data-cy="btn-publish"
+            className="text-white w-full text-center bg-[#FF9119] hover:bg-[#FF9119]/80 font-bold rounded-lg text-sm px-5 py-2.5 items-center mr-2 mb-2">
             Publicar
           </button>
         </div>
