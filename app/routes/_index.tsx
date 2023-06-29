@@ -40,25 +40,27 @@ export default function Index() {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
+      <h1 className="mb-2">Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
 
-      <Link to="/publish" data-cy="btn-publish">
+      <Link to="/publish" data-cy="btn-publish" className="mb-4">
         Publica tu comida sana
       </Link>
-      <br />
-      <Link to="/login">
+      
+      {user && (
+        <Form method="post" action="/logout" className="mb-4" >
+          <button type="submit">Cerrar sesion</button>
+        </Form>
+      )}
+
+      <Link to="/login" className="mb-4" >
         Inisio de sesion
       </Link>
-      <br />
+      
       {posts.map(({ id, ...rest }) => (
         <Card key={id} {...rest} />
       ))}
 
-      {user && (
-        <Form method="post" action="/logout">
-          <button type="submit">Cerrar sesion</button>
-        </Form>
-      )}
+      
     </div>
   );
 }

@@ -7,34 +7,27 @@ export default function AlterLogin({ onClickGoogle, onClickFace, isSubmit }) {
     style: `text-semibase font-semibold inline-block relative `
   }
 
-  const styleBoton = "face-login w-2/5 text-center text-lg font-medium px-5 py-1 border-spacing-1 border-2 rounded-lg shadow-sm shadow-slate-800 flex justify-center ";
-  const bgBoton = "text-white bg-slate-600 border-slate-700 ";
-  const bgBotonSub = "text-slate-500 bg-slate-100 border-slate-200 ";
-  const hoverBoton = "hover:shadow-md hover:shadow-slate-700 ";
+  const stylesBoton = {
+    main: "face-login w-2/5 text-center text-lg font-medium px-5 py-1 border-spacing-1 border-2 rounded-lg shadow-sm shadow-slate-800 flex justify-center ",
+    hoverBoton: "hover:shadow-md hover:shadow-slate-700 ",
+    notSubmit: "text-white bg-slate-600 border-slate-700 ",
+    isSubmit: "text-slate-500 bg-slate-100 border-slate-200 ",
+    mediaQuery: "max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto max-[640px]:mb-2 ",
+    content: "h-12 w-28 flex justify-around items-center "
+  }
 
   return (
-    <div className="alter-login mb-6">
-      <div className="descripcion text-center mb-3">
-        <p className={styleDescripcion.style}>Ingresar con</p>
+    <div className="sign-in-with-google mb-6">
+      <div className="contenedor-descripcion text-center mb-3">
+        <p className={`descripcion ${styleDescripcion.style}`}>Ingresar con</p>
       </div>
       <div className="botones flex justify-around max-[640px]:flex-col max-[640px]:items-center ">
         <button
-          onClick={onClickFace}
-          className={`${styleBoton} ${isSubmit ? bgBotonSub : bgBoton} ${isSubmit ? "" : hoverBoton} max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto max-[640px]:mb-2`}
-          disabled={isSubmit}
-        >
-          <div
-            className="h-12 w-28 flex justify-around items-center"
-          >
-            <SiFacebook />Facebook
-          </div>
-        </button>
-        <button
           onClick={onClickGoogle}
-          className={`${styleBoton} ${isSubmit ? bgBotonSub : bgBoton} ${isSubmit ? "" : hoverBoton} max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto`}
+          className={`${stylesBoton.main} ${isSubmit ? stylesBoton.isSubmit : stylesBoton.notSubmit} ${isSubmit ? "" : stylesBoton.hoverBoton} ${stylesBoton.mediaQuery}`}
           disabled={isSubmit}
         >
-          <div className="h-12 w-28 flex justify-around items-center">
+          <div className={`${stylesBoton.content}`}>
             <SiGoogle />Google
           </div>
         </button>
@@ -44,7 +37,19 @@ export default function AlterLogin({ onClickGoogle, onClickFace, isSubmit }) {
 }
 
 /*
-  <div className={styleBoton}>
-    <button onClick={onClickFace} className='h-12 w-28 flex justify-around items-center'><SiFacebook />Facebook</button>
+<button
+  onClick={onClickFace}
+  className={`${stylesBoton.main} ${isSubmit ? stylesBoton.isSubmit : stylesBoton.notSubmit} ${isSubmit ? "" : stylesBoton.hoverBoton} ${stylesBoton.mediaQuery}`}
+  disabled={isSubmit}
+>
+  <div
+    className={`${stylesBoton.content}`}
+  >
+    <SiFacebook />Facebook
   </div>
+</button>
+
+<div className={styleBoton}>
+  <button onClick={onClickFace} className='h-12 w-28 flex justify-around items-center'><SiFacebook />Facebook</button>
+</div>
 */

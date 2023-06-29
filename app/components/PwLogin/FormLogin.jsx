@@ -21,7 +21,13 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
       data-testid="FormLogin"
     >
       <EncabezadoLogin />
-      <AlterLogin onClickGoogle={onGoogle} onClickFace={onFace} isSubmit={sending} />
+
+      <AlterLogin
+        onClickGoogle={onGoogle}
+        onClickFace={onFace}
+        isSubmit={sending}
+      />
+
       <NormalLogin />
 
       {clientAction?.error || actionData?.error ? (
@@ -30,11 +36,19 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
         </div>
       ) : null}
 
-      <form method="post" onSubmit={handleSubmit} data-cy="login-form" >
+      <form
+        method="post"
+        onSubmit={handleSubmit}
+        data-cy="login-form"
+      >
         <div className="content-form">
           <InputCorreoLogin />
           <InputPassLogin />
-          <BotonLogin isSubmit={sending} changeSubmit={setSending} />
+          
+          <BotonLogin
+            isSubmit={sending}
+            changeSubmit={setSending}
+          />
         </div>
       </form>
     </div>
