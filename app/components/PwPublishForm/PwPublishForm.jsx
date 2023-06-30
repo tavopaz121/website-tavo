@@ -29,6 +29,7 @@ export default function PwPublishForm({ userName }) {
   }
 
   return (
+    // @TODO actualizar colores de acuerdo a una paleta de colores establecida
     <section className="bg-[#ebecee]  rounded-t-lg w-full border border-gray-200 shadow-xl">
       <div className="bg-[#ecb30e] rounded-t-lg flex justify-center items-center">
         <h1 className="text-lg p-2 text-white font-bold top-0 w-full">
@@ -48,6 +49,7 @@ export default function PwPublishForm({ userName }) {
         encType="multipart/form-data">
         <div className="grid gap-4 grid-cols-7">
           <TextField
+            // @TODO buscar de que manera mas organizada podemos usar clsN y clsNInput
             autoFocus
             required
             clsN="col-span-5"
@@ -59,6 +61,7 @@ export default function PwPublishForm({ userName }) {
           />
 
           <TextField
+            // @TODO buscar de que manera mas organizada podemos usar clsN y clsNInput
             required
             clsN="col-span-2"
             name="price"
@@ -73,7 +76,7 @@ export default function PwPublishForm({ userName }) {
         <SelectFile
           accept=".jpg, .png"
           onChange={onFileChange}
-          label="Seleccionar un archivo:"
+          title="Seleccionar un archivo:"
           placeholder="Selecciona tu imagen..."
           clsNInput="border-2 border-transparent rounded-lg hover:border-2 hover:border-solid hover:border-yellow-400"
           name="image"
