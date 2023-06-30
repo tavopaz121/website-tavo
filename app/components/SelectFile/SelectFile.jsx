@@ -4,6 +4,7 @@ export default function SelectFile({
   placeholder,
   clsN,
   onChange,
+  accept,
   children,
   ...moreProps
 }) {
@@ -25,6 +26,8 @@ export default function SelectFile({
             {placeholder}
           </span>
           <input
+            accept={accept || 'image/*'}
+            data-testid="input-file"
             onChange={onChange}
             type="file"
             className="hidden"

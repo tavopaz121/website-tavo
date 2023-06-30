@@ -71,6 +71,7 @@ export default function PwPublishForm({ userName }) {
         </div>
 
         <SelectFile
+          accept=".jpg, .png"
           onChange={onFileChange}
           label="Seleccionar un archivo:"
           placeholder="Selecciona tu imagen..."
@@ -99,7 +100,7 @@ export default function PwPublishForm({ userName }) {
           required
           label="Descripción del producto:"
           clsNInput="border-none text-base mt-1 outline-1 outline-yellow-400"
-          rows={10}
+          rows={8}
           maxLength={250}
           data-cy="description-publish"
         />

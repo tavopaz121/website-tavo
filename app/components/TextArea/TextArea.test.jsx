@@ -3,7 +3,7 @@ import { fireEvent, render } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import TextArea from './TextArea'
 
-describe('TextAreaComponent', () => {
+describe('TextArea Component', () => {
   it('should render component without crashing when no props are provided', () => {
     render(<TextArea />)
   })
@@ -28,6 +28,7 @@ describe('TextAreaComponent', () => {
         placeholder={placeholder}
         rows={rows}
         name={name}
+        required
       />,
     )
 
@@ -37,6 +38,7 @@ describe('TextAreaComponent', () => {
     expect(textarea).toHaveAttribute('placeholder', placeholder)
     expect(textarea).toHaveAttribute('rows', rows.toString())
     expect(textarea).toHaveAttribute('name', name)
+    expect(textarea).toHaveAttribute('required')
   })
 
   it('should update text state', () => {
