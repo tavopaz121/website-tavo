@@ -16,8 +16,8 @@ describe('When a register user wants to create a post of healthy food', () => {
 
     cy.url().should('include', '/login')
     cy.get('[data-cy="login-form"]').should('be.visible')
-    cy.get('[data-cy="email-field"]').type('martina.velasco.b@gmail.com')
-    cy.get('[data-cy="password-field"]').type('123456')
+    cy.get('[data-cy="email-field"]').type('user@example.com')
+    cy.get('[data-cy="password-field"]').type('password')
     cy.get('[data-cy="login-button"]').click()
     cy.url().should('equal', 'http://localhost:3000/')
 
