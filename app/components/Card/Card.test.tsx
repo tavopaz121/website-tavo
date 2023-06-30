@@ -10,11 +10,10 @@ describe("When a Card is rendered", () => {
     title: "Ensala con frutas",
     description:
       "Ensalada de lechuga italiana, cebolla morada, agucate, mango, piña, almendras, chia, semilla de calabaza y arandanos",
-    images: [{
-      id: "amodyio8sdansd89",
+    image: {
       src: verduras,
       alt: "Ensalada con frutas"
-    }],
+    },
     price: 50,
   };
   
