@@ -2,7 +2,7 @@ import TextField from "../TextField/TextField";
 import { HiMail } from "react-icons/hi";
 import { stylesInput } from "./stylesLogin";
 
-export default function InputCorreoLogin() {
+export default function mailLogin() {
   return (
     <div className="input-correo-login">
       <label htmlFor="email" className={`${stylesInput.label}`}>

@@ -1,7 +1,7 @@
 import { SiFacebook, SiGoogle } from 'react-icons/si';
 import { alterLoginStyleDescripcion, alterLoginStylesBoton } from './stylesLogin';
 
-export default function AlterLogin({ onClickGoogle, onClickFace, isSubmit }) {
+export default function SingInGoogleLogin({ onClickGoogle, onClickFace, isSubmit }) {
   let boton;
   let hover;
 

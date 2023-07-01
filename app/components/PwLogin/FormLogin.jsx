@@ -1,13 +1,15 @@
 import { useState } from "react";
-import AlterLogin from "./AlterLogin";
-import BotonLogin from "./BotonLogin";
+import SingInGoogleLogin from "./SingInGoogleLogin";
+import SubmitLogin from "./SubmitLogin";
 import HeaderLogin from "./HeaderLogin";
-import InputCorreoLogin from "./InputCorreoLogin";
-import InputPassLogin from "./InputPassLogin";
-import NormalLogin from "./NormalLogin";
+import MailLogin from "./MailLogin";
+import PasswordLogin from "./PasswordLogin";
+import DescriptionLogin from "./DescriptionLogin";
 
 export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, actionData }) {
   const [sending, setSending] = useState(false);
+
+  const contentStyle = "flex flex-col justify-center bg-slate-100 px-12 pt-5 pb-8 border-solid border-2 border-slate-400 rounded-lg shadow-xl shadow-slate-700 w-3/5 max-w-screen-sm max-[640px]:px-6 max-[640px]:w-4/5 max-[640px]:mx-auto";
 
   async function handleSubmit(e) {
     setSending(!sending);
@@ -17,18 +19,18 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
 
   return (
     <div
-      className="flex flex-col justify-center bg-slate-100 px-12 pt-5 pb-8 border-solid border-2 border-slate-400 rounded-lg shadow-xl shadow-slate-700 w-3/5 max-w-screen-sm max-[640px]:px-6 max-[640px]:w-4/5 max-[640px]:mx-auto"
+      className={`${contentStyle}`}
       data-testid="FormLogin"
     >
       <HeaderLogin />
 
-      <AlterLogin
+      <SingInGoogleLogin
         onClickGoogle={onGoogle}
         onClickFace={onFace}
         isSubmit={sending}
       />
 
-      <NormalLogin />
+      <DescriptionLogin />
 
       {clientAction?.error || actionData?.error ? (
         <div className="font-bold text-center bg-red-200 border-2 border-red-300 rounded-md">
@@ -42,10 +44,10 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
         data-cy="login-form"
       >
         <div className="content-form">
-          <InputCorreoLogin />
-          <InputPassLogin />
+          <MailLogin />
+          <PasswordLogin />
           
-          <BotonLogin
+          <SubmitLogin
             isSubmit={sending}
             changeSubmit={setSending}
           />

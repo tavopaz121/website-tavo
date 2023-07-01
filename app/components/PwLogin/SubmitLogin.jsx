@@ -1,7 +1,7 @@
 import { Link } from "@remix-run/react";
 import { botonLoginStylesBoton } from "./stylesLogin";
 
-export default function BotonLogin({ isSubmit, changeSubmit }) {
+export default function submitLogin({ isSubmit, changeSubmit }) {
   let submitStyle;
   let hover;
   let botonStyle;

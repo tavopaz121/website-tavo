@@ -1,6 +1,6 @@
 import { normalLoginStylesDescripcion } from './stylesLogin';
 
-export default function NormalLogin() {
+export default function DescriptionLogin() {
   return (
     <div className="text-center">
       <p

@@ -1,4 +1,4 @@
-export default function EncabezadoLogin() {
+export default function HeaderLogin() {
   const encabezado = `encabezado rounded-t-lg relative mb-6 bg-slate-300 -mx-12 -mt-5 px-8 pt-4 max-[640px]:-mx-6 max-[640px]:px-6`;
   return (
     <div
