@@ -53,14 +53,12 @@ export default function Index() {
       )}
 
       <Link to="/login" className="mb-4" >
-        Inisio de sesion
+        Inicio de sesion
       </Link>
       
       {posts.map(({ id, ...rest }) => (
         <Card key={id} {...rest} />
-      ))}
-
-      
+      ))}      
     </div>
   );
 }

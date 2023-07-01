@@ -45,30 +45,3 @@ export default function Login() {
     </div>
   );
 }
-
-/*
-<FormLogin onSubmit={handleSubmit} onGoogle={loginWithGoogle} onFace={loginWithFacebook} />
-
-<form method="post" onSubmit={handleSubmit} data-cy="login-form">
-        <TextField
-          label="Correo electrónico"
-          name="email"
-          placeholder="tu@pensemosweb.com"
-          type="email"
-        ></TextField>
-
-        <TextField
-          label="Contraseña"
-          name="password"
-          placeholder="Tu contraseña"
-          type="password"
-        ></TextField>
-
-        <button style={{ display: "block" }} type="submit">
-          Iniciar sesión
-        </button>
-      </form>
-
-<button onClick={loginWithGoogle}>Entrar con google</button>
-      <button onClick={loginWithFacebook}>Entrar con Facebook</button>
-*/
