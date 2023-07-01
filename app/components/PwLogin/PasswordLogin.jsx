@@ -1,10 +1,10 @@
-import TextField from '../TextField/TextField';
-import { IoKeySharp } from 'react-icons/io5';
+import TextField from "../TextField/TextField";
+import { IoKeySharp } from "react-icons/io5";
 import { stylesInput } from "./stylesLogin";
 
-export default function passwordLogin() {
+export default function PasswordLogin() {
   return (
-    <div className="input-password-login">
+    <div className="password-login">
       <label htmlFor='password' className={`${stylesInput.label}`}>
         Contraseña
       </label>
@@ -13,7 +13,7 @@ export default function passwordLogin() {
           <IoKeySharp />
         </div>
         <TextField
-          idInput='password'
+          idInput="password"
           name="password"
           placeholder="Tu contraseña"
           type="password"

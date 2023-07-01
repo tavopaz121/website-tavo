@@ -1,28 +1,28 @@
 import { Link } from "@remix-run/react";
-import { botonLoginStylesBoton } from "./stylesLogin";
+import { submitLoginStyle } from "./stylesLogin";
 
-export default function submitLogin({ isSubmit, changeSubmit }) {
+export default function SubmitLogin({ isSubmit, changeSubmit }) {
   let submitStyle;
-  let hover;
-  let botonStyle;
-  let contendorBotones;
+  let hoverStyle;
+  let buttonStyle;
+  let contentButtons;
 
   if (isSubmit) {
-    submitStyle = botonLoginStylesBoton.isSubmit;
-    hover = "";
+    submitStyle = submitLoginStyle.isSubmit;
+    hoverStyle = "";
   } else {
-    submitStyle = botonLoginStylesBoton.notSubmit;
-    hover = botonLoginStylesBoton.hoverBoton;
+    submitStyle = submitLoginStyle.notSubmit;
+    hoverStyle = submitLoginStyle.hoverButton;
   }
 
-  botonStyle = `${botonLoginStylesBoton.main} ${hover} ${submitStyle} ${botonLoginStylesBoton.mediaQuery}`;
-  contendorBotones = "button-submit-login flex flex-row flex-wrap justify-evenly max-[640px]:flex-col max-[640px]:items-center";
+  buttonStyle = `${submitLoginStyle.main} ${hoverStyle} ${submitStyle} ${submitLoginStyle.mediaQuery}`;
+  contentButtons = "button-submit-login flex flex-row flex-wrap justify-evenly max-[640px]:flex-col max-[640px]:items-center";
 
   return (
-    <div className={`${contendorBotones}`}>
+    <div className={`${contentButtons}`}>
       <button
         type="submit"
-        className={`${botonStyle}`}
+        className={`${buttonStyle}`}
         data-cy="login-button"
         disabled={isSubmit}
       >
@@ -32,14 +32,14 @@ export default function submitLogin({ isSubmit, changeSubmit }) {
       {
         isSubmit ?
           <a
-            className={`${botonStyle} text-center select-none `}
+            className={`${buttonStyle} text-center select-none `}
           >
             Registrar
           </a>
           :
           <Link
             to="/join"
-            className={`${botonStyle} text-center `}
+            className={`${buttonStyle} text-center `}
           >
             Registrar
           </Link>

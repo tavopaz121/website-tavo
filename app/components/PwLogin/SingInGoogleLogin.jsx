@@ -1,34 +1,34 @@
 import { SiFacebook, SiGoogle } from 'react-icons/si';
-import { alterLoginStyleDescripcion, alterLoginStylesBoton } from './stylesLogin';
+import { googleStylesDescription, googleStylesButton } from './stylesLogin';
 
 export default function SingInGoogleLogin({ onClickGoogle, onClickFace, isSubmit }) {
-  let boton;
-  let hover;
+  let buttonStyle;
+  let hoverStyle;
 
   if (isSubmit) {
-    boton = alterLoginStylesBoton.isSubmit;
-    hover = "";
+    buttonStyle = googleStylesButton.isSubmit;
+    hoverStyle = "";
   } else {
-    boton = alterLoginStylesBoton.notSubmit;
-    hover = alterLoginStylesBoton.hoverBoton;
+    boton = googleStylesButton.notSubmit;
+  ;
   }
 
-  let classBoton = `${alterLoginStylesBoton.main} ${boton} ${hover} ${alterLoginStylesBoton.mediaQuery}`;
+  let classButton = `${googleStylesButton.main} ${buttonStyle} ${hoverStyle} ${googleStylesButton.mediaQuery}`;
 
   return (
     <div className="sign-in-with-google mb-6">
-      <div className="contenedor-descripcion text-center mb-3">
-        <p className={`descripcion ${alterLoginStyleDescripcion.style}`}>
+      <div className="content-description text-center mb-3">
+        <p className={`descripcion ${googleStylesDescription.main}`}>
           Ingresar con
         </p>
       </div>
-      <div className="botones flex justify-around max-[640px]:flex-col max-[640px]:items-center ">
+      <div className="buttons flex justify-around max-[640px]:flex-col max-[640px]:items-center ">
         <button
           onClick={onClickGoogle}
-          className={`${classBoton}`}
+          className={`${classButton}`}
           disabled={isSubmit}
         >
-          <div className={`${alterLoginStylesBoton.content}`}>
+          <div className={`${googleStylesButton.content}`}>
             <SiGoogle />Google
           </div>
         </button>

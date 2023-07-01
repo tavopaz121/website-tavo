@@ -1,10 +1,10 @@
-import { normalLoginStylesDescripcion } from './stylesLogin';
+import { descriptionLoginStyles } from './stylesLogin';
 
 export default function DescriptionLogin() {
   return (
     <div className="text-center">
       <p
-        className={`descripcion-cuenta ${normalLoginStylesDescripcion.main}`}
+        className={`description-account ${descriptionLoginStyles.main}`}
       >
         O cuenta healty food
       </p>
