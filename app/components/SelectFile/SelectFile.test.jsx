@@ -1,12 +1,12 @@
-import { screen, fireEvent, render } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
-import sinon from 'sinon'
+import { screen, render } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 import SelectFile from './SelectFile'
+import userEvent from '@testing-library/user-event'
 
 describe('SelectFile component', () => {
   it('SelectFile renders correctly', () => {
     const label = 'Test Label'
-    const { getByText } = render(<SelectFile label={label} />)
+    const { getByText } = render(<SelectFile title={label} />)
     const labelElement = getByText(label)
     expect(labelElement).toBeInTheDocument()
   })
@@ -18,15 +18,23 @@ describe('SelectFile component', () => {
     expect(input).toHaveAttribute('accept', accept)
   })
 
-  it('Select file on change', () => {
-    const onChange = sinon.spy()
+  it('Seleccionar archivo al cambiar', async () => {
+    const onChange = vi.fn()
+    const user = userEvent.setup()
 
     render(<SelectFile onChange={onChange} />)
 
-    const input = screen.getByTestId('input-file')
-    fireEvent.change(input, {
-      target: { files: [new File([''], 'test.png', { type: 'image/png' })] },
+    const file = new File(['hello'], 'hello.png', { type: 'image/png' })
+
+    const input = screen.getByTestId('label-file')
+
+    Object.defineProperty(input, 'files', {
+      value: [file],
     })
-    expect(onChange.called).toBe(true)
+
+    await user.upload(input, file)
+
+    expect(input.files[0]).toEqual(file)
+    expect(onChange).toBeCalled()
   })
 })

@@ -4,7 +4,7 @@ import { requireAuth } from "~/firebase/auth.server";
 import type { LoaderArgs } from "@remix-run/node";
 import { createPost } from "~/firebase/models/posts.server";
 import type { Post } from "~/types/publish";
-import PwPublisForm from '../components/PwPublishForm/PwPublishForm'
+import PwPublisForm from '../components/PublishForm/PublishForm'
 
 export function meta() {
   return [

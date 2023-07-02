@@ -16,12 +16,16 @@ export default function SelectFile({
 
       <div
         className={`flex gap-4 w-full align-middle bg-white border-solid border-2 border-gray-300 rounded-md ${clsNInput}`}>
-        <label className="w-full flex gap-4 p-3 cursor-pointer">
+        <label
+          data-testid="label-file"
+          htmlFor="file"
+          className="w-full flex gap-4 p-3 cursor-pointer">
           <UploadIcon />
           <span className="mt-1 text-sm font-medium leading-normal text-gray-600">
             {placeholder}
           </span>
           <input
+            id="file"
             accept={accept || 'image/*'}
             data-testid="input-file"
             onChange={onChange}
