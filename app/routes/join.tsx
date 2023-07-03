@@ -41,9 +41,10 @@ export const action = async ({ request }: ActionArgs) => {
   }
 };
 
-const btnStyles = 'block p-3 border border-1 rounded-lg font-bold bg-white text-blue-600 hover:bg-gray-200'
+const btnStyles =
+  "block p-3 border border-1 rounded-lg font-bold bg-white text-blue-600 hover:bg-gray-200";
 
-export default function Login() {
+export default function Join() {
   const actionData = useActionData<typeof action>();
 
   return (
@@ -52,10 +53,7 @@ export default function Login() {
       {actionData?.error ? <p>{actionData.error}</p> : null}
       <SignUpForm
         moreActions={
-          <Link
-            to="/login"
-            className={btnStyles}
-          >
+          <Link to="/login" className={btnStyles}>
             Iniciar sesión
           </Link>
         }

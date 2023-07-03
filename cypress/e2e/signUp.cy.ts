@@ -1,6 +1,6 @@
 describe('When anonymous user wants to signUp with name, email and password', () => {
   beforeEach(() => {
-    cy.visit('/join')
+    cy.visit('/join');
   });
 
   it('Then sign up should be successful', () => {

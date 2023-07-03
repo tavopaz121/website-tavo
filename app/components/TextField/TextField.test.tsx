@@ -32,7 +32,6 @@ describe("When TextField is rendered", () => {
           name="nombre"
           type="text"
           required
-          onChange={spy}
         />
         <button type="submit">Send</button>
       </form>
