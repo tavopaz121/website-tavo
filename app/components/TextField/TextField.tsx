@@ -4,7 +4,7 @@ import { XcircleSolidIcon } from "../Icons";
 import type { TextFieldProps } from "./TextField.d";
 
 const inputClassName =
-  "w-full rounded border border-gray-500 px-2 py-1 text-lg dark:text-black";
+  "w-full rounded border border-1 border-gray-500 px-2 py-1 dark:text-black";
 const errorClassName =
   "pt-1 flex items-center gap-1 text-red-700 dark:text-red-400";
 
@@ -24,6 +24,7 @@ function TextField(
     children,
     clsN,
     placeholder,
+    pattern,
     ...moreProps
   }: TextFieldProps,
   ref: ForwardedRef<HTMLInputElement>
@@ -34,7 +35,7 @@ function TextField(
   return (
     <div className={`mb-4 ${clsN}`} data-testid="TextField">
       {label ? (
-        <label htmlFor={id} className="block text-sm font-medium">
+        <label htmlFor={id} className="block font-medium">
           {label}
         </label>
       ) : null}
@@ -51,6 +52,7 @@ function TextField(
         aria-describedby={ariaId}
         className={inputClassName}
         placeholder={placeholder}
+        pattern={pattern}
         {...moreProps}
       />
       {error && (

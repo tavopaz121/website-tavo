@@ -52,7 +52,7 @@ export default function Index() {
 
       {user && (
         <Form method="post" action="/logout">
-          <button type="submit">Cerrar sesion</button>
+          <button type="submit" data-cy="btn-logout">Cerrar sesion</button>
         </Form>
       )}
     </div>

@@ -8,10 +8,12 @@ export type TextFieldProps = {
   name: string;
   value?: string
   type: string;
-  autoComplete?: string; 
+  autoComplete?: string;
+  hasError?: true | false;
   error?: string | null | undefined;
-  children?: JSX.Element | never[];
+  children?: JSX.Element | never[] | string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   clsN?: string;
   placeholder?: string;
+  pattern?: string;
 }
