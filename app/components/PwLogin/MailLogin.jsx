@@ -9,7 +9,10 @@ export default function MailLogin() {
         Correo
       </label>
       <div className="relative mb-6">
-        <div className={`${stylesInput.icon}`}>
+        <div
+          data-testid="icon-mail"
+          className={`${stylesInput.icon}`}
+        >
           <HiMail />
         </div>
         <TextField
@@ -19,6 +22,7 @@ export default function MailLogin() {
           type="email"
           required
           data-cy="email-field"
+          data-testid="input-mail"
           className={`${stylesInput.textField}`}
         >
         </TextField>

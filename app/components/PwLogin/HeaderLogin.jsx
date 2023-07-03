@@ -9,7 +9,7 @@ export default function HeaderLogin() {
       >
         Inicia sesión
       </div>
-      <p className="description-form text-justify">
+      <p data-testid="description" className="description-form text-justify">
         Bienvenido al inicio de sesión de Healty Food, aplicación local para ayudar a promover una buena salud a través de los alimentos.
       </p>
     </div>

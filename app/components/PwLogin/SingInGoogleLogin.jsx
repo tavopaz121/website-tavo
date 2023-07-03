@@ -9,8 +9,8 @@ export default function SingInGoogleLogin({ onClickGoogle, onClickFace, isSubmit
     buttonStyle = googleStylesButton.isSubmit;
     hoverStyle = "";
   } else {
-    boton = googleStylesButton.notSubmit;
-  ;
+    buttonStyle = googleStylesButton.notSubmit;
+    hoverStyle = googleStylesButton.hoverButton;
   }
 
   let classButton = `${googleStylesButton.main} ${buttonStyle} ${hoverStyle} ${googleStylesButton.mediaQuery}`;
@@ -28,8 +28,8 @@ export default function SingInGoogleLogin({ onClickGoogle, onClickFace, isSubmit
           className={`${classButton}`}
           disabled={isSubmit}
         >
-          <div className={`${googleStylesButton.content}`}>
-            <SiGoogle />Google
+          <div data-testid="button-google" className={`${googleStylesButton.content}`}>
+            <SiGoogle data-testid="icon-google" />Google
           </div>
         </button>
       </div>

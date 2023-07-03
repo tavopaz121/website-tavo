@@ -9,7 +9,10 @@ export default function PasswordLogin() {
         Contraseña
       </label>
       <div className="relative mb-6">
-        <div className={`${stylesInput.icon}`}>
+        <div 
+        className={`${stylesInput.icon}`}
+        data-testid="icon-key"
+        >
           <IoKeySharp />
         </div>
         <TextField
@@ -19,6 +22,7 @@ export default function PasswordLogin() {
           type="password"
           required
           data-cy="password-field"
+          data-testid="input-password"
           className={`${stylesInput.textField}`}
         >
         </TextField>
