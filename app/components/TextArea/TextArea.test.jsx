@@ -1,9 +1,14 @@
 import { screen } from '@testing-library/dom'
-import { fireEvent, render } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { cleanup, render, waitFor } from '@testing-library/react'
+import { afterEach, describe, expect, it } from 'vitest'
+import userEvent from '@testing-library/user-event'
 import TextArea from './TextArea'
 
 describe('TextArea Component', () => {
+  afterEach(() => {
+    cleanup()
+  })
+
   it('should render component without crashing when no props are provided', () => {
     render(<TextArea />)
   })
@@ -41,26 +46,34 @@ describe('TextArea Component', () => {
     expect(textarea).toHaveAttribute('required')
   })
 
-  it('should update text state', () => {
+  it('should update text state', async () => {
+    const user = userEvent.setup()
     const text = 'Hola'
 
     render(<TextArea />)
 
-    const textarea = screen.getByTestId('TextArea')
+    const textarea = await screen.findByTestId('TextArea')
 
-    fireEvent.change(textarea, { target: { value: text } })
-    expect(textarea.value).toBe(text)
+    user.type(textarea, text)
+
+    await waitFor(() => {
+      expect(textarea).toHaveValue(text)
+    })
   })
 
-  it('the maximum number of characters will be the total of the maxlength property', () => {
+  it('the maximum number of characters will be the total of the maxlength property', async () => {
     const text = 'test maxlength'
     const maxLength = 15
 
-    render(<TextArea maxLength={maxLength}/>)
+    const user = userEvent.setup()
 
-    const textarea = screen.getByTestId('TextArea')
-    fireEvent.change(textarea, { target: { value: text } })
+    render(<TextArea maxLength={maxLength} />)
 
-    expect(textarea.value.length).toBeLessThanOrEqual(textarea.maxLength)
+    const textarea = await screen.findByTestId('TextArea')
+    user.type(textarea, text)
+
+    await waitFor(() => {
+      expect(textarea.value.length).toBeLessThanOrEqual(textarea.maxLength)
+    })
   })
 })

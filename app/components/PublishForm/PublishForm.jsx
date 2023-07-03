@@ -7,7 +7,7 @@ import SelectFile from '../SelectFile/SelectFile'
 import { useState } from 'react'
 
 /* eslint-disable react/prop-types */
-export default function PwPublishForm({ userName }) {
+export default function PublishForm({ userName }) {
   const [srcImage, setSrcImage] = useState('')
 
   const onFileChange = (evt) => {
