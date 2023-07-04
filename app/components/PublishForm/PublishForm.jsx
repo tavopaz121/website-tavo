@@ -33,7 +33,7 @@ export default function PublishForm({ userName }) {
     <section className="bg-[#ebecee]  rounded-t-lg w-full border border-gray-200 shadow-xl">
       <div className="bg-[#ecb30e] rounded-t-lg flex justify-center items-center">
         <h1 className="text-lg p-2 text-white font-bold top-0 w-full">
-          {userName}, publica tu nueva comida sana
+          {userName || 'Bienvenido'}, publica tu nueva comida sana
         </h1>
         <Link to="/">
           <IconClose />
@@ -58,6 +58,7 @@ export default function PublishForm({ userName }) {
             type="text"
             label="Titulo de la publicación: "
             data-cy="title-publish"
+            data-testid="title-publish"
           />
 
           <TextField
@@ -70,6 +71,7 @@ export default function PublishForm({ userName }) {
             label="Precio:"
             min="0"
             data-cy="price-publish"
+            data-testid="price-publish"
           />
         </div>
 
@@ -81,11 +83,13 @@ export default function PublishForm({ userName }) {
           clsNInput="border-2 border-transparent rounded-lg hover:border-2 hover:border-solid hover:border-yellow-400"
           name="image"
           data-cy="image-publish"
+          data-testid="image-publish"
         />
 
         {srcImage && (
           <div className="relative">
             <img
+              data-testid="image-preview"
               src={srcImage}
               alt={srcImage}
               className="min-w-full border-2 p-1 border-yellow-400 max-h-[300px] object-cover mb-4"
@@ -106,6 +110,7 @@ export default function PublishForm({ userName }) {
           rows={8}
           maxLength={250}
           data-cy="description-publish"
+          data-testid="description-publish"
         />
 
         <div className="flex justify-between gap-5 mt-4">

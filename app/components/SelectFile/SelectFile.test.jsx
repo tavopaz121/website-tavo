@@ -18,7 +18,7 @@ describe('SelectFile component', () => {
     expect(input).toHaveAttribute('accept', accept)
   })
 
-  it('Seleccionar archivo al cambiar', async () => {
+  it('Select file', async () => {
     const onChange = vi.fn()
     const user = userEvent.setup()
 
@@ -35,6 +35,7 @@ describe('SelectFile component', () => {
     await user.upload(input, file)
 
     expect(input.files[0]).toEqual(file)
+    expect(input.files[0].name).toBe('hello.png')
     expect(onChange).toBeCalled()
   })
 })

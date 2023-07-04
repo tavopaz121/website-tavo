@@ -29,12 +29,12 @@ describe('When a register user wants to create a post of healthy food', () => {
   })
 
   it('When the user enters the title, description, price and image', () => {
-    cy.get('[data-cy="title-publish"]').type('Ensalda de verduras')
+    cy.get('[data-cy="title-publish"]').type('Ensalada de verduras')
     cy.get('[data-cy="price-publish"]').type('35.00')
     cy.fixture('food.jpg', null).as('food')
     cy.get('[data-cy="image-publish"]').selectFile('@food', {force: true})
-    cy.get('[data-cy="description-publish"]').type('Ensalda de verduras con papas fritas')
+    cy.get('[data-cy="description-publish"]').type('Ensalada de verduras con papas fritas')
 
-    // cy.get('[data-cy="btn-publish"]').click()
+    cy.get('[data-cy="btn-publish"]').click()
   })
 })
