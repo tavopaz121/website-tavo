@@ -39,22 +39,26 @@ export default function Index() {
   const { user, posts } = loaderData;
 
   return (
-    <div>
-      <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
+    <div className="flex flex-col justify-center items-center">
+      <h1 className="mb-2">Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
 
-      <Link to="/publish" data-cy="btn-publish">
+      <Link to="/publish" data-cy="btn-publish" className="mb-4">
         Publica tu comida sana
       </Link>
-
-      {posts.map(({ id, ...rest }) => (
-        <Card key={id} {...rest} />
-      ))}
-
+      
       {user && (
-        <Form method="post" action="/logout">
+        <Form method="post" action="/logout" className="mb-4" >
           <button type="submit">Cerrar sesion</button>
         </Form>
       )}
+
+      <Link to="/login" className="mb-4" >
+        Inicio de sesion
+      </Link>
+      
+      {posts.map(({ id, ...rest }) => (
+        <Card key={id} {...rest} />
+      ))}      
     </div>
   );
 }

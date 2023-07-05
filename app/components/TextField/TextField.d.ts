@@ -1,6 +1,7 @@
 import type { ChangeEventHandler } from "react";
 
 export type TextFieldProps = {
+  idInput?: string
   isInvalid?: true | false;
   label?: string;
   required?: true | false;
