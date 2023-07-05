@@ -1,7 +1,7 @@
 import { Link } from "@remix-run/react";
 import { submitLoginStyle } from "./stylesLogin";
 
-export default function SubmitLogin({ isSubmit, changeSubmit, ToDirect }) {
+export default function SubmitLogin({ isSubmit, changeSubmit }) {
   let submitStyle;
   let hoverStyle;
   let buttonStyle;
@@ -41,6 +41,7 @@ export default function SubmitLogin({ isSubmit, changeSubmit, ToDirect }) {
           <Link
             to="/join"
             className={`${buttonStyle} text-center `}
+            data-testid="to-register"
           >
             Registrar
           </Link>

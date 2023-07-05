@@ -1,16 +1,31 @@
-import { describe, it, beforeEach, expect } from "vitest";
-import { render } from "@testing-library/react";
+import { describe, it, beforeEach, afterEach, expect } from "vitest";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { cleanup, render } from "@testing-library/react";
 import SubmitLogin from './SubmitLogin.jsx';
 
 describe('When the SubmitLogin is rendered', () => {
-    let component;
+  let router;
 
-    beforeEach(() => {
-        component = render(<SubmitLogin></SubmitLogin>)
-    });
+  beforeEach(() => {
+    router = createBrowserRouter([
+      {
+        path: '/',
+        element: <SubmitLogin isSubmit={false}></SubmitLogin>,
+        loader: () => ({}),
+      }
+    ])
+  });
 
-    it('Then a button "Ingresar" should be show', async () => {
-        const buttonSing = await component.getByTestId('sing-in');
-        expect(buttonSing).toBeInTheDocument();
-    });
+  afterEach(() => {
+    cleanup();
+  })
+
+  it('Then a button "Ingresar" should be show', async () => {
+    const view = render(<RouterProvider router={router} />)
+    const btnIn = await view.findByTestId('sing-in');
+    const btnTo = await view.findByTestId('to-register');
+
+    expect(btnIn).toBeInTheDocument();
+    expect(btnTo).toBeInTheDocument();
+  });
 })

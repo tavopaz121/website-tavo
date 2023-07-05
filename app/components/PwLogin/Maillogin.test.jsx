@@ -1,5 +1,6 @@
 import { describe, it, beforeEach, expect } from 'vitest';
 import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import MailLogin from './MailLogin.jsx';
 
 describe('When MailLogin is rendered', () => {
@@ -22,5 +23,11 @@ describe('When MailLogin is rendered', () => {
     it('Then a TextField type mail should be show', async () => {
         const mail = await component.getByTestId('input-mail');
         expect(mail).toBeInTheDocument();
+    });
+
+    it('User write a mail and input value change', async () => {
+        const inputMail = await component.getByPlaceholderText('tu@pensemosweb.com');
+        await userEvent.type(inputMail, 'user_example@correo.com');
+        expect(inputMail.value).equal('user_example@correo.com');
     });
 });

@@ -33,8 +33,12 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
       <DescriptionLogin />
 
       {clientAction?.error || actionData?.error ? (
-        <div className="font-bold text-center bg-red-200 border-2 border-red-300 rounded-md">
-          <p>{clientAction?.error || actionData?.error}</p>
+        <div
+          className="font-bold text-center bg-red-200 border-2 border-red-300 rounded-md"
+        >
+          <p data-testid="error-login" >
+            {clientAction?.error || actionData?.error}
+          </p>
         </div>
       ) : null}
 
@@ -42,11 +46,12 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
         method="post"
         onSubmit={handleSubmit}
         data-cy="login-form"
+        data-testid="form-login"
       >
         <div className="content-form">
           <MailLogin />
           <PasswordLogin />
-          
+
           <SubmitLogin
             isSubmit={sending}
             changeSubmit={setSending}
