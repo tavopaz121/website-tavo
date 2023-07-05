@@ -19,6 +19,7 @@ function TextField(
     value,
     type,
     autoComplete,
+    clsNInput,
     error,
     children,
     clsN,
@@ -48,7 +49,7 @@ function TextField(
         autoComplete={autoComplete}
         aria-invalid={isInvalid}
         aria-describedby={ariaId}
-        className={inputClassName}
+        className={`${inputClassName} ${clsNInput}`}
         placeholder={placeholder}
         {...moreProps}
       />

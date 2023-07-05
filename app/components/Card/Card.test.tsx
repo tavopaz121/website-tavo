@@ -16,7 +16,7 @@ describe("When a Card is rendered", () => {
     },
     price: 50,
   };
-  
+
   beforeEach(() => {
     cardView = render(<Card {...props}></Card>);
   });

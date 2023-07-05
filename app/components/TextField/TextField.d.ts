@@ -6,10 +6,11 @@ export type TextFieldProps = {
   label?: string;
   required?: true | false;
   autoFocus?: true | false;
+  clsNInput?: string,
   name: string;
   value?: string
   type: string;
-  autoComplete?: string; 
+  autoComplete?: string;
   error?: string | null | undefined;
   children?: JSX.Element | never[];
   onChange?: ChangeEventHandler<HTMLInputElement>;
