@@ -38,22 +38,27 @@ export default function Login() {
       {clientAction?.error || actionData?.error ? (
         <p>{clientAction?.error || actionData?.error}</p>
       ) : null}
-      <form method="post" onSubmit={handleSubmit} data-cy="login-form">
+      <form
+        method="post" onSubmit={handleSubmit} data-cy="login-form">
         <TextField
           label="Correo electrónico"
           name="email"
+          data-cy='email-field'
           placeholder="tu@pensemosweb.com"
           type="email"
         ></TextField>
 
         <TextField
           label="Contraseña"
+          data-cy='password-field'
           name="password"
           placeholder="Tu contraseña"
           type="password"
         ></TextField>
 
-        <button style={{ display: "block" }} type="submit">
+        <button
+          data-cy='login-button'
+          style={{ display: "block" }} type="submit">
           Iniciar sesión
         </button>
       </form>
