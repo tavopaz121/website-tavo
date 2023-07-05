@@ -40,7 +40,7 @@ function TextField(
       ) : null}
       <input
         ref={ref}
-        id={idInput}
+        id={idInput ? idInput : id}
         required={required}
         autoFocus={autoFocus}
         name={name}
