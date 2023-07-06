@@ -1,10 +1,11 @@
-import type { ActionArgs, LoaderArgs } from "@remix-run/node";
-import { json } from "@remix-run/node";
-import { Link, useLoaderData, Form } from "@remix-run/react";
-import type { UserRecord } from "firebase-admin/auth";
-import { getLoggedUser } from "~/firebase/auth.server";
-import { getPosts } from "~/firebase/models/posts.server";
-import Card from "~/components/Card/Card";
+import type { ActionArgs, LoaderArgs } from '@remix-run/node'
+import { json } from '@remix-run/node'
+import { Link, useLoaderData, Form } from '@remix-run/react'
+import type { UserRecord } from 'firebase-admin/auth'
+import { getLoggedUser } from '~/firebase/auth.server'
+import { getPosts } from '~/firebase/models/posts.server'
+import Card from '~/components/Card/Card'
+import Button from '~/components/Button/Button'
 
 function mapPosts(posts) {
   return posts.map((item) => {
@@ -17,48 +18,52 @@ function mapPosts(posts) {
         src: item.image,
         alt: item.title,
       },
-    };
-  });
+    }
+  })
 }
 
 export async function loader({ request }: LoaderArgs) {
-  const user: UserRecord | null = await getLoggedUser(request);
-  const posts = await getPosts();
+  const user: UserRecord | null = await getLoggedUser(request)
+  const posts = await getPosts()
 
-  return json({ user, posts: mapPosts(posts) });
+  return json({ user, posts: mapPosts(posts) })
 }
 
 export const action = async ({ request }: ActionArgs) => {
-  const { uid } = await getLoggedUser(request);
-  const form = await request.formData();
-  console.log(form, uid);
-};
+  const { uid } = await getLoggedUser(request)
+  const form = await request.formData()
+  console.log(form, uid)
+}
 
 export default function Index() {
-  const loaderData = useLoaderData();
-  const { user, posts } = loaderData;
+  const loaderData = useLoaderData()
+  const { user, posts } = loaderData
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="mb-2">Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
+      <h1 className="mb-2">
+        Bienvenido. {user?.displayName ? `${user.displayName}.` : ''}{' '}
+      </h1>
 
       <Link to="/publish" data-cy="btn-publish" className="mb-4">
-        Publica tu comida sana
+        <Button text="Publica tu comida sana" primary />
       </Link>
-      
+
       {user && (
-        <Form method="post" action="/logout" className="mb-4" >
+        <Form method="post" action="/logout" className="mb-4">
           <button type="submit">Cerrar sesion</button>
         </Form>
       )}
 
-      <Link to="/login" className="mb-4" >
-        Inicio de sesion
-      </Link>
-      
+      {!user && (
+        <Link to="/login" className="mb-4">
+          <Button text="Inicio de sesión" />
+        </Link>
+      )}
+
       {posts.map(({ id, ...rest }) => (
         <Card key={id} {...rest} />
-      ))}      
+      ))}
     </div>
-  );
+  )
 }
