@@ -3,15 +3,14 @@ import type { ForwardedRef } from "react";
 import { XcircleSolidIcon } from "../Icons";
 import type { TextFieldProps } from "./TextField.d";
 
-const inputClassName =
-  "w-full rounded border border-1 border-gray-500 px-2 py-1 dark:text-black";
-const errorClassName =
-  "pt-1 flex items-center gap-1 text-red-700 dark:text-red-400";
+const inputClassName = "w-full rounded border border-gray-500 px-2 py-1 text-lg";
+const errorClassName = "pt-1 flex items-center gap-1 text-red-700 dark:text-red-400";
 
 export default forwardRef(TextField);
 
 function TextField(
   {
+    idInput,
     isInvalid,
     label,
     required,
@@ -20,6 +19,7 @@ function TextField(
     value,
     type,
     autoComplete,
+    clsNInput,
     error,
     children,
     clsN,
@@ -41,7 +41,7 @@ function TextField(
       ) : null}
       <input
         ref={ref}
-        id={id}
+        id={idInput ? idInput : id}
         required={required}
         autoFocus={autoFocus}
         name={name}
@@ -50,7 +50,7 @@ function TextField(
         autoComplete={autoComplete}
         aria-invalid={isInvalid}
         aria-describedby={ariaId}
-        className={inputClassName}
+        className={`${inputClassName} ${clsNInput}`}
         placeholder={placeholder}
         pattern={pattern}
         {...moreProps}
@@ -61,7 +61,6 @@ function TextField(
           {error}
         </div>
       )}
-
       {children}
     </div>
   );

@@ -42,7 +42,7 @@ export default function Index() {
     <div>
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
 
-      <Link to="/publish" data-cy="btn-publish">
+      <Link to="/publish" data-cy="btn-publish" className="mb-4">
         Publica tu comida sana
       </Link>
 
