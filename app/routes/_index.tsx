@@ -51,7 +51,7 @@ export default function Index() {
 
       {user && (
         <Form method="post" action="/logout" className="mb-4">
-          <button type="submit">Cerrar sesion</button>
+          <Button text="Cerrar sesión" type="submit" clsN='bg-red-600 hover:bg-red-700' />
         </Form>
       )}
 
