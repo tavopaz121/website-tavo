@@ -1,42 +1,51 @@
-import { Link } from '@remix-run/react'
-import { submitLoginStyle } from './stylesLogin'
-import Button from '../Button/Button'
+import { Link } from "@remix-run/react";
+import { submitLoginStyle } from "./stylesLogin";
 
 export default function SubmitLogin({ isSubmit, changeSubmit }) {
-  let submitStyle
-  let hoverStyle
-  let buttonStyle
-  let contentButtons
+  let submitStyle;
+  let hoverStyle;
+  let buttonStyle;
+  let contentButtons;
 
   if (isSubmit) {
-    submitStyle = submitLoginStyle.isSubmit
-    hoverStyle = ''
+    submitStyle = submitLoginStyle.isSubmit;
+    hoverStyle = "";
   } else {
-    submitStyle = submitLoginStyle.notSubmit
-    hoverStyle = submitLoginStyle.hoverButton
+    submitStyle = submitLoginStyle.notSubmit;
+    hoverStyle = submitLoginStyle.hoverButton;
   }
 
-  buttonStyle = `${submitLoginStyle.main} ${hoverStyle} ${submitStyle} ${submitLoginStyle.mediaQuery}`
-  contentButtons =
-    'button-submit-login flex justify-evenly max-[640px]:flex-col max-[640px]:items-center'
+  buttonStyle = `${submitLoginStyle.main} ${hoverStyle} ${submitStyle} ${submitLoginStyle.mediaQuery}`;
+  contentButtons = "button-submit-login flex flex-row flex-wrap justify-evenly max-[640px]:flex-col max-[640px]:items-center";
 
   return (
     <div className={`${contentButtons}`}>
-      <Button
+      <button
+        type="submit"
+        className={`${buttonStyle}`}
         data-cy="login-button"
         data-testid="sing-in"
-        type="submit"
-        primary
-        text="Ingresar"
-        clsN='w-full'
-      />
+        disabled={isSubmit}
+      >
+        Ingresar
+      </button>
 
-      <Link
-        to="/join"
-        className='w-full'
-        data-testid="to-register">
-        <Button alternative text="Registrar" clsN='w-full' />
-      </Link>
+      {
+        isSubmit ?
+          <a
+            className={`${buttonStyle} text-center select-none `}
+          >
+            Registrar
+          </a>
+          :
+          <Link
+            to="/join"
+            className={`${buttonStyle} text-center `}
+            data-testid="to-register"
+          >
+            Registrar
+          </Link>
+      }
     </div>
-  )
+  );
 }

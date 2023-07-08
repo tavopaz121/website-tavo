@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import PublishForm from './PublishForm'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-describe.only('When PublishForm is rendered', () => {
+describe('When PublishForm is rendered', () => {
   let router
 
   beforeEach(() => {

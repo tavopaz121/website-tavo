@@ -9,7 +9,7 @@ describe('Button component', () => {
     render(<Button />)
   })
 
-  it('Then the component shoul be shown with default props', () => {
+  it('Then the component should be shown with default props', () => {
     const { getByRole } = render(<Button />)
     const button = getByRole('button')
 
@@ -51,11 +51,11 @@ describe('Button component', () => {
 
     const { getByRole } = render(
       <Button
-        sm
-        primary
+        size='sm'
+        color="primary"
         idButton="my-button"
         disabled
-        clsN="test-class"
+        className="test-class"
         text="test-text"
         type="reset"
         onClick={onClick}>

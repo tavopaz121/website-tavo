@@ -10,30 +10,24 @@ const styleBtn = {
 const styleSizeBtn = {
   xs: 'px-3 py-2 text-xs',
   sm: 'px-3 py-2 text-sm',
-  bs: 'px-5 py-2.5 text-base',
+  md: 'px-5 py-2.5 text-base',
   lg: 'px-5 py-3 text-base',
-  xl: 'px-6 py-3.5 text-base'
-}
+  xl: 'px-6 py-3.5 text-base',
+};
 
 export default function Button({
   idButton,
-  clsN,
-  xs,
-  sm,
-  bs,
-  lg,
-  xl,
+  className,
+  size = 'md',
   text,
   disabled,
-  primary,
-  secondary,
-  alternative,
+  color = 'default',
   type,
   onClick,
   children,
   ...moreProps
 }: ButtonProps) {
-  const buttonClassName = `block border border-1 rounded-lg font-bold ${clsN ? clsN : ''} ${styleBtn[primary ? 'primary' : secondary ? 'secondary' : alternative ? 'alternative' : 'default']} ${styleSizeBtn[xs ? 'xs' : sm ? 'sm' : bs ? 'bs' : lg ? 'lg' : xl ? 'xl' : 'bs']}`;
+  const buttonClassName = `block border border-1 rounded-lg font-bold ${className ? className : ''} ${styleBtn[color]} ${styleSizeBtn[size]}`;
 
   return (
     <button

@@ -1,25 +1,19 @@
-import { SiFacebook, SiGoogle } from 'react-icons/si'
-import { FcGoogle } from 'react-icons/fc'
-import { googleStylesDescription, googleStylesButton } from './stylesLogin'
-import Button from '../Button/Button'
+import { SiFacebook, SiGoogle } from 'react-icons/si';
+import { googleStylesDescription, googleStylesButton } from './stylesLogin';
 
-export default function SingInGoogleLogin({
-  onClickGoogle,
-  onClickFace,
-  isSubmit,
-}) {
-  let buttonStyle
-  let hoverStyle
+export default function SingInGoogleLogin({ onClickGoogle, onClickFace, isSubmit }) {
+  let buttonStyle;
+  let hoverStyle;
 
   if (isSubmit) {
-    buttonStyle = googleStylesButton.isSubmit
-    hoverStyle = ''
+    buttonStyle = googleStylesButton.isSubmit;
+    hoverStyle = "";
   } else {
-    buttonStyle = googleStylesButton.notSubmit
-    hoverStyle = googleStylesButton.hoverButton
+    buttonStyle = googleStylesButton.notSubmit;
+    hoverStyle = googleStylesButton.hoverButton;
   }
 
-  let classButton = `${googleStylesButton.main} ${buttonStyle} ${hoverStyle} ${googleStylesButton.mediaQuery}`
+  let classButton = `${googleStylesButton.main} ${buttonStyle} ${hoverStyle} ${googleStylesButton.mediaQuery}`;
 
   return (
     <div className="sign-in-with-google mb-6">
@@ -29,16 +23,15 @@ export default function SingInGoogleLogin({
         </p>
       </div>
       <div className="buttons flex justify-around max-[640px]:flex-col max-[640px]:items-center ">
-        <Button
-          disabled={isSubmit ? true : false}
+        <button
           onClick={onClickGoogle}
-          data-testid="button-google"
-          clsN={`flex items-center gap-3 ${
-            isSubmit ? 'pointer-events-none' : ''
-          }`}>
-          <SiGoogle data-testid="icon-google" className="text-lg" />
-          Iniciar sesión con google
-        </Button>
+          className={`${classButton}`}
+          disabled={isSubmit}
+        >
+          <div data-testid="button-google" className={`${googleStylesButton.content}`}>
+            <SiGoogle data-testid="icon-google" />Google
+          </div>
+        </button>
       </div>
     </div>
   )

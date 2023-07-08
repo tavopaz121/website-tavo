@@ -5,6 +5,7 @@ import TextField from '../TextField/TextField'
 import TextArea from '../TextArea/TextArea'
 import SelectFile from '../SelectFile/SelectFile'
 import { useState } from 'react'
+import Button from '../Button/Button'
 
 /* eslint-disable react/prop-types */
 export default function PublishForm({ userName }) {
@@ -114,17 +115,16 @@ export default function PublishForm({ userName }) {
         />
 
         <div className="flex justify-between gap-5 mt-4">
-          <Link
-            to="/"
-            className="text-red-700 w-full hover:text-white border border-red-700 hover:bg-red-800 font-semibold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-            Cancelar
+          <Link to="/" className="w-full">
+            <Button text="Cancelar" className="w-full" color="alternative" />
           </Link>
 
-          <button
+          <Button
+            text="Publicar"
             data-cy="btn-publish"
-            className="text-white w-full text-center bg-[#FF9119] hover:bg-[#FF9119]/80 font-bold rounded-lg text-sm px-5 py-2.5 items-center mr-2 mb-2">
-            Publicar
-          </button>
+            className="w-full"
+            color="secondary"
+          />
         </div>
       </Form>
     </section>
