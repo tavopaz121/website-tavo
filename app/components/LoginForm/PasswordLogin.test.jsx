@@ -21,7 +21,7 @@ describe('When PasswordLogin is rendered', () => {
     });
 
     it('Then a TextField type password should be show', async () => {
-        const pass = await component.getByTestId('input-password');
+        const pass = await component.getByPlaceholderText('Tu contraseña');
         expect(pass).toBeInTheDocument();
     });
 

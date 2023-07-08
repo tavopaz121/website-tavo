@@ -7,7 +7,7 @@ import { getSessionCookieHeader, login } from "~/functions/login";
 import { checkSessionCookie } from "~/firebase/auth.server";
 import { getRestConfig } from "~/firebase/firebase.server";
 import TextField from "~/components/TextField/TextField";
-import FormLogin from "~/components/PwLogin/FormLogin";
+import FormLogin from "~/components/LoginForm/FormLogin";
 import useLogin from "~/functions/useLogin";
 import { useState } from "react";
 
