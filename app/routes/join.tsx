@@ -22,7 +22,7 @@ export const action = async ({ request }: ActionArgs) => {
   const name = form.get("name");
   const email = form.get("email");
   const password = form.get("password");
-  const formError = json({ error: "Please fill all fields!" }, { status: 400 });
+  const formError = json({ error: "Te faltan campos por llenar." }, { status: 400 });
   if (typeof name !== "string") return formError;
   if (typeof email !== "string") return formError;
   if (typeof password !== "string") return formError;

@@ -28,6 +28,7 @@
     "remix-google-cloud-functions": "^0.1.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@remix-run/dev": "^1.17.1",
     "@remix-run/eslint-config": "^1.17.1",
     "@testing-library/jest-dom": "^5.16.5",
