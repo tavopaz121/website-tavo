@@ -66,7 +66,6 @@ export default function SignUpForm({
       <TextField
         label="*Contraseña"
         name="password"
-        data-testid="password-field"
         placeholder="Contraseña"
         type="password"
         required
@@ -79,7 +78,6 @@ export default function SignUpForm({
       <TextField
         label="*Repetir contraseña"
         name="passwordAgain"
-        data-testid="password-again-field"
         placeholder="Repite la contraseña"
         type="password"
         required

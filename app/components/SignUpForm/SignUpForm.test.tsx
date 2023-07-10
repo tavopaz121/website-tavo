@@ -6,7 +6,7 @@ import type { Router } from "@remix-run/router";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 
-describe.only("When SignUpForm is rendered", () => {
+describe("When SignUpForm is rendered", () => {
   let router: Router;
   beforeEach(() => {
     router = createBrowserRouter([
@@ -25,7 +25,7 @@ describe.only("When SignUpForm is rendered", () => {
   it("Then submit button should exist", async () => {
     const formView = render(<RouterProvider router={router} />);
 
-    const btn = await formView.findByText(/registrarme/i);
+    const btn = await formView.findByRole('button', { name: /registrarme/i });
 
     expect(btn).toBeInTheDocument();
   });
@@ -34,10 +34,8 @@ describe.only("When SignUpForm is rendered", () => {
     const formView = render(<RouterProvider router={router} />);
     const user = userEvent.setup();
     const password = "Aeiou1234";
-    const passwordField = await formView.findByTestId("password-field");
-    const passwordAgainField = await formView.findByTestId(
-      "password-again-field"
-    );
+    const passwordField = await formView.findByLabelText(/^\*?contraseña$/i);
+    const passwordAgainField = await formView.findByLabelText(/repetir contraseña$/i);
 
     await act(async () => {
       await user.type(passwordField, password);
@@ -54,10 +52,8 @@ describe.only("When SignUpForm is rendered", () => {
     const formView = render(<RouterProvider router={router} />);
     const user = userEvent.setup();
     const password = "Aeiou1234";
-    const passwordField = await formView.findByTestId("password-field");
-    const passwordAgainField = await formView.findByTestId(
-      "password-again-field"
-    );
+    const passwordField = await formView.findByLabelText(/^\*?contraseña$/i);
+    const passwordAgainField = await formView.findByLabelText(/repetir contraseña$/i);
 
     await act(async () => {
       await user.type(passwordField, password);
