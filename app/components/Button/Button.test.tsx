@@ -52,7 +52,7 @@ describe('Button component', () => {
     const { getByRole } = render(
       <Button
         size='sm'
-        color="primary"
+        color="green"
         idButton="my-button"
         disabled
         className="test-class"

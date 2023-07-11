@@ -6,7 +6,7 @@ export type ButtonProps = {
   text?: string;
   disabled?: boolean;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  color?: 'primary' | 'secondary' | 'alternative' | 'default';
+  color?: 'green' | 'orange' | 'black' | 'default';
   type?: 'button' | 'submit' | 'reset';
   children?: JSX.Element | string;
   onClick?: MouseEventHandler<HTMLButtonElement>;

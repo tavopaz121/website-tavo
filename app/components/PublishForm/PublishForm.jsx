@@ -116,14 +116,14 @@ export default function PublishForm({ userName }) {
 
         <div className="flex justify-between gap-5 mt-4">
           <Link to="/" className="w-full">
-            <Button text="Cancelar" className="w-full" color="alternative" />
+            <Button text="Cancelar" className="w-full" color="black" />
           </Link>
 
           <Button
             text="Publicar"
             data-cy="btn-publish"
             className="w-full"
-            color="secondary"
+            color="orange"
           />
         </div>
       </Form>
