@@ -4,7 +4,7 @@ import { stylesInput } from "./stylesLogin";
 
 export default function MailLogin() {
   return (
-    <div className="mail-login">
+    <div>
       <TextField
         name="email"
         placeholder="tu@pensemosweb.com"

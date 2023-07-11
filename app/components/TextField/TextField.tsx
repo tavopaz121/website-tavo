@@ -45,7 +45,7 @@ function TextField(
         label ? (
           <label
             htmlFor={id}
-            className={labelClassName}
+            className={`${labelClassName}`}
             data-testid="label-text-field"
           >
             {label}

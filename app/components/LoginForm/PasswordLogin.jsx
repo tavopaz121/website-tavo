@@ -4,7 +4,7 @@ import { stylesInput } from "./stylesLogin";
 
 export default function PasswordLogin() {
   return (
-    <div className="password-login">
+    <div>
       <TextField
         name="password"
         type="password"
