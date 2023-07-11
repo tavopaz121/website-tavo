@@ -16,7 +16,7 @@ const styleSizeBtn = {
 }
 
 export default function Button({
-  idButton,
+  id,
   className,
   size = 'md',
   text,
@@ -33,9 +33,10 @@ export default function Button({
 
   return (
     <button
+      data-testid="button"
       onClick={onClick}
       type={type || 'button'}
-      id={idButton}
+      id={id}
       className={buttonClassName}
       disabled={disabled}
       {...moreProps}>

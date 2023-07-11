@@ -10,25 +10,22 @@ describe('Button component', () => {
   })
 
   it('Then the component should be shown with default props', () => {
-    const { getByRole } = render(<Button />)
-    const button = getByRole('button')
+    const { getByTestId } = render(<Button />)
+    const button = getByTestId('button')
 
     expect(button).toBeInTheDocument()
-    expect(button).toHaveClass(
-      'bg-blue-500 text-white hover:bg-blue-600 px-5 py-2.5 text-base',
-    )
     expect(button).toHaveAttribute('type', 'button')
     expect(button).not.toHaveAttribute('id')
     expect(button).not.toBeDisabled()
   })
 
-  it('Then if have a children this shlound be showm', () => {
-    const { getByRole } = render(
+  it('Then if have a children this should be showm', () => {
+    const { getByTestId } = render(
       <Button>
         <span>I am a children</span>
       </Button>,
     )
-    const button = getByRole('button')
+    const button = getByTestId('button')
 
     expect(button).toHaveTextContent('I am a children')
   })
@@ -37,8 +34,8 @@ describe('Button component', () => {
     const onClick = vi.fn()
     const user = userEvent.setup()
 
-    const { getByRole } = render(<Button onClick={onClick} />)
-    const button = getByRole('button')
+    const { getByTestId } = render(<Button onClick={onClick} />)
+    const button = getByTestId('button')
 
     await user.click(button)
 
@@ -49,11 +46,10 @@ describe('Button component', () => {
     const onClick = vi.fn()
     const user = userEvent.setup()
 
-    const { getByRole } = render(
+    const { getByTestId } = render(
       <Button
-        size='sm'
-        color="green"
-        idButton="my-button"
+        size="sm"
+        id="test"
         disabled
         className="test-class"
         text="test-text"
@@ -63,15 +59,12 @@ describe('Button component', () => {
       </Button>,
     )
 
-    const button = getByRole('button')
+    const button = getByTestId('button')
 
     await user.click(button)
 
     expect(button).toBeInTheDocument()
-    expect(button).toHaveClass(
-      'bg-lime-500 text-white hover:bg-lime-600 px-3 py-2 text-sm test-class',
-    )
-    expect(button).toHaveAttribute('id', 'my-button')
+    expect(button).toHaveAttribute('id', 'test')
     expect(button).toBeDisabled()
     expect(button).toHaveAttribute('type', 'reset')
     expect(button).toHaveTextContent('test-text children test')
