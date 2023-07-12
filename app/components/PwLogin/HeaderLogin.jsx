@@ -4,12 +4,12 @@ export default function HeaderLogin() {
     <div
       className={headerStyles}
     >
-      <div
-        className="text-center font-poppins text-tt32 font-bold"
+      <h1
+        className="text-center"
       >
         INICIAR SESIÓN
-      </div>
-      <p data-testid="description" className="text-justify font-lato text-pg16">
+      </h1>
+      <p data-testid="description" className="text-justify">
         Bienvenido al inicio de sesión de Healty Food, aplicación local para ayudar a promover una buena salud a través de los alimentos.
       </p>
     </div>

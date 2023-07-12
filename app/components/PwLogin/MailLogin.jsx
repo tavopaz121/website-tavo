@@ -1,7 +1,6 @@
 import TextField from "../TextField/TextField";
 import { HiMail } from "react-icons/hi";
 import { stylesInput } from "./stylesLogin";
-import { useState } from "react";
 
 export default function MailLogin() {
   return (

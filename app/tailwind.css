@@ -1,9 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1 {
+    @apply text-3xl;
+    @apply font-poppins;
+    @apply font-bold;
+}
+
+h2 {
+    @apply text-2xl;
+    @apply font-poppins;
+    @apply font-semibold;
+}
+
+h3 {
+    @apply text-xl;
+    @apply font-poppins;
+    @apply font-semibold;
+}
+
+p {
+    @apply text-base;
+    @apply font-lato;
+}
+
+label {
+    @apply text-base;
+    @apply font-lato;
+    @apply font-bold;
+}

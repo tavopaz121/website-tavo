@@ -1,5 +1,5 @@
 import { SiFacebook, SiGoogle } from 'react-icons/si';
-import { googleStylesDescription, googleStylesButton } from './stylesLogin';
+import { googleStylesButton } from './stylesLogin';
 
 export default function SingInGoogleLogin({ onClickGoogle, onClickFace, isSubmit }) {
   let buttonStyle;
@@ -17,12 +17,12 @@ export default function SingInGoogleLogin({ onClickGoogle, onClickFace, isSubmit
 
   return (
     <div className="sign-in-with-google mb-6">
-      <div className="content-description text-center mb-3">
-        <p className={`descripcion ${googleStylesDescription.main}`}>
+      <div className="text-center mb-3">
+        <p className="font-bold">
           Ingresar con
         </p>
       </div>
-      <div className="buttons flex justify-around max-[640px]:flex-col max-[640px]:items-center ">
+      <div className="flex justify-around max-[640px]:flex-col max-[640px]:items-center">
         <button
           onClick={onClickGoogle}
           className={`${classButton}`}
