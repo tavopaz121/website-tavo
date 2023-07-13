@@ -1,8 +1,9 @@
 import type { ActionArgs, LoaderArgs } from "@remix-run/node";
 import { json, redirect } from "@remix-run/node";
-import { Form, Link, useActionData } from "@remix-run/react";
+import { useActionData, Link } from "@remix-run/react";
 import { checkSessionCookie, signUp } from "~/firebase/auth.server";
 import { commitSession, getSession } from "~/sessions";
+import SignUpForm from "~/components/SignUpForm/SignUpForm";
 
 export const loader = async ({ request }: LoaderArgs) => {
   const session = await getSession(request.headers.get("cookie"));
@@ -21,7 +22,7 @@ export const action = async ({ request }: ActionArgs) => {
   const name = form.get("name");
   const email = form.get("email");
   const password = form.get("password");
-  const formError = json({ error: "Please fill all fields!" }, { status: 400 });
+  const formError = json({ error: "Te faltan campos por llenar." }, { status: 400 });
   if (typeof name !== "string") return formError;
   if (typeof email !== "string") return formError;
   if (typeof password !== "string") return formError;
@@ -40,38 +41,23 @@ export const action = async ({ request }: ActionArgs) => {
   }
 };
 
-export default function Login() {
+const btnStyles =
+  "block p-3 border border-1 rounded-lg font-bold bg-white text-blue-600 hover:bg-gray-200";
+
+export default function Join() {
   const actionData = useActionData<typeof action>();
+
   return (
-    <div>
-      <h1>Registro</h1>
+    <div className="p-3">
+      <h1 className="text-3xl">Registro</h1>
       {actionData?.error ? <p>{actionData.error}</p> : null}
-      <Form method="POST">
-        <input
-          style={{ display: "block" }}
-          name="name"
-          placeholder="Nombre"
-          type="text"
-        />
-        <input
-          style={{ display: "block" }}
-          name="email"
-          placeholder="you@example.com"
-          type="email"
-        />
-        <input
-          style={{ display: "block" }}
-          name="password"
-          placeholder="Contraseña"
-          type="password"
-        />
-        <button style={{ display: "block" }} type="submit">
-          Registrarme
-        </button>
-      </Form>
-      <p>
-        <Link to="/login">Iniciar sesión</Link>
-      </p>
+      <SignUpForm
+        moreActions={
+          <Link to="/login" className={btnStyles}>
+            Iniciar sesión
+          </Link>
+        }
+      ></SignUpForm>
     </div>
   );
 }
