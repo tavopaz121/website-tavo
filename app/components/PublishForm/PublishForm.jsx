@@ -120,6 +120,7 @@ export default function PublishForm({ userName }) {
           </Link>
 
           <Button
+            type="submit"
             text="Publicar"
             data-cy="btn-publish"
             className="w-full"

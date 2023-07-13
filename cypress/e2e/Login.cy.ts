@@ -1,6 +1,6 @@
 describe('When a user wants to login with email/password', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/login');
+    cy.visit('/login');
   });
 
   it('Then the list of post should be shown', () => {
