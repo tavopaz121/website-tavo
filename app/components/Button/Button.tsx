@@ -1,9 +1,9 @@
 import type { ButtonProps } from './Button.d'
 
 const styleBtn = {
-  green: 'bg-lime-500 text-white hover:bg-lime-600',
-  orange: 'bg-orange-500 text-white hover:bg-orange-600',
-  black: 'bg-gray-500 text-white hover:bg-gray-600',
+  green: 'bg-pw-green text-white hover:bg-pw-green/80',
+  orange: 'bg-pw-orange text-white hover:bg-pw-orange/80',
+  black: 'bg-pw-black text-white hover:bg-pw-black/80',
   default: 'bg-blue-500 text-white hover:bg-blue-600',
 }
 
@@ -16,12 +16,11 @@ const styleSizeBtn = {
 }
 
 export default function Button({
-  id,
   className,
   size = 'md',
   text,
   disabled,
-  color = 'default',
+  color,
   type,
   onClick,
   children,
@@ -29,14 +28,13 @@ export default function Button({
 }: ButtonProps) {
   const buttonClassName = `block border border-1 rounded-lg font-bold ${
     className ? className : ''
-  } ${styleBtn[color]} ${styleSizeBtn[size]}`
+  } ${styleBtn[color || 'default']} ${styleSizeBtn[size]}`
 
   return (
     <button
       data-testid="button"
       onClick={onClick}
       type={type || 'button'}
-      id={id}
       className={buttonClassName}
       disabled={disabled}
       {...moreProps}>
