@@ -1,6 +1,6 @@
 describe('When anonymous user wants to publish a healthy food', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000')
+    cy.visit('/')
     cy.get('[data-cy="btn-publish"]').click()
   })
 
@@ -12,7 +12,7 @@ describe('When anonymous user wants to publish a healthy food', () => {
 
 describe('When a register user wants to create a post of healthy food', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/login')
+    cy.visit('/login')
 
     cy.url().should('include', '/login')
     cy.get('[data-cy="login-form"]').should('be.visible')
