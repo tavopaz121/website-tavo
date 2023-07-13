@@ -46,6 +46,10 @@ export default function Index() {
         Publica tu comida sana
       </Link>
 
+      <Link to="/login" className="mb-4" >
+        Inicio de sesión
+      </Link>
+
       {posts.map(({ id, ...rest }) => (
         <Card key={id} {...rest} />
       ))}
