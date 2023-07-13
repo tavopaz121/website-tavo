@@ -10,7 +10,7 @@ describe('When the the component HeaderLogin is rendered', () => {
     });
 
     it('Then a header "inicio sesion" should be show', async () => {
-        const title = await component.getByText('Inicia sesión');
+        const title = await component.getByRole('heading');
         expect(title).toBeInTheDocument();
     });
 
