@@ -5,6 +5,7 @@ import TextField from '../TextField/TextField'
 import TextArea from '../TextArea/TextArea'
 import SelectFile from '../SelectFile/SelectFile'
 import { useState } from 'react'
+import Button from '../Button/Button'
 
 /* eslint-disable react/prop-types */
 export default function PublishForm({ userName }) {
@@ -30,8 +31,8 @@ export default function PublishForm({ userName }) {
 
   return (
     // @TODO actualizar colores de acuerdo a una paleta de colores establecida
-    <section className="bg-[#ebecee]  rounded-t-lg w-full border border-gray-200 shadow-xl">
-      <div className="bg-[#ecb30e] rounded-t-lg flex justify-center items-center">
+    <section className="bg-pw-white rounded-t-lg w-full border border-pw-gray">
+      <div className="bg-pw-green rounded-t-lg flex justify-center items-center">
         <h1 className="text-lg p-2 text-white font-bold top-0 w-full">
           {userName || 'Bienvenido'}, publica tu nueva comida sana
         </h1>
@@ -54,7 +55,7 @@ export default function PublishForm({ userName }) {
             required
             clsN="col-span-5"
             name="title"
-            clsNInput="border-none mt-1 text-base outline-1 outline-yellow-400"
+            clsNInput="border-pw-gray mt-1 text-base outline-1 outline-pw-green"
             type="text"
             label="Titulo de la publicación: "
             data-cy="title-publish"
@@ -66,7 +67,7 @@ export default function PublishForm({ userName }) {
             required
             clsN="col-span-2"
             name="price"
-            clsNInput="border-none mt-1 text-base outline-1 outline-yellow-400"
+            clsNInput="border-pw-gray mt-1 text-base outline-1 outline-pw-green"
             type="number"
             label="Precio:"
             min="0"
@@ -80,7 +81,7 @@ export default function PublishForm({ userName }) {
           onChange={onFileChange}
           title="Seleccionar un archivo:"
           placeholder="Selecciona tu imagen..."
-          clsNInput="border-2 border-transparent rounded-lg hover:border-2 hover:border-solid hover:border-yellow-400"
+          clsNInput="border-pw-gray rounded-lg hover:border-pw-green"
           name="image"
           data-cy="image-publish"
           data-testid="image-publish"
@@ -92,7 +93,7 @@ export default function PublishForm({ userName }) {
               data-testid="image-preview"
               src={srcImage}
               alt={srcImage}
-              className="min-w-full border-2 p-1 border-yellow-400 max-h-[300px] object-cover mb-4"
+              className="min-w-full border-2 p-1 border-pw-green max-h-[300px] object-cover mb-4"
             />
             <button
               onClick={removeImage}
@@ -106,7 +107,7 @@ export default function PublishForm({ userName }) {
           name="description"
           required
           label="Descripción del producto:"
-          clsNInput="border-none text-base mt-1 outline-1 outline-yellow-400"
+          clsNInput="border-pw-gray text-base mt-1 outline-1 outline-pw-green"
           rows={8}
           maxLength={250}
           data-cy="description-publish"
@@ -114,17 +115,16 @@ export default function PublishForm({ userName }) {
         />
 
         <div className="flex justify-between gap-5 mt-4">
-          <Link
-            to="/"
-            className="text-red-700 w-full hover:text-white border border-red-700 hover:bg-red-800 font-semibold rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-            Cancelar
+          <Link to="/" className="w-full">
+            <Button text="Cancelar" className="w-full bg-white text-red-800 hover:bg-pw-gray/20 border-red-600 font-semibold"/>
           </Link>
 
-          <button
+          <Button
+            text="Publicar"
             data-cy="btn-publish"
-            className="text-white w-full text-center bg-[#FF9119] hover:bg-[#FF9119]/80 font-bold rounded-lg text-sm px-5 py-2.5 items-center mr-2 mb-2">
-            Publicar
-          </button>
+            className="w-full"
+            color="green"
+          />
         </div>
       </Form>
     </section>

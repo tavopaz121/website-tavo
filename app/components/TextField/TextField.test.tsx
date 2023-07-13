@@ -1,41 +1,29 @@
-import { screen } from '@testing-library/dom';
-import { render, cleanup } from '@testing-library/react';
-import userEvent from "@testing-library/user-event";
-import { expect, vi } from 'vitest';
-import TextField from './TextField';
 import { HiMail } from "react-icons/hi";
+import { cleanup, render } from "@testing-library/react";
+import { expect, vi } from "vitest";
+import userEvent from "@testing-library/user-event";
+import TextField from "./TextField";
 
-describe('When TextField is rendered', () => {
+describe("When TextField is rendered", () => {
   afterEach(() => {
     cleanup();
   });
 
-  it('Then a div TextField should existed', () => {
-    render(
-      <TextField
-        name="email"
-        type="email"
-      />
-    );
-
-    const input: HTMLDivElement = screen.getByTestId('TextField');
+  it("Then it should render correctly", () => {
+    const view = render(<TextField name="email" type="email" />);
+    const input: HTMLElement = view.getByTestId("TextField");
     expect(input).toBeInTheDocument();
   });
 
-  it('Then it should render correctly with label', () => {
-    const view = render(
-      <TextField
-        name="email"
-        type="email"
-        label="Correo"
-      />
-    );
+  it("Then it should render correctly with label", () => {
+    const view = render(<TextField name="email" type="email" label="Nombre" />);
+    const label = view.getByLabelText("Nombre");
 
-    const label = view.getByLabelText('Correo');
     expect(label).toBeInTheDocument();
   });
 
-  it('Then it is not allow submit with an empty required field', async () => {
+  it("Then it should not allow submit with an empty required field", async () => {
+    const user = userEvent.setup();
     const spy = vi.fn();
     const view = render(
       <form onSubmit={spy}>
@@ -49,13 +37,13 @@ describe('When TextField is rendered', () => {
       </form>
     );
 
-    const btn = view.getByRole('button');
-    await userEvent.click(btn);
+    const btn = view.getByRole("button");
+    await user.click(btn);
 
     expect(spy).not.toHaveBeenCalled();
   });
 
-  it('Then type should called to onChange', async () => {
+  it('Then typing should called onChange function', async () => {
     const spy = vi.fn();
     const view = render(
       <TextField
@@ -70,10 +58,32 @@ describe('When TextField is rendered', () => {
     const field = view.getByLabelText('Nombre');
     await userEvent.type(field, 'Jaime');
 
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it("Then it should submit with a required value", async () => {
+    const user = userEvent.setup();
+    const spy = vi.fn();
+    const view = render(
+      <form onSubmit={spy}>
+        <TextField
+          label="Nombre"
+          name="nombre"
+          type="text"
+          required
+          onChange={spy}
+        />
+        <button type="submit">Send</button>
+      </form>
+    );
+
+    const field = view.getByLabelText("Nombre");
+    await user.type(field, "Jaime");
+
     expect(spy).toHaveBeenCalled();
   });
 
-  it('Then a icon should be exited', () => {
+  it('Then an icon should be existed', () => {
     const view = render(
       <TextField
         label="Correo"
@@ -88,7 +98,7 @@ describe('When TextField is rendered', () => {
     expect(icon).toBeInTheDocument();
   });
 
-  it('Then, if an error exited, a error messague should be show', () => {
+  it('Then, if an error exist, a error message should be shown', () => {
     const view = render(
       <TextField
         label="Correo"
@@ -101,5 +111,51 @@ describe('When TextField is rendered', () => {
 
     const errorMessage = view.getByText('Not fund mail');
     expect(errorMessage).toBeInTheDocument();
+  });
+
+  it("Then it should not allow submit when value doesn't match pattern attribute", async () => {
+    const user = userEvent.setup();
+    const spy = vi.fn();
+    const view = render(
+      <form onSubmit={spy}>
+        <TextField
+          label="Nombre"
+          name="nombre"
+          type="text"
+          required
+          pattern="[a-zA-Z]{3,50}"
+          onChange={spy}
+        />
+        <button type="submit">Send</button>
+      </form>
+    );
+
+    const btn = view.getByRole("button");
+    await user.click(btn);
+
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it("Then it should  submit when value match pattern attribute", async () => {
+    const user = userEvent.setup();
+    const spy = vi.fn();
+    const view = render(
+      <form onSubmit={spy}>
+        <TextField
+          label="Nombre"
+          name="nombre"
+          type="text"
+          required
+          pattern="[a-zA-Z]{3,50}"
+          onChange={spy}
+        />
+        <button type="submit">Send</button>
+      </form>
+    );
+
+    const field = view.getByLabelText("Nombre");
+    await user.type(field, 'Jaime');
+
+    expect(spy).toHaveBeenCalled();
   });
 });

@@ -13,8 +13,9 @@ export type TextFieldProps = {
   type: string;
   autoComplete?: string;
   error?: string | null | undefined;
-  children?: JSX.Element | never[];
+  children?: JSX.Element | never[] | string;
   onChange?: ChangeEventHandler<HTMLInputElement>;
   clsN?: string;
   placeholder?: string;
+  pattern?: string;
 }

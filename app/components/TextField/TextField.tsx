@@ -27,6 +27,7 @@ function TextField(
     children,
     clsN,
     placeholder,
+    pattern,
     ...moreProps
   }: TextFieldProps,
   ref: ForwardedRef<HTMLInputElement>
