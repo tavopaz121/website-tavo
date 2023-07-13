@@ -1,9 +1,10 @@
 import type { ChangeEventHandler } from "react";
 
 export type TextFieldProps = {
-  idInput?: string
   isInvalid?: true | false;
   label?: string;
+  clsLabel?: string;
+  icon?: JSX.Element;
   required?: true | false;
   autoFocus?: true | false;
   clsNInput?: string,

@@ -1,10 +1,10 @@
+import { HiMail } from "react-icons/hi";
 import { cleanup, render } from "@testing-library/react";
 import { expect, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
 import TextField from "./TextField";
 
 describe("When TextField is rendered", () => {
-
   afterEach(() => {
     cleanup();
   });
@@ -43,6 +43,24 @@ describe("When TextField is rendered", () => {
     expect(spy).not.toHaveBeenCalled();
   });
 
+  it('Then typing should called onChange function', async () => {
+    const spy = vi.fn();
+    const view = render(
+      <TextField
+        label="Nombre"
+        name="nombre"
+        type="text"
+        required
+        onChange={spy}
+      />
+    );
+
+    const field = view.getByLabelText('Nombre');
+    await userEvent.type(field, 'Jaime');
+
+    expect(spy).toHaveBeenCalled();
+  });
+
   it("Then it should submit with a required value", async () => {
     const user = userEvent.setup();
     const spy = vi.fn();
@@ -63,6 +81,36 @@ describe("When TextField is rendered", () => {
     await user.type(field, "Jaime");
 
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('Then an icon should be existed', () => {
+    const view = render(
+      <TextField
+        label="Correo"
+        name="mail"
+        type="email"
+        icon={<HiMail data-testid="icon-mail" />}
+        required
+      />
+    );
+
+    const icon = view.getByTestId('icon-mail');
+    expect(icon).toBeInTheDocument();
+  });
+
+  it('Then, if an error exist, a error message should be shown', () => {
+    const view = render(
+      <TextField
+        label="Correo"
+        name="mail"
+        type="email"
+        error="Not fund mail"
+        required
+      />
+    );
+
+    const errorMessage = view.getByText('Not fund mail');
+    expect(errorMessage).toBeInTheDocument();
   });
 
   it("Then it should not allow submit when value doesn't match pattern attribute", async () => {

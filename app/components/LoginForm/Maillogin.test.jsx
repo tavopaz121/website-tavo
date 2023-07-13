@@ -21,7 +21,7 @@ describe('When MailLogin is rendered', () => {
     });
 
     it('Then a TextField type mail should be show', async () => {
-        const mail = await component.getByTestId('input-mail');
+        const mail = await component.getByPlaceholderText('tu@pensemosweb.com');
         expect(mail).toBeInTheDocument();
     });
 

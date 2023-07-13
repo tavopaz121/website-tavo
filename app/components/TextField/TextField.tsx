@@ -3,16 +3,19 @@ import type { ForwardedRef } from "react";
 import { XcircleSolidIcon } from "../Icons";
 import type { TextFieldProps } from "./TextField.d";
 
-const inputClassName = "w-full rounded border border-gray-500 px-2 py-1 text-lg";
-const errorClassName = "pt-1 flex items-center gap-1 text-red-700 dark:text-red-400";
+const inputClassNameDefault = "bg-white border border-black w-full p-2.5";
+const labelClassNameDefault = "block text-lg font-medium";
+const iconClassNameDefault = "absolute inset-y-0 flex items-center pl-3"
+const errorClassNameDefault = "pt-1 flex items-center gap-1 text-red-700 dark:text-red-400";
 
 export default forwardRef(TextField);
 
 function TextField(
   {
-    idInput,
     isInvalid,
     label,
+    clsLabel,
+    icon,
     required,
     autoFocus,
     name,
@@ -31,32 +34,63 @@ function TextField(
 ) {
   const id = useId();
   const ariaId = `${id}-${name}`;
+  let labelClassName: string;
+  let inputClassName: string;
+
+  labelClassName = `${labelClassNameDefault} ${clsLabel}`;
+  inputClassName = `${inputClassNameDefault} ${icon && "pl-10"} ${clsNInput}`;
 
   return (
-    <div className={`mb-4 ${clsN}`} data-testid="TextField">
-      {label ? (
-        <label htmlFor={id} className="block">
-          {label}
-        </label>
-      ) : null}
-      <input
-        ref={ref}
-        id={idInput ? idInput : id}
-        required={required}
-        autoFocus={autoFocus}
-        name={name}
-        type={type}
-        value={value}
-        autoComplete={autoComplete}
-        aria-invalid={isInvalid}
-        aria-describedby={ariaId}
-        className={`${inputClassName} ${clsNInput}`}
-        placeholder={placeholder}
-        pattern={pattern}
-        {...moreProps}
-      />
+    <div data-testid="TextField" className={clsN}>
+      {
+        label ? (
+          <label
+            htmlFor={id}
+            className={`${labelClassName}`}
+            data-testid="label-text-field"
+          >
+            {label}
+          </label>
+        )
+          : null
+      }
+
+      <div className="relative mb-6">
+        {
+          icon ? (
+            <div
+              className={iconClassNameDefault}
+              data-testid="icon-text-field"
+            >
+              {icon}
+            </div>
+          )
+            : null
+        }
+
+        <input
+          ref={ref}
+          id={id}
+          required={required}
+          autoFocus={autoFocus}
+          name={name}
+          type={type}
+          value={value}
+          autoComplete={autoComplete}
+          aria-invalid={isInvalid}
+          aria-describedby={ariaId}
+          className={`${inputClassName}`}
+          placeholder={placeholder}
+          {...moreProps}
+        />
+      </div>
+
       {error && (
-        <div className={errorClassName} id={ariaId}>
+        <div
+          className={errorClassNameDefault}
+          id={ariaId}
+          data-testid="error-text-field"
+        >
           <XcircleSolidIcon />
           {error}
         </div>
