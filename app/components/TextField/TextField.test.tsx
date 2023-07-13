@@ -58,7 +58,7 @@ describe("When TextField is rendered", () => {
     const field = view.getByLabelText('Nombre');
     await userEvent.type(field, 'Jaime');
 
-    expect(spy).not.toHaveBeenCalled();
+    expect(spy).toHaveBeenCalled();
   });
 
   it("Then it should submit with a required value", async () => {
