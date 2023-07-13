@@ -35,7 +35,7 @@ function TextField(
   return (
     <div className={`mb-4 ${clsN}`} data-testid="TextField">
       {label ? (
-        <label htmlFor={id} className="block font-medium">
+        <label htmlFor={id} className="block">
           {label}
         </label>
       ) : null}
