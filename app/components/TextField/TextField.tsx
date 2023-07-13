@@ -24,6 +24,7 @@ function TextField(
     children,
     clsN,
     placeholder,
+    pattern,
     ...moreProps
   }: TextFieldProps,
   ref: ForwardedRef<HTMLInputElement>
@@ -34,7 +35,7 @@ function TextField(
   return (
     <div className={`mb-4 ${clsN}`} data-testid="TextField">
       {label ? (
-        <label htmlFor={id} className="block text-sm font-medium">
+        <label htmlFor={id} className="block">
           {label}
         </label>
       ) : null}
@@ -51,6 +52,7 @@ function TextField(
         aria-describedby={ariaId}
         className={`${inputClassName} ${clsNInput}`}
         placeholder={placeholder}
+        pattern={pattern}
         {...moreProps}
       />
       {error && (

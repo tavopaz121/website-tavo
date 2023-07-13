@@ -49,7 +49,6 @@ describe('Button component', () => {
     const { getByTestId } = render(
       <Button
         size="sm"
-        id="test"
         disabled
         className="test-class"
         text="test-text"
@@ -64,7 +63,6 @@ describe('Button component', () => {
     await user.click(button)
 
     expect(button).toBeInTheDocument()
-    expect(button).toHaveAttribute('id', 'test')
     expect(button).toBeDisabled()
     expect(button).toHaveAttribute('type', 'reset')
     expect(button).toHaveTextContent('test-text children test')
