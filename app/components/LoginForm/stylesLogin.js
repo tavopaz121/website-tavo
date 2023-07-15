@@ -22,8 +22,9 @@ export const submitLoginStyle = {
 }
 
 export const formLoginStyels = {
-  main: "flex flex-col justify-center px-12 pt-5 pb-8 max-w-screen-sm w-3/5",
-  border: "border-solid border-2 border-slate-400 rounded-lg",
-  shadow: "shadow-xl shadow-slate-700",
+  main: "flex flex-col justify-center px-12 pt-5 pb-8 max-w-screen-sm w-3/5 bg-pw-white",
+  border: "border rounded-lg",
+  shadow: "shadow-[0px_15px_40px_-15px_rgba(0,150,0,0.3)]",
   mediaQuery1: "max-[640px]:px-6 max-[640px]:w-4/5 max-[640px]:mx-auto",
+  mediaQuery2: "max-[450px]:w-full max-[450px]:shadow-none max-[450px]:rounded-none max-[450px]:border-0",
 }

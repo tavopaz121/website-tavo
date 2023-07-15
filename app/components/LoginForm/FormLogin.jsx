@@ -10,7 +10,7 @@ import { formLoginStyels } from "./stylesLogin";
 export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, actionData }) {
   const [sending, setSending] = useState(false);
 
-  const contentStyleDefault = `${formLoginStyels.main} ${formLoginStyels.border} ${formLoginStyels.shadow} ${formLoginStyels.mediaQuery1}`;
+  const contentStyleDefault = `${formLoginStyels.main} ${formLoginStyels.border} ${formLoginStyels.shadow} ${formLoginStyels.mediaQuery1} ${formLoginStyels.mediaQuery2}`;
 
   async function handleSubmit(e) {
     setSending(!sending);
@@ -20,7 +20,7 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
 
   return (
     <div
-      className={`${contentStyleDefault} max-[450px]:w-full max-[450px]:shadow-none max-[450px]:rounded-none max-[450px]:border-0`}
+      className={`${contentStyleDefault}`}
       data-testid="FormLogin"
     >
       <HeaderLogin />
