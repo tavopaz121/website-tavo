@@ -12,7 +12,7 @@ export default function SelectFile({
 }) {
   return (
     <div className={`w-full mb-4 ${clsN}`}>
-      {title && <p className="block text-sm mb-1 font-medium">{title}</p>}
+      {title && <p className="block text-lg mb-1 font-medium">{title}</p>}
 
       <div
         className={`flex gap-4 w-full align-middle bg-white border-solid border-2 border-gray-300 rounded-md ${clsNInput}`}>

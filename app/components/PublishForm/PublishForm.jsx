@@ -48,7 +48,7 @@ export default function PublishForm({ userName }) {
         className="p-4"
         data-cy="publish-form"
         encType="multipart/form-data">
-        <div className="grid gap-4 grid-cols-7">
+        <div className="grid gap-4 grid-cols-7 max-md:block">
           <TextField
             // @TODO buscar de que manera mas organizada podemos usar clsN y clsNInput
             autoFocus
