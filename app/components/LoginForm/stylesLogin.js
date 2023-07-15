@@ -20,3 +20,10 @@ export const submitLoginStyle = {
   isSubmit: "text-slate-500 bg-slate-100 border-slate-200",
   mediaQuery: "max-[740px]:w-2/5 max-[640px]:w-4/5 max-[340px]:w-auto"
 }
+
+export const formLoginStyels = {
+  main: "flex flex-col justify-center px-12 pt-5 pb-8 max-w-screen-sm w-3/5",
+  border: "border-solid border-2 border-slate-400 rounded-lg",
+  shadow: "shadow-xl shadow-slate-700",
+  mediaQuery1: "max-[640px]:px-6 max-[640px]:w-4/5 max-[640px]:mx-auto",
+}

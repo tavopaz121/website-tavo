@@ -5,11 +5,12 @@ import HeaderLogin from "./HeaderLogin";
 import MailLogin from "./MailLogin";
 import PasswordLogin from "./PasswordLogin";
 import DescriptionLogin from "./DescriptionLogin";
+import { formLoginStyels } from "./stylesLogin";
 
 export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, actionData }) {
   const [sending, setSending] = useState(false);
 
-  const contentStyle = "flex flex-col justify-center bg-slate-100 px-12 pt-5 pb-8 border-solid border-2 border-slate-400 rounded-lg shadow-xl shadow-slate-700 w-3/5 max-w-screen-sm max-[640px]:px-6 max-[640px]:w-4/5 max-[640px]:mx-auto";
+  const contentStyleDefault = `${formLoginStyels.main} ${formLoginStyels.border} ${formLoginStyels.shadow} ${formLoginStyels.mediaQuery1}`;
 
   async function handleSubmit(e) {
     setSending(!sending);
@@ -19,7 +20,7 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
 
   return (
     <div
-      className={`${contentStyle}`}
+      className={`${contentStyleDefault} max-[450px]:w-full max-[450px]:shadow-none max-[450px]:rounded-none max-[450px]:border-0`}
       data-testid="FormLogin"
     >
       <HeaderLogin />
