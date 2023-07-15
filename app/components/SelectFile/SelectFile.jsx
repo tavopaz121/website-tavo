@@ -21,7 +21,7 @@ export default function SelectFile({
           htmlFor="file"
           className="w-full flex gap-4 p-3 cursor-pointer">
           <UploadIcon />
-          <span className="mt-1 text-sm font-medium leading-normal text-gray-600">
+          <span className="mt-1 text-lg font-medium leading-normal text-gray-600">
             {placeholder}
           </span>
           <input

@@ -34,7 +34,7 @@ export async function action({ request }: LoaderArgs) {
 export default function Publish() {
   const user = useLoaderData();
   return (
-    <main className="p-5">
+    <main className="p-5 max-md:p-1">
       <PwPublisForm userName={user.displayName} />
     </main>
   );
