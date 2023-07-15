@@ -1,46 +1,37 @@
 import { Link } from "@remix-run/react";
 import { submitLoginStyle } from "./stylesLogin";
+import Button from "../Button/Button";
 
 export default function SubmitLogin({ isSubmit, changeSubmit }) {
-  let submitStyle;
-  let hoverStyle;
   let buttonStyle;
   let contentButtons;
 
-  if (isSubmit) {
-    submitStyle = submitLoginStyle.isSubmit;
-    hoverStyle = "";
-  } else {
-    submitStyle = submitLoginStyle.notSubmit;
-    hoverStyle = submitLoginStyle.hoverButton;
-  }
-
-  buttonStyle = `${submitLoginStyle.main} ${hoverStyle} ${submitStyle} ${submitLoginStyle.mediaQuery}`;
-  contentButtons = "button-submit-login flex flex-row flex-wrap justify-evenly max-[640px]:flex-col max-[640px]:items-center";
+  buttonStyle = `${submitLoginStyle.main} ${submitLoginStyle.mediaQuery}`;
+  contentButtons = "flex flex-row justify-evenly max-[640px]:flex-col max-[640px]:items-center";
 
   return (
     <div className={`${contentButtons}`}>
-      <button
+      <Button
         type="submit"
         className={`${buttonStyle}`}
+        disabled={isSubmit}
         data-cy="login-button"
         data-testid="sing-in"
-        disabled={isSubmit}
       >
         Ingresar
-      </button>
+      </Button>
 
       {
         isSubmit ?
           <a
-            className={`${buttonStyle} text-center select-none `}
+            className={`${submitLoginStyle.registerMain} ${submitLoginStyle.mediaQuery} ${submitLoginStyle.registerColor} ${submitLoginStyle.registerBorder}`}
           >
             Registrar
           </a>
           :
           <Link
             to="/join"
-            className={`${buttonStyle} text-center `}
+            className={`${submitLoginStyle.registerMain} ${submitLoginStyle.mediaQuery} ${submitLoginStyle.registerColor} ${submitLoginStyle.registerBorder}`}
             data-testid="to-register"
           >
             Registrar
