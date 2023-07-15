@@ -22,6 +22,7 @@ export default function ButtonLink({
   size = 'md',
   content,
   className,
+  target,
   children,
   ...moreProps
 }: ButtonLinkProps) {
@@ -31,6 +32,7 @@ export default function ButtonLink({
 
   return (
     <Link
+      target={target}
       className={buttonLinkClassName}
       data-testid="button-link"
       to={to}
