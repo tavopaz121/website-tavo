@@ -13,6 +13,7 @@ export default function SubmitLogin({ isSubmit, changeSubmit }) {
     <div className={`${contentButtons}`}>
       <Button
         type="submit"
+        color="green"
         className={`${buttonStyle}`}
         disabled={isSubmit}
         data-cy="login-button"
