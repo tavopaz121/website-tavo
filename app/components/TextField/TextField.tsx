@@ -4,9 +4,8 @@ import { XcircleSolidIcon } from "../Icons";
 import type { TextFieldProps } from "./TextField.d";
 
 const inputClassNameDefault = "bg-white border border-black w-full p-2.5";
-const labelClassNameDefault = "block text-lg font-medium";
+const labelClassNameDefault = "block mb-2";
 const iconClassNameDefault = "absolute inset-y-0 flex items-center pl-3"
-const errorClassNameDefault = "pt-1 flex items-center gap-1 text-red-700 dark:text-red-400";
 
 export default forwardRef(TextField);
 
@@ -87,7 +86,6 @@ function TextField(
 
       {error && (
         <div
-          className={errorClassNameDefault}
           id={ariaId}
           data-testid="error-text-field"
         >

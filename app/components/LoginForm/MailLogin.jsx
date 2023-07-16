@@ -10,9 +10,7 @@ export default function MailLogin() {
         placeholder="tu@pensemosweb.com"
         type="email"
         label="Correo"
-        clsLabel={stylesInput.label}
         icon={<HiMail data-testid="icon-mail"  />}
-        clsNInput={stylesInput.textField}
         required
         data-cy="email-field"
         data-testid="input-mail"

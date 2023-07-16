@@ -12,7 +12,6 @@ export default function PasswordLogin() {
         clsLabel={stylesInput.label}
         icon={<IoKeySharp data-testid="icon-key" />}
         placeholder="Tu contraseña"
-        clsNInput={`${stylesInput.textField}`}
         required
         data-cy="password-field"
         data-testid="input-password"

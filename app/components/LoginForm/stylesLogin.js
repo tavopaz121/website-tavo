@@ -8,9 +8,9 @@ export const googleStylesButton = {
 }
 
 export const stylesInput = {
-  label: "block mb-2 text-xl font-medium text-gray-900 ",
-  icon: "absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-800",
-  textField: "bg-slate-100 border border-gray-600 text-gray-800 text-sm rounded-lg placeholder-gray-800",
+  label: "text-gray-900",
+  icon: "pointer-events-none text-gray-800",
+  textField: "bg-slate-100 border border-gray-500 rounded-lg placeholder-slte-400",
 }
 
 export const submitLoginStyle = {
