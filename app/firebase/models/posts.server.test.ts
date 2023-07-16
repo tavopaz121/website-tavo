@@ -29,55 +29,67 @@ describe("createPost", () => {
 
   it('should throw an error if "postInfo" is falsy (null, undefined, 0, -0, 0n, false, NaN)', async () => {
     const postInfo = null;
+    const image = new File([""], "test.png", { type: "image/png" });
+    const user = {};
     try {
       await createPost(postInfo, image, user);
     } catch (error) {
-      expect(error).toBeTruthy();
+      expect(error.message).toContain("debe ser un objeto");
     }
   });
 
   it('should throw an error if "postInfo" is an Array', async () => {
     const postInfo = ["first", { second: 1 }];
+    const image = new File([""], "test.png", { type: "image/png" });
+    const user = {};
     try {
       await createPost(postInfo, image, user);
     } catch (error) {
-      expect(error).toBeTruthy();
+      expect(error.message).toContain("debe ser un objeto");
     }
   });
 
   it('should throw an error if "image" is falsy (null, undefined, 0, -0, 0n, false, NaN)', async () => {
+    const postInfo = {};
     const image = null;
+    const user = {};
     try {
       await createPost(postInfo, image, user);
     } catch (error) {
-      expect(error).toBeTruthy();
+      expect(error.message).toContain("debe ser un File");
     }
   });
 
   it('should throw an error if "image" is an Array', async () => {
     const image = [];
+    const postInfo = {};
+    const user = {};
     try {
       await createPost(postInfo, image, user);
     } catch (error) {
-      expect(error).toBeTruthy();
+      expect(error.message).toContain("debe ser un File");
     }
   });
 
   it('should throw an error if "user" is falsy (null, undefined, 0, -0, 0n, false, NaN)', async () => {
+    const postInfo = {};
+    const image = new File([""], "test.png", { type: "image/png" });
     const user = null;
     try {
       await createPost(postInfo, image, user);
     } catch (error) {
-      expect(error).toBeTruthy();
+      expect(error.message).toContain("debe ser un objeto");
     }
   });
 
   it('should throw an error if "user" is an Array', async () => {
+    const postInfo = {};
+    const image = new File([""], "test.png", { type: "image/png" });
     const user = [];
     try {
       await createPost(postInfo, image, user);
     } catch (error) {
-      expect(error).toBeTruthy();
+      expect(error.message).toContain("debe ser un objeto");
     }
   });
 });
