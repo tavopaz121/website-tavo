@@ -1,30 +1,50 @@
-import { dataPoint } from '../db.server';
-import { getStorage, ref } from 'firebase-admin/storage';
-import type { Post, PostUser } from '~/types/publish';
+import { dataPoint } from "../db.server";
+import { getStorage } from "firebase-admin/storage";
+import invariant from "tiny-invariant";
+import type { Post, FirestorePost, PostUser } from "~/types/publish";
+import { Timestamp } from "firebase-admin/firestore";
 
 const db = {
-  posts: () => dataPoint<Post>('posts'),
+  posts: () => dataPoint<FirestorePost>("posts"),
 };
 
 export async function getPosts() {
   const posts = await db.posts().get();
-  const postData = posts.docs.map(doc => {
-    return { ...doc.data(), id: doc.id }
+  const postData = posts.docs.map((doc) => {
+    return { ...doc.data(), id: doc.id };
   });
 
   return postData;
 }
 
 export async function createPost(postInfo: Post, image: File, user: PostUser) {
+  invariant(
+    postInfo?.constructor === {}.constructor,
+    `"postInfo" debe ser un objeto, no un ${postInfo}`
+  );
+
+  invariant(
+    image?.constructor === File,
+    `"image" debe ser un File, no un ${image}`
+  );
+
+  invariant(
+    user?.constructor === {}.constructor,
+    `"user" debe ser un objeto, no un ${user}`
+  );
+
   const bucket = getStorage().bucket();
   const buffer = Buffer.from(await image.arrayBuffer());
-  await bucket.file(`posts/${image.name}`).save(buffer, { contentType: image.type });
-  const imageURL = bucket.file(`posts/${image.name}`).publicUrl();
+
+  await bucket
+    .file(`posts/${image.name}`)
+    .save(buffer, { contentType: image.type });
 
   const post = await db.posts().add({
     ...postInfo,
-    image: imageURL,
-    user
+    image: bucket.file(`posts/${image.name}`).publicUrl(),
+    user,
+    createdAt: Timestamp.now(),
   });
 
   return post.id;
