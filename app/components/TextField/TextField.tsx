@@ -13,7 +13,6 @@ function TextField(
   {
     isInvalid,
     label,
-    clsLabel,
     icon,
     required,
     autoFocus,
@@ -21,10 +20,8 @@ function TextField(
     value,
     type,
     autoComplete,
-    clsNInput,
     error,
     children,
-    clsN,
     placeholder,
     pattern,
     ...moreProps
@@ -33,19 +30,17 @@ function TextField(
 ) {
   const id = useId();
   const ariaId = `${id}-${name}`;
-  let labelClassName: string;
   let inputClassName: string;
 
-  labelClassName = `${labelClassNameDefault} ${clsLabel}`;
-  inputClassName = `${inputClassNameDefault} ${icon && "pl-10"} ${clsNInput}`;
+  inputClassName = `${inputClassNameDefault} ${icon && "pl-10"}`;
 
   return (
-    <div data-testid="TextField" className={clsN}>
+    <div data-testid="TextField">
       {
         label ? (
           <label
             htmlFor={id}
-            className={`${labelClassName}`}
+            className={`${labelClassNameDefault}`}
             data-testid="label-text-field"
           >
             {label}

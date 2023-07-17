@@ -8,7 +8,6 @@ export const googleStylesButton = {
 }
 
 export const stylesInput = {
-  label: "text-gray-900",
   icon: "pointer-events-none text-gray-800",
   textField: "bg-slate-100 border border-gray-500 rounded-lg placeholder-slte-400",
 }

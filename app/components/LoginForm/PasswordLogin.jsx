@@ -9,9 +9,8 @@ export default function PasswordLogin() {
         name="password"
         type="password"
         label="Contraseña"
-        clsLabel={stylesInput.label}
-        icon={<IoKeySharp data-testid="icon-key" />}
         placeholder="Tu contraseña"
+        icon={<IoKeySharp data-testid="icon-key" />}
         required
         data-cy="password-field"
         data-testid="input-password"

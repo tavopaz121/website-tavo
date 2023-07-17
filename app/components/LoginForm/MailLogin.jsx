@@ -7,9 +7,9 @@ export default function MailLogin() {
     <div>
       <TextField
         name="email"
-        placeholder="tu@pensemosweb.com"
         type="email"
         label="Correo"
+        placeholder="tu@pensemosweb.com"
         icon={<HiMail data-testid="icon-mail"  />}
         required
         data-cy="email-field"
