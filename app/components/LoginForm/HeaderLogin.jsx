@@ -1,11 +1,11 @@
 export default function HeaderLogin() {
-  const headerStyles = `rounded-t-lg relative mb-6 -mx-12 -mt-5 px-8 pt-4 max-[640px]:-mx-6 max-[640px]:px-6 max-[450px]:rounded-none`;
+  const headerStyles = `mb-6 max-[640px]: max-[640px]: max-[450px]:rounded-none`;
   return (
     <div
       className={`${headerStyles}`}
     >
       <h1
-        className="text-center"
+        className="text-center mb-2"
       >
         INICIAR SESIÓN
       </h1>

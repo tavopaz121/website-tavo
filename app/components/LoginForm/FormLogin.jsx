@@ -5,12 +5,12 @@ import HeaderLogin from "./HeaderLogin";
 import MailLogin from "./MailLogin";
 import PasswordLogin from "./PasswordLogin";
 import DescriptionLogin from "./DescriptionLogin";
-import { formLoginStyels } from "./stylesLogin";
+import { formLoginStyles } from "./stylesLogin";
 
 export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, actionData }) {
   const [sending, setSending] = useState(false);
 
-  const contentStyleDefault = `${formLoginStyels.main} ${formLoginStyels.border} ${formLoginStyels.shadow} ${formLoginStyels.mediaQuery1} ${formLoginStyels.mediaQuery2}`;
+  const contentStyleDefault = `${formLoginStyles.main} ${formLoginStyles.border} ${formLoginStyles.shadow} ${formLoginStyles.mediaQuery1} ${formLoginStyles.mediaQuery2}`;
 
   async function handleSubmit(e) {
     setSending(!sending);
