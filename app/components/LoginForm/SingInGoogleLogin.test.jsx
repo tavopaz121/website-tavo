@@ -15,7 +15,7 @@ describe('When the SingInGoogleLogin is rendered', () => {
     });
 
     it('Then a button with text Google should be show', async () => {
-        const google = await component.getByTestId('button-google');
+        const google = await component.getByText('Google');
         expect(google).toBeInTheDocument();
     });
 

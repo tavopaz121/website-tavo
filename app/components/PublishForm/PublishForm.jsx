@@ -31,12 +31,12 @@ export default function PublishForm({ userName }) {
 
   return (
     // @TODO actualizar colores de acuerdo a una paleta de colores establecida
-    <section className="bg-pw-white rounded-t-lg w-full border border-pw-gray">
-      <div className="bg-pw-green rounded-t-lg flex justify-center items-center">
+    <section className="bg-pw-white max-md:rounded-none rounded-t-lg w-full border border-pw-gray">
+      <div className="bg-pw-green rounded-t-lg max-md:rounded-t-none flex justify-center items-center max-md:text-center">
         <h1 className="text-lg p-2 text-white font-bold top-0 w-full">
           {userName || 'Bienvenido'}, publica tu nueva comida sana
         </h1>
-        <Link to="/">
+        <Link to="/" className='max-md:hidden'>
           <IconClose />
         </Link>
       </div>
@@ -48,7 +48,7 @@ export default function PublishForm({ userName }) {
         className="p-4"
         data-cy="publish-form"
         encType="multipart/form-data">
-        <div className="grid gap-4 grid-cols-7">
+        <div className="grid gap-4 grid-cols-7 max-md:block">
           <TextField
             // @TODO buscar de que manera mas organizada podemos usar clsN y clsNInput
             autoFocus
@@ -93,7 +93,7 @@ export default function PublishForm({ userName }) {
               data-testid="image-preview"
               src={srcImage}
               alt={srcImage}
-              className="min-w-full border-2 p-1 border-pw-green max-h-[300px] object-cover mb-4"
+              className="min-w-full border-2 p-1 border-pw-green max-h-[300px] max-md:h-[200px] object-cover mb-4"
             />
             <button
               onClick={removeImage}
@@ -116,7 +116,7 @@ export default function PublishForm({ userName }) {
 
         <div className="flex justify-between gap-5 mt-4">
           <Link to="/" className="w-full">
-            <Button text="Cancelar" className="w-full bg-white text-red-800 hover:bg-pw-gray/20 border-red-600 font-semibold"/>
+            <Button text="Cancelar" className="w-full bg-white text-red-600 hover:bg-pw-gray/20 border-red-600 font-semibold"/>
           </Link>
 
           <Button
