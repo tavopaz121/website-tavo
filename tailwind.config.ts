@@ -14,11 +14,6 @@ export default {
         'pw-black': '#262626',
       },
     },
-    fontFamily: {
-      'roboto': ['Roboto', 'sans-serif'],
-      'poppins': ['Poppins', 'sans-serif'],
-      'lato': ['Lato', 'sans-serif']
-    }
   },
   plugins: [],
 } satisfies Config
