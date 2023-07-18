@@ -23,8 +23,8 @@ export default function TextArea({
   const [text, setText] = useState('')
 
   return (
-    <div>
-      {label && <label className="block text-sm font-medium">{label}</label>}
+    <div className='mt-6'>
+      {label && <label className="block text-lg font-medium">{label}</label>}
       <textarea
         data-testid="TextArea"
         ref={ref}

@@ -12,7 +12,7 @@ export default function SelectFile({
 }) {
   return (
     <div className={`w-full mb-4 ${clsN}`}>
-      {title && <p className="block text-sm mb-1 font-medium">{title}</p>}
+      {title && <p className="block text-lg mb-1 font-medium">{title}</p>}
 
       <div
         className={`flex gap-4 w-full align-middle bg-white border-solid border-2 border-gray-300 rounded-md ${clsNInput}`}>
@@ -21,7 +21,7 @@ export default function SelectFile({
           htmlFor="file"
           className="w-full flex gap-4 p-3 cursor-pointer">
           <UploadIcon />
-          <span className="mt-1 text-sm font-medium leading-normal text-gray-600">
+          <span className="mt-1 text-lg font-medium leading-normal text-gray-600">
             {placeholder}
           </span>
           <input
