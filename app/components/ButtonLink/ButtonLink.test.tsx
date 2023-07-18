@@ -2,6 +2,8 @@ import { cleanup, render } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import ButtonLink from './ButtonLink'
+import { act } from 'react-dom/test-utils'
+import userEvent from '@testing-library/user-event'
 
 describe('When buttonLink component', () => {
   let router: any
@@ -11,11 +13,15 @@ describe('When buttonLink component', () => {
       {
         path: '/',
         element: (
-          <ButtonLink
-            target="_blank"
-            content="test"
-            to="/home"></ButtonLink>
+          <div data-testid="container">
+            <ButtonLink to="/home" content="Inicio"></ButtonLink>
+          </div>
         ),
+        loader: () => ({}),
+      },
+      {
+        path: '/home',
+        element: <div data-testid="container">Bienvenido al home</div>,
         loader: () => ({}),
       },
     ])
@@ -25,14 +31,28 @@ describe('When buttonLink component', () => {
     cleanup()
   })
 
-  it('Should render with custom properties', async () => {
+  it('should display a content when passed in the "content" property', async () => {
     const view = render(<RouterProvider router={router} />)
 
     const buttonLink = await view.findByTestId('button-link')
 
     expect(buttonLink).toBeInTheDocument()
-    expect(buttonLink).toHaveTextContent('test')
-    expect(buttonLink).toHaveProperty('target', '_blank')
-    expect(buttonLink).toHaveAttribute('href', '/home')
+    expect(buttonLink).toHaveTextContent('Inicio')
+  })
+
+  it('when the button is clicked, it should redirect to the route passed in the "to" property', async () => {
+    const view = render(<RouterProvider router={router} />)
+    const user = userEvent.setup()
+
+    const buttonLink = await view.findByTestId('button-link')
+    const container = await view.findByTestId('container')
+
+    expect(container).not.toHaveTextContent('Home')
+
+    await act(async () => {
+      await user.click(buttonLink)
+    })
+
+    expect(container).toHaveTextContent('Bienvenido al home')
   })
 })
