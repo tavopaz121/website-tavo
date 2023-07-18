@@ -1,9 +1,10 @@
-import { json } from '@remix-run/node'
+import { Form } from '@remix-run/react'
 import ButtonLink from '../ButtonLink/ButtonLink'
 
 import { GoHomeFill, GoPasskeyFill } from 'react-icons/go'
 import { HiPencilAlt } from 'react-icons/hi'
-import { getLoggedUser } from '~/firebase/auth.server'
+import { TbLogout } from 'react-icons/tb'
+import Button from '../Button/Button'
 
 const sizeIcon = 'text-3xl'
 
@@ -16,19 +17,9 @@ const links = [
     to: '/publish',
     icon: <HiPencilAlt className={sizeIcon} />,
   },
-  {
-    to: '/logout',
-    icon: <GoPasskeyFill className={sizeIcon} />,
-  },
 ]
 
-export async function loader({ request }) {
-  const user = await getLoggedUser(request)
-
-  return json({ user })
-}
-
-export default function FooterNav() {
+export default function FooterNav({ user }) {
   return (
     <div className="mt-16">
       <footer className="w-full items-center flex justify-around fixed bottom-0 p-2 bg-pw-lightgreen text-white">
@@ -40,7 +31,30 @@ export default function FooterNav() {
             content={link.icon}
           />
         ))}
+        {user ? <Logout /> : <Join />}
       </footer>
     </div>
+  )
+}
+
+function Logout() {
+  return (
+    <Form method="post" action="/logout">
+      <Button
+        type="submit"
+        className="bg-transparent border-none hover:bg-transparent">
+        <TbLogout className={sizeIcon} />
+      </Button>
+    </Form>
+  )
+}
+
+function Join() {
+  return (
+    <ButtonLink
+      className="border-none p-2"
+      to="/join"
+      content={<GoPasskeyFill className={sizeIcon} />}
+    />
   )
 }
