@@ -7,12 +7,10 @@ export default function MailLogin() {
     <div>
       <TextField
         name="email"
-        placeholder="tu@pensemosweb.com"
         type="email"
         label="Correo"
-        clsLabel={stylesInput.label}
+        placeholder="tu@pensemosweb.com"
         icon={<HiMail data-testid="icon-mail"  />}
-        clsNInput={stylesInput.textField}
         required
         data-cy="email-field"
         data-testid="input-mail"
