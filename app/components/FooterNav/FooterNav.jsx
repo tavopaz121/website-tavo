@@ -1,7 +1,9 @@
+import { json } from '@remix-run/node'
 import ButtonLink from '../ButtonLink/ButtonLink'
 
 import { GoHomeFill, GoPasskeyFill } from 'react-icons/go'
 import { HiPencilAlt } from 'react-icons/hi'
+import { getLoggedUser } from '~/firebase/auth.server'
 
 const sizeIcon = 'text-3xl'
 
@@ -19,6 +21,12 @@ const links = [
     icon: <GoPasskeyFill className={sizeIcon} />,
   },
 ]
+
+export async function loader({ request }) {
+  const user = await getLoggedUser(request)
+
+  return json({ user })
+}
 
 export default function FooterNav() {
   return (
