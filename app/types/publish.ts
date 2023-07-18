@@ -9,6 +9,7 @@ export type PostUser = {
 };
 
 export type Post = {
+  id?: string;
   title: string;
   description: string;
   price: number;

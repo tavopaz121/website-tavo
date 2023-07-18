@@ -5,27 +5,13 @@ import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
 import Card from "~/components/Card/Card";
-
-function mapPosts(posts) {
-  return posts.map((item) => {
-    return {
-      id: item.id,
-      title: item.title,
-      price: item.price,
-      description: item.description,
-      image: {
-        src: item.image,
-        alt: item.title,
-      },
-    };
-  });
-}
+import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
   const posts = await getPosts();
 
-  return json({ user, posts: mapPosts(posts) });
+  return json({ user, posts: mapPostsToIndex(posts) });
 }
 
 export const action = async ({ request }: ActionArgs) => {
@@ -46,7 +32,7 @@ export default function Index() {
         Publica tu comida sana
       </Link>
 
-      <Link to="/login" className="mb-4" >
+      <Link to="/login" className="mb-4">
         Inicio de sesión
       </Link>
 
@@ -56,7 +42,9 @@ export default function Index() {
 
       {user && (
         <Form method="post" action="/logout">
-          <button type="submit" data-cy="btn-logout">Cerrar sesion</button>
+          <button type="submit" data-cy="btn-logout">
+            Cerrar sesion
+          </button>
         </Form>
       )}
     </div>
