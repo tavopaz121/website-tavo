@@ -35,6 +35,6 @@ describe('When a register user wants to create a post of healthy food', () => {
     cy.get('[data-cy="image-publish"]').selectFile('@food', {force: true})
     cy.get('[data-cy="description-publish"]').type('Ensalada de verduras con papas fritas')
 
-    cy.get('[data-cy="btn-publish"]').click()
+    cy.get('[data-cy="publish"]').click()
   })
 })
