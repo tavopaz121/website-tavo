@@ -12,16 +12,12 @@ describe('When buttonLink component', () => {
     router = createBrowserRouter([
       {
         path: '/',
-        element: (
-          <div data-testid="container">
-            <ButtonLink to="/home" content="Inicio"></ButtonLink>
-          </div>
-        ),
+        element: <ButtonLink to="/home" content="Inicio"></ButtonLink>,
         loader: () => ({}),
       },
       {
         path: '/home',
-        element: <div data-testid="container">Bienvenido al home</div>,
+        element: <div>Bienvenido al home</div>,
         loader: () => ({}),
       },
     ])
@@ -41,11 +37,12 @@ describe('When buttonLink component', () => {
   })
 
   it('when the button is clicked, it should redirect to the route passed in the "to" property', async () => {
-    const view = render(<RouterProvider router={router} />)
+    const { findByTestId, container } = render(
+      <RouterProvider router={router} />,
+    )
     const user = userEvent.setup()
 
-    const buttonLink = await view.findByTestId('button-link')
-    const container = await view.findByTestId('container')
+    const buttonLink = await findByTestId('button-link')
 
     expect(container).not.toHaveTextContent('Home')
 
