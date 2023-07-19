@@ -4,9 +4,8 @@ import { XcircleSolidIcon } from "../Icons";
 import type { TextFieldProps } from "./TextField.d";
 
 const inputClassNameDefault = "bg-white border border-black w-full p-2.5";
-const labelClassNameDefault = "block text-lg font-medium";
+const labelClassNameDefault = "block mb-2";
 const iconClassNameDefault = "absolute inset-y-0 flex items-center pl-3"
-const errorClassNameDefault = "pt-1 flex items-center gap-1 text-red-700 dark:text-red-400";
 
 export default forwardRef(TextField);
 
@@ -14,7 +13,6 @@ function TextField(
   {
     isInvalid,
     label,
-    clsLabel,
     icon,
     required,
     autoFocus,
@@ -22,10 +20,8 @@ function TextField(
     value,
     type,
     autoComplete,
-    clsNInput,
     error,
     children,
-    clsN,
     placeholder,
     pattern,
     ...moreProps
@@ -34,19 +30,17 @@ function TextField(
 ) {
   const id = useId();
   const ariaId = `${id}-${name}`;
-  let labelClassName: string;
   let inputClassName: string;
 
-  labelClassName = `${labelClassNameDefault} ${clsLabel}`;
-  inputClassName = `${inputClassNameDefault} ${icon && "pl-10"} ${clsNInput}`;
+  inputClassName = `${inputClassNameDefault} ${icon && "pl-10"}`;
 
   return (
-    <div data-testid="TextField" className={clsN}>
+    <div data-testid="TextField">
       {
         label ? (
           <label
             htmlFor={id}
-            className={`${labelClassName}`}
+            className={`${labelClassNameDefault}`}
             data-testid="label-text-field"
           >
             {label}
@@ -87,7 +81,6 @@ function TextField(
 
       {error && (
         <div
-          className={errorClassNameDefault}
           id={ariaId}
           data-testid="error-text-field"
         >
