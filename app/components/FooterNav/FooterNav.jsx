@@ -12,11 +12,12 @@ const sizeIcon = 'text-3xl'
 const links = [
   {
     to: '/',
+    dataCy: 'nav-home',
     icon: <GoHomeFill className={sizeIcon} />,
   },
   {
     to: '/publish',
-    dataCy: 'btn-publish',
+    dataCy: 'nav-publish',
     icon: <HiPencilAlt className={sizeIcon} />,
   },
 ]
@@ -47,7 +48,7 @@ function Logout() {
   return (
     <Form method="post" action="/logout">
       <Button
-        data-cy="btn-logout"
+        data-cy="nav-logout"
         type="submit"
         className="bg-transparent border-none hover:bg-transparent">
         <TbLogout className={sizeIcon} />
@@ -59,6 +60,7 @@ function Logout() {
 function Join() {
   return (
     <ButtonLink
+      data-cy="nav-join"
       className="border-none p-2"
       to="/join"
       content={<FaUserLock className={sizeIcon} />}
