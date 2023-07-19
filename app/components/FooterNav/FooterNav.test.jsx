@@ -26,20 +26,20 @@ describe('FooterNav render', () => {
       {
         path: '/',
         element: (
-          <div data-testid="container">
+          <>
             <p>Bienvenido al home</p>
             <FooterNav navLinks={navLinks} />
-          </div>
+          </>
         ),
         loader: () => ({}),
       },
       {
         path: '/edit',
         element: (
-          <div data-testid="container">
+          <>
             <p>Pagina de edit</p>
             <FooterNav navLinks={navLinks} />
-          </div>
+          </>
         ),
         loader: () => ({}),
       },
@@ -51,18 +51,18 @@ describe('FooterNav render', () => {
   })
 
   it('Sholud render correctly', async () => {
-    const view = render(<RouterProvider router={router} />)
+    const { findByTestId } = render(<RouterProvider router={router} />)
 
-    const footer = await view.findByTestId('footer-nav')
+    const footer = await findByTestId('footer-nav')
 
     expect(footer).toBeInTheDocument()
   })
 
   it('button links should display correctly and display the correct content', async () => {
-    const view = render(<RouterProvider router={router} />)
+    const { findByTestId } = render(<RouterProvider router={router} />)
 
-    const home = await view.findByTestId('btn-home')
-    const edit = await view.findByTestId('btn-edit')
+    const home = await findByTestId('btn-home')
+    const edit = await findByTestId('btn-edit')
 
     expect(home).toBeInTheDocument()
     expect(edit).toBeInTheDocument()
@@ -71,13 +71,14 @@ describe('FooterNav render', () => {
   })
 
   it('when you click on a link it should show the correct page', async () => {
-    const view = render(<RouterProvider router={router} />)
+    const { findByTestId, container } = render(
+      <RouterProvider router={router} />,
+    )
 
     const user = userEvent.setup()
 
-    const home = await view.findByTestId('btn-home')
-    const edit = await view.findByTestId('btn-edit')
-    const container = await view.findByTestId('container')
+    const home = await findByTestId('btn-home')
+    const edit = await findByTestId('btn-edit')
 
     await act(async () => {
       await user.click(edit)
