@@ -13,11 +13,11 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet, content: "text/css" },
 ];
 
-export const meta = () => ([
+export const meta = () => [
   { charset: "utf-8" },
   { title: "Comida sana" },
   { name: "viewport", content: "width=device-width,initial-scale=1" },
-]);
+];
 
 export default function App() {
   return (
@@ -26,7 +26,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="p-2">
         <Outlet />
         <ScrollRestoration />
         <Scripts />

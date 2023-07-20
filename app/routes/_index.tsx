@@ -36,9 +36,16 @@ export default function Index() {
         Inicio de sesión
       </Link>
 
-      {posts.map(({ id, ...rest }) => (
-        <Card key={id} {...rest} />
-      ))}
+      <section
+        className="grid gap-2"
+        style={{
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+        }}
+      >
+        {posts.map(({ id, ...rest }) => (
+          <Card {...rest} key={id} className="flex flex-col justify-between" />
+        ))}
+      </section>
 
       {user && (
         <Form method="post" action="/logout">
