@@ -1,3 +1,5 @@
+import type { Timestamp } from "firebase-admin/firestore";
+
 export type PostUser = {
   uid: string;
   email?: string;
@@ -7,8 +9,14 @@ export type PostUser = {
 };
 
 export type Post = {
+  id?: string;
   title: string;
   description: string;
   price: number;
+};
+
+export type FirestorePost = Post & {
   image: string;
+  user: PostUser;
+  createdAt: Timestamp;
 };
