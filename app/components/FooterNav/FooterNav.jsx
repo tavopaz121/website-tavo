@@ -1,7 +1,7 @@
 import { Form } from '@remix-run/react'
 import { GoHomeFill } from 'react-icons/go'
 import { HiPencilAlt } from 'react-icons/hi'
-import { TbLogout } from 'react-icons/tb'
+import { TbLogin, TbLogout } from 'react-icons/tb'
 import { FaUserLock } from 'react-icons/fa'
 
 import Button from '../Button/Button'
@@ -38,7 +38,14 @@ export default function FooterNav({ user, navLinks = links }) {
             data-testid={dataTestId}
           />
         ))}
-        {user ? <Logout /> : <Join />}
+        {user ? (
+          <Logout />
+        ) : (
+          <>
+            <Join />
+            <Login />
+          </>
+        )}
       </footer>
     </div>
   )
@@ -54,6 +61,16 @@ function Logout() {
         <TbLogout className={sizeIcon} />
       </Button>
     </Form>
+  )
+}
+function Login() {
+  return (
+    <ButtonLink
+      data-cy="nav-login"
+      className="border-none p-2"
+      to="/login"
+      content={<TbLogin className={sizeIcon} />}
+    />
   )
 }
 
