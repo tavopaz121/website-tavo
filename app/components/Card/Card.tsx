@@ -17,15 +17,17 @@ export default function Card({
   createdAtLocale: string;
   className?: string;
   Container?: ElementType;
-  style: Object;
+  style?: Object;
 }) {
-  const clsN = `border bg-white-300 p-5 shadow-md ${className}`;
+  const clsN = `border bg-white-300 p-5 shadow-md ${className ?? ""}`;
 
   return (
-    <Container className={clsN} style={style}>
+    <Container className={clsN} style={style ?? ""}>
       <h2>{title}</h2>
       <p>{description}</p>
-      <time dateTime={createdAt?.toString()}>{createdAtLocale}</time>
+      <time dateTime={createdAt?.toString()} className="first-letter:uppercase">
+        {createdAtLocale}
+      </time>
       <img src={image.src} alt={image.alt} />
     </Container>
   );
