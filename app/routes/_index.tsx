@@ -1,31 +1,17 @@
-import type { ActionArgs, LoaderArgs } from '@remix-run/node'
-import { json } from '@remix-run/node'
-import { Link, useLoaderData, Form } from '@remix-run/react'
-import type { UserRecord } from 'firebase-admin/auth'
-import { getLoggedUser } from '~/firebase/auth.server'
-import { getPosts } from '~/firebase/models/posts.server'
-import Card from '~/components/Card/Card'
-
-function mapPosts(posts) {
-  return posts.map((item) => {
-    return {
-      id: item.id,
-      title: item.title,
-      price: item.price,
-      description: item.description,
-      image: {
-        src: item.image,
-        alt: item.title,
-      },
-    }
-  })
-}
+import type { ActionArgs, LoaderArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { Link, useLoaderData, Form } from "@remix-run/react";
+import type { UserRecord } from "firebase-admin/auth";
+import { getLoggedUser } from "~/firebase/auth.server";
+import { getPosts } from "~/firebase/models/posts.server";
+import Card from "~/components/Card/Card";
+import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request)
   const posts = await getPosts()
 
-  return json({ user, posts: mapPosts(posts) })
+  return json({ user, posts: mapPostsToIndex(posts) });
 }
 
 export const action = async ({ request }: ActionArgs) => {
