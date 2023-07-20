@@ -125,7 +125,7 @@ export default function PublishForm({ userName }) {
           <Button
             type="submit"
             text="Publicar"
-            data-cy="btn-publish"
+            data-cy="publish"
             className="w-full"
             color="green"
           />
