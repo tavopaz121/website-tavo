@@ -8,29 +8,35 @@ import Card from "~/components/Card/Card";
 import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
 
 export async function loader({ request }: LoaderArgs) {
-  const user: UserRecord | null = await getLoggedUser(request)
-  const posts = await getPosts()
+  const user: UserRecord | null = await getLoggedUser(request);
+  const posts = await getPosts();
 
   return json({ user, posts: mapPostsToIndex(posts) });
 }
 
 export const action = async ({ request }: ActionArgs) => {
-  const { uid } = await getLoggedUser(request)
-  const form = await request.formData()
-  console.log(form, uid)
-}
+  const { uid } = await getLoggedUser(request);
+  const form = await request.formData();
+  console.log(form, uid);
+};
 
 export default function Index() {
-  const loaderData = useLoaderData()
-  const { user, posts } = loaderData
+  const loaderData = useLoaderData();
+  const { user, posts } = loaderData;
 
   return (
     <div>
-      <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ''} </h1>
-
-      {posts.map(({ id, ...rest }) => (
-        <Card key={id} {...rest} />
-      ))}
+      <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
+      <section
+        className="grid gap-2"
+        style={{
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+        }}
+      >
+        {posts.map(({ id, ...rest }) => (
+          <Card {...rest} key={id} className="flex flex-col justify-between" />
+        ))}
+      </section>
     </div>
-  )
+  );
 }

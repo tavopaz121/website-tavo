@@ -6,15 +6,15 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-} from '@remix-run/react'
-import type { LinksFunction } from '@remix-run/node'
-import type { LoaderArgs } from '@remix-run/node'
-import type { UserRecord } from 'firebase-admin/auth'
-import { json } from '@remix-run/node'
+} from "@remix-run/react";
+import type { LinksFunction } from "@remix-run/node";
+import type { LoaderArgs } from "@remix-run/node";
+import type { UserRecord } from "firebase-admin/auth";
+import { json } from "@remix-run/node";
 
-import stylesheet from '~/tailwind.css'
-import FooterNav from './components/FooterNav/FooterNav'
-import { getLoggedUser } from './firebase/auth.server'
+import stylesheet from "~/tailwind.css";
+import FooterNav from "./components/FooterNav/FooterNav";
+import { getLoggedUser } from "./firebase/auth.server";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet, content: "text/css" },
@@ -34,14 +34,14 @@ export const meta = () => ([
 ]);
 
 export async function loader({ request }: LoaderArgs) {
-  const user: UserRecord | null = await getLoggedUser(request)
+  const user: UserRecord | null = await getLoggedUser(request);
 
-  return json({ user })
+  return json({ user });
 }
 
 export default function App() {
-  const loaderData = useLoaderData()
-  const { user } = loaderData
+  const loaderData = useLoaderData();
+  const { user } = loaderData;
 
   return (
     <html lang="es">
@@ -57,5 +57,5 @@ export default function App() {
         <LiveReload />
       </body>
     </html>
-  )
+  );
 }
