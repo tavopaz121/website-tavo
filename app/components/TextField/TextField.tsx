@@ -4,8 +4,8 @@ import { XcircleSolidIcon } from "../Icons";
 import type { TextFieldProps } from "./TextField.d";
 
 const inputClassNameDefault = "bg-white border border-black w-full p-2.5";
-const labelClassNameDefault = "block mb-2";
-const iconClassNameDefault = "absolute inset-y-0 flex items-center pl-3"
+const labelClassNameDefault = "block mb-1";
+const iconClassNameDefault = "absolute inset-y-0 flex items-center pl-3";
 
 export default forwardRef(TextField);
 
@@ -35,32 +35,23 @@ function TextField(
   inputClassName = `${inputClassNameDefault} ${icon && "pl-10"}`;
 
   return (
-    <div data-testid="TextField">
-      {
-        label ? (
-          <label
-            htmlFor={id}
-            className={`${labelClassNameDefault}`}
-            data-testid="label-text-field"
-          >
-            {label}
-          </label>
-        )
-          : null
-      }
+    <div data-testid="TextField" className="mb-6">
+      {label ? (
+        <label
+          htmlFor={id}
+          className={`${labelClassNameDefault}`}
+          data-testid="label-text-field"
+        >
+          {label}
+        </label>
+      ) : null}
 
-      <div className="relative mb-6">
-        {
-          icon ? (
-            <div
-              className={iconClassNameDefault}
-              data-testid="icon-text-field"
-            >
-              {icon}
-            </div>
-          )
-            : null
-        }
+      <div className="relative">
+        {icon ? (
+          <div className={iconClassNameDefault} data-testid="icon-text-field">
+            {icon}
+          </div>
+        ) : null}
 
         <input
           ref={ref}
@@ -80,10 +71,7 @@ function TextField(
       </div>
 
       {error && (
-        <div
-          id={ariaId}
-          data-testid="error-text-field"
-        >
+        <div id={ariaId} data-testid="error-text-field">
           <XcircleSolidIcon />
           {error}
         </div>

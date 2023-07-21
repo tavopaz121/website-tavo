@@ -13,11 +13,11 @@ export const action = async ({ request }: ActionArgs) => {
 
 export default function Logout() {
   return (
-    <div>
+    <>
       <h1>Cerrar sesion</h1>
       <Form method="POST">
         <button type="submit">Cerrar sesion</button>
       </Form>
-    </div>
+    </>
   );
 }

@@ -3,30 +3,32 @@
 @tailwind utilities;
 
 a {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-
 h1 {
-    @apply text-3xl;
-    @apply font-bold;
+  @apply text-3xl;
+  @apply font-bold;
+  @apply mb-2;
 }
 
 h2 {
-    @apply text-2xl;
-    @apply font-semibold;
+  @apply text-2xl;
+  @apply font-semibold;
+  @apply mb-2;
 }
 
 h3 {
-    @apply text-xl;
-    @apply font-semibold;
+  @apply text-xl;
+  @apply font-semibold;
+  @apply mb-2;
 }
 
 p {
-    @apply text-base;
+  @apply text-base;
 }
 
 label {
-    @apply text-base;
-    @apply font-bold;
+  @apply text-base;
+  @apply font-bold;
 }

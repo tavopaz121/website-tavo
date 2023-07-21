@@ -7,10 +7,16 @@ import PasswordLogin from "./PasswordLogin";
 import DescriptionLogin from "./DescriptionLogin";
 import { formLoginStyles } from "./stylesLogin";
 
-export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, actionData }) {
+export default function FormLogin({
+  onSubmit,
+  onGoogle,
+  onFace,
+  clientAction,
+  actionData,
+}) {
   const [sending, setSending] = useState(false);
 
-  const contentStyleDefault = `${formLoginStyles.main} ${formLoginStyles.border} ${formLoginStyles.shadow} ${formLoginStyles.mediaQuery1} ${formLoginStyles.mediaQuery2}`;
+  const contentStyleDefault = `${formLoginStyles.main}`;
 
   async function handleSubmit(e) {
     setSending(!sending);
@@ -19,10 +25,7 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
   }
 
   return (
-    <div
-      className={`${contentStyleDefault}`}
-      data-testid="FormLogin"
-    >
+    <div className={`${contentStyleDefault}`} data-testid="FormLogin">
       <HeaderLogin />
 
       <SingInGoogleLogin
@@ -34,10 +37,8 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
       <DescriptionLogin />
 
       {clientAction?.error || actionData?.error ? (
-        <div
-          className="font-bold text-center bg-red-200 border-2 border-red-300 rounded-md"
-        >
-          <p data-testid="error-login" >
+        <div className="font-bold text-center bg-red-200 border-2 border-red-300 rounded-md">
+          <p data-testid="error-login">
             {clientAction?.error || actionData?.error}
           </p>
         </div>
@@ -53,12 +54,9 @@ export default function FormLogin({ onSubmit, onGoogle, onFace, clientAction, ac
           <MailLogin />
           <PasswordLogin />
 
-          <SubmitLogin
-            isSubmit={sending}
-            changeSubmit={setSending}
-          />
+          <SubmitLogin isSubmit={sending} changeSubmit={setSending} />
         </div>
       </form>
     </div>
-  )
+  );
 }

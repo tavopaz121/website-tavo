@@ -4,7 +4,7 @@ import { requireAuth } from "~/firebase/auth.server";
 import type { LoaderArgs } from "@remix-run/node";
 import { createPost } from "~/firebase/models/posts.server";
 import type { Post } from "~/types/publish";
-import PwPublisForm from '../components/PublishForm/PublishForm'
+import PwPublisForm from "../components/PublishForm/PublishForm";
 
 export function meta() {
   return [
@@ -17,25 +17,29 @@ export async function loader({ request }: LoaderArgs) {
   const user = await requireAuth(request);
 
   return json({
-    displayName: user.displayName
-  })
+    displayName: user.displayName,
+  });
 }
 
 export async function action({ request }: LoaderArgs) {
-  const { uid, displayName, email, phoneNumber, photoURL } = await requireAuth(request);
+  const { uid, displayName, email, phoneNumber, photoURL } = await requireAuth(
+    request
+  );
   const data = await request.formData();
   const { image, ...post } = Object.fromEntries(data.entries());
 
-  await createPost(post, image, { uid, displayName, email, phoneNumber, photoURL });
+  await createPost(post, image, {
+    uid,
+    displayName,
+    email,
+    phoneNumber,
+    photoURL,
+  });
 
-  return redirect('/');
+  return redirect("/");
 }
 
 export default function Publish() {
   const user = useLoaderData();
-  return (
-    <main className="p-5 max-md:p-1">
-      <PwPublisForm userName={user.displayName} />
-    </main>
-  );
+  return <PwPublisForm userName={user.displayName} />;
 }

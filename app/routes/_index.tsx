@@ -25,7 +25,7 @@ export default function Index() {
   const { user, posts } = loaderData;
 
   return (
-    <div>
+    <>
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
       <section
         className="grid gap-2"
@@ -37,6 +37,6 @@ export default function Index() {
           <Card {...rest} key={id} className="flex flex-col justify-between" />
         ))}
       </section>
-    </div>
+    </>
   );
 }
