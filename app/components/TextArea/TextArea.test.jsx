@@ -1,31 +1,32 @@
-import { screen } from '@testing-library/dom'
-import { cleanup, render, waitFor } from '@testing-library/react'
-import { afterEach, describe, expect, it } from 'vitest'
-import userEvent from '@testing-library/user-event'
-import TextArea from './TextArea'
+import { screen } from "@testing-library/dom";
+import { cleanup, render, waitFor } from "@testing-library/react";
+import { afterEach, describe, expect, it } from "vitest";
+import userEvent from "@testing-library/user-event";
+import TextArea from "./TextArea";
+import { act } from "react-dom/test-utils";
 
-describe('TextArea Component', () => {
+describe("TextArea Component", () => {
   afterEach(() => {
-    cleanup()
-  })
+    cleanup();
+  });
 
-  it('should render component without crashing when no props are provided', () => {
-    render(<TextArea />)
-  })
+  it("should render component without crashing when no props are provided", () => {
+    render(<TextArea />);
+  });
 
-  it('should renders label if provided', () => {
-    const label = 'Test Label'
+  it("should renders label if provided", () => {
+    const label = "Test Label";
 
-    render(<TextArea label={label} />)
+    render(<TextArea label={label} />);
 
-    expect(screen.getByText(label)).toBeInTheDocument()
-  })
+    expect(screen.getByText(label)).toBeInTheDocument();
+  });
 
-  it('should render textarea with correct props', () => {
-    const maxLength = 100
-    const placeholder = 'Test placeholder'
-    const rows = 10
-    const name = 'Test name'
+  it("should render textarea with correct props", () => {
+    const maxLength = 100;
+    const placeholder = "Test placeholder";
+    const rows = 10;
+    const name = "Test name";
 
     render(
       <TextArea
@@ -35,45 +36,46 @@ describe('TextArea Component', () => {
         name={name}
         required
       />,
-    )
+    );
 
-    const textarea = screen.getByTestId('TextArea')
+    const textarea = screen.getByTestId("TextArea");
 
-    expect(textarea).toHaveAttribute('maxlength', maxLength.toString())
-    expect(textarea).toHaveAttribute('placeholder', placeholder)
-    expect(textarea).toHaveAttribute('rows', rows.toString())
-    expect(textarea).toHaveAttribute('name', name)
-    expect(textarea).toHaveAttribute('required')
-  })
+    expect(textarea).toHaveAttribute("maxlength", maxLength.toString());
+    expect(textarea).toHaveAttribute("placeholder", placeholder);
+    expect(textarea).toHaveAttribute("rows", rows.toString());
+    expect(textarea).toHaveAttribute("name", name);
+    expect(textarea).toHaveAttribute("required");
+  });
 
-  it('should update text state', async () => {
-    const user = userEvent.setup()
-    const text = 'Hola'
+  it("should update text state", async () => {
+    const user = userEvent.setup();
+    const text = "Hola";
 
-    render(<TextArea />)
+    render(<TextArea />);
 
-    const textarea = await screen.findByTestId('TextArea')
+    const textarea = await screen.findByTestId("TextArea");
 
-    user.type(textarea, text)
+    await act(async () => {
+      await user.type(textarea, text);
+    });
 
-    await waitFor(() => {
-      expect(textarea).toHaveValue(text)
-    })
-  })
+    expect(textarea).toHaveValue(text);
+  });
 
-  it('the maximum number of characters will be the total of the maxlength property', async () => {
-    const text = 'test maxlength'
-    const maxLength = 15
+  it("the maximum number of characters will be the total of the maxlength property", async () => {
+    const text = "test maxlength";
+    const maxLength = 15;
 
-    const user = userEvent.setup()
+    const user = userEvent.setup();
 
-    render(<TextArea maxLength={maxLength} />)
+    render(<TextArea maxLength={maxLength} />);
 
-    const textarea = await screen.findByTestId('TextArea')
-    user.type(textarea, text)
+    const textarea = await screen.findByTestId("TextArea");
 
-    await waitFor(() => {
-      expect(textarea.value.length).toBeLessThanOrEqual(textarea.maxLength)
-    })
-  })
-})
+    await act(async () => {
+      await user.type(textarea, text);
+    });
+
+    expect(textarea.value.length).toBeLessThanOrEqual(textarea.maxLength);
+  });
+});
