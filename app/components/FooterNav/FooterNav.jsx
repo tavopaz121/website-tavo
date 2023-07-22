@@ -35,7 +35,7 @@ export default function FooterNav({ user, navLinks = links }) {
             data-testid={dataTestId}
           />
         ))}
-        {user ? <Profile /> : <Login />}
+        {user ? <Profile userName={user.uid} /> : <Login />}
       </footer>
     </div>
   );
@@ -52,12 +52,12 @@ function Login() {
   );
 }
 
-function Profile() {
+function Profile({ userName }) {
   return (
     <ButtonLink
       data-cy="nav-login"
       className="border-none p-2"
-      to="/usuario/tavopaz12"
+      to={`/usuario/${userName}`}
       content={<FaUser className="text-2xl" />}
     />
   );
