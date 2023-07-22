@@ -1,4 +1,5 @@
 import type { LoaderArgs } from "@remix-run/node";
+import { Form } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import type { UserRecord } from "firebase-admin/auth";
@@ -26,9 +27,11 @@ export default function UserProfile() {
         Numero de telefono: <b>{user?.phoneNumber}</b>
       </p>
 
-      <Button color="black" >
-        Cerrar sesión
-      </Button>
+      <Form method="post" action="/logout">
+        <Button color="black" type="submit" >
+          Cerrar sesión
+        </Button>
+      </Form>
     </div>
   )
 
