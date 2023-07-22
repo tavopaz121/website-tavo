@@ -1,26 +1,23 @@
-import { Form } from '@remix-run/react'
-import { GoHomeFill } from 'react-icons/go'
-import { HiPencilAlt } from 'react-icons/hi'
-import { TbLogin, TbLogout } from 'react-icons/tb'
-import { FaUser, FaUserAlt, FaUserLock } from 'react-icons/fa'
+import { GoHomeFill } from "react-icons/go";
+import { HiPencilAlt } from "react-icons/hi";
+import { FaUser, FaUserLock } from "react-icons/fa";
 
-import Button from '../Button/Button'
-import ButtonLink from '../ButtonLink/ButtonLink'
+import ButtonLink from "../ButtonLink/ButtonLink";
 
-const sizeIcon = 'text-3xl'
+const sizeIcon = "text-3xl";
 
 const links = [
   {
-    to: '/',
-    dataCy: 'nav-home',
+    to: "/",
+    dataCy: "nav-home",
     icon: <GoHomeFill className={sizeIcon} />,
   },
   {
-    to: '/publish',
-    dataCy: 'nav-publish',
+    to: "/publish",
+    dataCy: "nav-publish",
     icon: <HiPencilAlt className={sizeIcon} />,
   },
-]
+];
 
 export default function FooterNav({ user, navLinks = links }) {
   return (
@@ -41,7 +38,7 @@ export default function FooterNav({ user, navLinks = links }) {
         {user ? <Profile /> : <Login />}
       </footer>
     </div>
-  )
+  );
 }
 
 function Login() {
@@ -52,7 +49,7 @@ function Login() {
       to="/login"
       content={<FaUserLock className={sizeIcon} />}
     />
-  )
+  );
 }
 
 function Profile() {
@@ -63,5 +60,5 @@ function Profile() {
       to="/usuario/tavopaz12"
       content={<FaUser className="text-2xl" />}
     />
-  )
+  );
 }
