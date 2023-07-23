@@ -1,5 +1,5 @@
 import type { LoaderArgs } from "@remix-run/node";
-import { Form } from "@remix-run/react";
+import { Form, useParams } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import type { UserRecord } from "firebase-admin/auth";
@@ -12,10 +12,21 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export default function UserProfile() {
+  const paramUrl = useParams();
+  const userName = paramUrl.userName;
+
   const loaderData = useLoaderData();
   const { user } = loaderData;
 
-  let content = (
+  return (
+    <>
+      {user?.displayName == userName ? <Content user={user} /> : <Error />}
+    </>
+  )
+}
+
+function Content({ user }) {
+  return (
     <div>
       <h2>
         {user?.displayName}
@@ -34,16 +45,12 @@ export default function UserProfile() {
       </Form>
     </div>
   )
+}
 
-  let error = (
-    <div>
-      <h2>Por favor inicie sesion</h2>
-    </div>
-  )
-
+function Error() {
   return (
-    <>
-      {user?.displayName ? content : error}
-    </>
+    <div>
+      <h2>Error al cargar usuario</h2>
+    </div>
   )
 }
