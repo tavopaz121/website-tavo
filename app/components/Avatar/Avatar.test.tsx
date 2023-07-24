@@ -13,11 +13,11 @@ describe("When avatar component", () => {
   });
 
   it("Then if a photo exists, it should be shown", () => {
-    const { container } = render(
+    const { getByRole } = render(
       <Avatar photoUrl="https://example.com/avatar.png" />,
     );
 
-    const photo = container.querySelector("img");
+    const photo = getByRole("img");
     expect(photo).toBeInTheDocument();
   });
 

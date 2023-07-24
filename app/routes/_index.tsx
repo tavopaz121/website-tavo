@@ -27,6 +27,7 @@ export default function Index() {
 
   return (
     <>
+      <Avatar userName="Jose Octavio" />
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
       <section
         className="grid gap-2"
