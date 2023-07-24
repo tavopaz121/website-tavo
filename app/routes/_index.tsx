@@ -6,6 +6,7 @@ import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
 import Card from "~/components/Card/Card";
 import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
+import Avatar from "~/components/Avatar/Avatar";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -26,13 +27,14 @@ export default function Index() {
 
   return (
     <>
-      <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
+      <div className="flex gap-2 flex-wrap items-center">
+        <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
+      </div>
       <section
         className="grid gap-2"
         style={{
           gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-        }}
-      >
+        }}>
         {posts.map(({ id, ...rest }) => (
           <Card {...rest} key={id} className="flex flex-col justify-between" />
         ))}
