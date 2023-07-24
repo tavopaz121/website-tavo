@@ -17,11 +17,11 @@ export const styleSizeText = {
 export function getBackgroundColor(initial: string) {
   const initialUpperCase = initial.toUpperCase();
 
-  if (initialUpperCase >= "A" && initialUpperCase <= "H") {
+  if (initialUpperCase >= "A" && initialUpperCase <= "I") {
     return "bg-[#F28705]";
-  } else if (initialUpperCase >= "I" && initialUpperCase <= "P") {
+  } else if (initialUpperCase >= "J" && initialUpperCase <= "R") {
     return "bg-[#F9A825]";
-  } else if (initialUpperCase >= "Q" && initialUpperCase <= "Z") {
+  } else if (initialUpperCase >= "S" && initialUpperCase <= "Z") {
     return "bg-[#900C3F]";
   }
 
