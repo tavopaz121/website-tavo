@@ -27,9 +27,7 @@ export default function Index() {
 
   return (
     <>
-      <div className="flex gap-2 flex-wrap items-center">
-        <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
-      </div>
+      <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
       <section
         className="grid gap-2"
         style={{
