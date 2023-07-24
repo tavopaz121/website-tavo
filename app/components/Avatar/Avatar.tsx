@@ -41,7 +41,8 @@ export default function Avatar({
       data-testid="avatar"
       onClick={onClick}
       className={styleContainer}
-      {...moreProps}>
+      {...moreProps}
+    >
       {photoUrl ? (
         <AvatarImage rounded={rounded} src={photoUrl} size={size} />
       ) : (
@@ -67,7 +68,8 @@ function AvatarImage({ src, size, rounded }: AvatarProps) {
 function AvatarText({ size, initials }: AvatarProps) {
   return (
     <span
-      className={`font-medium text-pw-white ${styleSizeText[size || "md"]}`}>
+      className={`font-medium text-pw-white ${styleSizeText[size || "md"]}`}
+    >
       {initials}
     </span>
   );
