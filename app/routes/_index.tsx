@@ -32,7 +32,7 @@ export default function Index() {
         style={{
           gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
         }}
-        >
+       >
         {posts.map(({ id, ...rest }) => (
           <Card {...rest} key={id} className="flex flex-col justify-between" />
         ))}
