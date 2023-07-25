@@ -2,7 +2,7 @@ import { useState } from "react";
 import { XcircleSolidIcon } from "../Icons";
 
 const inputClassName =
-  "w-full rounded border border-gray-500 px-2 py-1 text-lg dark:text-black";
+  "w-full rounded border border-black px-2 py-1 text-lg dark:text-black";
 const errorClassName =
   "pt-1 flex items-center gap-1 text-red-700 dark:text-red-400";
 
@@ -11,7 +11,7 @@ export default function TextArea({
   label,
   maxLength,
   placeholder,
-  clsNInput,
+  className,
   rows,
   error,
   ref,
@@ -30,7 +30,7 @@ export default function TextArea({
         ref={ref}
         required={required || false}
         onChange={(evt) => setText(evt.target.value)}
-        className={`${inputClassName} ${clsNInput}`}
+        className={`${inputClassName} ${className}`}
         name={name}
         maxLength={maxLength || 250}
         placeholder={placeholder}
