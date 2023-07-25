@@ -71,7 +71,6 @@ describe("TextArea Component", () => {
     render(<TextArea maxLength={maxLength} />);
 
     const textarea = await screen.findByTestId("TextArea");
-
     await act(async () => {
       await user.type(textarea, text);
     });
