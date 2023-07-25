@@ -31,8 +31,7 @@ export default function PublishForm({ userName }) {
   };
 
   return (
-    // @TODO actualizar colores de acuerdo a una paleta de colores establecida
-    <section className="bg-pw-white max-md:rounded-none rounded-t-lg w-full border border-pw-gray">
+    <section className="max-md:rounded-none rounded-t-lg w-full">
       <div className="bg-pw-green rounded-t-lg max-md:rounded-t-none flex justify-center items-center max-md:text-center">
         <h1 className="text-lg p-2 text-white font-bold top-0 w-full">
           {userName || "Bienvenido"}, publica tu nueva comida sana
@@ -47,7 +46,6 @@ export default function PublishForm({ userName }) {
         method="POST"
         action="/publish"
         className="p-4"
-        data-cy="publish-form"
         encType="multipart/form-data"
       >
         <div className="grid gap-4 grid-cols-7 max-md:block">
@@ -57,7 +55,6 @@ export default function PublishForm({ userName }) {
             name="title"
             type="text"
             label="Titulo de la publicación: "
-            data-cy="title-publish"
             data-testid="title-publish"
           />
 
@@ -67,7 +64,6 @@ export default function PublishForm({ userName }) {
             type="number"
             label="Precio:"
             min="0"
-            data-cy="price-publish"
             data-testid="price-publish"
           />
         </div>
@@ -79,7 +75,6 @@ export default function PublishForm({ userName }) {
           placeholder="Selecciona tu imagen..."
           clsNInput="border-pw-gray rounded-lg hover:border-pw-green"
           name="image"
-          data-cy="image-publish"
           data-testid="image-publish"
         />
 
@@ -107,7 +102,6 @@ export default function PublishForm({ userName }) {
           clsNInput="border-pw-gray text-base mt-1 outline-1 outline-pw-green"
           rows={8}
           maxLength={250}
-          data-cy="description-publish"
           data-testid="description-publish"
         />
 
@@ -121,7 +115,6 @@ export default function PublishForm({ userName }) {
           <Button
             type="submit"
             text="Publicar"
-            data-cy="publish"
             className="w-full"
             color="green"
           />

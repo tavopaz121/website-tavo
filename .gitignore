@@ -12,3 +12,6 @@ ui-debug.log
 cypress/videos
 cypress/screenshots
 cypress/downloads
+/test-results/
+/playwright-report/
+/playwright/.cache/
