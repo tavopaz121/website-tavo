@@ -35,7 +35,8 @@ export default function TextArea({
         maxLength={maxLength || 250}
         placeholder={placeholder}
         {...moreProps}
-        rows={rows}></textarea>
+        rows={rows}
+      ></textarea>
 
       {error ? (
         <div className={errorClassName}>

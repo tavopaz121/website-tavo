@@ -54,7 +54,7 @@ function Logout() {
   return (
     <Form method="post" action="/logout">
       <Button
-        data-cy="nav-logout"
+        data-testid="nav-logout"
         type="submit"
         className="border-none shadow-none text-white bg-opacity-0 hover:bg-transparent"
       >

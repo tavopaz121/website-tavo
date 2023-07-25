@@ -46,27 +46,27 @@ export default function PublishForm({ userName }) {
         method="POST"
         action="/publish"
         className="p-4"
-        data-cy="publish-form"
-        encType="multipart/form-data">
-        <TextField
-          autoFocus
-          required
-          name="title"
-          type="text"
-          label="Titulo de la publicación: "
-          data-cy="title-publish"
-          data-testid="title-publish"
-        />
+        encType="multipart/form-data"
+      >
+        <div className="grid gap-4 grid-cols-7 max-md:block">
+          <TextField
+            autoFocus
+            required
+            name="title"
+            type="text"
+            label="Titulo de la publicación: "
+            data-testid="title-publish"
+          />
 
-        <TextField
-          required
-          name="price"
-          type="number"
-          label="Precio:"
-          min="0"
-          data-cy="price-publish"
-          data-testid="price-publish"
-        />
+          <TextField
+            required
+            name="price"
+            type="number"
+            label="Precio:"
+            min="0"
+            data-testid="price-publish"
+          />
+        </div>
 
         <SelectFile
           accept=".jpg, .png"
@@ -74,7 +74,6 @@ export default function PublishForm({ userName }) {
           title="Seleccionar un archivo:"
           placeholder="Selecciona tu imagen..."
           name="image"
-          data-cy="image-publish"
           data-testid="image-publish"
         />
 
@@ -88,7 +87,8 @@ export default function PublishForm({ userName }) {
             />
             <button
               onClick={removeImage}
-              className="absolute bg-red-500 rounded-sm top-2.5 right-2.5">
+              className="absolute bg-red-500 rounded-sm top-2.5 right-2.5"
+            >
               <IconClose />
             </button>
           </div>
@@ -100,7 +100,6 @@ export default function PublishForm({ userName }) {
           label="Descripción del producto:"
           rows={8}
           maxLength={250}
-          data-cy="description-publish"
           data-testid="description-publish"
         />
 
@@ -114,7 +113,6 @@ export default function PublishForm({ userName }) {
           <Button
             type="submit"
             text="Publicar"
-            data-cy="publish"
             className="w-full"
             color="green"
           />
