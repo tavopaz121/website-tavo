@@ -1,9 +1,15 @@
-import type { AvatarProps } from "./Avatar.d";
+import type {
+  AvatarProps,
+  AvatarImageProps,
+  AvatarTextProps,
+} from "./Avatar.d";
 import { getBackgroundColor, styleSizeAvatar, styleSizeText } from "./styles";
 import { useInitials } from "./useInitails";
 
+
+
 export default function Avatar({
-  userName,
+  userName = "",
   photoUrl,
   size,
   children,
@@ -38,7 +44,7 @@ export default function Avatar({
   );
 }
 
-function AvatarImage({ src, size, rounded }: AvatarProps) {
+function AvatarImage({ src, size, rounded }: AvatarImageProps) {
   return (
     <img
       className={`${styleSizeAvatar[size || "md"]} object-cover ${
@@ -50,7 +56,7 @@ function AvatarImage({ src, size, rounded }: AvatarProps) {
   );
 }
 
-function AvatarText({ size, initials }: AvatarProps) {
+function AvatarText({ size, initials }: AvatarTextProps) {
   return (
     <span
       className={`font-medium text-pw-white ${styleSizeText[size || "md"]}`}
