@@ -28,17 +28,40 @@ export default function UserProfile() {
 function Content({ user }) {
   return (
     <div>
-      <h2>
+      <div className="flex justify-center">
+        <img width={130} src="https://png.pngtree.com/png-vector/20190221/ourlarge/pngtree-female-user-vector-avatar-icon-png-image_691506.jpg" alt="user-default" className="rounded-full" />
+      </div>
+      <h2 className="text-center mb-4 font-bold">
         {user?.displayName}
       </h2>
-      <p>
-        Correo: <b>{user?.email}</b>
-      </p>
-      <p>
-        Numero de telefono: <b>{user?.phoneNumber}</b>
-      </p>
 
-      <Form method="post" action="/logout">
+      <hr className="h-1 bg-gray-200 rounded-lg" />
+
+      <div className="px-7">
+        <p 
+          className="text-gray-700 mb-3"
+        >
+          <i>Correo:</i> <br />
+          <span 
+            className="text-black text-lg font-semibold"
+          >
+            {user?.email}
+          </span>
+        </p> 
+
+        <p 
+          className="text-gray-700 mb-3"
+        >
+          <i>Numero de telefono:</i> <br/>
+          <span 
+            className="text-black text-lg font-semibold"
+          >
+            2725243464
+          </span>
+        </p>
+      </div>
+
+      <Form method="post" action="/logout" className="float-right">
         <Button color="black" type="submit" >
           Cerrar sesión
         </Button>
