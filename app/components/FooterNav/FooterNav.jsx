@@ -24,7 +24,8 @@ export default function FooterNav({ user, navLinks = links }) {
     <div className="mt-16">
       <footer
         data-testid="footer-nav"
-        className="w-full items-center flex justify-around fixed bottom-0 p-2 bg-pw-green text-white">
+        className="w-full items-center flex justify-around fixed bottom-0 p-2 bg-pw-green text-white"
+      >
         {navLinks.map(({ to, icon, dataCy, dataTestId }) => (
           <ButtonLink
             key={to}
