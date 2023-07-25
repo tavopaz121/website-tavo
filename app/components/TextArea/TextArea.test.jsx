@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/dom";
-import { cleanup, render, waitFor } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import userEvent from "@testing-library/user-event";
 import TextArea from "./TextArea";
