@@ -6,6 +6,7 @@ import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
 import Card from "~/components/Card/Card";
 import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
+import Avatar from "~/components/Avatar/Avatar";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
