@@ -1,6 +1,6 @@
 import type { AvatarProps } from "./Avatar.d";
-import { useMemo } from "react";
 import { getBackgroundColor, styleSizeAvatar, styleSizeText } from "./styles";
+import { useInitials } from "./useInitails";
 
 export default function Avatar({
   userName,
@@ -12,22 +12,7 @@ export default function Avatar({
   onClick,
   ...moreProps
 }: AvatarProps) {
-  const initials = useMemo(() => {
-    if (userName) {
-      const names = userName.split(" ");
-      const initialsArray = names.map((name) => name.charAt(0).toUpperCase());
-
-      if (names.length === 1) {
-        return (
-          names[0].charAt(0).toUpperCase() + names[0].charAt(1).toUpperCase()
-        );
-      }
-
-      return initialsArray.slice(0, 2).join("");
-    }
-    return "";
-  }, [userName]);
-
+  const initials = useInitials(userName);
   const backgroundColor = getBackgroundColor(initials.charAt(0));
 
   const styleContainer = `relative grid place-items-center ${backgroundColor} ${
