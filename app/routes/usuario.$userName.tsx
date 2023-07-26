@@ -13,14 +13,14 @@ export async function loader({ request }: LoaderArgs) {
 
 export default function UserProfile() {
   const paramUrl = useParams();
-  const userName = paramUrl.userName;
+  const userId = paramUrl.userName;
 
   const loaderData = useLoaderData();
   const { user } = loaderData;
 
   return (
     <>
-      {user?.displayName == userName ? <Content user={user} /> : <Error />}
+      {user?.uid == userId ? <Content user={user} /> : <Error />}
     </>
   )
 }
