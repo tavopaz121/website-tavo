@@ -29,7 +29,7 @@ export default function UserProfile() {
 function Content({ user }) {
   return (
     <div>
-      <div className="flex justify-center">
+      <div className="flex justify-center" data-testid="icon-avatar">
         <Avatar userName={user.displayName} size="xl" rounded />
       </div>
       <h2 className="text-center mb-4 font-bold">
