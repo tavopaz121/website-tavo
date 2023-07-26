@@ -1,8 +1,9 @@
 import { screen } from "@testing-library/dom";
-import { cleanup, render, waitFor } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 import { afterEach, describe, expect, it } from "vitest";
 import userEvent from "@testing-library/user-event";
 import TextArea from "./TextArea";
+import { act } from "react-dom/test-utils";
 
 describe("TextArea Component", () => {
   afterEach(() => {
@@ -54,11 +55,11 @@ describe("TextArea Component", () => {
 
     const textarea = await screen.findByTestId("TextArea");
 
-    user.type(textarea, text);
-
-    await waitFor(() => {
-      expect(textarea).toHaveValue(text);
+    await act(async () => {
+      await user.type(textarea, text);
     });
+
+    expect(textarea).toHaveValue(text);
   });
 
   it("the maximum number of characters will be the total of the maxlength property", async () => {
@@ -70,10 +71,10 @@ describe("TextArea Component", () => {
     render(<TextArea maxLength={maxLength} />);
 
     const textarea = await screen.findByTestId("TextArea");
-    user.type(textarea, text);
-
-    await waitFor(() => {
-      expect(textarea.value.length).toBeLessThanOrEqual(textarea.maxLength);
+    await act(async () => {
+      await user.type(textarea, text);
     });
+
+    expect(textarea.value.length).toBeLessThanOrEqual(textarea.maxLength);
   });
 });

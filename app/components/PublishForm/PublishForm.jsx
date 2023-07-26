@@ -73,7 +73,6 @@ export default function PublishForm({ userName }) {
           onChange={onFileChange}
           title="Seleccionar un archivo:"
           placeholder="Selecciona tu imagen..."
-          clsNInput="border-pw-gray rounded-lg hover:border-pw-green"
           name="image"
           data-testid="image-publish"
         />
@@ -99,7 +98,6 @@ export default function PublishForm({ userName }) {
           name="description"
           required
           label="Descripción del producto:"
-          clsNInput="border-pw-gray text-base mt-1 outline-1 outline-pw-green"
           rows={8}
           maxLength={250}
           data-testid="description-publish"
