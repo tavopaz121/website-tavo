@@ -5,6 +5,7 @@ import { useLoaderData } from "@remix-run/react";
 import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
 import Button from "~/components/Button/Button";
+import Avatar from "~/components/Avatar/Avatar";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -29,7 +30,7 @@ function Content({ user }) {
   return (
     <div>
       <div className="flex justify-center">
-        <img width={130} src="https://png.pngtree.com/png-vector/20190221/ourlarge/pngtree-female-user-vector-avatar-icon-png-image_691506.jpg" alt="user-default" className="rounded-full" />
+        <Avatar userName={user.displayName} size="xl" rounded />
       </div>
       <h2 className="text-center mb-4 font-bold">
         {user?.displayName}
