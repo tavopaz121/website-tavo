@@ -6,7 +6,7 @@ import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
 import Card from "~/components/Card/Card";
 import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
-import Avatar from "~/components/Avatar/Avatar";
+import ButtonLink from "~/components/ButtonLink/ButtonLink";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -28,8 +28,13 @@ export default function Index() {
   return (
     <>
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
+      <ButtonLink
+        to="verduras-frutas-semillas-etc-54321"
+        color="orange"
+        content="Ver publiación"
+      />
       <section
-        className="grid gap-2"
+        className="grid gap-2 mt-4"
         style={{
           gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
         }}
