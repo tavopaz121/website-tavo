@@ -1,4 +1,4 @@
-import { SiFacebook, SiGoogle } from "react-icons/si";
+import { SiGoogle } from "react-icons/si";
 import { googleStylesButton } from "./stylesLogin";
 import Button from "../Button/Button";
 
