@@ -9,7 +9,7 @@ import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
 import ButtonLink from "~/components/ButtonLink/ButtonLink";
 import { FaInfoCircle } from "react-icons/fa";
 import { Link } from "@remix-run/react";
-import type { CardProps } from "~/components/Card/Card.d";
+
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
   const posts = await getPosts();

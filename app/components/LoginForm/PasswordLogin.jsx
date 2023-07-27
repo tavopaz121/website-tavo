@@ -1,6 +1,5 @@
 import TextField from "../TextField/TextField";
 import { IoKeySharp } from "react-icons/io5";
-import { stylesInput } from "./stylesLogin";
 
 export default function PasswordLogin() {
   return (
