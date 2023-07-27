@@ -3,7 +3,6 @@ import { json, redirect } from "@remix-run/node";
 import { requireAuth } from "~/firebase/auth.server";
 import type { LoaderArgs } from "@remix-run/node";
 import { createPost } from "~/firebase/models/posts.server";
-import type { Post } from "~/types/publish";
 import PwPublisForm from "../components/PublishForm/PublishForm";
 
 export function meta() {
@@ -28,7 +27,7 @@ export async function action({ request }: LoaderArgs) {
   const data = await request.formData();
   const { image, ...post } = Object.fromEntries(data.entries());
 
-  await createPost(post, image, {
+  await createPost(post, image as File, {
     uid,
     displayName,
     email,
