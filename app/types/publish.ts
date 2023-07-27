@@ -19,4 +19,5 @@ export type FirestorePost = Post & {
   image: string;
   user: PostUser;
   createdAt: Timestamp;
+  slug?: string;
 };
