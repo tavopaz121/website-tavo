@@ -45,8 +45,7 @@ export const action = async ({ request }: ActionArgs) => {
   }
 };
 
-const btnStyles =
-  "font-bold text-blue-600";
+const btnStyles = "font-bold text-blue-600";
 
 export default function Join() {
   const actionData = useActionData<typeof action>();
