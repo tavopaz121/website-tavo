@@ -8,12 +8,14 @@ export type PostUser = {
   photoURL?: string;
 };
 
-export type Post = {
-  id?: string;
-  title: string;
-  description: string;
-  price: number;
-};
+export type Post =
+  | {
+      id?: string;
+      title: string;
+      description: string;
+      price: number;
+    }
+  | { [k: string]: FormDataEntryValue };
 
 export type FirestorePost = Post & {
   image: string;
