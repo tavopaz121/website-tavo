@@ -57,7 +57,7 @@ function Content({ user }) {
           <span 
             className="text-black text-lg font-semibold"
           >
-            2725243464
+            {user?.phoneNumber ? user.phoneNumber : "Not found phone"}
           </span>
         </p>
       </div>
