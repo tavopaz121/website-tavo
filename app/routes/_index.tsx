@@ -31,7 +31,7 @@ export default function Index() {
     <>
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
       <section
-        className="grid gap-2"
+        className="grid gap-2 mt-4"
         style={{
           gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
         }}
