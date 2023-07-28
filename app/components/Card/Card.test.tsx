@@ -26,7 +26,7 @@ describe("When a Card is rendered", () => {
     expect(image).toBeInTheDocument();
   });
 
-  it.skip("Then date creation should be shown", () => {
+  it("Then date creation should be shown", () => {
     const datePart = props.createdAtLocale.split(",")[1];
     const date = cardView.getByText(datePart, {
       exact: false,
