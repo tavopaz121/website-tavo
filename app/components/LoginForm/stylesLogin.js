@@ -7,8 +7,7 @@ export const googleStylesButton = {
 
 export const stylesInput = {
   icon: "pointer-events-none text-gray-800",
-  textField:
-    "bg-slate-100 placeholder-slte-400",
+  textField: "bg-slate-100 placeholder-slte-400",
 };
 
 export const submitLoginStyle = {

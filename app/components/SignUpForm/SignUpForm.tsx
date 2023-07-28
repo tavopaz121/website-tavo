@@ -4,8 +4,7 @@ import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import Button from "../Button/Button";
 
-const btnStyles =
-  "font-bold";
+const btnStyles = "font-bold";
 
 export default function SignUpForm({
   children,

@@ -56,7 +56,7 @@ export default function Join() {
       {actionData?.error ? <p>{actionData.error}</p> : null}
       <SignUpForm
         moreActions={
-          <ButtonLink to="/login" className={btnStyles} >
+          <ButtonLink to="/login" className={btnStyles}>
             Iniciar sesión
           </ButtonLink>
         }
