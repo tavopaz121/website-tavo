@@ -33,4 +33,3 @@ test.describe("When a registered user wants to publish a healthy food", () => {
     await expect(post).toBeVisible();
   });
 });
- 
