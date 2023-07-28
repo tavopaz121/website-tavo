@@ -28,11 +28,6 @@ export default function Index() {
   return (
     <>
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
-      <ButtonLink
-        to="verduras-frutas-semillas-etc-54321"
-        color="orange"
-        content="Ver publiación"
-      />
       <section
         className="grid gap-2 mt-4"
         style={{

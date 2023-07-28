@@ -18,8 +18,8 @@ test.describe("When the user login wants to look her profile ", () => {
 
   test("Then if push button 'Cerrar sesión', user go to index and can't publish", async ({ page }) => {
     await page.getByText("Cerrar sesión").click();
-    await expect(page.getByText("Bienvenido.")).toBeVisible(); 
+    await expect(page.getByText("Bienvenido.")).toBeVisible();
     await page.goto("/publish")
     await expect(page.getByText("INICIAR SESIÓN")).toBeVisible();
   });
-});
+}); 

@@ -23,6 +23,7 @@ export default function Post() {
         />
 
         <ButtonLink
+          data-testid="go-home"
           content={<BiLeftArrowAlt className="text-white text-xl" />}
           to="/"
           size="xs"
