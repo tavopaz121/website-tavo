@@ -51,8 +51,8 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
-        <meta name="msapplication-TileColor" content="#2ABF40" />
-        <meta name="theme-color" content="#2ABF40" />
+        <meta name="msapplication-TileColor" content="#fd2284" />
+        <meta name="theme-color" content="#fd2284" />
         <Meta />
         <Links />
       </head>
