@@ -3,13 +3,12 @@ import { json } from "@remix-run/node";
 import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
-import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
   const posts = await getPosts();
 
-  return json({ user, posts: mapPostsToIndex(posts) });
+  return json({ user, posts: posts });
 }
 
 export const action = async ({ request }: ActionArgs) => {
@@ -21,7 +20,6 @@ export const action = async ({ request }: ActionArgs) => {
 export default function Index() {
   return (
     <>
-      <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
       <section
         className="grid gap-2 mt-4"
         style={{
