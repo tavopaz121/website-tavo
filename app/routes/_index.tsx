@@ -1,14 +1,9 @@
 import type { ActionArgs, LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
 import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
-import Card from "~/components/Card/Card";
 import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
-import ButtonLink from "~/components/ButtonLink/ButtonLink";
-import { FaInfoCircle } from "react-icons/fa";
-import { Link } from "@remix-run/react";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -24,9 +19,6 @@ export const action = async ({ request }: ActionArgs) => {
 };
 
 export default function Index() {
-  const loaderData = useLoaderData();
-  const { user, posts } = loaderData;
-
   return (
     <>
       <h1>Bienvenido. {user?.displayName ? `${user.displayName}.` : ""} </h1>
@@ -35,35 +27,7 @@ export default function Index() {
         style={{
           gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
         }}
-      >
-        {posts.map(
-          ({ id, to, title, image, createdAt, createdAtLocale, user }) => (
-            <Card
-              title={title}
-              image={image}
-              createdAt={createdAt}
-              createdAtLocale={createdAtLocale}
-              user={user}
-              key={id}
-              className="flex flex-col justify-between"
-              AnchorElement={Link}
-              anchorProps={{ to: to }}
-              footerChildren={
-                <>
-                  <ButtonLink
-                    className="border-pw-lightorange hover:bg-pw-lightorange  active:bg-pw-orange flex gap-2 items-center text"
-                    to={to}
-                  >
-                    <>
-                      <FaInfoCircle className="text-2xl"></FaInfoCircle> Info
-                    </>
-                  </ButtonLink>
-                </>
-              }
-            />
-          ),
-        )}
-      </section>
+      ></section>
     </>
   );
 }

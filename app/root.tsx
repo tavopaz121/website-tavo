@@ -5,7 +5,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useLoaderData,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import type { LoaderArgs } from "@remix-run/node";
@@ -13,7 +12,6 @@ import type { UserRecord } from "firebase-admin/auth";
 import { json } from "@remix-run/node";
 
 import stylesheet from "~/tailwind.css";
-import FooterNav from "./components/FooterNav/FooterNav";
 import { getLoggedUser } from "./firebase/auth.server";
 
 export const links: LinksFunction = () => [
@@ -36,10 +34,10 @@ export const links: LinksFunction = () => [
     href: "./icons/favicon-16x16.png",
   },
   { rel: "manifest", href: "./icons/site.webmanifest" },
-  { rel: "mask-icon", href: "./icons/safari-pinned-tab.svg", color: "#5DBF17" },
+  //{ rel: "mask-icon", href: "./icons/safari-pinned-tab.svg", color: "#5DBF17" },
 ];
 
-export const meta = () => [{ title: "Comida sana" }];
+export const meta = () => [{ title: "Pensemos web" }];
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -48,9 +46,6 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export default function App() {
-  const loaderData = useLoaderData();
-  const { user } = loaderData;
-
   return (
     <html lang="es">
       <head>
@@ -65,7 +60,6 @@ export default function App() {
         <main className="p-2 pb-20">
           <Outlet />
         </main>
-        <FooterNav user={user} />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
