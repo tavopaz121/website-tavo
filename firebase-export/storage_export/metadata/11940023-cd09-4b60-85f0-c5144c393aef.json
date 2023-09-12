@@ -1,0 +1,19 @@
+{
+  "name": "path-to-js.jpg",
+  "bucket": "healhty-food-2023-2024.appspot.com",
+  "metageneration": 1,
+  "generation": 1694501621117,
+  "contentType": "image/jpeg",
+  "storageClass": "STANDARD",
+  "contentDisposition": "inline",
+  "downloadTokens": [
+    "b87e444d-0b59-4078-943c-8ef6bb2d02cd"
+  ],
+  "etag": "w3gJpPJfy3pWiEK/nK8R1foK/T4",
+  "customMetadata": {},
+  "timeCreated": "2023-09-12T06:53:41.117Z",
+  "updated": "2023-09-12T06:53:41.117Z",
+  "size": 61638,
+  "md5Hash": "JSEHXfodKxMx8Wya+uJHkQ==",
+  "crc32c": "3393450559"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "path-to-js.jpg",
+  "bucket": "pensemosweb-mx.appspot.com",
+  "metageneration": 1,
+  "generation": 1694502672572,
+  "contentType": "image/jpeg",
+  "storageClass": "STANDARD",
+  "contentDisposition": "inline",
+  "downloadTokens": [
+    "a8856e7e-210f-45d4-a8ef-6abe120b7680"
+  ],
+  "etag": "lZFp0pPHrHnl8THUKt6gbrfue6g",
+  "customMetadata": {},
+  "timeCreated": "2023-09-12T07:11:12.572Z",
+  "updated": "2023-09-12T07:11:12.572Z",
+  "size": 61638,
+  "md5Hash": "JSEHXfodKxMx8Wya+uJHkQ==",
+  "crc32c": "3393450559"
+}

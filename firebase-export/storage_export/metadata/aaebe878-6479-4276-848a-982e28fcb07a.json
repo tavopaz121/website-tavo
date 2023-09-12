@@ -1,0 +1,19 @@
+{
+  "name": "hypercard.jpg",
+  "bucket": "pensemosweb-mx.appspot.com",
+  "metageneration": 1,
+  "generation": 1694502672490,
+  "contentType": "image/jpeg",
+  "storageClass": "STANDARD",
+  "contentDisposition": "inline",
+  "downloadTokens": [
+    "e9dbd855-1eb1-4b3f-a626-c0e3e72df0a4"
+  ],
+  "etag": "pa67A8H+ius7mNUZ2M1Mt4WH4II",
+  "customMetadata": {},
+  "timeCreated": "2023-09-12T07:11:12.490Z",
+  "updated": "2023-09-12T07:11:12.490Z",
+  "size": 126995,
+  "md5Hash": "z+NlZI7SaBOpRGRagAFqfQ==",
+  "crc32c": "1449223266"
+}
