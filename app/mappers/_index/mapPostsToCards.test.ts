@@ -1,10 +1,10 @@
 import { expect } from "vitest";
 import { firestorePosts } from "./dummies/firestorePostDummies";
-import { mapPostsToIndex } from "./mapPostsToIndex";
+import { mapPostsToCards } from "./mapPostsToICards";
 
-describe("When mapPostsToIndex receive a list of FirestorePost", () => {
+describe("When mapPostsToCards receive a list of FirestorePost", () => {
   it("should map them to a list of post for the index cards", () => {
-    const mapped = mapPostsToIndex(firestorePosts);
+    const mapped = mapPostsToCards(firestorePosts);
 
     expect(mapped).toHaveLength(2);
     expect(mapped).toHaveProperty("0.image");

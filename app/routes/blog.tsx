@@ -3,14 +3,14 @@ import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/firebase/models/posts.server";
 import Card from "~/components/Card/Card";
-import { mapPostsToIndex } from "~/mappers/_index/mapPostsToIndex";
+import { mapPostsToCards } from "~/mappers/_index/mapPostsToICards";
 import { FaInfoCircle } from "react-icons/fa";
 import { Link } from "@remix-run/react";
 
 export async function loader({ request }: LoaderArgs) {
   const posts = await getPosts();
 
-  return json({ posts: mapPostsToIndex(posts) });
+  return json({ posts: mapPostsToCards(posts) });
 }
 
 export default function Index() {

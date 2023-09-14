@@ -1,6 +1,6 @@
 import type { FirestorePost } from "~/types/publish";
 
-export function mapPostsToIndex(posts: FirestorePost[]) {
+export function mapPostsToCards(posts: FirestorePost[]) {
   return posts.map((item: FirestorePost) => {
     return {
       id: item.id,

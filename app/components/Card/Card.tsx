@@ -24,14 +24,14 @@ export default function Card({
         <img src={image.src} alt={image.alt} className={imgClsN} />
       </AnchorElement>
 
-      <section className="p-2">
+      <section className="px-4 py-2">
         <h3>
           <AnchorElement {...anchorProps}>{title}</AnchorElement>
         </h3>
       </section>
 
       {footerChildren && (
-        <footer className="flex flex-wrap p-2">{footerChildren}</footer>
+        <footer className="flex flex-wrap p-4">{footerChildren}</footer>
       )}
     </Container>
   );
