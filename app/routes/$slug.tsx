@@ -48,8 +48,8 @@ export default function Post() {
   const { image, title } = post;
 
   return (
-    <div className="p-2 grid gap-3" style={{ gridTemplateColumns: "4fr 2fr" }}>
-      <main>
+    <div className="p-2 flex flex-wrap gap-3">
+      <main className="flex-grow flex-shrink" style={{ flexBasis: "69%" }}>
         <article className="p-1 slug">
           <h1 className="mt-2 font-bold">{title}</h1>
           <figure className="relative">
@@ -70,7 +70,9 @@ export default function Post() {
           ></section>
         </article>
       </main>
-      <aside className="secundario">Contenido secundario lateral</aside>
+      <aside className="flex-grow flex-shrink" style={{ flexBasis: "29%" }}>
+        Contenido secundario lateral
+      </aside>
     </div>
   );
 }
