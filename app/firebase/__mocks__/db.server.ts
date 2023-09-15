@@ -13,7 +13,7 @@ export const dataPoint = vi.fn(() => {
                 title: faker.lorem.words(5),
                 description: faker.lorem.words(10),
                 price: faker.number.int(100),
-                image: faker.image.imageUrl(),
+                image: faker.image.url(),
                 user: {
                   uid: faker.string.uuid(),
                   email: faker.internet.email(),
