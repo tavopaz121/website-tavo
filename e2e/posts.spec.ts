@@ -12,7 +12,7 @@ test.describe("When an user wants to see post detail", () => {
     const postThumbnail = await page
       .getByRole("article")
       .first()
-      .getByRole("link")
+      .getByRole("img")
       .first();
     await postThumbnail.click();
 

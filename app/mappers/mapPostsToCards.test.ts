@@ -1,6 +1,6 @@
 import { expect } from "vitest";
 import { firestorePosts } from "./dummies/firestorePostDummies";
-import { mapPostsToCards } from "./mapPostsToICards";
+import { mapPostsToCards } from "./mapPostsToCards";
 
 describe("When mapPostsToCards receive a list of FirestorePost", () => {
   it("should map them to a list of post for the index cards", () => {
