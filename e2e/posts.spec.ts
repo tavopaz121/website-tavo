@@ -6,21 +6,20 @@ test.describe("When an user wants to see post detail", () => {
     await page.goto("/blog");
   });
 
-  test("And use the post image, Then user is redirect to post detail url", async ({
+  test("And use the post image, Then user should be redirected to post detail url", async ({
     page,
   }) => {
     const postThumbnail = await page
       .getByRole("article")
       .first()
-      .getByRole("img")
+      .getByRole("link")
       .first();
-
     await postThumbnail.click();
 
     await expect(page).toHaveURL(/\/.*-.*/);
   });
 
-  test("And use the post title, Then user is redirect to post detail url", async ({
+  test("And use the post title, Then user should be redirected to post detail url", async ({
     page,
   }) => {
     const postTitle = await page
@@ -38,15 +37,22 @@ test.describe("When user visit a post page", () => {
   test("should load a post from database and parse it to html", async ({
     page,
   }) => {
-    await page.goto("/introduccion-¿Cómo nació Javascript");
-    await expect(page).toHaveURL("/introduccion-javascript");
+    const route = "/introduccion-javascript";
+    const title = "Introducción a Javascript";
 
-    const postTitle = await page.getByRole("article").getByRole("heading");
+    await page.goto(route);
+    await expect(page).toHaveURL(route);
+
+    const postTitle = await page
+      .getByRole("article")
+      .getByRole("heading", { name: title });
+
+    const subtitle = "¿Cómo nació Javascript?";
     const subtitulo = await page
       .getByRole("article")
-      .getByText("¿Cómo nació Javascript?");
+      .getByRole("heading", { name: subtitle });
 
-    await expect(postTitle).toHaveText("Introduccion a javascript");
-    await expect(subtitulo).toHaveText("¿Cómo nació Javascript");
+    await expect(postTitle).toHaveText(title);
+    await expect(subtitulo).toHaveText(subtitle);
   });
 });

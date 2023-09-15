@@ -3,7 +3,7 @@ import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/firebase/models/posts.server";
 import Card from "~/components/Card/Card";
-import { mapPostsToCards } from "~/mappers/_index/mapPostsToICards";
+import { mapPostsToCards } from "~/mappers/mapPostsToICards";
 import { FaInfoCircle } from "react-icons/fa";
 import { Link } from "@remix-run/react";
 

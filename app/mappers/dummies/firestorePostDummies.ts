@@ -8,6 +8,7 @@ export const firestorePosts: FirestorePost[] = [
     title: faker.lorem.words(5),
     description: faker.lorem.words(10),
     price: faker.number.int(100),
+    content: faker.lorem.paragraphs(),
     image: faker.image.url(),
     createdAt: Timestamp.fromDate(faker.date.past()),
     user: {
@@ -23,6 +24,7 @@ export const firestorePosts: FirestorePost[] = [
     title: faker.lorem.words(5),
     description: faker.lorem.words(10),
     price: faker.number.int(100),
+    content: faker.lorem.paragraphs(),
     image: faker.image.url(),
     createdAt: Timestamp.fromDate(faker.date.past()),
     user: {

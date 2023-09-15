@@ -25,9 +25,9 @@ export default function Card({
       </AnchorElement>
 
       <section className="px-4 py-2">
-        <h3>
-          <AnchorElement {...anchorProps}>{title}</AnchorElement>
-        </h3>
+        <AnchorElement {...anchorProps}>
+          <h3>{title}</h3>
+        </AnchorElement>
       </section>
 
       {footerChildren && (
