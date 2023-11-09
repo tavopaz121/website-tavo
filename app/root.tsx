@@ -57,7 +57,9 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        <main className="">
+          <Outlet />
+        </main>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
