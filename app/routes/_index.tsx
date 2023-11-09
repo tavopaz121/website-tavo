@@ -12,22 +12,11 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export const action = async ({ request }: ActionArgs) => {
-  const { uid } = await getLoggedUser(request);
+  const { uid }: any = await getLoggedUser(request);
   const form = await request.formData();
   console.log(form, uid);
 };
 
 export default function Index() {
-  return (
-    <>
-      <main className="p-2">
-        <section
-          className="grid gap-2 mt-4"
-          style={{
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-          }}
-        ></section>
-      </main>
-    </>
-  );
+  return <></>;
 }
