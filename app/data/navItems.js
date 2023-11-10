@@ -8,5 +8,4 @@ export const items = [
 
 export const secondaryItems = [
   { to: "/productos", label: "Productos", isButton: true },
-  { to: "/ai", label: "AI", isButton: true },
 ];

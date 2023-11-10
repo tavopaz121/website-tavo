@@ -8,14 +8,20 @@ export default function NavLg({
   secondaryItems,
   aLign,
   children,
+  isHome,
 }: PropsNav) {
+  const textClasses = isHome
+    ? "text-white dark:text-white"
+    : "text-black dark:text-black";
+  const anchorClass = `relative group inline-block py-3 px-4 font-semibold ${textClasses} overflow-hidden transition duration-300`;
+
   return (
-    <nav className="relative py-6 mb-12 md:mb-20 bg-transparent">
+    <nav className="absolute top-0 z-10 w-full bg-transparent py-6">
       <div className="px-4 mx-auto">
         <div className={"flex items-center justify-" + aLign}>
           {hasLogo && (
             <a className="inline-block text-lg font-bold mr-14" href="/">
-              <img className="h-20 block p-5" src={logo} alt="" width="auto" />
+              {logo}
             </a>
           )}
           <div className="lg:hidden ml-auto">
@@ -59,10 +65,7 @@ export default function NavLg({
             <ul className="hidden lg:flex lg:w-auto lg:space-x-6">
               {items?.map(({ to, label }) => (
                 <li key={to}>
-                  <a
-                    className="relative group inline-block py-3 px-4 font-semibold text-white overflow-hidden transition duration-300"
-                    href={to}
-                  >
+                  <a className={anchorClass} href={to}>
                     <div className="absolute bottom-4 right-full w-full h-2 bg-gradient-pink transform group-hover:translate-x-full transition duration-500" />
                     <span className="relative">{label}</span>
                   </a>
@@ -78,7 +81,7 @@ export default function NavLg({
                   return (
                     <a
                       key={to}
-                      className="relative group inline-block py-3 px-4 font-semibold text-white border border-gray-200 rounded-md overflow-hidden transition duration-300"
+                      className={`${anchorClass} border border-gray-200 rounded-md`}
                       href={to}
                     >
                       <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />

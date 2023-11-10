@@ -9,10 +9,11 @@ import heroImg from "../assets/imgs/hero-img.webp";
 import CardService from "~/components/CardServices/CardService";
 import { services } from "~/data/services.js";
 import { tools } from "~/data/tools.js";
+
 export default function productos() {
   return (
     <>
-      <section className="mb-5 grid place-items-center h-screen max-md:h-full">
+      <section className="mb-5 grid h-screen max-md:h-full">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
             <div>

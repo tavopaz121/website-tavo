@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <>
+    <section className="">
       <video
         autoPlay
         loop
@@ -44,6 +44,6 @@ export default function Hero() {
           </mark>
         </span>
       </div>
-    </>
+    </section>
   );
 }
