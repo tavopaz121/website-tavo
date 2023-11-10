@@ -22,7 +22,6 @@
     "validate": "run-p lint test:run test:e2e:run"
   },
   "dependencies": {
-    "@fontsource/bebas-neue": "^5.0.17",
     "@remix-run/node": "^1.17.0",
     "@remix-run/react": "^1.17.0",
     "@remix-run/serve": "^1.17.0",
