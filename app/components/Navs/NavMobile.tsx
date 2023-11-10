@@ -38,9 +38,9 @@ export default function NavMobile({
             />
           </svg>
         </button>
-        <div className="flex items-center mb-16">
+        <div className="flex items-center mb-8">
           <a className="mr-auto text-2xl font-medium leading-none" href="/">
-            <img className="h-10" src={logo} alt="" width="auto" />
+            {logo}
           </a>
         </div>
         <div>

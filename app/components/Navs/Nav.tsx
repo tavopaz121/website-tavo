@@ -23,7 +23,7 @@ export default function Nav(props: PropsNav) {
             </svg>
           </div>
           <span className="block mb-3 text-sm text-white">Escribenos a</span>
-          <a className="font-semibold text-white" href="/">
+          <a className="font-semibold text-white" href="/contacto">
             pensemoswebjs@gmail.com
           </a>
         </div>
