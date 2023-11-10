@@ -16,9 +16,9 @@ import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
 import { useState } from "react";
 import Logo from "~/components/Logo/Logo";
-import { linkItems } from "./data/linkItems";
+import { htmlPageLinks } from "./data/htmlPageLinks";
 
-export const links: LinksFunction = () => linkItems;
+export const links: LinksFunction = () => htmlPageLinks;
 
 export const meta = () => [{ title: "Pensemos web" }];
 

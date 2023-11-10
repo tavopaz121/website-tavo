@@ -1,6 +1,6 @@
 import stylesheet from "~/tailwind.css";
 
-export const linkItems = [
+export const htmlPageLinks = [
   { rel: "stylesheet", href: stylesheet, content: "text/css" },
   {
     rel: "apple-touch-icon",
