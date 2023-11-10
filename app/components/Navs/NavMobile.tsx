@@ -61,11 +61,11 @@ export default function NavMobile({
           )}
 
           {secondaryItems && (
-            <div className="py-8 px-6 mb-6 border-t border-b border-white">
+            <div className="py-6 px-4 mb-6 border-t border-b border-white">
               {secondaryItems?.map(({ to, label, isButton }) => (
                 <a
                   key={to}
-                  className="flex items-center text-sm font-semibold text-white hover:text-gray-300"
+                  className="group relative flex py-3 px-0 items-center font-semibold text-white mb-2 mt-2 overflow-hidden transition duration-300"
                   href={to}
                 >
                   <svg
@@ -80,6 +80,7 @@ export default function NavMobile({
                       fill="white"
                     />
                   </svg>
+                  <div className="absolute bottom-4 right-full w-full h-1 bg-gradient-aqua transform group-hover:translate-x-full transition duration-500" />
                   <span className="ml-3">{label}</span>
                 </a>
               ))}

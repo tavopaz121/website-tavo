@@ -5,6 +5,7 @@ import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
 import Nav from "~/components/Navs/Nav";
 import Hero from "~/components/pages/home/Hero";
+import { items, secondaryItems } from "~/data/navItems";
 
 import { useState } from "react";
 import logoPensemos from "app/assets/imgs/pensemosweb.svg";
@@ -17,22 +18,10 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export const action = async ({ request }: ActionArgs) => {
-  const { uid } = await getLoggedUser(request);
+  const { uid }: any = await getLoggedUser(request);
   const form = await request.formData();
   console.log(form, uid);
 };
-
-const items = [
-  { to: "/", label: "Inicio" },
-  { to: "/equipo", label: "Equipo" },
-  { to: "/servicios", label: "Servicios" },
-  { to: "/contacto", label: "Contacto" },
-  { to: "/blog", label: "Blog" },
-];
-
-const secondaryItems = [
-  { to: "/productos", label: "Productos", isButton: true },
-];
 
 export default function Index() {
   const [isHidden, setIsHidden] = useState<boolean>(true);
