@@ -3,6 +3,7 @@ import { json } from "@remix-run/node";
 import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
+import Hero from "~/components/pages/home/Hero";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -18,5 +19,11 @@ export const action = async ({ request }: ActionArgs) => {
 };
 
 export default function Index() {
-  return <></>;
+  return (
+    <>
+      <section className="relative pb-20 overflow-hidden min-h-screen bg-black">
+        <Hero />
+      </section>
+    </>
+  );
 }
