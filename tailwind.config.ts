@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const plugin = require('tailwindcss/plugin')
 
 export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
@@ -8,6 +9,11 @@ export default {
         fadeInLeft: "fadeInLeft 0.5s ease-in-out",
         fadeInUp: "fadeInUp 0.5s ease-out",
         fadeInDown: "fadeInDown 0.5s ease-out",
+      },
+      textShadow: {
+        sm: '0 1px 2px var(--tw-shadow-color)',
+        DEFAULT: '0 2px 4px var(--tw-shadow-color)',
+        lg: '0 8px 16px var(--tw-shadow-color)',
       },
     },
     screens: {
@@ -1150,5 +1156,15 @@ export default {
     zIndex: ["responsive", "focus-within", "focus"],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+    matchUtilities(
+      {
+        'text-shadow': (value) => ({
+          textShadow: value,
+        }),
+      },
+      { values: theme('textShadow') }
+    )
+  }),],
 } satisfies Config;
