@@ -17,6 +17,9 @@ import { items, secondaryItems } from "~/data/navItems";
 import { useState } from "react";
 import Logo from "~/components/Logo/Logo";
 import { htmlPageLinks } from "./data/htmlPageLinks";
+import RootErrorBoundary from "./RootErrorBoundary";
+
+export const ErrorBoundary = RootErrorBoundary;
 
 export const links: LinksFunction = () => htmlPageLinks;
 
