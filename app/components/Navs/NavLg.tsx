@@ -16,8 +16,8 @@ export default function NavLg({
   const anchorClass = `relative group inline-block py-3 px-4 font-semibold ${textClasses} overflow-hidden transition duration-300`;
 
   return (
-    <nav className="absolute top-0 z-10 w-full bg-transparent py-6">
-      <div className="px-4 mx-auto">
+    <nav className="absolute top-0 z-10 w-full bg-transparent py-6 px-4">
+      <div className="mx-auto">
         <div className={"flex items-center justify-" + aLign}>
           {hasLogo && (
             <a className="inline-block text-lg font-bold mr-14" href="/">
