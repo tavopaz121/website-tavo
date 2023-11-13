@@ -4,6 +4,9 @@ import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
 import Hero from "~/components/pages/home/Hero";
+import Servicios from "~/components/pages/home/Servicios";
+import Nosotros from "~/components/pages/home/Nosotros";
+import Equipo from "~/components/pages/home/Equipo";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -24,6 +27,9 @@ export default function Index() {
       <section className="relative pb-20 overflow-hidden min-h-screen bg-black">
         <Hero />
       </section>
+      <Servicios />
+      <Nosotros />
+      <Equipo />
     </>
   );
 }
