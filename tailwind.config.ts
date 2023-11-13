@@ -5,6 +5,11 @@ export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      animation: {
+        fadeInLeft: "fadeInLeft 0.5s ease-in-out",
+        fadeInUp: "fadeInUp 0.5s ease-out",
+        fadeInDown: "fadeInDown 0.5s ease-out",
+      },
       textShadow: {
         sm: '0 1px 2px var(--tw-shadow-color)',
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
@@ -387,6 +392,7 @@ export default {
       serif:
         '"Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
       mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+      pensemosweb: '"Bebas Neue", sans-serif',
     },
     fontSize: {
       xs: ["0.75rem", { lineHeight: "1.5" }],
@@ -598,6 +604,36 @@ export default {
         "50%": {
           transform: "none",
           animationTimingFunction: "cubic-bezier(0,0,0.2,1)",
+        },
+      },
+      fadeInLeft: {
+        from: {
+          opacity: "0",
+          transform: "translate3d(-100%, 0, 0)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translate3d(0, 0, 0)",
+        },
+      },
+      fadeInUp: {
+        from: {
+          opacity: "0",
+          transform: "translate3d(0, 100%, 0)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translate3d(0, 0, 0)",
+        },
+      },
+      fadeInDown: {
+        from: {
+          opacity: "0",
+          transform: "translate3d(0, -100%, 0)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translate3d(0, 0, 0)",
         },
       },
     },

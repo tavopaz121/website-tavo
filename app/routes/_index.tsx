@@ -3,6 +3,7 @@ import { json } from "@remix-run/node";
 import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
+import Hero from "~/components/pages/home/Hero";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -12,7 +13,7 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export const action = async ({ request }: ActionArgs) => {
-  const { uid } = await getLoggedUser(request);
+  const { uid }: any = await getLoggedUser(request);
   const form = await request.formData();
   console.log(form, uid);
 };
@@ -20,14 +21,9 @@ export const action = async ({ request }: ActionArgs) => {
 export default function Index() {
   return (
     <>
-      <main className="p-2">
-        <section
-          className="grid gap-2 mt-4"
-          style={{
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-          }}
-        ></section>
-      </main>
+      <section className="relative pb-20 overflow-hidden min-h-screen bg-black">
+        <Hero />
+      </section>
     </>
   );
 }

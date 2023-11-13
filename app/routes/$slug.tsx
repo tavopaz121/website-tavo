@@ -3,14 +3,24 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { getPost } from "~/firebase/models/posts.server";
 import { marked } from "marked";
+import type { Post } from "~/types/publish";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
-  const post = await getPost(slug || "");
+  const post: Post = await getPost(slug || "");
+
+  const content: string | undefined = post.content as string;
+
+  if (!content) {
+    throw new Response(`El articulo "${slug}" no existe 😥`, {
+      status: 404,
+      statusText: "Not Found",
+    });
+  }
 
   return json({
     post,
-    html: marked(post.content.replace(/#NEWLINE#/g, "\n")),
+    html: marked(content.replace(/#NEWLINE#/g, "\n")),
   });
 }
 
@@ -40,23 +50,21 @@ export function meta({ data, params }: any) {
   ];
 }
 
-export default function Post() {
+export default function Slug() {
   const { post, html } = useLoaderData();
-
-  if (post.errorMessage) return <h1>Ops! El articulo no ha sido encontrado</h1>;
 
   const { image, title } = post;
 
   return (
-    <div className="p-2 flex flex-wrap gap-3">
-      <main className="flex-grow flex-shrink" style={{ flexBasis: "69%" }}>
-        <article className="p-1 slug">
-          <h1 className="mt-2 font-bold">{title}</h1>
+    <div className="px-4 flex flex-wrap gap-3">
+      <section className="flex-grow flex-shrink" style={{ flexBasis: "69%" }}>
+        <article className="slug">
+          <h1 className="font-bold">{title}</h1>
           <figure className="relative">
             <img
               src={image}
               alt={title}
-              className=" rounded-xl w-full object-contain"
+              className="rounded-xl w-full object-contain"
             />
 
             <Link>
@@ -69,7 +77,7 @@ export default function Post() {
             dangerouslySetInnerHTML={{ __html: html }}
           ></section>
         </article>
-      </main>
+      </section>
       <aside className="flex-grow flex-shrink" style={{ flexBasis: "29%" }}>
         Contenido secundario lateral
       </aside>

@@ -12,8 +12,9 @@ export type Post =
   | {
       id?: string;
       title: string;
-      description: string;
       content: string;
+      description: string;
+      price: number;
     }
   | { [k: string]: FormDataEntryValue };
 
