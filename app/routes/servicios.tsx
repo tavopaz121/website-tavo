@@ -1,23 +1,21 @@
-import CardInfo from "~/components/CardInfo/CardInfo";
-
-import definicionImg from "~/assets/vectors/Frame 55.webp";
-import disenioImg from "../assets/vectors/Frame 51-p-500.webp";
-import desarrolloImg from "../assets/vectors/Frame 10.webp";
-import lanzamientoImg from "../assets/vectors/Frame 18-p-500.webp";
-import startElement from "../assets/imgs/features/star-element-right.png";
-import heroImg from "../assets/imgs/hero-img.webp";
+import heroImg from "~/assets/imgs/services/3D_Animation_pink2.jpg";
 import CardService from "~/components/CardServices/CardService";
 import { services } from "~/data/services.js";
 import { tools } from "~/data/tools.js";
-
 export default function productos() {
   return (
     <>
-      <section className="mb-5 grid h-screen max-md:h-full">
+      <section className="h-screen max-md:h-full max-md:mb-4">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
             <div>
-              <h1 className="text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
+              <h1
+                className="motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-6xl lg:text-7xl"
+                style={{
+                  animationDelay: "1.5s",
+                  animationFillMode: "both",
+                }}
+              >
                 Desarrollo Web simplificado,
                 <div className="relative inline-flex">
                   <span className="absolute inset-x-0 bottom-0 border-b-[22px] border-[#fb5975]"></span>
@@ -27,14 +25,26 @@ export default function productos() {
                 </div>
               </h1>
 
-              <p className="mt-8 text-base text-gray-500 sm:text-xl">
+              <p
+                className="mt-8 text-base text-gray-500 sm:text-xl motion-safe:animate-fadeIn"
+                style={{
+                  animationDelay: "2s",
+                  animationFillMode: "both",
+                }}
+              >
                 ¡Bienvenido a la puerta de entrada al éxito en línea! En
                 <strong> PensemosWeb</strong>, estamos dedicados a ofrecerte
                 soluciones innovadoras y de vanguardia para que tu presencia en
                 la web destaque y alcance nuevos niveles de éxito.
               </p>
 
-              <div className="mt-10 sm:flex sm:items-center sm:space-x-8">
+              <div
+                className="mt-10 sm:flex sm:items-center sm:space-x-8 motion-safe:animate-fadeIn"
+                style={{
+                  animationDelay: "2s",
+                  animationFillMode: "both",
+                }}
+              >
                 <a
                   href="/"
                   title=""
@@ -46,72 +56,32 @@ export default function productos() {
               </div>
             </div>
 
-            <div>
-              <img className="w-full" src={heroImg} alt="" />
+            <div className="relative">
+              <img
+                className="w-full object-cover relative z-10 motion-safe:animate-fadeInUp"
+                src={heroImg}
+                alt=""
+                style={{
+                  animationDelay: "1s",
+                  animationFillMode: "both",
+                }}
+              />
+              <div
+                className="bg-[#fb5975] absolute top-[-10rem] max-md:hidden left-[30%] h-[640px] w-[250px] z-0 motion-safe:animate-fadeInUp"
+                style={{
+                  animationDelay: "0.5s",
+                  animationFillMode: "both",
+                }}
+              ></div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="relative pt-5 pb-5 lg:pb-5 overflow-hidden">
-        <img
-          className="absolute top-[-4rem] right-0 max-md:opacity-40"
-          src={startElement}
-          alt=""
-        />
-        <div className="relative container px-4 mx-auto">
-          <div className="max-w-md lg:max-w-7xl mx-auto">
-            <div className="flex flex-wrap -mx-4 mb-10 items-center">
-              <div className="w-full lg:w-2/3 xl:w-1/2 px-4 mb-12 lg:mb-0">
-                <div className="w-full">
-                  <h1 className="font-heading text-4xl font-bold text-gray-900">
-                    <span>
-                      Cuenta tu historia con una experiencia digital atractiva
-                      para que tu negocio conecte con las personas.
-                    </span>
-                  </h1>
-                </div>
-              </div>
-              <div className="w-full lg:w-1/4 xl:w-1/2 px-4">
-                <div className="max-w-lg lg:ml-auto">
-                  <p className="text-lg text-gray-500">
-                    Imagina un enfoque que maximice la colaboración, acelere la
-                    entrega de resultados, fomente la mejora constante y se
-                    adapte a los cambios en el camino.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-wrap -mx-4">
-              <CardInfo
-                img={definicionImg}
-                title="Colabora y Aprende"
-                description="En esta fase, trabajamos juntos como equipo, escuchamos tus ideas y necesidades, definimos objetivos en colaboración y mantenemos una comunicación abierta y continua, sin importar tu nivel de experiencia en tecnología."
-              />
-              <CardInfo
-                img={disenioImg}
-                title=" Crea ASAP"
-                description="Una vez entendida tu visión, avanzamos rápidamente en el desarrollo web sin demora. Priorizamos resultados en iteraciones ágiles, acercándote gradualmente a tu producto final para que veas el progreso constantemente."
-              />
-              <CardInfo
-                img={desarrolloImg}
-                title="Retroalimenta"
-                description="En esta etapa, tu opinión y la de tus usuarios son cruciales. Probamos lo construido, recopilamos tus comentarios y ajustamos nuestro enfoque. La retroalimentación constante garantiza que el producto final cumpla con tus necesidades y expectativas."
-              />
-              <CardInfo
-                img={lanzamientoImg}
-                title="Adapta/Mejora"
-                description="Nos adaptamos al cambio constante en el mundo digital, mejorando continuamente nuestros procesos. Te entregamos un producto excepcional y te capacitamos para mantenerlo relevante en un mercado en evolución."
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-10 bg-white sm:py-16 lg:py-24">
+      <section className="py-5 bg-white sm:py-5 lg:py-5">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl motion-safe:animate-fadeIn font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
               Nuestras Soluciones
             </h2>
             <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
