@@ -5,7 +5,7 @@ export default function SectionServicios() {
     <section data-testid="servicios" className="relative py-20 overflow-hidden">
       <div className="container px-4 mx-auto">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-orange-900 bg-orange-50 rounded-full">
+          <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
             SERVICIOS
           </span>
           <h2 className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900 mb-24">

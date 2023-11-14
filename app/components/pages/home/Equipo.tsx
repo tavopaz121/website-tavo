@@ -5,7 +5,7 @@ export default function Equipo() {
   return (
     <section className="py-20 md:py-24">
       <div className="container px-4 mx-auto">
-        <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 sm:py-28 rounded-4xl bg-blue-800 overflow-hidden flex flex-row-reverse">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 sm:py-28 rounded-4xl bg-gray-900 overflow-hidden flex flex-row-reverse">
           <img
             className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full object-cover"
             src={circle}
@@ -18,7 +18,7 @@ export default function Equipo() {
           />
 
           <div className="relative text-right w-[50%]">
-            <span className="block text-2xl sm:text-3xl md:text-4xl font-semibold text-blue-400 mb-6">
+            <span className="block text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-600 mb-6">
               ¿Listo para la colaboracion?
             </span>
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8">
@@ -26,10 +26,10 @@ export default function Equipo() {
               <span className="font-serif italic"></span>
             </h2>
             <a
-              className="relative group inline-block w-full sm:w-auto py-4 px-6 text-blue-900 hover:text-white font-semibold bg-white rounded-md overflow-hidden transition duration-300"
+              className="relative group inline-block w-full sm:w-auto py-4 px-6 text-blue-900 hover:text-white font-semibold bg-gray-100 rounded-md overflow-hidden transition duration-300"
               href="/equipo"
             >
-              <div className="absolute top-0 right-full w-full h-full bg-pink-500 transform group-hover:translate-x-full group-hover:scale-110 transition duration-500" />
+              <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-110 transition duration-500" />
               <div className="relative flex items-center justify-center">
                 <span className="mr-4">¡Vamos!</span>
                 <span>

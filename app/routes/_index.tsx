@@ -7,6 +7,8 @@ import Hero from "~/components/pages/home/Hero";
 import Servicios from "~/components/pages/home/Servicios";
 import Nosotros from "~/components/pages/home/Nosotros";
 import Equipo from "~/components/pages/home/Equipo";
+import Blogs from "~/components/pages/home/Blogs";
+import Contacto from "~/components/pages/home/Contacto";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -30,6 +32,8 @@ export default function Index() {
       <Servicios />
       <Nosotros />
       <Equipo />
+      <Blogs />
+      <Contacto />
     </>
   );
 }
