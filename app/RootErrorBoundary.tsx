@@ -2,15 +2,8 @@ import { Links, Meta, Scripts } from "@remix-run/react";
 import { useRouteError, isRouteErrorResponse } from "@remix-run/react";
 import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
-import { useState } from "react";
 
 export default function RootErrorBoundary() {
-  const [isHidden, setIsHidden] = useState<boolean>(true);
-
-  function handleMenuButton() {
-    setIsHidden(!isHidden);
-  }
-
   const error = useRouteError();
 
   return (
@@ -26,15 +19,7 @@ export default function RootErrorBoundary() {
       </head>
       <body>
         <main className="pt-[108px]">
-          <Nav
-            handleMenuButton={handleMenuButton}
-            items={items}
-            secondaryItems={secondaryItems}
-            hasLogo={true}
-            aLign="center"
-            isHidden={isHidden}
-            highLighClassName="bg-white"
-          />
+          <Nav items={items} secondaryItems={secondaryItems} />
           <section className="px-4">
             <h1>
               {isRouteErrorResponse(error)

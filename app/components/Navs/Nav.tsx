@@ -1,12 +1,69 @@
 import NavLg from "./NavLg";
 import NavMobile from "./NavMobile";
 import type { PropsNav } from "./Nav.d";
+import { useState, useEffect, useRef } from "react";
+import Logo from "../Logo/Logo";
 
 export default function Nav(props: PropsNav) {
+  const [hasScrolledDown, setHasScrolledDown] = useState<boolean>(false);
+  const navRef = useRef<HTMLElement>(null);
+  const [isHidden, setIsHidden] = useState<boolean>(true);
+
+  function handleMenuButton() {
+    setIsHidden(!isHidden);
+  }
+
+  useEffect(() => {
+    function listener() {
+      const scrollPosition = window.scrollY;
+      if (
+        navRef &&
+        navRef.current &&
+        scrollPosition > navRef?.current?.offsetHeight
+      ) {
+        setHasScrolledDown(true);
+      } else {
+        setHasScrolledDown(false);
+      }
+    }
+    window.addEventListener("scroll", listener);
+    window.dispatchEvent(new Event("scroll")); // Run at loaded, for example when an user reload the page
+
+    return () => window.removeEventListener("scroll", listener);
+  }, []);
+
+  const { isHome } = props;
+  let textClasses = isHome
+    ? "text-white dark:text-white"
+    : "text-black dark:text-black";
+  textClasses = hasScrolledDown ? "text-black dark:text-black" : textClasses;
+
+  const anchorClasses = `relative group inline-block py-3 px-4 font-semibold ${textClasses} overflow-hidden transition duration-1000`;
+  const highLightClasses = hasScrolledDown
+    ? "bg-white"
+    : isHome
+    ? "bg-gradient-pink"
+    : "bg-white";
+  const logoColor = hasScrolledDown ? "#000" : "#fff";
+
   return (
     <>
-      <NavLg {...props}></NavLg>
-      <NavMobile {...props}>
+      <NavLg
+        {...props}
+        handleMenuButton={handleMenuButton}
+        hasLogo={true}
+        logoColor={logoColor}
+        anchorClasses={anchorClasses}
+        highLightClasses={highLightClasses}
+        hasScrolledDown={hasScrolledDown}
+        ref={navRef}
+      ></NavLg>
+      <NavMobile
+        {...props}
+        handleMenuButton={handleMenuButton}
+        isHidden={isHidden}
+        logo={<Logo className="h-10 fill-white" color={"#fff"} />}
+      >
         <div>
           <div className="flex w-20 h-20 mb-6 items-center justify-center bg-pink-500 rounded-full">
             <svg

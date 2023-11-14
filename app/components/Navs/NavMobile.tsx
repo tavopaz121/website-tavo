@@ -1,4 +1,4 @@
-import type { PropsNav } from "./Nav.d";
+import type { PropsNavMobile } from "./Nav.d";
 
 export default function NavMobile({
   handleMenuButton,
@@ -7,7 +7,7 @@ export default function NavMobile({
   secondaryItems,
   isHidden,
   children,
-}: PropsNav) {
+}: PropsNavMobile) {
   return (
     <div
       className={`${

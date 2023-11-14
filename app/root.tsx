@@ -14,7 +14,6 @@ import { json } from "@remix-run/node";
 import { getLoggedUser } from "./firebase/auth.server";
 import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
-import { useState } from "react";
 import { htmlPageLinks } from "./data/htmlPageLinks";
 import RootErrorBoundary from "./RootErrorBoundary";
 
@@ -31,14 +30,9 @@ export async function loader({ request }: LoaderArgs) {
 }
 
 export default function App() {
-  const [isHidden, setIsHidden] = useState<boolean>(true);
   const { pathname } = useLocation();
 
   const isHome = pathname === "/";
-
-  function handleMenuButton() {
-    setIsHidden(!isHidden);
-  }
 
   return (
     <html lang="es">
@@ -52,16 +46,7 @@ export default function App() {
       </head>
       <body>
         <main className={`${isHome ? "" : "pt-[108px]"}`}>
-          <Nav
-            handleMenuButton={handleMenuButton}
-            items={items}
-            secondaryItems={secondaryItems}
-            hasLogo={true}
-            aLign="center"
-            isHidden={isHidden}
-            isHome={isHome}
-            highLighClassName={`${isHome ? "bg-gradient-pink" : "bg-white"}`}
-          />
+          <Nav items={items} secondaryItems={secondaryItems} isHome={isHome} />
           <Outlet />
         </main>
         <ScrollRestoration />
