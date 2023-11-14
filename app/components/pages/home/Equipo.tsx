@@ -4,8 +4,8 @@ import equipo from "app/assets/imgs/equipo.webp";
 export default function Equipo() {
   return (
     <section className="py-20 md:py-24">
-      <div className="container px-4 mx-auto">
-        <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 sm:py-28 rounded-4xl bg-gray-900 overflow-hidden flex flex-row-reverse">
+      <div className="container px-4 max-xs:px-0 mx-auto">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 max-xs:px-0 py-16 max-xs:pt-0 sm:py-28 rounded-4xl max-xs:rounded-none bg-gray-900 overflow-hidden flex flex-row-reverse max-sm:flex-col items-center">
           <img
             className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full object-cover"
             src={circle}
@@ -14,10 +14,10 @@ export default function Equipo() {
           <img
             src={equipo}
             alt="Un equipo trabajando"
-            className="absolute top-0 left-0 transform translate-x-0 h-full object-cover"
+            className="absolute max-xs:static top-0 left-0 transform translate-x-0 h-full max-xs:h-auto object-cover"
           />
 
-          <div className="relative text-right w-[50%]">
+          <div className="relative text-right w-[50%] max-xs:w-3/4 max-xs:mt-8 max-xs:flex flex-col items-center">
             <span className="block text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-600 mb-6">
               ¿Listo para la colaboracion?
             </span>
@@ -26,7 +26,7 @@ export default function Equipo() {
               <span className="font-serif italic"></span>
             </h2>
             <a
-              className="relative group inline-block w-full sm:w-auto py-4 px-6 text-blue-900 hover:text-white font-semibold bg-gray-100 rounded-md overflow-hidden transition duration-300"
+              className="relative group inline-block w-full max-xs:w-3/4 sm:w-auto py-4 px-6 text-blue-900 hover:text-white font-semibold bg-gray-100 rounded-md overflow-hidden transition duration-300"
               href="/equipo"
             >
               <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-110 transition duration-500" />
