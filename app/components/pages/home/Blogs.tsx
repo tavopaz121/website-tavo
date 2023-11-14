@@ -62,7 +62,9 @@ export default function Blogs() {
           <div className="pt-12 border-t-2 border-gray-100 text-center">
             <a
               className="relative group inline-block py-4 px-7 font-semibold text-gray-900 hover:text-orange-50 rounded-full bg-orange-50 transition duration-300 overflow-hidden border-b-3 border-gray-500"
-              href="/"
+              href="https://www.pensemosweb.com/"
+              target="_blank"
+              rel="noreferrer"
             >
               <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
               <span className="relative">Mira más aquí</span>
