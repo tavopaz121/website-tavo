@@ -3,7 +3,6 @@ import { useRouteError, isRouteErrorResponse } from "@remix-run/react";
 import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
 import { useState } from "react";
-import Logo from "~/components/Logo/Logo";
 
 export default function RootErrorBoundary() {
   const [isHidden, setIsHidden] = useState<boolean>(true);
@@ -29,7 +28,6 @@ export default function RootErrorBoundary() {
         <main className="pt-[108px]">
           <Nav
             handleMenuButton={handleMenuButton}
-            logo={<Logo className="h-10 fill-white" color="#ffffff" />}
             items={items}
             secondaryItems={secondaryItems}
             hasLogo={true}

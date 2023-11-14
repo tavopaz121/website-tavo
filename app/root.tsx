@@ -15,7 +15,6 @@ import { getLoggedUser } from "./firebase/auth.server";
 import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
 import { useState } from "react";
-import Logo from "~/components/Logo/Logo";
 import { htmlPageLinks } from "./data/htmlPageLinks";
 import RootErrorBoundary from "./RootErrorBoundary";
 
@@ -55,7 +54,6 @@ export default function App() {
         <main className={`${isHome ? "" : "pt-[108px]"}`}>
           <Nav
             handleMenuButton={handleMenuButton}
-            logo={<Logo className="h-10 fill-white" color="#ffffff" />}
             items={items}
             secondaryItems={secondaryItems}
             hasLogo={true}
