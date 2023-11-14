@@ -12,4 +12,5 @@ export type PropsNav = {
   children?: ReactNode;
   isHidden?: boolean;
   isHome?: boolean;
+  highLighClassName?: string;
 };

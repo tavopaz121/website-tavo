@@ -9,14 +9,19 @@ export default function NavLg({
   aLign,
   children,
   isHome,
+  highLighClassName = "",
 }: PropsNav) {
   const textClasses = isHome
     ? "text-white dark:text-white"
-    : "text-black dark:text-black";
+    : "text-black dark:text-white";
   const anchorClass = `relative group inline-block py-3 px-4 font-semibold ${textClasses} overflow-hidden transition duration-300`;
 
   return (
-    <nav className="absolute top-0 z-10 w-full bg-transparent py-6 px-4">
+    <nav
+      className={`fixed top-0 z-10 w-full ${
+        isHome ? "bg-transparent" : "bg-gradient-pink"
+      } py-6 px-4`}
+    >
       <div className="mx-auto">
         <div className={"flex items-center justify-" + aLign}>
           {hasLogo && (
@@ -66,7 +71,9 @@ export default function NavLg({
               {items?.map(({ to, label }) => (
                 <li key={to}>
                   <a className={anchorClass} href={to}>
-                    <div className="absolute bottom-4 right-full w-full h-2 bg-gradient-pink transform group-hover:translate-x-full transition duration-500" />
+                    <div
+                      className={`absolute bottom-4 right-full w-full h-1 ${highLighClassName} transform group-hover:translate-x-full transition duration-500`}
+                    />
                     <span className="relative">{label}</span>
                   </a>
                 </li>
@@ -81,10 +88,12 @@ export default function NavLg({
                   return (
                     <a
                       key={to}
-                      className={`${anchorClass} border border-gray-200 rounded-md`}
+                      className={`${anchorClass} border border-gray-200 rounded-md hover:text-black`}
                       href={to}
                     >
-                      <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+                      <div
+                        className={`absolute top-0 right-full w-full h-full ${highLighClassName} transform group-hover:translate-x-full group-hover:scale-102 transition duration-500`}
+                      />
                       <span className="relative">{label}</span>
                     </a>
                   );

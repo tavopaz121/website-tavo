@@ -29,12 +29,13 @@ export default function RootErrorBoundary() {
         <main className="pt-[108px]">
           <Nav
             handleMenuButton={handleMenuButton}
-            logo={<Logo className="h-10 fill-white" color="#000000" />}
+            logo={<Logo className="h-10 fill-white" color="#ffffff" />}
             items={items}
             secondaryItems={secondaryItems}
             hasLogo={true}
             aLign="center"
             isHidden={isHidden}
+            highLighClassName="bg-white"
           />
           <section className="px-4">
             <h1>

@@ -55,18 +55,14 @@ export default function App() {
         <main className={`${isHome ? "" : "pt-[108px]"}`}>
           <Nav
             handleMenuButton={handleMenuButton}
-            logo={
-              <Logo
-                className="h-10 fill-white"
-                color={`${isHome ? "#ffffff" : "#000000"}`}
-              />
-            }
+            logo={<Logo className="h-10 fill-white" color="#ffffff" />}
             items={items}
             secondaryItems={secondaryItems}
             hasLogo={true}
             aLign="center"
             isHidden={isHidden}
             isHome={isHome}
+            highLighClassName={`${isHome ? "bg-gradient-pink" : "bg-white"}`}
           />
           <Outlet />
         </main>
