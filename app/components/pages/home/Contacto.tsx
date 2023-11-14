@@ -39,8 +39,9 @@ const cardMail: PropsCardCotact = {
   urlImg: orangeEmail,
   isEmail: true,
   description: "Mandadamos un correo para atenderte a la mas brevedad posible",
-  medio: "algo@correo.com",
+  medio: "pensemoswebjs@gmail.com",
   icon: iconEmail,
+  anchor: "mailto:",
 };
 
 const cardPhone: PropsCardCotact = {
@@ -48,8 +49,9 @@ const cardPhone: PropsCardCotact = {
   isEmail: false,
   description:
     "Puede marcar a nuestro numero si desea obtner infomacion personalizada",
-  medio: "4563218574",
+  medio: "278 688 3881",
   icon: iconPhone,
+  anchor: "tel:",
 };
 
 export default function Contacto() {

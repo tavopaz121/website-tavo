@@ -4,6 +4,7 @@ export interface PropsCardCotact {
   description: string;
   medio: string;
   icon: any;
+  anchor: string;
 }
 
 export default function CardContact({
@@ -12,6 +13,7 @@ export default function CardContact({
   description,
   medio,
   icon,
+  anchor,
 }: PropsCardCotact) {
   return (
     <div
@@ -29,7 +31,7 @@ export default function CardContact({
           <span className="block text-sm text-pink-500 mb-8">{medio}</span>
           <a
             className="relative group inline-block py-4 px-6 text-white font-semibold bg-gray-900 rounded-full overflow-hidden"
-            href="/"
+            href={anchor}
           >
             <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
             <div className="relative flex items-center justify-center">
