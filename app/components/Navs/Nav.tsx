@@ -39,11 +39,7 @@ export default function Nav(props: PropsNav) {
   textClasses = hasScrolledDown ? "text-black dark:text-black" : textClasses;
 
   const anchorClasses = `relative group inline-block py-3 px-4 font-semibold ${textClasses} overflow-hidden transition duration-1000`;
-  const highLightClasses = hasScrolledDown
-    ? "bg-white"
-    : isHome
-    ? "bg-gradient-pink"
-    : "bg-white";
+  const highLightClasses = "bg-gradient-pink";
   const logoColor = hasScrolledDown ? "#000" : "#fff";
 
   return (
