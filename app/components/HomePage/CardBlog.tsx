@@ -7,10 +7,14 @@ interface TypeBlog {
 
 export default function Blog({ image, fecha, contenido, anchor }: TypeBlog) {
   return (
-    <div className="py-12 border-t-2 border-gray-100">
-      <div className="flex flex-wrap lg:flex-nowrap items-center">
-        <div className="w-full lg:w-auto px-4 mb-8 lg:mb-0">
-          <img className="block w-44 h-30" src={image} alt="" />
+    <div className="py-12 border-t-2 border-gray-100 max-lg:flex justify-center">
+      <div className="flex flex-wrap lg:flex-nowrap items-center max-lg:w-96">
+        <div className="w-full lg:w-auto px-4 mb-8 lg:mb-0 flex flex-col items-center">
+          <img
+            className="block w-44 h-30 max-lg:w-full max-lg:h-auto"
+            src={image}
+            alt=""
+          />
         </div>
         <div className="w-full lg:w-9/12 px-4 mb-10 lg:mb-0">
           <div className="max-w-2xl">
