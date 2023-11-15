@@ -9,6 +9,7 @@ export default {
         fadeInLeft: "fadeInLeft 0.5s ease-in-out",
         fadeInUp: "fadeInUp 0.5s ease-out",
         fadeInDown: "fadeInDown 0.5s ease-out",
+        fadeIn: 'fadeIn 0.5s ease-out'
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
@@ -633,6 +634,15 @@ export default {
         to: {
           opacity: "1",
           transform: "translate3d(0, 0, 0)",
+        },
+      },
+      fadeIn: {
+        from: {
+          opacity: "0",
+        },
+
+        to: {
+          opacity: "1",
         },
       },
     },
