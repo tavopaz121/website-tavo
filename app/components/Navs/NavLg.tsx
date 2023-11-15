@@ -18,15 +18,16 @@ export default forwardRef(function NavLg(
   }: PropsNavLg,
   ref: React.ForwardedRef<HTMLElement>,
 ) {
-  const bg = isHome ? "bg-transparent" : "bg-pink-600";
+  let navClasses = isHome
+    ? "bg-transparent"
+    : "bg-white border border-x-0 border-t-0 border-pink-500";
   const bgOnScroll = hasScrolledDown
-    ? "!py-3 !bg-opacity-0 !bg-pink-600 backdrop-blur"
+    ? "!py-3 bg-white bg-opacity-0 backdrop-blur border border-x-0 border-t-0 border-pink-500 hover:bg-white"
     : "py-6";
-
   return (
     <nav
       ref={ref}
-      className={`fixed top-0 z-10 w-full px-4 duration-1000 hover:!bg-opacity-100 ${bg} ${bgOnScroll}`}
+      className={`fixed top-0 z-10 w-full px-4 duration-1000 ${navClasses} ${bgOnScroll}`}
       style={{
         transitionProperty:
           "padding-top, padding-bottom, background-color, backdrop-filter",
