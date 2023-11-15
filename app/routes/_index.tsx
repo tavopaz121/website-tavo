@@ -4,6 +4,11 @@ import type { UserRecord } from "firebase-admin/auth";
 import { getLoggedUser } from "~/firebase/auth.server";
 import { getPosts } from "~/firebase/models/posts.server";
 import Hero from "~/components/pages/home/Hero";
+import Servicios from "~/components/pages/home/Servicios";
+import Nosotros from "~/components/pages/home/Nosotros";
+import Equipo from "~/components/pages/home/Equipo";
+import Blogs from "~/components/pages/home/Blogs";
+import Contacto from "~/components/pages/home/Contacto";
 
 export async function loader({ request }: LoaderArgs) {
   const user: UserRecord | null = await getLoggedUser(request);
@@ -21,9 +26,14 @@ export const action = async ({ request }: ActionArgs) => {
 export default function Index() {
   return (
     <>
-      <section className="relative pb-20 overflow-hidden min-h-screen bg-black">
-        <Hero />
+      <section className="relative pb-20 overflow-hidden min-h-screen bg-black px-4">
+        <Hero videoSrc="https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-3s-darker.mp4?alt=media&token=d66dd8d8-378a-4c35-968d-e1d3e31971d0" />
       </section>
+      <Servicios />
+      <Nosotros />
+      <Equipo />
+      <Blogs />
+      <Contacto />
     </>
   );
 }

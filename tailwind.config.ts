@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-const plugin = require('tailwindcss/plugin')
+const plugin = require("tailwindcss/plugin");
 
 export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
@@ -9,11 +9,12 @@ export default {
         fadeInLeft: "fadeInLeft 0.5s ease-in-out",
         fadeInUp: "fadeInUp 0.5s ease-out",
         fadeInDown: "fadeInDown 0.5s ease-out",
+        fadeIn: 'fadeIn 0.5s ease-out'
       },
       textShadow: {
-        sm: '0 1px 2px var(--tw-shadow-color)',
-        DEFAULT: '0 2px 4px var(--tw-shadow-color)',
-        lg: '0 8px 16px var(--tw-shadow-color)',
+        sm: "0 1px 2px var(--tw-shadow-color)",
+        DEFAULT: "0 2px 4px var(--tw-shadow-color)",
+        lg: "0 8px 16px var(--tw-shadow-color)",
       },
     },
     screens: {
@@ -392,7 +393,6 @@ export default {
       serif:
         '"Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
       mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-      pensemosweb: '"Bebas Neue", sans-serif',
     },
     fontSize: {
       xs: ["0.75rem", { lineHeight: "1.5" }],
@@ -634,6 +634,15 @@ export default {
         to: {
           opacity: "1",
           transform: "translate3d(0, 0, 0)",
+        },
+      },
+      fadeIn: {
+        from: {
+          opacity: "0",
+        },
+
+        to: {
+          opacity: "1",
         },
       },
     },
@@ -1158,13 +1167,14 @@ export default {
   corePlugins: {},
   plugins: [
     plugin(function ({ matchUtilities, theme }) {
-    matchUtilities(
-      {
-        'text-shadow': (value) => ({
-          textShadow: value,
-        }),
-      },
-      { values: theme('textShadow') }
-    )
-  }),],
+      matchUtilities(
+        {
+          "text-shadow": (value) => ({
+            textShadow: value,
+          }),
+        },
+        { values: theme("textShadow") },
+      );
+    }),
+  ],
 } satisfies Config;
