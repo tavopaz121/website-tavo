@@ -1,27 +1,45 @@
-import type { PropsNav } from "./Nav.d";
+import { forwardRef } from "react";
+import Logo from "~/components/Logo/Logo";
+import type { PropsNavLg } from "./Nav.d";
 
-export default function NavLg({
-  handleMenuButton,
-  logo,
-  hasLogo,
-  items,
-  secondaryItems,
-  aLign,
-  children,
-  isHome,
-}: PropsNav) {
-  const textClasses = isHome
-    ? "text-white dark:text-white"
-    : "text-black dark:text-black";
-  const anchorClass = `relative group inline-block py-3 px-4 font-semibold ${textClasses} overflow-hidden transition duration-300`;
+export default forwardRef(function NavLg(
+  {
+    handleMenuButton,
+    hasLogo,
+    items,
+    secondaryItems,
+    aLign,
+    children,
+    isHome,
+    hasScrolledDown,
+    logoColor,
+    anchorClasses,
+    highLightClasses,
+  }: PropsNavLg,
+  ref: React.ForwardedRef<HTMLElement>,
+) {
+  const bg = isHome ? "bg-transparent" : "bg-pink-600";
+  const bgOnScroll = hasScrolledDown
+    ? "!py-3 !bg-opacity-0 !bg-pink-600 backdrop-blur"
+    : "py-6";
 
   return (
-    <nav className="absolute top-0 z-10 w-full bg-transparent py-6 px-4">
+    <nav
+      ref={ref}
+      className={`fixed top-0 z-10 w-full px-4 duration-1000 hover:!bg-opacity-100 ${bg} ${bgOnScroll}`}
+      style={{
+        transitionProperty:
+          "padding-top, padding-bottom, background-color, backdrop-filter",
+      }}
+    >
       <div className="mx-auto">
         <div className={"flex items-center justify-" + aLign}>
           {hasLogo && (
             <a className="inline-block text-lg font-bold mr-14" href="/">
-              {logo}
+              <Logo
+                className="h-10 fill-white transition-all duration-1000"
+                color={`${isHome ? logoColor : "#000"}`}
+              />
             </a>
           )}
           <div className="lg:hidden ml-auto">
@@ -65,8 +83,10 @@ export default function NavLg({
             <ul className="hidden lg:flex lg:w-auto lg:space-x-6">
               {items?.map(({ to, label }) => (
                 <li key={to}>
-                  <a className={anchorClass} href={to}>
-                    <div className="absolute bottom-4 right-full w-full h-2 bg-gradient-pink transform group-hover:translate-x-full transition duration-500" />
+                  <a className={anchorClasses} href={to}>
+                    <div
+                      className={`absolute bottom-4 right-full w-full h-1 ${highLightClasses} transform group-hover:translate-x-full transition duration-500`}
+                    />
                     <span className="relative">{label}</span>
                   </a>
                 </li>
@@ -81,10 +101,12 @@ export default function NavLg({
                   return (
                     <a
                       key={to}
-                      className={`${anchorClass} border border-gray-200 rounded-md`}
+                      className={`${anchorClasses} border border-gray-200 rounded-md hover:text-black`}
                       href={to}
                     >
-                      <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+                      <div
+                        className={`absolute top-0 right-full w-full h-full ${highLightClasses} transform group-hover:translate-x-full group-hover:scale-102 transition duration-500`}
+                      />
                       <span className="relative">{label}</span>
                     </a>
                   );
@@ -97,4 +119,4 @@ export default function NavLg({
       </div>
     </nav>
   );
-}
+});
