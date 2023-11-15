@@ -1,4 +1,4 @@
-import heroImg from "~/assets/imgs/services/3D_Animation_pink2.jpg";
+import heroImg from "~/assets/imgs/services/3D_Animation_pink3.webp";
 import CardService from "~/components/CardServices/CardService";
 import { services } from "~/data/services.js";
 import { tools } from "~/data/tools.js";
