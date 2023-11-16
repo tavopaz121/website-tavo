@@ -9,7 +9,7 @@ export default {
         fadeInLeft: "fadeInLeft 0.5s ease-in-out",
         fadeInUp: "fadeInUp 0.5s ease-out",
         fadeInDown: "fadeInDown 0.5s ease-out",
-        fadeIn: 'fadeIn 0.5s ease-out'
+        fadeIn: "fadeIn 0.5s ease-out",
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
@@ -18,6 +18,8 @@ export default {
       },
     },
     screens: {
+      xxs: "320px",
+      xss: "400px",
       xs: "480px",
       sm: "640px",
       md: "768px",
