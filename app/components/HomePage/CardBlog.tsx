@@ -41,16 +41,16 @@ export default function Blog({ image, fecha, contenido, anchor }: TypeBlog) {
               <path
                 d="M1.33301 14.6668L14.6663 1.3335"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></path>
               <path
                 d="M1.33301 1.3335H14.6663V14.6668"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               ></path>
             </svg>
           </a>

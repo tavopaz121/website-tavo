@@ -79,29 +79,15 @@ export default function Servicios() {
     <div data-testid="list-services" className="max-w-7xl mx-auto">
       <div className="flex flex-wrap -mx-4 items-center justify-around">
         <div className="flex flex-col xs:items-center xl:items-start max-w-lg">
-          <div className="xl:w-auto px-4 lg:pb-10 mb-16 lg:mb-0">
+          <div className="xl:w-auto px-4 mb-16 lg:mb-0">
             {serviciosUno.map((servicio, i) => (
               <Servicio key={i} {...servicio} />
             ))}
           </div>
-          <div className="xl:w-auto lg:mb-0 mx-auto px-4 mb-16">
-            <img
-              className="block h-auto md:h-100 lg:h-auto xl:h-150 mx-auto"
-              src={laptop}
-              alt=""
-            />
-          </div>
         </div>
 
         <div className="flex flex-col-reverse xl:flex-col max-w-lg">
-          <div className="xl:w-auto lg:mb-0 mx-auto px-4 mb-16">
-            <img
-              className="block h-auto md:h-100 lg:h-auto xl:h-150 mx-auto"
-              src={laptopPink}
-              alt=""
-            />
-          </div>
-          <div className="xl:w-auto px-4 lg:pb-10 mb-16 lg:mb-0">
+          <div className="xl:w-auto px-4 mb-16 lg:mb-0">
             {serviciosDos.map((servicio, i) => (
               <Servicio key={i} {...servicio} />
             ))}
