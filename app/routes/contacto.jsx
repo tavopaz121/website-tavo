@@ -13,7 +13,7 @@ export default function contacto() {
         src={dots}
         alt=""
       />
-      <div className=" relative z-10 text-center">
+      <div className=" relative -z-10 text-center">
         <div className="relative inline-flex pt-4">
           <span className="absolute inset-x-0 bottom-0 border-b-[22px] border-[#fb5975]"></span>
           <h2 className="relative text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
@@ -69,7 +69,6 @@ export default function contacto() {
               </div>
             </div>
           </div>
-
           <div className="gap-8 flex flex-col md:flex-row w-full">
             {/* Sección de formulario */}
             <div
