@@ -16,7 +16,7 @@ export default function Servicio({
   return (
     <div
       className={`flex items-center min-h-[137px] ${
-        isUltimate ? "" : "pb-12 mb-12 border-b border-gray-100"
+        isUltimate ? "" : "border-b border-gray-100"
       }`}
     >
       <div
