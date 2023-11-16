@@ -7,9 +7,10 @@ export default {
     extend: {
       animation: {
         fadeInLeft: "fadeInLeft 0.5s ease-in-out",
+        fadeInRight: "fadeInRight 0.5s ease-in-out",
         fadeInUp: "fadeInUp 0.5s ease-out",
         fadeInDown: "fadeInDown 0.5s ease-out",
-        fadeIn: 'fadeIn 0.5s ease-out'
+        fadeIn: "fadeIn 0.5s ease-out",
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
@@ -610,6 +611,16 @@ export default {
         from: {
           opacity: "0",
           transform: "translate3d(-100%, 0, 0)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translate3d(0, 0, 0)",
+        },
+      },
+      fadeInRight: {
+        from: {
+          opacity: "0",
+          transform: "translate3d(100%, 0, 0)",
         },
         to: {
           opacity: "1",

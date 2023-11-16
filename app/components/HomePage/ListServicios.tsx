@@ -9,79 +9,79 @@ import tienda from "app/assets/imgs/icons/tienda-online.png";
 import laptop from "app/assets/imgs/laptop.jpeg";
 import laptopPink from "app/assets/imgs/laptop-pink.jpeg";
 
-import Servicio from "./CardServicio";
-
-const serviciosUno = [
-  {
-    urlImg: blog,
-    servive: "Blogs",
-    description: "Crea contenido con nuestros blogs",
-    iconColor: "bg-blue-100",
-    isUltimate: false,
-  },
-  {
-    urlImg: landgin,
-    servive: "Landing Pages",
-    description: "Captura leads y promociona ofertas",
-    iconColor: "bg-orange-100",
-    isUltimate: false,
-  },
-  {
-    urlImg: corporativo,
-    servive: "Páginas Web Corporativas",
-    description: "Diseñamos páginas web personalizadas",
-    iconColor: "bg-gray-300",
-    isUltimate: false,
-  },
-  {
-    urlImg: aplicaciones,
-    servive: "Aplicaciones Web",
-    description: "Apps que satisfacen tus necesidades específicas",
-    iconColor: "bg-red-200",
-    isUltimate: true,
-  },
-];
-
-const serviciosDos = [
-  {
-    urlImg: exito,
-    servive: "Tu Éxito, Nuestra Prioridad",
-    description: "¡Contáctanos hoy mismo!",
-    iconColor: "bg-yellow-200",
-    isUltimate: false,
-  },
-  {
-    urlImg: progresivo,
-    servive: "Aplicaciones Web Progresivas",
-    description: "Ofrece una experiencia aumentando la retención de usuarios",
-    iconColor: "bg-green-200",
-    isUltimate: false,
-  },
-  {
-    urlImg: seo,
-    servive: "SEO",
-    description: "Atrae clientes potenciales con estrategias de SEO",
-    iconColor: "bg-blue-100",
-    isUltimate: false,
-  },
-  {
-    urlImg: tienda,
-    servive: "Tiendas Online",
-    description:
-      "Aumentan ventas y ofrecen una experiencia de compra impecable",
-    iconColor: "bg-orange-100",
-    isUltimate: true,
-  },
-];
+import CardServicio from "./CardServicio";
 
 export default function Servicios() {
+  const serviciosUno = [
+    {
+      urlImg: blog,
+      servive: "Blogs",
+      description: "Crea contenido con nuestros blogs",
+      iconColor: "bg-blue-100",
+      isUltimate: false,
+    },
+    {
+      urlImg: landgin,
+      servive: "Landing Pages",
+      description: "Captura leads y promociona ofertas",
+      iconColor: "bg-orange-100",
+      isUltimate: false,
+    },
+    {
+      urlImg: corporativo,
+      servive: "Páginas Web Corporativas",
+      description: "Diseñamos páginas web personalizadas",
+      iconColor: "bg-gray-300",
+      isUltimate: false,
+    },
+    {
+      urlImg: aplicaciones,
+      servive: "Aplicaciones Web",
+      description: "Apps que satisfacen tus necesidades específicas",
+      iconColor: "bg-red-200",
+      isUltimate: true,
+    },
+  ];
+
+  const serviciosDos = [
+    {
+      urlImg: exito,
+      servive: "Tu Éxito, Nuestra Prioridad",
+      description: "¡Contáctanos hoy mismo!",
+      iconColor: "bg-yellow-200",
+      isUltimate: false,
+    },
+    {
+      urlImg: progresivo,
+      servive: "Aplicaciones Web Progresivas",
+      description: "Ofrece una experiencia aumentando la retención de usuarios",
+      iconColor: "bg-green-200",
+      isUltimate: false,
+    },
+    {
+      urlImg: seo,
+      servive: "SEO",
+      description: "Atrae clientes potenciales con estrategias de SEO",
+      iconColor: "bg-blue-100",
+      isUltimate: false,
+    },
+    {
+      urlImg: tienda,
+      servive: "Tiendas Online",
+      description:
+        "Aumentan ventas y ofrecen una experiencia de compra impecable",
+      iconColor: "bg-orange-100",
+      isUltimate: true,
+    },
+  ];
+
   return (
     <div data-testid="list-services" className="max-w-7xl mx-auto">
       <div className="flex flex-wrap -mx-4 items-center justify-around">
         <div className="flex flex-col xs:items-center xl:items-start max-w-lg">
           <div className="xl:w-auto px-4 lg:pb-10 mb-16 lg:mb-0">
             {serviciosUno.map((servicio, i) => (
-              <Servicio key={i} {...servicio} />
+              <CardServicio key={i} {...servicio} position="left" delay={1} />
             ))}
           </div>
           <div className="xl:w-auto lg:mb-0 mx-auto px-4 mb-16">
@@ -103,7 +103,7 @@ export default function Servicios() {
           </div>
           <div className="xl:w-auto px-4 lg:pb-10 mb-16 lg:mb-0">
             {serviciosDos.map((servicio, i) => (
-              <Servicio key={i} {...servicio} />
+              <CardServicio key={i} {...servicio} position="right" delay={1} />
             ))}
           </div>
         </div>
