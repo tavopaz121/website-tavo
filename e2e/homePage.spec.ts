@@ -9,7 +9,7 @@ test.describe("When user visit the page Pensemos web", () => {
     page,
   }) => {
     await expect(page.getByTestId("servicios")).toBeVisible();
-    await expect(page.getByText("Ofrecemos nuestros")).toBeVisible();
+    await expect(page.getByTestId("title-servicios")).toBeVisible();
     await expect(page.getByTestId("list-services")).toBeVisible();
 
     await expect(page.getByText("Nosotros")).toBeVisible();
