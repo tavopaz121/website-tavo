@@ -104,8 +104,8 @@ export default function ListServicios() {
         />
 
         <div className="flex xl:flex-col max-w-lg overflow-hidden">
+          <div className="hidden">{(delay = 1)}</div>
           <div className="xl:w-auto px-4 mb-16 lg:mb-0">
-            {(delay = 1)}
             {serviciosDos.map((servicio) => (
               <CardServicio
                 key={servicio.servive}
