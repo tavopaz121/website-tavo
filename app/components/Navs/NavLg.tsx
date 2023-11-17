@@ -36,7 +36,10 @@ export default forwardRef(function NavLg(
       <div className="mx-auto">
         <div className={"flex items-center justify-" + aLign}>
           {hasLogo && (
-            <a className="inline-block text-lg font-bold mr-14" href="/">
+            <a
+              className="inline-block text-lg font-bold mr-14 max-xss:mr-1"
+              href="/"
+            >
               <Logo
                 className="h-10 fill-white transition-all duration-1000"
                 color={`${isHome ? logoColor : "#000"}`}
