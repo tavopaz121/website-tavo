@@ -6,12 +6,11 @@ import exito from "app/assets/imgs/icons/desarrollo-de-carrera.png";
 import progresivo from "app/assets/imgs/icons/progresivo.png";
 import seo from "app/assets/imgs/icons/seo.png";
 import tienda from "app/assets/imgs/icons/tienda-online.png";
-import laptop from "app/assets/imgs/laptop.jpeg";
-import laptopPink from "app/assets/imgs/laptop-pink.jpeg";
+import servicesImg from "~/assets/imgs/inicio/services.webp";
 
 import CardServicio from "./CardServicio";
 
-export default function Servicios() {
+export default function ListServicios() {
   const serviciosUno = [
     {
       urlImg: blog,
@@ -75,21 +74,45 @@ export default function Servicios() {
     },
   ];
 
+  let delay = 1;
+
   return (
-    <div data-testid="list-services" className="max-w-7xl mx-auto">
-      <div className="flex flex-wrap -mx-4 items-center justify-around">
-        <div className="flex flex-col xs:items-center xl:items-start max-w-lg">
+    <div data-testid="list-services" className="mx-auto">
+      <div className="grid grid-cols-3 items-center justify-around">
+        <div className="flex xl:flex-col max-w-lg overflow-hidden">
           <div className="xl:w-auto px-4 mb-16 lg:mb-0">
-            {serviciosUno.map((servicio, i) => (
-              <CardServicio key={i} {...servicio} position="left" delay={1} />
+            {serviciosUno.map((servicio) => (
+              <CardServicio
+                key={servicio.servive}
+                {...servicio}
+                position="left"
+                delay={(delay += 0.15)}
+              />
             ))}
           </div>
         </div>
 
-        <div className="flex flex-col-reverse xl:flex-col max-w-lg">
+        <img
+          className="motion-safe:animate-fadeIn rounded-[50%] h-[600px] bg-cover bg-center bg-no-repeat mx-auto mb-8 object-cover"
+          style={{
+            animationDelay: "0.2s",
+            animationFillMode: "both",
+            animationDuration: "1.5s",
+          }}
+          src={servicesImg}
+          alt="Mujer sonriendo con una latop"
+        />
+
+        <div className="flex xl:flex-col max-w-lg overflow-hidden">
           <div className="xl:w-auto px-4 mb-16 lg:mb-0">
-            {serviciosDos.map((servicio, i) => (
-              <CardServicio key={i} {...servicio} position="right" delay={1} />
+            {(delay = 1)}
+            {serviciosDos.map((servicio) => (
+              <CardServicio
+                key={servicio.servive}
+                {...servicio}
+                position="right"
+                delay={(delay += 0.15)}
+              />
             ))}
           </div>
         </div>

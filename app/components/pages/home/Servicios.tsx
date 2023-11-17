@@ -1,5 +1,4 @@
 import ListServicios from "~/components/HomePage/ListServicios";
-import servicesImg from "~/assets/imgs/inicio/services.webp";
 
 export default function SectionServicios() {
   return (
@@ -17,12 +16,6 @@ export default function SectionServicios() {
             <span className="font-serif italic">servicios</span>
           </h2>
         </div>
-        <div
-          className="rounded-[50%] w-[600px] h-[600px] bg-cover bg-center bg-no-repeat mx-auto mb-8"
-          style={{
-            backgroundImage: `url(${servicesImg})`,
-          }}
-        ></div>
         <ListServicios />
       </div>
     </section>
