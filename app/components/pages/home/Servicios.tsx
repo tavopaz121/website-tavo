@@ -1,6 +1,9 @@
 import ListServicios from "~/components/HomePage/ListServicios";
+import { useRef } from "react";
 
 export default function SectionServicios() {
+  const titleServicios = useRef(null);
+
   return (
     <section data-testid="servicios" className="relative py-20 overflow-hidden">
       <div className="container px-4 mx-auto">
@@ -9,6 +12,7 @@ export default function SectionServicios() {
             SERVICIOS
           </span>
           <h2
+            ref={titleServicios}
             data-testid="title-servicios"
             className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900 mb-8"
           >
@@ -16,7 +20,7 @@ export default function SectionServicios() {
             <span className="font-serif italic">servicios</span>
           </h2>
         </div>
-        <ListServicios />
+        <ListServicios referenceTitle={titleServicios} />
       </div>
     </section>
   );

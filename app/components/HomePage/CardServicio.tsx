@@ -18,25 +18,25 @@ export default function Servicio({
   delay,
 }: PropsServicio) {
   let border = isUltimate ? "" : "border-b border-gray-200";
-  let side = "";
+  let fadeIn = "";
   let reverseCard = "";
   let marginIcon = "";
   let textOrientation = "";
 
   if (position === "left") {
-    side = "Right";
+    fadeIn = "motion-safe:animate-fadeInRight";
     reverseCard = "flex-row-reverse";
     marginIcon = "ml-6";
     textOrientation = "text-right";
   } else {
-    side = "Left";
+    fadeIn = "motion-safe:animate-fadeInLeft";
     marginIcon = "mr-6";
     textOrientation = "text-left";
   }
 
   return (
     <div
-      className={`flex items-center min-h-[137px] ${reverseCard} motion-safe:animate-fadeIn${side}`}
+      className={`flex items-center min-h-[137px] ${reverseCard} ${fadeIn}`}
       style={{
         animationDelay: `${delay}s`,
         animationFillMode: "both",
