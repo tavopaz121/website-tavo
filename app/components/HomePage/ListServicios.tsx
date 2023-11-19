@@ -6,10 +6,10 @@ import exito from "app/assets/imgs/icons/desarrollo-de-carrera.png";
 import progresivo from "app/assets/imgs/icons/progresivo.png";
 import seo from "app/assets/imgs/icons/seo.png";
 import tienda from "app/assets/imgs/icons/tienda-online.png";
-import laptop from "app/assets/imgs/laptop.jpeg";
-import laptopPink from "app/assets/imgs/laptop-pink.jpeg";
+import servicesImg from "~/assets/imgs/inicio/services.webp";
 
-import Servicio from "./CardServicio";
+import CardServicio from "./CardServicio";
+import { useEffect, useState } from "react";
 
 const serviciosUno = [
   {
@@ -74,22 +74,70 @@ const serviciosDos = [
   },
 ];
 
-export default function Servicios() {
+export default function ListServicios({ referenceTitle }) {
+  const [isHidden, setIsHidden] = useState("hidden");
+  let gridColumns = isHidden == "hidden" ? "grid-cols-1" : "grid-cols-3";
+  let delayListLeft = 0.5;
+  let delayListRight = 0.5;
+
+  const options = { root: null, rootMargin: "0px", threshold: 1.0 };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(showListServices, options);
+    observer.observe(referenceTitle.current);
+  }, []);
+
+  function showListServices(
+    entries: IntersectionObserverEntry[],
+    observer: IntersectionObserver,
+  ) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setIsHidden("");
+      }
+    });
+  }
+
   return (
-    <div data-testid="list-services" className="max-w-7xl mx-auto">
-      <div className="flex flex-wrap -mx-4 items-center justify-around">
-        <div className="flex flex-col xs:items-center xl:items-start max-w-lg">
+    <div data-testid="list-services" className="mx-auto">
+      <div className={`grid ${gridColumns} items-center justify-around`}>
+        <div
+          className={`flex xl:flex-col max-w-lg overflow-hidden ${isHidden}`}
+        >
           <div className="xl:w-auto px-4 mb-16 lg:mb-0">
-            {serviciosUno.map((servicio, i) => (
-              <Servicio key={i} {...servicio} />
+            {serviciosUno.map((servicio) => (
+              <CardServicio
+                key={servicio.servive}
+                {...servicio}
+                position="left"
+                delay={(delayListLeft += 0.25)}
+              />
             ))}
           </div>
         </div>
 
-        <div className="flex flex-col-reverse xl:flex-col max-w-lg">
+        <img
+          className="motion-safe:animate-fadeIn rounded-[50%] h-[600px] bg-cover bg-center bg-no-repeat mx-auto mb-8 object-cover"
+          style={{
+            animationDelay: "0.5s",
+            animationFillMode: "both",
+            animationDuration: "1.5s",
+          }}
+          src={servicesImg}
+          alt="Mujer sonriendo con una latop"
+        />
+
+        <div
+          className={`flex xl:flex-col max-w-lg overflow-hidden ${isHidden}`}
+        >
           <div className="xl:w-auto px-4 mb-16 lg:mb-0">
-            {serviciosDos.map((servicio, i) => (
-              <Servicio key={i} {...servicio} />
+            {serviciosDos.map((servicio) => (
+              <CardServicio
+                key={servicio.servive}
+                {...servicio}
+                position="right"
+                delay={(delayListRight += 0.25)}
+              />
             ))}
           </div>
         </div>

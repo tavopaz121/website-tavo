@@ -4,6 +4,8 @@ interface PropsServicio {
   description: string;
   iconColor: string;
   isUltimate: boolean;
+  position: string;
+  delay: number;
 }
 
 export default function Servicio({
@@ -12,21 +14,43 @@ export default function Servicio({
   description,
   iconColor,
   isUltimate,
+  position,
+  delay,
 }: PropsServicio) {
+  let border = isUltimate ? "" : "border-b border-gray-200";
+  let fadeIn = "";
+  let reverseCard = "";
+  let marginIcon = "";
+  let textOrientation = "";
+
+  if (position === "left") {
+    fadeIn = "motion-safe:animate-fadeInRight";
+    reverseCard = "flex-row-reverse";
+    marginIcon = "ml-6";
+    textOrientation = "text-right";
+  } else {
+    fadeIn = "motion-safe:animate-fadeInLeft";
+    marginIcon = "mr-6";
+    textOrientation = "text-left";
+  }
+
   return (
     <div
-      className={`flex items-center min-h-[137px] ${
-        isUltimate ? "" : "border-b border-gray-100"
-      }`}
+      className={`flex items-center min-h-[137px] ${reverseCard} ${fadeIn}`}
+      style={{
+        animationDelay: `${delay}s`,
+        animationFillMode: "both",
+      }}
     >
       <div
-        className={`flex flex-shrink-0 w-15 h-15 mr-6 items-center justify-center ${iconColor} rounded-full`}
+        className={`flex flex-shrink-0 rounded-full w-15 h-15 items-center justify-center ${iconColor} ${marginIcon}`}
       >
         <img src={urlImg} alt="" width={50} />
       </div>
-      <a href="/servicios">
-        <h3 className="text-xl font-semibold">{servive}</h3>
-        <span className="text-sm text-gray-400">{description}</span>
+
+      <a href="/servicios" className={`${textOrientation}`}>
+        <h3 className={`text-xl font-semibold`}>{servive}</h3>
+        <span className={`text-sm text-gray-500`}>{description}</span>
       </a>
     </div>
   );
