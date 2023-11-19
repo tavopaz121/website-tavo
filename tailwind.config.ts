@@ -11,6 +11,8 @@ export default {
         fadeInUp: "fadeInUp 0.5s ease-out",
         fadeInDown: "fadeInDown 0.5s ease-out",
         fadeIn: "fadeIn 0.5s ease-out",
+        bounceIn: "bounceIn 0.5s ease-out",
+        bounceInDown: "bounceInDown 0.5s ease-out",
       },
       textShadow: {
         sm: "0 1px 2px var(--tw-shadow-color)",
@@ -656,6 +658,54 @@ export default {
 
         to: {
           opacity: "1",
+        },
+      },
+      bounceIn: {
+        "from, 20%, 40%, 60%, 80%, to": {
+          animationTimingFunction: "cubic-bezier(0.215, 0.61, 0.355, 1)",
+        },
+        "0%": {
+          opacity: "0",
+          transform: "scale3d(0.3, 0.3, 0.3)",
+        },
+        "20%": {
+          transform: "scale3d(1.1, 1.1, 1.1)",
+        },
+        "40%": {
+          transform: "scale3d(0.9, 0.9, 0.9)",
+        },
+        "60%": {
+          opacity: "1",
+          transform: "scale3d(1.03, 1.03, 1.03)",
+        },
+        "80%": {
+          transform: "scale3d(0.97, 0.97, 0.97)",
+        },
+        to: {
+          opacity: "1",
+          transform: "scale3d(1, 1, 1)",
+        },
+      },
+      bounceInDown: {
+        "from, 60%, 75%, 90%, to": {
+          animationTimingFunction: "cubic-bezier(0.215, 0.61, 0.355, 1)",
+        },
+        "0%": {
+          opacity: "0",
+          transform: "translate3d(0, -3000px, 0) scaleY(3)",
+        },
+        "60%": {
+          opacity: "1",
+          transform: "translate3d(0, 25px, 0) scaleY(0.9)",
+        },
+        "75%": {
+          transform: "translate3d(0, -10px, 0) scaleY(0.95)",
+        },
+        "90%": {
+          transform: "translate3d(0, 5px, 0) scaleY(0.985)",
+        },
+        to: {
+          transform: "transform: translate3d(0, 0, 0)",
         },
       },
     },

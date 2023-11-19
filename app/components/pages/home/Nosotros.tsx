@@ -1,27 +1,48 @@
 import latopPink from "app/assets/imgs/Laptop-pink-2.jpeg";
-import Metodo from "../../HomePage/WorkNosotros";
+import WorkMetodo from "../../HomePage/WorkNosotros";
 
 export default function Nosotros() {
   return (
     <section className="relative py-20 md:py-36 lg:py-44 overflow-hidden">
-      <div className="hidden xs:block absolute top-0 right-0 h-full w-28 sm:w-36 md:w-1/4 bg-gray-900"></div>
+      <div className="motion-safe:animate-fadeInRight hidden xs:block absolute top-0 right-0 h-full w-28 sm:w-36 md:w-1/4 bg-gray-900"></div>
       <div className="relative container px-4 mx-auto">
         <div className="relative max-w-7xl mx-auto">
           <div className="flex flex-wrap -mx-4">
             <div className="w-full lg:w-2/3 xl:w-1/2 px-4 mb-16 lg:mb-0">
               <div className="xs:max-w-xs sm:max-w-lg lg:max-w-xl">
-                <h2 className="font-heading text-5xl sm:text-6xl font-bold text-gray-900 mb-4">
+                <h2
+                  className="motion-safe:animate-fadeInLeft font-heading text-5xl sm:text-6xl font-bold text-gray-900 mb-4"
+                  style={{
+                    animationDelay: "0.2s",
+                    animationFillMode: "both",
+                    animationDuration: ".4s",
+                  }}
+                >
                   <span>Nosotros</span>
                   <span className="font-serif italic"></span>
                 </h2>
-                <p className="text-2xl font-semibold text-gray-900 mb-4">
+                <p
+                  className="motion-safe:animate-fadeInRight text-2xl font-semibold text-gray-900 mb-4"
+                  style={{
+                    animationDelay: "0.4s",
+                    animationFillMode: "both",
+                    animationDuration: "0.4s",
+                  }}
+                >
                   ¡Potencia tu presencia en línea con nuestros servicios de
                   Desarrollo Web Ágil! 🚀
                 </p>
 
-                <Metodo />
+                <WorkMetodo />
 
-                <div className="pt-12 border-t-2 border-gray-100 text-center">
+                <div
+                  className="motion-safe:animate-fadeIn pt-12 border-t-2 border-gray-100 text-center"
+                  style={{
+                    animationDelay: "2s",
+                    animationFillMode: "both",
+                    animationDuration: "1s",
+                  }}
+                >
                   <a
                     className="relative group inline-block py-4 px-6 text-gray-900 hover:text-white font-semibold rounded-full overflow-hidden border-b-3 border-gray-500"
                     href="/nosotros"
@@ -48,7 +69,14 @@ export default function Nosotros() {
                 </div>
               </div>
             </div>
-            <div className="w-full lg:w-1/3 xl:w-1/2 px-4 flex items-center">
+            <div
+              className="motion-safe:animate-fadeInUp w-full lg:w-1/3 xl:w-1/2 px-4 flex items-center"
+              style={{
+                animationDelay: "0.2s",
+                animationFillMode: "both",
+                animationDuration: ".4s",
+              }}
+            >
               <img className="w-full ml-auto" src={latopPink} alt="" />
             </div>
           </div>
