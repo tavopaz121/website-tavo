@@ -11,6 +11,10 @@ import servicesImg from "~/assets/imgs/inicio/services.webp";
 import CardServicio from "./CardServicio";
 import { useEffect, useState } from "react";
 
+interface ProListServices {
+  referenceTitle: React.MutableRefObject<null>;
+}
+
 const serviciosUno = [
   {
     urlImg: blog,
@@ -74,7 +78,7 @@ const serviciosDos = [
   },
 ];
 
-export default function ListServicios({ referenceTitle }) {
+export default function ListServicios({ referenceTitle }: ProListServices) {
   const [isHidden, setIsHidden] = useState("hidden");
   let gridColumns = isHidden == "hidden" ? "grid-cols-1" : "grid-cols-3";
   let delayListLeft = 0.5;
@@ -85,7 +89,7 @@ export default function ListServicios({ referenceTitle }) {
   useEffect(() => {
     const observer = new IntersectionObserver(showListServices, options);
     observer.observe(referenceTitle.current);
-  }, []);
+  });
 
   function showListServices(
     entries: IntersectionObserverEntry[],
