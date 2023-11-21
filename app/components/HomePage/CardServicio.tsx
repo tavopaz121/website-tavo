@@ -17,7 +17,6 @@ export default function Servicio({
   position,
   delay,
 }: PropsServicio) {
-  let border = isUltimate ? "" : "border-b border-gray-200";
   let fadeIn = "";
   let reverseCard = "";
   let marginIcon = "";

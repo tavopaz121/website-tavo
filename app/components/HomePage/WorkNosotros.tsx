@@ -1,41 +1,77 @@
 export default function Metodo() {
+  const durationBetween = 0.3;
+  const durationAnimation = 1;
+  let delay = 0.5;
+
+  const listPhase = [
+    {
+      title: "💡 Colabora y aprende",
+      description:
+        "Trabajamos codo a codo contigo para comprender tus objetivos y necesidades",
+    },
+    {
+      title: "🚀 Crea ASAP",
+      description:
+        "Entregamos resultados en iteraciones rápidas y manejables. Permitiéndote ver el progreso de manera constante",
+    },
+    {
+      title: "🔄 Retroalimenta",
+      description:
+        "Ponemos a prueba lo que hemos construido y recopilamos tus comentarios permitiendonos identificar áreas de mejora y ajustar nuestro camino",
+    },
+    {
+      title: "🌟 Adapta/mejora",
+      description:
+        "Adaptamos nuestro enfoque y mejoramos continuamente nuestros procesos",
+    },
+  ];
+
   return (
-    <>
-      <p className="text-gray-800 font-semibold mb-4">
+    <div>
+      <p
+        className="motion-safe:animate-fadeIn text-gray-800 font-semibold mb-4"
+        style={{
+          animationDelay: `${delay}s`,
+          animationFillMode: "both",
+          animationDuration: ".8s",
+        }}
+      >
         La adaptabilidad es clave en el mundo digital. Nuestra metodología de
         desarrolló web ágil se simplifica en 4 fases esenciales:
       </p>
       <ul className="text-gray-800 text-lg mb-10 flex flex-col gap-5">
-        <li>
-          <p className="font-semibold text-xl">💡 Colabora y aprende</p>
-          <p>
-            Trabajamos codo a codo contigo para comprender tus objetivos y
-            necesidades
-          </p>
-        </li>
-        <li>
-          <p className="font-semibold text-xl">🚀 Crea ASAP</p>
-          <p>
-            Entregamos resultados en iteraciones rápidas y manejables.
-            Permitiéndote ver el progreso de manera constante
-          </p>
-        </li>
-        <li>
-          <p className="font-semibold text-xl">🔄 Retroalimenta</p>
-          <p>
-            Ponemos a prueba lo que hemos construido y recopilamos tus
-            comentarios permitiendonos identificar áreas de mejora y ajustar
-            nuestro camino
-          </p>
-        </li>
-        <li>
-          <p className="font-semibold text-xl">🌟 Adapta/mejora</p>
-          <p>
-            Adaptamos nuestro enfoque y mejoramos continuamente nuestros
-            procesos
-          </p>
-        </li>
+        {listPhase.map((tangLi) => (
+          <LiTag
+            key={tangLi.title}
+            {...tangLi}
+            delay={(delay += durationBetween)}
+            duration={durationAnimation}
+          />
+        ))}
       </ul>
-    </>
+    </div>
   );
 }
+
+interface LiParam {
+  title: string;
+  description: string;
+  delay: number;
+  duration: number;
+}
+
+const LiTag = ({ title, description, delay, duration }: LiParam) => {
+  return (
+    <li
+      className="motion-safe:animate-bounceInDown"
+      style={{
+        animationDelay: `${delay}s`,
+        animationFillMode: "both",
+        animationDuration: `${duration}s`,
+      }}
+    >
+      <p className="font-semibold text-xl">{title}</p>
+      <p>{description}</p>
+    </li>
+  );
+};

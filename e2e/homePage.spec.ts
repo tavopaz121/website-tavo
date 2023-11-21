@@ -8,6 +8,9 @@ test.describe("When user visit the page Pensemos web", () => {
   test("Then there must be Servicios, Nosotros, Equipo, Blog and Contacnos", async ({
     page,
   }) => {
+    await page.screenshot({ animations: "allow", fullPage: true });
+    await page.keyboard.press("End");
+
     await expect(page.getByTestId("servicios")).toBeVisible();
     await expect(page.getByTestId("title-servicios")).toBeVisible();
     await expect(page.getByTestId("list-services")).toBeVisible();
@@ -31,13 +34,20 @@ test.describe("When user visit the page Pensemos web", () => {
   test("Then the user must click on diferents buttons and they will be in the diferents routes", async ({
     page,
   }) => {
+    await page.screenshot({ animations: "allow", fullPage: true });
+    await page.keyboard.press("End");
+
     await page.getByRole("link", { name: "Servicios" }).click();
     await expect(page).toHaveURL("servicios");
     await page.goto("./");
 
+    await page.keyboard.press("End");
+
     await page.getByRole("link", { name: "Conocenos" }).click();
     await expect(page).toHaveURL("nosotros");
     await page.goto("./");
+
+    await page.keyboard.press("End");
 
     await page.getByRole("link", { name: "¡Vamos!" }).click();
     await expect(page).toHaveURL("equipo");
