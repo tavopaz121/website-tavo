@@ -46,7 +46,13 @@ export default function App() {
       </head>
       <body>
         <main className={`${isHome ? "" : "pt-[108px]"}`}>
-          <Nav items={items} secondaryItems={secondaryItems} isHome={isHome} />
+          {isHome ? null : (
+            <Nav
+              items={items}
+              secondaryItems={secondaryItems}
+              isHome={isHome}
+            />
+          )}
           <Outlet />
         </main>
         <ScrollRestoration />

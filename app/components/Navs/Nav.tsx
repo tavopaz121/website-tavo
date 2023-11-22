@@ -52,6 +52,7 @@ export default function Nav(props: PropsNav) {
         anchorClasses={anchorClasses}
         highLightClasses={highLightClasses}
         hasScrolledDown={hasScrolledDown}
+        borderClasses={props.borderClasses}
         ref={navRef}
       ></NavLg>
       <NavMobile
