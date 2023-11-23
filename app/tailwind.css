@@ -32,3 +32,8 @@ label {
   @apply text-base;
   @apply font-bold;
 }
+@layer utilities {
+  .clip-path-diagonal {
+    clip-path: polygon(56% 0, 100% 0, 100% 100%, 40% 100%);
+  }
+}
