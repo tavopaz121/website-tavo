@@ -6,9 +6,9 @@ import { tools } from "~/data/tools.js";
 export default function Productos() {
   return (
     <>
-      <section className="h-screen max-md:h-full max-md:mb-4">
+      <section className="max-md:h-full max-md:mb-4">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+          <div className="grid items-center grid-cols-1 max-lg:gap-12 lg:grid-cols-2">
             <div>
               <h1
                 className="motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-6xl lg:text-7xl"
@@ -69,7 +69,7 @@ export default function Productos() {
                 }}
               />
               <div
-                className="bg-[#fb5975] absolute top-[-10rem] max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 motion-safe:animate-fadeInUp"
+                className="bg-[#fb5975] absolute top-[-10rem] max-lg:hidden max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 motion-safe:animate-fadeInUp"
                 style={{
                   animationDelay: "0.5s",
                   animationFillMode: "both",
@@ -80,7 +80,7 @@ export default function Productos() {
         </div>
       </section>
 
-      <section className={`py-5 bg-white sm:py-5 lg:py-5 `}>
+      <section className={`py-5 bg-white sm:py-5 lg:py-8 `}>
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl motion-safe:animate-fadeIn font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
