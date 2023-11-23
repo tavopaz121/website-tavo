@@ -1,122 +1,106 @@
-import nestor from "../assets/img/nestor.webp";
-import fatima from "../assets/img/fatima.webp";
-import octavio from "../assets/img/octavio.webp";
-import jaime from "../assets/img/jaime.webp";
-import norberto from "../assets/img/norberto.webp";
-import colaboraAprende from "../assets/img/3D_Animation_Style_Colaboracin_en_equipo_oficina_2.jpg"; 
-import creaAsap from "../assets/img/3D_Animation_Style_equipo_oficina_computadora_trabajando_2.jpg";
-import retroalimenta from "../assets/img/3D_Animation_Style_reuniones_virtuales_skype_0.jpg"; 
-import adaptaMejora from "../assets/img/3D_Animation_Style_capacitacin_oficina_equipo_0.jpg";
-import CardInfo from "~/components/CardInfo/CardInfo";
-import definicionImg from "~/assets/vectors/Frame 55.webp";
-import disenioImg from "../assets/vectors/Frame 51-p-500.webp";
-import desarrolloImg from "../assets/vectors/Frame 10.webp";
-import lanzamientoImg from "../assets/vectors/Frame 18-p-500.webp";
+import nestor from "../assets/imgs/equipo/nestor.webp";
+import fatima from "../assets/imgs/equipo/fatima.webp";
+import octavio from "~/assets/imgs/equipo/octavio.webp";
+import jaime from "~/assets/imgs/equipo/jaime.webp";
+import norberto from "~/assets/imgs/equipo/norberto.webp";
+import colaboraAprende from "~/assets/imgs/equipo/3D_Animation_Style_Colaboracin_en_equipo_oficina_2.webp";
+import creaAsap from "~/assets/imgs/equipo/3D_Animation_Style_equipo_oficina_computadora_trabajando_2.webp";
+import retroalimenta from "~/assets/imgs/equipo/3D_Animation_Style_reuniones_virtuales_skype_0.webp";
+import adaptaMejora from "~/assets/imgs/equipo/3D_Animation_Style_capacitacin_oficina_equipo_0.webp";
+import fondotech from "~/assets/imgs/equipo/Tech Marvels_ Aesthetic Wonders in Modern Technologies.webp";
 export default function Equipo() {
   const shadowImg = {
     boxShadow: "5px 5px 20px rgba(0,0,0,0.5)",
   };
   return (
     <div>
-      <br />
-      <div class="h-[500px] mt-30 w-full">
-        <h2 className="text-5xl text-[#fb5975] text-center shadow-black/50 text-shadow-sm motion-safe:animate-fadeInUp">
-          Maximo rendimiento
-        </h2>
-        <p
-          className="text-4xl text-gray-600 text-center mb-20 mx-40 motion-safe:animate-fadeInUp"
-          style={{
-            animationDelay: "9",
-            MozAnimationFillMode: "both",
-          }}
-        >
-          Imagina un enfoque que maximice la colaboración, acelere la entrega de
-          resultados, fomente la mejora constante y se adapte a los cambios en
-          el camino.
-        </p>
+      <div className="bg-[#012e46] h-[450px] w-full relative mb-12">
+        <img
+          alt="Colabora y aprende"
+          className="md:clip-path-diagonal absolute h-[450px] w-full max-w-none object-cover bg-center"
+          src={fondotech}
+        />
+        <div className="px-4 top-[15%] w-full absolute">
+          <h2 className="sm:ml-[5%] text-white font-bold text-5xl sm:text-6xl">
+            Máximo
+          </h2>
+          <h2 className="sm:ml-[10%] text-white font-bold text-5xl sm:text-6xl">
+            Rendimiento
+          </h2>
+          <p className="sm:ml-[5%] mt-[3%] w-full sm:w-[55%] md:w-[50%] lg:w-[40%] text-white text-2xl">
+            Imagina un enfoque que maximice la colaboración, acelere la entrega
+            de resultados, fomente la mejora constante y se adapte a los cambios
+            en el camino.
+          </p>
+        </div>
       </div>
 
-      {/* <div className="flex flex-wrap text-justify mx-4">
-                <CardInfo
-                    img={definicionImg}
-                    title="Colabora y Aprende"
-                    description="En esta fase, trabajamos juntos como equipo, escuchamos tus ideas y necesidades, definimos objetivos en colaboración y mantenemos una comunicación abierta y continua, sin importar tu nivel de experiencia en tecnología."
-                    />
-                <CardInfo
-                    img={disenioImg}
-                    title=" Crea ASAP"
-                    description="Una vez entendida tu visión, avanzamos rápidamente en el desarrollo web sin demora. Priorizamos resultados en iteraciones ágiles, acercándote gradualmente a tu producto final para que veas el progreso constantemente."
-                    />
-                <CardInfo
-                    img={desarrolloImg}
-                    title="Retroalimenta"
-                    description="En esta etapa, tu opinión y la de tus usuarios son cruciales. Probamos lo construido, recopilamos tus comentarios y ajustamos nuestro enfoque. La retroalimentación constante garantiza que el producto final cumpla con tus necesidades y expectativas."
-                    />
-                <CardInfo
-                    img={lanzamientoImg}
-                    title="Adapta/Mejora"
-                    description="Nos adaptamos al cambio constante en el mundo digital, mejorando continuamente nuestros procesos. Te entregamos un producto excepcional y te capacitamos para mantenerlo relevante en un mercado en evolución."
-                    />
-            </div><br /><hr /> */}
-      <section className="w-full flex px-30 gap-10">
-        <img 
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-12 place-items-center w-full px-4">
+        <img
           style={shadowImg}
           alt="Colabora y aprende"
-          className="h-[390px] w-[550px] max-w-none object-cover relative"
+          className="h-[390px]  object-cover md:justify-self-start"
           src={colaboraAprende}
         />
-        <div className="h-[450px] w-[500px] max-w-none grid relative place-items-center flex-auto">
-          <h3 className="text-4xl top-20 absolute">Colabora y Aprende</h3>
-          <p className="text-2xl text-gray-600 bottom-32 text-justify absolute">
+        <div className="content-end">
+          <h3 className="text-4xl text-center">Colabora y Aprende</h3>
+          <p className="text-2xl text-gray-600">
             En esta fase, trabajamos juntos como equipo, escuchamos tus ideas y
             necesidades, definimos objetivos en colaboración y mantenemos una
             comunicación abierta y continua, sin importar tu nivel de
             experiencia en tecnología.
           </p>
         </div>
-      </section>
-      <section className="w-full flex px-30 gap-10">
-        <div className="h-[450px] w-[500px] max-w-none grid relative place-items-center flex-auto">
-          <h3 className="text-4xl top-26 absolute">Crea ASAP</h3>
-          <p className="text-2xl text-gray-600 bottom-32 text-justify absolute">
-          Una vez entendida tu visión, avanzamos rápidamente en el desarrollo web sin demora. Priorizamos resultados en iteraciones ágiles, acercándote gradualmente a tu producto final para que veas el progreso constantemente.
+
+        <div className="">
+          <h3 className="text-4xl">Crea ASAP</h3>
+          <p className="text-2xl text-gray-600">
+            Una vez entendida tu visión, avanzamos rápidamente en el desarrollo
+            web sin demora. Priorizamos resultados en iteraciones ágiles,
+            acercándote gradualmente a tu producto final para que veas el
+            progreso constantemente.
           </p>
         </div>
+
         <img
           style={shadowImg}
           alt="Crea ASAP"
-          className="h-[390px] w-[550px] max-w-none object-cover relative"
+          className="h-[390px] object-cover md:justify-self-end"
           src={creaAsap}
         />
-      </section>
-      <section className="w-full flex px-30 gap-10">
         <img
           style={shadowImg}
           alt="Retroalimenta"
-          className="h-[390px] w-[550px] max-w-none shadow-lg object-cover relative"
+          className="h-[390px]  shadow-lg object-cover md:justify-self-start"
           src={retroalimenta}
         />
-        <div className="h-[450px] w-[500px] max-w-none grid relative place-items-center flex-auto">
-          <h3 className="text-4xl top-20 absolute">Retroalimenta</h3>
-          <p className="text-2xl text-gray-600 bottom-32 text-justify absolute">
-          En esta etapa, tu opinión y la de tus usuarios son cruciales. Probamos lo construido, recopilamos tus comentarios y ajustamos nuestro enfoque. La retroalimentación constante garantiza que el producto final cumpla con tus necesidades y expectativas."
+
+        <div className="  ">
+          <h3 className="text-4xl">Retroalimenta</h3>
+          <p className="text-2xl text-gray-600">
+            En esta etapa, tu opinión y la de tus usuarios son cruciales.
+            Probamos lo construido, recopilamos tus comentarios y ajustamos
+            nuestro enfoque. La retroalimentación constante garantiza que el
+            producto final cumpla con tus necesidades y expectativas."
           </p>
         </div>
-      </section>
-      <section className="w-full flex px-30 gap-10">
-        <div className="h-[450px] w-[500px] max-w-none grid relative place-items-center flex-auto">
-          <h3 className="text-4xl top-26 absolute">Adapta/mejora</h3>
-          <p className="text-2xl text-gray-600 bottom-32 text-justify absolute">
-          "Nos adaptamos al cambio constante en el mundo digital, mejorando continuamente nuestros procesos. Te entregamos un producto excepcional y te capacitamos para mantenerlo relevante en un mercado en evolución."
+
+        <div className=" ">
+          <h3 className="text-4xl">Adapta/mejora</h3>
+          <p className="text-2xl text-gray-600">
+            "Nos adaptamos al cambio constante en el mundo digital, mejorando
+            continuamente nuestros procesos. Te entregamos un producto
+            excepcional y te capacitamos para mantenerlo relevante en un mercado
+            en evolución."
           </p>
         </div>
         <img
           style={shadowImg}
           alt="Adapta y mejora"
-          className="h-[390px] w-[550px] max-w-none shadow-lg object-cover relative"
+          className="h-[390px]  max-w-none shadow-lg object-cover md:justify-self-end"
           src={adaptaMejora}
         />
-      </section>
+      </div>
 
       <div className="m-20">
         <h1 className="text-center text-5xl text-[#fb5975] font-pensemosweb shadow-black/80 text-shadow-sm tracking-tight mt-10 mb-10 mx-4">
