@@ -14,13 +14,13 @@ export default function Equipo() {
   };
   return (
     <div>
-      <div className="bg-[#012e46] h-[450px] w-full relative mb-12">
+      <div className="bg-[#012e46] h-[550px] w-full relative mb-12">
         <img
           alt="Colabora y aprende"
-          className="md:clip-path-diagonal absolute h-[450px] w-full max-w-none object-cover bg-center"
+          className="md:clip-path-diagonal absolute h-[550px] w-full max-w-none object-cover bg-center"
           src={fondotech}
         />
-        <div className="px-4 top-[15%] w-full absolute">
+        <div className="px-4 top-[22%] w-full absolute">
           <h2 className="sm:ml-[5%] text-white font-bold text-5xl sm:text-6xl">
             Máximo
           </h2>
@@ -43,7 +43,7 @@ export default function Equipo() {
           src={colaboraAprende}
         />
         <div className="content-end">
-          <h3 className="text-4xl text-center">Colabora y Aprende</h3>
+          <h3 className="text-4xl">Colabora y Aprende</h3>
           <p className="text-2xl text-gray-600">
             En esta fase, trabajamos juntos como equipo, escuchamos tus ideas y
             necesidades, definimos objetivos en colaboración y mantenemos una
