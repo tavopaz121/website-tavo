@@ -5,6 +5,8 @@ import orangePhone from "app/assets/imgs/icons/icon-orange-headphones.svg";
 import CardContact from "../../HomePage/CardContaco";
 import type { PropsCardCotact } from "../../HomePage/CardContaco";
 
+import { useRef, useState, useEffect } from "react";
+
 const iconEmail = (
   <svg
     width={8}
@@ -55,20 +57,51 @@ const cardPhone: PropsCardCotact = {
 };
 
 export default function Contacto() {
+  const [isHidden, setIsHidden] = useState("hidden");
+  const section = useRef(null);
+
+  const options = { root: null, rootMargin: "0px", threshold: 0.8 };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(showContacs, options);
+    observer.observe(section.current);
+  });
+
+  const showContacs = (
+    entris: IntersectionObserverEntry[],
+    oberver: IntersectionObserver,
+  ) => {
+    entris.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setIsHidden("");
+      }
+    });
+  };
+
   return (
-    <section id="contacto" className="relative py-20 md:py-32 overflow-hidden">
+    <section
+      id="contacto"
+      className="relative py-20 md:py-32 overflow-hidden"
+      ref={section}
+    >
       <img className="absolute top-0 left-0 md:mt-24" src={side1} alt="" />
       <img
         className="absolute bottom-0 right-0 mb-8 lg:mb-24"
         src={side2}
         alt=""
       />
-      <div className="relative container px-4 mx-auto">
+      <div className={`relative container px-4 mx-auto ${isHidden}`}>
         <div className="max-w-2xl mx-auto mb-18 text-center">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
             ¿NOS QUIERE CONTACTAR?
           </span>
-          <h1 className="font-heading text-5xl xs:text-6xl font-bold text-gray-900 mb-4">
+          <h1
+            className="font-heading text-5xl xs:text-6xl font-bold text-gray-900 mb-4  motion-safe:animate-bounceInDown"
+            style={{
+              animationFillMode: "both",
+              animationDuration: "1s",
+            }}
+          >
             <span>¿Alguna duda o </span>
             <span className="font-serif italic">necesitas ayuda </span>
             <span>?</span>
