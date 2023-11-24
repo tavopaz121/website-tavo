@@ -16,6 +16,7 @@ import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
 import { htmlPageLinks } from "./data/htmlPageLinks";
 import RootErrorBoundary from "./RootErrorBoundary";
+import Footer from "./components/Footer/Footer";
 
 export const ErrorBoundary = RootErrorBoundary;
 
@@ -49,6 +50,7 @@ export default function App() {
           <Nav items={items} secondaryItems={secondaryItems} isHome={isHome} />
           <Outlet />
         </main>
+        <Footer />
         <ScrollRestoration />
         <Scripts />
         <LiveReload />

@@ -2,7 +2,8 @@ import heroImg from "~/assets/imgs/services/3D_Animation_pink3.webp";
 import CardService from "~/components/CardServices/CardService";
 import { services } from "~/data/services.js";
 import { tools } from "~/data/tools.js";
-export default function productos() {
+
+export default function Productos() {
   return (
     <>
       <section className="h-screen max-md:h-full max-md:mb-4">
@@ -20,7 +21,7 @@ export default function productos() {
                 <div className="relative inline-flex">
                   <span className="absolute inset-x-0 bottom-0 border-b-[22px] border-[#fb5975]"></span>
                   <h1 className="relative text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
-                    para tu éxito.
+                    para tu <span className="font-serif italic">éxito</span>.
                   </h1>
                 </div>
               </h1>
@@ -46,19 +47,20 @@ export default function productos() {
                 }}
               >
                 <a
+                  className="relative max-sm:w-full group inline-block py-2.5 px-6 text-white font-semibold bg-pink-700 rounded overflow-hidden"
                   href="/"
-                  title=""
-                  className="inline-flex items-center justify-center px-15 py-3 text-base font-semibold text-white transition-all duration-200 bg-[#fa788e] hover:bg-[#fb5975] focus:bg-[#fb5975] max-md:w-full"
-                  role="button"
                 >
-                  Ver Servicios
+                  <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+                  <div className="relative flex items-center justify-center">
+                    <span className="mr-4">Ver servivios</span>
+                  </div>
                 </a>
               </div>
             </div>
 
             <div className="relative">
               <img
-                className="w-full object-cover relative z-10 motion-safe:animate-fadeInUp"
+                className="w-full object-cover relative z-auto motion-safe:animate-fadeInUp"
                 src={heroImg}
                 alt=""
                 style={{
@@ -67,7 +69,7 @@ export default function productos() {
                 }}
               />
               <div
-                className="bg-[#fb5975] absolute top-[-10rem] max-md:hidden left-[30%] h-[640px] w-[250px] z-0 motion-safe:animate-fadeInUp"
+                className="bg-[#fb5975] absolute top-[-10rem] max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 motion-safe:animate-fadeInUp"
                 style={{
                   animationDelay: "0.5s",
                   animationFillMode: "both",
@@ -78,11 +80,11 @@ export default function productos() {
         </div>
       </section>
 
-      <section className="py-5 bg-white sm:py-5 lg:py-5">
+      <section className={`py-5 bg-white sm:py-5 lg:py-5 `}>
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl motion-safe:animate-fadeIn font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-              Nuestras Soluciones
+              Nuestras <span className="font-serif italic">Soluciones</span>
             </h2>
             <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
               Explora nuestras soluciones y elige la que mejor se adapte a tus
@@ -107,7 +109,8 @@ export default function productos() {
         <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-              ¿Qué no debe faltar en tu sitio web?
+              ¿Qué no debe faltar en tu{" "}
+              <span className="font-serif italic">sitio web</span>?
             </h2>
             <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
               Que para tu tranquilidad, lo incluimos en todos nuestros
