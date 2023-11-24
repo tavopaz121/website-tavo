@@ -5,6 +5,7 @@ import imageBlog2 from "app/assets/imgs/individuosEInteracciones.webp";
 import imageBlog3 from "app/assets/imgs/Portada-IntroLEanStartup-.webp";
 
 import Blog from "../../HomePage/CardBlog";
+import { useEffect, useRef, useState } from "react";
 
 const blogs = [
   {
@@ -31,7 +32,28 @@ const blogs = [
 ];
 
 export default function Blogs() {
-  let delay = 0.2;
+  const contentBlogs = useRef(null);
+  const [isHidden, setIsHidden] = useState("hidden");
+  let delay = 0.4;
+  let plusDelay = 0.3;
+
+  const options = { root: null, rootMargin: "0px", threshold: 0.5 };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(showBlogs, options);
+    observer.observe(contentBlogs.current);
+  });
+
+  const showBlogs = (
+    entris: IntersectionObserverEntry[],
+    oberver: IntersectionObserver,
+  ) => {
+    entris.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setIsHidden("");
+      }
+    });
+  };
 
   return (
     <section className="relative py-20 overflow-hidden">
@@ -45,7 +67,7 @@ export default function Blogs() {
         src={blueLeft}
         alt=""
       />
-      <div className="relative container px-4 mx-auto">
+      <div className="relative container px-4 mx-auto" ref={contentBlogs}>
         <div className="max-w-2xl mx-auto mb-15 text-center">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
             NUESTRO BLOG
@@ -56,9 +78,9 @@ export default function Blogs() {
           </h2>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className={`max-w-5xl mx-auto ${isHidden}`}>
           {blogs.map((blog, i) => (
-            <Blog key={i} {...blog} delay={(delay += 0.2)} />
+            <Blog key={i} {...blog} delay={(delay += plusDelay)} />
           ))}
         </div>
 
