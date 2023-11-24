@@ -21,7 +21,7 @@ export default function CardContact({
         isEmail ? "mb-10 md:mb-0" : null
       } motion-safe:animate-fadeInUp`}
       style={{
-        animationDelay: "0.8s",
+        animationDelay: "0.6s",
         animationFillMode: "both",
       }}
     >

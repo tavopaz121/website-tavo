@@ -34,7 +34,7 @@ const blogs = [
 export default function Blogs() {
   const contentBlogs = useRef(null);
   const [isHidden, setIsHidden] = useState("hidden");
-  let delay = 0.4;
+  let delay = 0.2;
   let plusDelay = 0.3;
 
   const options = { root: null, rootMargin: "0px", threshold: 0.5 };

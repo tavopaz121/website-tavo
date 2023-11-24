@@ -81,8 +81,8 @@ const serviciosDos = [
 export default function ListServicios({ referenceTitle }: ProListServices) {
   const [isHidden, setIsHidden] = useState("hidden");
   let gridColumns = isHidden == "hidden" ? "grid-cols-1" : "grid-cols-3";
-  let delayListLeft = 0.5;
-  let delayListRight = 0.5;
+  let delayListLeft = 0.2;
+  let delayListRight = 0.2;
 
   const options = { root: null, rootMargin: "0px", threshold: 1.0 };
 
