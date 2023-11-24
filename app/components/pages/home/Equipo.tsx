@@ -1,12 +1,34 @@
 import circle from "app/assets/imgs/cta/circle-bg.svg";
 import equipo from "app/assets/imgs/equipo.webp";
+import { useEffect, useRef, useState } from "react";
 
 export default function Equipo() {
+  const section = useRef(null);
+  const [isHidden, setIsHidden] = useState("hidden");
+
+  const options = { root: null, rootMargin: "0px", threshold: 0.8 };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(showEquipo, options);
+    observer.observe(section.current);
+  });
+
+  const showEquipo = (
+    entris: IntersectionObserverEntry[],
+    oberver: IntersectionObserver,
+  ) => {
+    entris.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setIsHidden("");
+      }
+    });
+  };
+
   return (
-    <section className="py-20 md:py-24">
+    <section className="py-20 md:py-24" ref={section}>
       <div className="container px-20 max-lg:px-0 mx-auto">
         <div
-          className="relative max-w-7xl mx-auto px-6 max-xl:px-0 py-16 max-xl:pt-0 rounded-4xl max-xl:rounded-none bg-gray-900 overflow-hidden flex flex-row-reverse max-xl:flex-col items-center motion-safe:animate-fadeInLeft"
+          className={`relative max-w-7xl mx-auto px-6 max-xl:px-0 py-16 max-xl:pt-0 rounded-4xl max-xl:rounded-none bg-gray-900 overflow-hidden flex flex-row-reverse max-xl:flex-col items-center motion-safe:animate-fadeInLeft ${isHidden}`}
           style={{
             animationDelay: `0s`,
             animationFillMode: "both",
