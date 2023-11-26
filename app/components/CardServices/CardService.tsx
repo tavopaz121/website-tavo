@@ -36,12 +36,13 @@ export default function CardService({
         </ul>
 
         <a
+          className="relative max-sm:w-full group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-pink-700 rounded overflow-hidden"
           href="/"
-          title=""
-          className="inline-flex items-center justify-center px-20 py-2.5 mt-10 text-base font-semibold text-white transition-all duration-200 rounded-md bg-[#fa788e] hover:bg-[#fb5975] focus:bg-[#fb5975]"
-          role="button"
         >
-          Necesito esto
+          <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+          <div className="relative flex items-center justify-center">
+            <span className="mr-4">Necesito esto</span>
+          </div>
         </a>
       </div>
     </div>
