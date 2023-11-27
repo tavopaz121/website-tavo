@@ -35,7 +35,7 @@ export default function Equipo() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-12 place-items-center w-full px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 place-items-center w-full px-4">
         <img
           style={shadowImg}
           alt="Colabora y aprende"
