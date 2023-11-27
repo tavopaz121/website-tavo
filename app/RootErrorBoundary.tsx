@@ -35,13 +35,15 @@ export default function RootErrorBoundary() {
                 ¡La página que estas buscando ha sido eliminada o movida!
               </h4>
             </div>
-            {/* <h1>
-              {isRouteErrorResponse(error)
-                ? `${error.data}. ${error.status} ${error.statusText}.`
-                : error instanceof Error
-                ? error.message
-                : "Unknown Error"}
-            </h1> */}
+            {process?.env?.NODE_ENV === "development" && (
+              <h1>
+                {isRouteErrorResponse(error)
+                  ? `${error.data}. ${error.status} ${error.statusText}.`
+                  : error instanceof Error
+                  ? error.message
+                  : "Unknown Error"}
+              </h1>
+            )}
           </section>
         </main>
         <Scripts />
