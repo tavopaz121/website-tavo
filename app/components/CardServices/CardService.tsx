@@ -12,7 +12,7 @@ export default function CardService({
         <p className="text-3xl font-bold text-black mt-7">{title}</p>
         <p className="mt-3 text-base text-gray-600">{description}</p>
 
-        <ul className="inline-flex flex-col items-start space-y-5 text-left mt-9">
+        <ul className="flex flex-col items-start space-y-5 text-left mt-9">
           {list &&
             list.map((item, index) => (
               <li className="inline-flex items-center space-x-2" key={index}>
@@ -36,8 +36,10 @@ export default function CardService({
         </ul>
 
         <a
-          className="relative max-sm:w-full group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-pink-700 rounded overflow-hidden"
-          href="/"
+          target="_blank"
+          rel="noreferrer"
+          className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-pink-700 rounded overflow-hidden w-full"
+          href={`https://api.whatsapp.com/send?phone=+522781092116&text=Hola,%20estoy%20interesad@%20en%20adquirir%20el%20paquete%20${title}`}
         >
           <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
           <div className="relative flex items-center justify-center">
