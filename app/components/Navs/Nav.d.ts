@@ -7,6 +7,7 @@ export type PropsNav = {
     | undefined;
   isHome?: boolean;
   children?: ReactNode;
+  borderClasses?: string;
 };
 
 export type PropsNavLg = PropsNav & {
