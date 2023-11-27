@@ -2,6 +2,7 @@ import { Links, Meta, Scripts } from "@remix-run/react";
 import { useRouteError, isRouteErrorResponse } from "@remix-run/react";
 import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
+import img from "./assets/imgs/error/tristeza.webp";
 
 export default function RootErrorBoundary() {
   const error = useRouteError();
@@ -20,14 +21,27 @@ export default function RootErrorBoundary() {
       <body>
         <main className="pt-[108px]">
           <Nav items={items} secondaryItems={secondaryItems} />
-          <section className="px-4">
-            <h1>
+          <section className="flex flex-wrap relative lg:mx-20">
+            <div className="grid relative place-items-center flex-auto">
+              <img
+                alt="Error 404"
+                className="h-[300px] w-[300px] object-cover relative lg:h-[400px] lg:w-[400px]"
+                src={img}
+              />
+            </div>
+            <div className="grid relative place-items-center text-center flex-auto lg:my-[15%]">
+              <h2 className="lg:text-4xl">Lo sentimos .....</h2>
+              <h4 className="w-[60%] lg:text-2xl lg:w-[60%] lg:mt-[5%]">
+                ¡La página que estas buscando ha sido eliminada o movida!
+              </h4>
+            </div>
+            {/* <h1>
               {isRouteErrorResponse(error)
                 ? `${error.data}. ${error.status} ${error.statusText}.`
                 : error instanceof Error
                 ? error.message
                 : "Unknown Error"}
-            </h1>
+            </h1> */}
           </section>
         </main>
         <Scripts />
