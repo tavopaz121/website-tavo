@@ -29,7 +29,7 @@ export default function Metodo() {
   return (
     <div>
       <p
-        className="motion-safe:animate-fadeIn text-gray-800 font-semibold mb-4"
+        className="text-gray-800 font-semibold mb-4"
         style={{
           animationDelay: `${delay}s`,
           animationFillMode: "both",
@@ -63,7 +63,7 @@ interface LiParam {
 const LiTag = ({ title, description, delay, duration }: LiParam) => {
   return (
     <li
-      className="motion-safe:animate-bounceInDown"
+      className=""
       style={{
         animationDelay: `${delay}s`,
         animationFillMode: "both",

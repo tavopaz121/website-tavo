@@ -8,10 +8,6 @@ import {
   useLocation,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-import type { LoaderArgs } from "@remix-run/node";
-import type { UserRecord } from "firebase-admin/auth";
-import { json } from "@remix-run/node";
-import { getLoggedUser } from "./firebase/auth.server";
 import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
 import { htmlPageLinks } from "./data/htmlPageLinks";
@@ -23,12 +19,6 @@ export const ErrorBoundary = RootErrorBoundary;
 export const links: LinksFunction = () => htmlPageLinks;
 
 export const meta = () => [{ title: "Pensemos web" }];
-
-export async function loader({ request }: LoaderArgs) {
-  const user: UserRecord | null = await getLoggedUser(request);
-
-  return json({ user });
-}
 
 export default function App() {
   const { pathname } = useLocation();
