@@ -36,8 +36,10 @@ export default function CardService({
         </ul>
 
         <a
+          target="_blank"
+          rel="noreferrer"
           className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-pink-700 rounded overflow-hidden w-full"
-          href="/"
+          href={`https://api.whatsapp.com/send?phone=+522781092116&text=Hola,%20estoy%20interesad@%20en%20adquirir%20el%20paquete%20${title}`}
         >
           <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
           <div className="relative flex items-center justify-center">

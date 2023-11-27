@@ -47,7 +47,7 @@ export default function Productos() {
                 }}
               >
                 <a
-                  className="relative max-sm:w-full group inline-block py-2.5 px-6 text-white font-semibold bg-pink-700 rounded overflow-hidden"
+                  className="relative max-sm:w-full w-1/2 group inline-block py-2.5 px-6 text-white font-semibold bg-pink-700 rounded overflow-hidden"
                   href="/"
                 >
                   <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
@@ -101,6 +101,51 @@ export default function Productos() {
                 list={service.benefices}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-900 2xl:py-24 2xl:bg-white">
+        <div className="px-4 mx-auto overflow-hidden bg-gray-900 max-w-7xl sm:px-6 lg:px-8">
+          <div className="py-10 sm:py-16 lg:py-24 2xl:pl-24">
+            <div className="grid items-center grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-8 2xl:gap-x-20">
+              <div>
+                <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl lg:leading-tight">
+                  Contrata tu paquete de desarrollo web{" "}
+                </h2>
+                <p className="mt-4 text-base text-gray-50">
+                  Llega a las personas adecuadas, en el momento adecuado, atrae
+                  a más clientes con una nueva página web.
+                </p>
+
+                <div className="flex flex-row items-center mt-4 space-x-4 lg:mt-8">
+                  <a
+                    className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-pink-700 rounded overflow-hidden w-1/2 max-md:w-full"
+                    href="/contacto"
+                  >
+                    <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+                    <div className="relative flex items-center justify-center">
+                      <span className="mr-4">Cotiza tu página web</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <div className="relative px-12">
+                <svg
+                  className="absolute inset-x-0 bottom-0 left-1/2 -translate-x-1/2 -mb-48 lg:-mb-72 text-gray-800 w-[460px] h-[460px] sm:w-[600px] sm:h-[600px]"
+                  fill="currentColor"
+                  viewBox="0 0 8 8"
+                >
+                  <circle cx="4" cy="4" r="3" />
+                </svg>
+                <img
+                  className="relative w-full max-w-xs mx-auto -mb-60 lg:-mb-64"
+                  src="https://cdn.rareblocks.xyz/collection/celebration/images/cta/8/iphone-mockup.png"
+                  alt=""
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
