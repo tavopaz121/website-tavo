@@ -5,6 +5,7 @@ import imageBlog2 from "app/assets/imgs/individuosEInteracciones.webp";
 import imageBlog3 from "app/assets/imgs/Portada-IntroLEanStartup-.webp";
 
 import Blog from "../../HomePage/CardBlog";
+import { useEffect, useRef, useState } from "react";
 
 const blogs = [
   {
@@ -31,6 +32,29 @@ const blogs = [
 ];
 
 export default function Blogs() {
+  const contentBlogs = useRef(null);
+  const [isHidden, setIsHidden] = useState("hidden");
+  let delay = 0.2;
+  let plusDelay = 0.3;
+
+  const options = { root: null, rootMargin: "0px", threshold: 0.5 };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(showBlogs, options);
+    observer.observe(contentBlogs.current);
+  });
+
+  const showBlogs = (
+    entris: IntersectionObserverEntry[],
+    oberver: IntersectionObserver,
+  ) => {
+    entris.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setIsHidden("");
+      }
+    });
+  };
+
   return (
     <section className="relative py-20 overflow-hidden">
       <img
@@ -43,7 +67,7 @@ export default function Blogs() {
         src={blueLeft}
         alt=""
       />
-      <div className="relative container px-4 mx-auto">
+      <div className="relative container px-4 mx-auto" ref={contentBlogs}>
         <div className="max-w-2xl mx-auto mb-15 text-center">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
             NUESTRO BLOG
@@ -54,22 +78,22 @@ export default function Blogs() {
           </h2>
         </div>
 
-        <div className="max-w-5xl mx-auto">
+        <div className={`max-w-5xl mx-auto ${isHidden}`}>
           {blogs.map((blog, i) => (
-            <Blog key={i} {...blog} />
+            <Blog key={i} {...blog} delay={(delay += plusDelay)} />
           ))}
+        </div>
 
-          <div className="pt-12 border-t-2 border-gray-100 text-center">
-            <a
-              className="relative group inline-block py-4 px-7 font-semibold text-gray-900 hover:text-orange-50 rounded-full bg-orange-50 transition duration-300 overflow-hidden border-b-3 border-gray-500"
-              href="https://www.pensemosweb.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
-              <span className="relative">Mira más aquí</span>
-            </a>
-          </div>
+        <div className="pt-12 border-t-2 border-gray-100 text-center">
+          <a
+            className="relative group inline-block py-4 px-7 font-semibold text-gray-900 hover:text-orange-50 rounded-full bg-orange-50 transition duration-300 overflow-hidden border-b-3 border-gray-500"
+            href="https://www.pensemosweb.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
+            <span className="relative">Mira más aquí</span>
+          </a>
         </div>
       </div>
     </section>
