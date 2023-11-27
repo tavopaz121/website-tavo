@@ -19,7 +19,11 @@ export default function CardContact({
     <div
       className={`w-full md:w-1/2 lg:w-auto px-4 xl:px-10 ${
         isEmail ? "mb-10 md:mb-0" : null
-      }`}
+      } motion-safe:animate-fadeInUp`}
+      style={{
+        animationDelay: "0.6s",
+        animationFillMode: "both",
+      }}
     >
       <div className="max-w-sm mx-auto h-full py-8 px-6 bg-white border border-gray-200 rounded-5xl">
         <div className="max-w-2xs mx-auto text-center">

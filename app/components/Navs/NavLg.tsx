@@ -15,6 +15,7 @@ export default forwardRef(function NavLg(
     logoColor,
     anchorClasses,
     highLightClasses,
+    borderClasses = "",
   }: PropsNavLg,
   ref: React.ForwardedRef<HTMLElement>,
 ) {
@@ -22,12 +23,12 @@ export default forwardRef(function NavLg(
     ? "bg-transparent"
     : "bg-white border border-x-0 border-t-0 border-pink-500";
   const bgOnScroll = hasScrolledDown
-    ? "!py-3 bg-white bg-opacity-0 backdrop-blur border border-x-0 border-t-0 border-pink-500 hover:bg-white"
+    ? "!py-3 bg-white bg-opacity-0 backdrop-blur hover:bg-white"
     : "py-6";
   return (
     <nav
       ref={ref}
-      className={`fixed top-0 z-10 w-full px-4 duration-1000 ${navClasses} ${bgOnScroll}`}
+      className={`fixed top-0 z-10 w-full px-4 duration-1000 ${navClasses} ${bgOnScroll} ${borderClasses}`}
       style={{
         transitionProperty:
           "padding-top, padding-bottom, background-color, backdrop-filter",

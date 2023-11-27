@@ -1,7 +1,7 @@
 export default function Metodo() {
   const durationBetween = 0.3;
   const durationAnimation = 1;
-  let delay = 0.5;
+  let delay = 0.3;
 
   const listPhase = [
     {
