@@ -27,13 +27,11 @@ export const action = async ({ request }: ActionArgs) => {
 };
 
 export default function Index() {
-  const contentRef = useRef<HTMLElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
+  const targetRef = useRef<HTMLElement>(null);
   const [borderClasses, setBorderClasses] = useState<string>("");
 
   useEffect(() => {
     const callback = (entries: any, observer: any) => {
-      console.log(entries);
       entries.forEach((entry: any) => {
         if (entry.isIntersecting) {
           setBorderClasses("border border-x-0 border-t-0 border-pink-500");
@@ -42,16 +40,17 @@ export default function Index() {
         }
       });
     };
+
     const options = {
       root: null,
-      rootMargin: "73px 0px 0px 0px",
+      rootMargin: "0px",
       threshold: 0.1,
     };
     const observe = new IntersectionObserver(callback, options);
-    observe.observe(contentRef.current!);
-  }, []);
+    observe.observe(targetRef.current!);
 
-  console.log("borderClasses==> " + borderClasses);
+    return () => observe.disconnect();
+  }, []);
 
   return (
     <>
@@ -61,13 +60,11 @@ export default function Index() {
         isHome={true}
         borderClasses={borderClasses}
       />
-      <section
-        ref={heroRef}
-        className="relative pb-20 overflow-hidden min-h-screen bg-black px-4"
-      >
+      <section className="relative pb-20 overflow-hidden min-h-screen bg-black px-4">
         <Hero videoSrc="https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-3s-darker.mp4?alt=media&token=d66dd8d8-378a-4c35-968d-e1d3e31971d0" />
       </section>
-      <article ref={contentRef}>
+
+      <article ref={targetRef}>
         <Servicios />
         <Nosotros />
         <Equipo />
