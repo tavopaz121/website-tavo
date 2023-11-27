@@ -6,6 +6,7 @@ interface PropsServicio {
   isUltimate: boolean;
   position: string;
   delay: number;
+  start: boolean;
 }
 
 export default function Servicio({
@@ -16,6 +17,7 @@ export default function Servicio({
   isUltimate,
   position,
   delay,
+  start = false,
 }: PropsServicio) {
   let fadeIn = "";
   let reverseCard = "";
@@ -35,7 +37,9 @@ export default function Servicio({
 
   return (
     <div
-      className={`flex items-center min-h-[137px] ${reverseCard} ${fadeIn}`}
+      className={`flex items-center min-h-[137px] ${reverseCard} ${
+        start ? fadeIn : ""
+      }`}
       style={{
         animationDelay: `${delay}s`,
         animationFillMode: "both",

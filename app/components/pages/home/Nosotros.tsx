@@ -4,7 +4,7 @@ import WorkMetodo from "../../HomePage/WorkNosotros";
 import { useRef, useEffect, useState } from "react";
 
 export default function Nosotros() {
-  const [isHidden, setIsHidden] = useState("hidden");
+  const [animation, setAnimation] = useState("");
   const section = useRef(null);
   const titleNosotros = useRef(null);
   const sideBar = useRef(null);
@@ -22,20 +22,22 @@ export default function Nosotros() {
   ) => {
     entris.forEach((entry) => {
       if (entry.isIntersecting) {
-        setIsHidden("");
+        setAnimation("motion-safe:animate-fadeInLeft");
       }
     });
   };
+
+  console.log(animation);
 
   return (
     <section
       ref={section}
       className={`relative py-20 md:py-36 lg:py-44 overflow-hidden`}
     >
-      <div className={`${isHidden}`}>
+      <div className="">
         <div
           ref={sideBar}
-          className="motion-safe:animate-fadeInRight absolute top-0 right-0 h-full w-28 sm:w-36 md:w-1/4 bg-gray-900"
+          className="motion-safe:animate-fadeInUp absolute top-0 right-0 h-full w-28 sm:w-36 md:w-1/4 bg-gray-900"
         ></div>
         <div className={`relative container px-4 mx-auto`}>
           <div className={`relative max-w-7xl mx-auto`}>
@@ -44,7 +46,7 @@ export default function Nosotros() {
                 <div className="xs:max-w-xs sm:max-w-lg lg:max-w-xl">
                   <h2
                     ref={titleNosotros}
-                    className="motion-safe:animate-fadeInLeft font-heading text-5xl sm:text-6xl font-bold text-gray-900 mb-4"
+                    className="font-heading text-5xl sm:text-6xl font-bold text-gray-900 mb-4"
                     style={{
                       animationDelay: "0.2s",
                       animationFillMode: "both",
@@ -55,7 +57,7 @@ export default function Nosotros() {
                     <span className="font-serif italic"></span>
                   </h2>
                   <p
-                    className="motion-safe:animate-fadeInRight text-2xl font-semibold text-gray-900 mb-4"
+                    className=" text-2xl font-semibold text-gray-900 mb-4"
                     style={{
                       animationDelay: "0.4s",
                       animationFillMode: "both",
@@ -69,7 +71,7 @@ export default function Nosotros() {
                   <WorkMetodo />
 
                   <div
-                    className="motion-safe:animate-fadeIn pt-12 border-t-2 border-gray-100 text-center"
+                    className=" pt-12 border-t-2 border-gray-100 text-center"
                     style={{
                       animationDelay: "2s",
                       animationFillMode: "both",
@@ -103,7 +105,7 @@ export default function Nosotros() {
                 </div>
               </div>
               <div
-                className="motion-safe:animate-fadeInUp w-full lg:w-1/3 xl:w-1/2 px-4 flex items-center"
+                className=" w-full lg:w-1/3 xl:w-1/2 px-4 flex items-center"
                 style={{
                   animationDelay: "0.2s",
                   animationFillMode: "both",
