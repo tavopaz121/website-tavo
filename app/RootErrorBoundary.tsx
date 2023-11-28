@@ -3,6 +3,7 @@ import { useRouteError, isRouteErrorResponse } from "@remix-run/react";
 import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
 import img from "./assets/imgs/error/tristeza.webp";
+import img2 from "./assets/imgs/error/klipartz.com.png";
 
 export default function RootErrorBoundary() {
   const error = useRouteError();
@@ -29,8 +30,11 @@ export default function RootErrorBoundary() {
                 src={img}
               />
             </div>
-            <div className="grid relative place-items-center text-center flex-auto lg:my-[15%]">
-              <h2 className="lg:text-4xl">Lo sentimos .....</h2>
+            <div
+              className="grid relative place-items-center text-center flex-auto lg:my-[13%]"
+              bg-src={img2}
+            >
+              <h1 className="lg:text-6xl font-heading">Lo sentimos .....</h1>
               <h4 className="w-[60%] lg:text-2xl lg:w-[60%] lg:mt-[5%]">
                 ¡La página que estas buscando ha sido eliminada o movida!
               </h4>

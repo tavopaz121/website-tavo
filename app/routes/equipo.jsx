@@ -3,10 +3,10 @@ import fatima from "../assets/imgs/equipo/fatima.webp";
 import octavio from "~/assets/imgs/equipo/octavio.webp";
 import jaime from "~/assets/imgs/equipo/jaime.webp";
 import norberto from "~/assets/imgs/equipo/norberto.webp";
-import colaboraAprende from "~/assets/imgs/equipo/3D_Animation_Style_Colaboracin_en_equipo_oficina_2.webp";
-import creaAsap from "~/assets/imgs/equipo/3D_Animation_Style_equipo_oficina_computadora_trabajando_2.webp";
-import retroalimenta from "~/assets/imgs/equipo/3D_Animation_Style_reuniones_virtuales_skype_0.webp";
-import adaptaMejora from "~/assets/imgs/equipo/3D_Animation_Style_capacitacin_oficina_equipo_0.webp";
+import colaboraAprende from "../assets/imgs/equipo/Unsplash-colaborayaprende.webp";
+import creaAsap from "../assets/imgs/equipo/Unsplash-creaASAP.webp";
+import retroalimenta from "../assets/imgs/equipo/Unsplash-retroalimenta.webp";
+import adaptaMejora from "../assets/imgs/equipo/Unsplash-adapta.webp";
 import fondotech from "~/assets/imgs/equipo/Tech Marvels_ Aesthetic Wonders in Modern Technologies.webp";
 export default function Equipo() {
   const shadowImg = {
@@ -16,18 +16,18 @@ export default function Equipo() {
     <div>
       <div className="bg-[#012e46] h-[550px] w-full relative mb-12">
         <img
-          alt="Colabora y aprende"
+          alt="Maximo rendimiento"
           className="md:clip-path-diagonal absolute h-[550px] w-full max-w-none object-cover bg-center"
           src={fondotech}
         />
         <div className="px-4 top-[22%] w-full absolute">
-          <h2 className="sm:ml-[5%] text-white font-bold text-5xl sm:text-6xl">
+          <h2 className="sm:ml-[5%] text-white font-bold text-5xl sm:text-7xl font-heading">
             Máximo
           </h2>
-          <h2 className="sm:ml-[10%] text-white font-bold text-5xl sm:text-6xl">
+          <h2 className="sm:ml-[10%] text-white font-bold text-5xl sm:text-7xl font-heading">
             Rendimiento
           </h2>
-          <p className="sm:ml-[5%] mt-[3%] w-full sm:w-[55%] md:w-[50%] lg:w-[40%] text-white text-2xl">
+          <p className="sm:ml-[2%] mt-[2%] w-full sm:w-[55%] md:w-[50%] lg:w-[40%] text-white text-xl">
             Imagina un enfoque que maximice la colaboración, acelere la entrega
             de resultados, fomente la mejora constante y se adapte a los cambios
             en el camino.
@@ -43,7 +43,7 @@ export default function Equipo() {
           src={colaboraAprende}
         />
         <div className="content-end">
-          <h3 className="text-4xl">Colabora y Aprende</h3>
+          <h3 className="text-4xl font-heading">Colabora y Aprende</h3>
           <p className="text-2xl text-gray-600">
             En esta fase, trabajamos juntos como equipo, escuchamos tus ideas y
             necesidades, definimos objetivos en colaboración y mantenemos una
@@ -53,7 +53,7 @@ export default function Equipo() {
         </div>
 
         <div className="">
-          <h3 className="text-4xl">Crea ASAP</h3>
+          <h3 className="text-4xl font-heading">Crea ASAP</h3>
           <p className="text-2xl text-gray-600">
             Una vez entendida tu visión, avanzamos rápidamente en el desarrollo
             web sin demora. Priorizamos resultados en iteraciones ágiles,
@@ -76,7 +76,7 @@ export default function Equipo() {
         />
 
         <div className="  ">
-          <h3 className="text-4xl">Retroalimenta</h3>
+          <h3 className="text-4xl font-heading">Retroalimenta</h3>
           <p className="text-2xl text-gray-600">
             En esta etapa, tu opinión y la de tus usuarios son cruciales.
             Probamos lo construido, recopilamos tus comentarios y ajustamos
@@ -85,8 +85,8 @@ export default function Equipo() {
           </p>
         </div>
 
-        <div className=" ">
-          <h3 className="text-4xl">Adapta/mejora</h3>
+        <div>
+          <h3 className="text-4xl font-heading">Adapta/mejora</h3>
           <p className="text-2xl text-gray-600">
             "Nos adaptamos al cambio constante en el mundo digital, mejorando
             continuamente nuestros procesos. Te entregamos un producto
@@ -103,7 +103,7 @@ export default function Equipo() {
       </div>
 
       <div className="m-20">
-        <h1 className="text-center text-5xl text-[#fb5975] font-pensemosweb shadow-black/80 text-shadow-sm tracking-tight mt-10 mb-10 mx-4">
+        <h1 className="text-center text-5xl text-[#fb5975] font-heading tracking-tight mt-10 mb-10 mx-4">
           Conoce nuestro equipo
         </h1>
       </div>
