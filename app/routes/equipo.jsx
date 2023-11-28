@@ -10,7 +10,7 @@ import adaptaMejora from "../assets/imgs/equipo/Unsplash-adapta.webp";
 import fondotech from "~/assets/imgs/equipo/Tech Marvels_ Aesthetic Wonders in Modern Technologies.webp";
 export default function Equipo() {
   const shadowImg = {
-    boxShadow: "5px 5px 20px rgba(0,0,0,0.5)",
+    boxShadow: "5px 5px 20px rgba(0,0,0,0.2)",
   };
   return (
     <div>
@@ -21,10 +21,10 @@ export default function Equipo() {
           src={fondotech}
         />
         <div className="px-4 top-[22%] w-full absolute">
-          <h2 className="sm:ml-[5%] text-white font-bold text-5xl sm:text-7xl font-heading">
+          <h2 className="sm:ml-[2%] text-white font-bold text-5xl sm:text-7xl font-heading">
             Máximo
           </h2>
-          <h2 className="sm:ml-[10%] text-white font-bold text-5xl sm:text-7xl font-heading">
+          <h2 className="sm:ml-[8%] text-white font-bold text-4xl sm:text-7xl font-serif italic">
             Rendimiento
           </h2>
           <p className="sm:ml-[2%] mt-[2%] w-full sm:w-[55%] md:w-[50%] lg:w-[40%] text-white text-xl">
@@ -42,9 +42,12 @@ export default function Equipo() {
           className="h-[390px]  object-cover md:justify-self-start"
           src={colaboraAprende}
         />
-        <div className="content-end">
-          <h3 className="text-4xl font-heading">Colabora y Aprende</h3>
-          <p className="text-2xl text-gray-600">
+        <div className="content-end mx-auto">
+          <h3 className="text-4xl font-heading">
+            <span className="font-heading">Colabora y </span>
+            <span className="font-serif italic">Aprende</span>
+          </h3>
+          <p className="text-gray-600 text-2xl">
             En esta fase, trabajamos juntos como equipo, escuchamos tus ideas y
             necesidades, definimos objetivos en colaboración y mantenemos una
             comunicación abierta y continua, sin importar tu nivel de
@@ -52,8 +55,11 @@ export default function Equipo() {
           </p>
         </div>
 
-        <div className="">
-          <h3 className="text-4xl font-heading">Crea ASAP</h3>
+        <div>
+          <h3 className="text-4xl font-heading">
+            <span className="font-heading">Crea </span>
+            <span className="font-serif italic">ASAP</span>
+          </h3>
           <p className="text-2xl text-gray-600">
             Una vez entendida tu visión, avanzamos rápidamente en el desarrollo
             web sin demora. Priorizamos resultados en iteraciones ágiles,
@@ -74,9 +80,8 @@ export default function Equipo() {
           className="h-[390px]  shadow-lg object-cover md:justify-self-start"
           src={retroalimenta}
         />
-
-        <div className="  ">
-          <h3 className="text-4xl font-heading">Retroalimenta</h3>
+        <div>
+          <h3 className="text-4xl font-serif italic">Retroalimenta</h3>
           <p className="text-2xl text-gray-600">
             En esta etapa, tu opinión y la de tus usuarios son cruciales.
             Probamos lo construido, recopilamos tus comentarios y ajustamos
@@ -86,7 +91,10 @@ export default function Equipo() {
         </div>
 
         <div>
-          <h3 className="text-4xl font-heading">Adapta/mejora</h3>
+          <h3 className="text-4xl font-heading">
+            <span className="font-heading">Adapta / </span>
+            <span className="font-serif italic">Mejora</span>
+          </h3>
           <p className="text-2xl text-gray-600">
             "Nos adaptamos al cambio constante en el mundo digital, mejorando
             continuamente nuestros procesos. Te entregamos un producto
@@ -103,8 +111,9 @@ export default function Equipo() {
       </div>
 
       <div className="m-20">
-        <h1 className="text-center text-5xl text-[#fb5975] font-heading tracking-tight mt-10 mb-10 mx-4">
-          Conoce nuestro equipo
+        <h1 className="text-center text-5xl tracking-tight mt-10 mb-10 mx-4 md:text-7xl font-bold">
+          <span className="font-heading">Conoce nuestro </span>
+          <span className="font-serif italic">equipo</span>
         </h1>
       </div>
       <div className="flex flex-wrap gap-x-8 gap-y-12 mt-10 relative">
@@ -168,7 +177,7 @@ export default function Equipo() {
           style={shadowImg}
           className="h-[450px] w-[350px] max-w-none shadow-2xl grid relative place-items-center flex-auto"
         >
-          <h3 className="nombre text-4xl text-center text-neutral-800 top-20  absolute">
+          <h3 className="nombre text-4xl text-center text-neutral-800 top-20  font-heading absolute">
             Simplificamos la agilidad para ti
           </h3>
           <p className="puesto text-2xl text-center text-neutral-800 top-60 m-5  absolute">
