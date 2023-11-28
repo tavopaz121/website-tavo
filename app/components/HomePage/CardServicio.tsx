@@ -25,19 +25,19 @@ export default function Servicio({
   let textOrientation = "";
 
   if (position === "left") {
-    fadeIn = "motion-safe:animate-fadeInRight";
+    fadeIn = "motion-safe:animate-fadeInRight motion-safe:opacity-100";
     reverseCard = "flex-row-reverse";
     marginIcon = "ml-6";
     textOrientation = "text-right";
   } else {
-    fadeIn = "motion-safe:animate-fadeInLeft";
+    fadeIn = "motion-safe:animate-fadeInLeft motion-safe:opacity-100";
     marginIcon = "mr-6";
     textOrientation = "text-left";
   }
 
   return (
     <div
-      className={`flex items-center min-h-[137px] ${reverseCard} ${
+      className={`flex items-center min-h-[137px] motion-safe:opacity-0 ${reverseCard} ${
         start ? fadeIn : ""
       }`}
       style={{
@@ -52,7 +52,7 @@ export default function Servicio({
       </div>
 
       <a href="/servicios" className={`${textOrientation}`}>
-        <h3 className={`text-xl font-semibold`}>{servive}</h3>
+        <h3 className={`text-xl font-body`}>{servive}</h3>
         <span className={`text-sm text-gray-500`}>{description}</span>
       </a>
     </div>

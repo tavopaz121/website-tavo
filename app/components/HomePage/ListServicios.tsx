@@ -20,41 +20,48 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
     observer: IntersectionObserver,
   ) {
     entries.forEach((entry) => {
-      const scrollPosition = window.scrollY;
-      if (
-        referenceTitle &&
-        referenceTitle.current &&
-        scrollPosition > referenceTitle?.current?.offsetHeight
-      ) {
-        setAnimation("motion-safe:animate-fadeInUp opacity-100");
-        setStart(true);
-      }
-
       if (entry.isIntersecting) {
-        setAnimation("motion-safe:animate-fadeInUp opacity-100");
+        setAnimation("motion-safe:animate-fadeInUp motion-safe:opacity-100");
         setStart(true);
       }
     });
   }
 
-  const showListServicesCb = useCallback(showListServices, [referenceTitle]);
+  const showListServicesCb = useCallback(showListServices, []);
 
   useEffect(() => {
     const options = { root: null, rootMargin: "0px", threshold: 1 };
     const observer = new IntersectionObserver(showListServicesCb, options);
     observer.observe(referenceTitle.current!);
-  }, [referenceTitle, showListServicesCb]);
+
+    //This is useful when reloading page and/or when user scroll up to the target
+    const scrollPosition = window.scrollY;
+    if (
+      referenceTitle &&
+      referenceTitle.current &&
+      scrollPosition > referenceTitle?.current?.offsetHeight
+    ) {
+      setAnimation("motion-safe:animate-fadeInUp motion-safe:opacity-100");
+      setStart(true);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [showListServicesCb, referenceTitle]);
 
   return (
     <div
       data-testid="list-services"
-      className={`mx-auto opacity-0 ${animation}`}
+      className={`mx-auto motion-safe:opacity-0 ${animation}`}
       style={{
         animationDelay: "0.5s",
         animationFillMode: "both",
       }}
     >
-      <div className={`grid gap-10 ${gridColumns} items-center justify-around`}>
+      <div
+        className={`grid gap-10 ${gridColumns} items-center justify-between`}
+      >
         <div className={`flex xl:flex-col max-w-lg overflow-hidden`}>
           <div className="xl:w-auto px-4 mb-16 lg:mb-0">
             {serviciosUno.map((servicio) => (
