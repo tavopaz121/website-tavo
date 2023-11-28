@@ -105,7 +105,7 @@ export default function Equipo() {
         <img
           style={shadowImg}
           alt="Adapta y mejora"
-          className="h-[390px]  max-w-none shadow-lg object-cover md:justify-self-end"
+          className="h-[390px] shadow-lg object-cover md:justify-self-end"
           src={adaptaMejora}
         />
       </div>
