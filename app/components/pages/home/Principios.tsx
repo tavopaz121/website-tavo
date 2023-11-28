@@ -3,47 +3,18 @@ import { Transition } from "@headlessui/react";
 import Particles from "~/components/Particles/Particles";
 
 import principles from "~/assets/imgs/inicio/principios.webp";
-import peopleJustice from "~/assets/imgs/icons/people-justice.svg";
-import simplicitySmallbatches from "~/assets/imgs/icons/simplicity-smallbatches.svg";
-import feedbackLoopsAdaptations from "~/assets/imgs/icons/feedbackloops-adaptations.svg";
-
-interface Item {
-  img: string;
-  quote: string;
-  name: string;
-  role: string;
-}
+import { items } from "~/data/principles";
 
 export default function Principios() {
   const [active, setActive] = useState<number>(0);
   const [autorotate, setAutorotate] = useState<boolean>(true);
   const [autorotateTiming] = useState<number>(7000);
-
-  const items: Item[] = [
-    {
-      img: peopleJustice,
-      quote:
-        "Personas y Justicias. Las personas forman empresas y crean productos. Lo más importante, eres tu, persona.",
-      name: "1",
-      role: "Ltd Head of Product",
-    },
-    {
-      img: simplicitySmallbatches,
-      quote:
-        "Simplicidad y lotes pequeños. Si quieres hacer algo realmente exitoso y grande. Arma tu cadena de lotes.",
-      name: "2",
-      role: "Spark Founder & CEO",
-    },
-    {
-      img: feedbackLoopsAdaptations,
-      quote:
-        "Ciclos de retroalimentación y adaptaciones. Método cientifico para reflejar aprendizajes y actuar.",
-      name: "3",
-      role: "Appy Product Lead",
-    },
-  ];
-
-  const testimonials = useRef<HTMLDivElement>(null);
+  const principlesRef = useRef<HTMLDivElement>(null);
+  const referenceTitle = useRef<HTMLHeadingElement>(null);
+  const [animations, setAnimations] = useState({
+    left: "",
+    right: "",
+  });
 
   useEffect(() => {
     if (!autorotate) return;
@@ -54,12 +25,44 @@ export default function Principios() {
   }, [active, autorotate, autorotateTiming, items.length]);
 
   const heightFix = () => {
-    if (testimonials.current && testimonials.current.parentElement)
-      testimonials.current.parentElement.style.height = `${testimonials.current.clientHeight}px`;
+    if (principlesRef.current && principlesRef.current.parentElement)
+      principlesRef.current.parentElement.style.height = `${principlesRef.current.clientHeight}px`;
   };
 
   useEffect(() => {
     heightFix();
+  }, []);
+
+  useEffect(() => {
+    const options = { root: null, rootMargin: "0px", threshold: 1 };
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setAnimations({
+            left: "motion-safe:animate-fadeInLeft motion-safe:opacity-100",
+            right: "motion-safe:animate-fadeInRight motion-safe:opacity-100",
+          });
+        }
+      });
+    }, options);
+    observer.observe(referenceTitle.current);
+
+    //This is useful when reloading page and/or when user scroll up to the target
+    const scrollPosition = window.scrollY;
+    if (
+      referenceTitle &&
+      referenceTitle.current &&
+      scrollPosition > referenceTitle?.current?.offsetHeight
+    ) {
+      setAnimations({
+        left: "motion-safe:animate-fadeInLeft motion-safe:opacity-100",
+        right: "motion-safe:animate-fadeInRight motion-safe:opacity-100",
+      });
+    }
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -70,21 +73,33 @@ export default function Principios() {
             Principios
           </span>
           <h2
-            data-testid="title-servicios"
+            ref={referenceTitle}
             className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900 mb-8"
           >
             <span>Nuestros </span>
             <span className="font-serif italic relative">principios</span>
           </h2>
         </div>
-        <picture className="flex justify-center w-full mb-12">
+        <picture
+          className={`flex justify-center w-full mb-12 motion-safe:opacity-0 ${animations.left}`}
+          style={{
+            animationDelay: "0.5s",
+            animationFillMode: "both",
+          }}
+        >
           <img
             className="w-full md:w-[50%] object-cover object-center rounded-3xl"
             src={principles}
             alt="Principios"
           />
         </picture>
-        <section className="relative overflow-hidden py-8 sm:rounded-r-full sm:rounded-l-full">
+        <section
+          className={`relative overflow-hidden py-8 sm:rounded-r-full sm:rounded-l-full motion-safe:opacity-0 ${animations.right}`}
+          style={{
+            animationDelay: "1s",
+            animationFillMode: "both",
+          }}
+        >
           {/* Background gradient */}
           <div
             className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl -mx-20 -z-10 overflow-hidden mb-12 mt-0 md:mb-0"
@@ -203,7 +218,7 @@ export default function Principios() {
                 </div>
                 {/* Text */}
                 <div className="mt-15 mb-10 md:mb-5 transition-all duration-150 delay-300 ease-in-out font-body font-light">
-                  <div className="relative flex flex-col" ref={testimonials}>
+                  <div className="relative flex flex-col" ref={principlesRef}>
                     {items.map((item, index) => (
                       <Transition
                         key={index}
