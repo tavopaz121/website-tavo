@@ -6,6 +6,7 @@ import Contacto from "~/components/pages/home/Contacto";
 import { items, secondaryItems } from "~/data/navItems";
 import Nav from "~/components/Navs/Nav";
 import { useEffect, useRef, useState } from "react";
+import Principios from "~/components/pages/home/Principios";
 
 export default function Index() {
   const targetRef = useRef<HTMLElement>(null);
@@ -46,6 +47,7 @@ export default function Index() {
       </section>
 
       <article ref={targetRef}>
+        <Principios />
         <Servicios />
         <Nosotros />
         <Blogs />

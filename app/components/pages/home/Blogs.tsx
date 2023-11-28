@@ -1,5 +1,3 @@
-import startCicle from "app/assets/imgs/cta/star-circle-right.svg";
-import blueLeft from "app/assets/imgs/cta/blue-light-left.png";
 import imageBlog from "app/assets/imgs/corazon-agilidad.webp";
 import imageBlog2 from "app/assets/imgs/individuosEInteracciones.webp";
 import imageBlog3 from "app/assets/imgs/Portada-IntroLEanStartup-.webp";
@@ -57,16 +55,6 @@ export default function Blogs() {
 
   return (
     <section className="relative py-20 overflow-hidden">
-      <img
-        className="absolute top-0 right-0 xl:mt-10 -mr-24 lg:-mr-0"
-        src={startCicle}
-        alt=""
-      />
-      <img
-        className="hidden sm:block absolute bottom-0 left-0 -mb-48 lg:mb-0"
-        src={blueLeft}
-        alt=""
-      />
       <div className="relative container px-4 mx-auto" ref={contentBlogs}>
         <div className="max-w-2xl mx-auto mb-15 text-center">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">

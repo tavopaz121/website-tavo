@@ -11,7 +11,7 @@ export default function Hero({ videoSrc }: { videoSrc: string }) {
         src={videoSrc}
       ></video>
 
-      <div className="absolute top-0 h-[100vb] text-white w-full xl:w-[50%] flex justify-center items-start flex-col mx-auto">
+      <h1 className="absolute top-0 h-[100vb] text-white w-full xl:w-[50%] flex justify-center items-start flex-col mx-auto">
         <span
           className="motion-safe:animate-fadeInDown max-[375px]:text-3xl text-4xl lg:text-5xl font-heading mb-2 lg:mb-4"
           style={{
@@ -42,18 +42,20 @@ export default function Hero({ videoSrc }: { videoSrc: string }) {
             }}
           >
             <mark className="text-white bg-transparent relative p-2 px-4">
-              <span className="opacity-0 h-full p-2">Desarrollo web ágil</span>
+              <span className="opacity-0 h-full p-2">
+                Desarrollo web/app ágil
+              </span>
               <span className="absolute -left-12 inset-0 bg-black transform -skew-x-12 -z-20 h-full">
                 {" "}
               </span>
               <span className="absolute left-0 transform h-full">
-                Desarrollo web ágil
+                Desarrollo web/app ágil
               </span>
             </mark>
           </span>
         </span>
-      </div>
-      <Particles className="absolute inset-0" />
+      </h1>
+      <Particles className="absolute inset-0" staticity={1} />
     </>
   );
 }
