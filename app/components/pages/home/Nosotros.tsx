@@ -1,4 +1,4 @@
-import feedbackLoop from "app/assets/imgs/inicio/feedback-loop.png";
+import feedbackLoop from "app/assets/imgs/inicio/feedback-loop.webp";
 import WorkMetodo from "../../HomePage/WorkNosotros";
 
 import { useRef, useEffect, useState } from "react";

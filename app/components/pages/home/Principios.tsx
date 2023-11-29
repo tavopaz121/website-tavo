@@ -22,7 +22,7 @@ export default function Principios() {
       setActive(active + 1 === items.length ? 0 : (active) => active + 1);
     }, autorotateTiming);
     return () => clearInterval(interval);
-  }, [active, autorotate, autorotateTiming, items.length]);
+  }, [active, autorotate, autorotateTiming]);
 
   const heightFix = () => {
     if (principlesRef.current && principlesRef.current.parentElement)

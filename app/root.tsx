@@ -36,7 +36,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <main className={`${isHome ? "" : "pt-[108px]"}`}>
+        <main className={`overflow-hidden ${isHome ? "" : "pt-[108px]"}`}>
           {isHome ? null : (
             <Nav
               items={items}
