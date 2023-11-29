@@ -88,7 +88,7 @@ export default function Contacto() {
             ¿QUIERES CONTACTARNOS?
           </span>
           <h1
-            className="font-heading text-5xl xs:text-6xl font-bold text-gray-900 mb-4  motion-safe:animate-bounceInDown"
+            className="font-heading text-5xl xs:text-6xl font-bold text-gray-900 mb-4  motion-safe:animate-fadeInDown"
             style={{
               animationFillMode: "both",
               animationDuration: "1s",

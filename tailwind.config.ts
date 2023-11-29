@@ -6,13 +6,13 @@ export default {
   theme: {
     extend: {
       animation: {
-        fadeInLeft: "fadeInLeft 0.5s ease-in-out",
-        fadeInRight: "fadeInRight 0.5s ease-in-out",
-        fadeInUp: "fadeInUp 0.5s ease-out",
-        fadeInDown: "fadeInDown 0.5s ease-out",
-        fadeIn: "fadeIn 0.5s ease-out",
-        bounceIn: "bounceIn 0.5s ease-out",
-        bounceInDown: "bounceInDown 0.5s ease-out",
+        fadeInLeft: "fadeInLeft 1.5s ease-in-out",
+        fadeInRight: "fadeInRight 1.5s ease-in-out",
+        fadeInUp: "fadeInUp 1.5s ease-out",
+        fadeInDown: "fadeInDown 1.5s ease-out",
+        fadeIn: "fadeIn 1.5s ease-out",
+        bounceIn: "bounceIn 1.5s ease-out",
+        bounceInDown: "bounceInDown 1.5s ease-out",
         endless: "endless 20s linear infinite",
       },
       textShadow: {
