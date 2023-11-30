@@ -6,8 +6,10 @@ import Card from "~/components/Card/Card";
 import { mapPostsToCards } from "~/mappers/mapPostsToCards";
 import { FaInfoCircle } from "react-icons/fa";
 import { Link } from "@remix-run/react";
+import { initFirebase } from "~/firebase/firebase.server";
 
 export async function loader({ request }: LoaderArgs) {
+  initFirebase();
   const posts = await getPosts();
 
   return json({ posts: mapPostsToCards(posts) });
