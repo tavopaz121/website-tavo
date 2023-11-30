@@ -7,7 +7,7 @@ export default function SectionServicios() {
   return (
     <section
       data-testid="servicios"
-      className="relative overflow-hidden px-4 py-10"
+      className="relative overflow-hidden px-4 py-10 lg:py-20"
     >
       <div className="max-w-3xl mx-auto text-center">
         <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
