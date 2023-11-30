@@ -79,7 +79,7 @@ export default function Contacto() {
   return (
     <section
       id="contacto"
-      className="relative py-5 md:py-10 overflow-hidden"
+      className="relative py-10 lg:py-20 overflow-hidden"
       ref={section}
     >
       <div className={`relative container px-4 mx-auto ${isHidden}`}>
@@ -88,7 +88,7 @@ export default function Contacto() {
             ¿QUIERES CONTACTARNOS?
           </span>
           <h1
-            className="font-heading text-5xl xs:text-6xl font-bold text-gray-900 mb-4  motion-safe:animate-fadeInDown"
+            className="font-heading text-5xl xs:text-6xl font-bold text-gray-900 mb-4 motion-safe:animate-fadeInLeft"
             style={{
               animationFillMode: "both",
               animationDuration: "1s",

@@ -67,7 +67,7 @@ export default function Principios() {
   }, []);
 
   return (
-    <section data-testid="servicios" className="relative py-20">
+    <section data-testid="servicios" className="relative py-10 lg:py-20">
       <div className="px-4 mx-auto">
         <div className="max-w-3xl mx-auto text-center">
           <span className="uppercase inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">

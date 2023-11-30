@@ -11,7 +11,7 @@ interface ProListServices {
 export default function ListServicios({ referenceTitle }: ProListServices) {
   const [animation, setAnimation] = useState("");
   const [start, setStart] = useState<boolean>(false);
-  let gridColumns = "grid-cols-1 lg:grid-cols-3";
+  let gridColumns = "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
   let delayListLeft = 1;
   let delayListRight = 1;
 
@@ -60,10 +60,12 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
       }}
     >
       <div
-        className={`grid gap-10 ${gridColumns} items-center justify-between`}
+        className={`grid gap-0 lg:gap-10 ${gridColumns} items-center md:justify-between`}
       >
-        <div className={`flex xl:flex-col max-w-lg overflow-hidden`}>
-          <div className="xl:w-auto px-4 mb-16 lg:mb-0">
+        <div
+          className={`flex xl:flex-col max-w-lg overflow-hidden order-2 justify-self-center md:order-1`}
+        >
+          <div className="xl:w-auto px-4 lg:mb-0">
             {serviciosUno.map((servicio) => (
               <CardServicio
                 key={servicio.servive}
@@ -79,7 +81,7 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
         <img
           decoding="async"
           loading="lazy"
-          className="motion-safe:animate-fadeIn rounded-full block  h-[300px] w-[300px] lg:h-[600px] lg:w-[400px] bg-cover bg-center bg-no-repeat mx-auto mb-8 object-cover"
+          className="md:order-2 motion-safe:animate-fadeIn rounded-full block  h-[300px] w-[300px] lg:h-[600px] lg:w-[400px] bg-cover bg-center bg-no-repeat mx-auto mb-8 object-cover"
           style={{
             animationDelay: "0.5s",
             animationFillMode: "both",
@@ -90,8 +92,10 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
           loading="lazy"
         />
 
-        <div className={`flex xl:flex-col max-w-lg overflow-hidden`}>
-          <div className="xl:w-auto px-4 mb-16 lg:mb-0">
+        <div
+          className={`flex xl:flex-col max-w-lg overflow-hidden order-1 justify-self-center md:order-3 col-span-2 lg:col-span-1`}
+        >
+          <div className="xl:w-auto px-4 lg:mb-0">
             {serviciosDos.map((servicio) => (
               <CardServicio
                 key={servicio.servive}
