@@ -21,7 +21,13 @@ export default function Card({
   return (
     <Container className={clsN} style={style ?? ""}>
       <AnchorElement {...anchorProps}>
-        <img src={image.src} alt={image.alt} className={imgClsN} />
+        <img
+          decoding="async"
+          loading="lazy"
+          src={image.src}
+          alt={image.alt}
+          className={imgClsN}
+        />
       </AnchorElement>
 
       <section className="px-4 py-2">

@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import Particles from "~/components/Particles/Particles";
 
-import principles from "~/assets/imgs/inicio/principios.webp";
+import principles from "~/assets/imgs/inicio/principios-1200x740.webp";
+import principlesSmall from "~/assets/imgs/inicio/principios-600x370.webp";
 import { items } from "~/data/principles";
 
 export default function Principios() {
@@ -88,8 +89,17 @@ export default function Principios() {
           }}
         >
           <img
-            className="w-full md:w-[50%] object-cover object-center rounded-3xl"
-            src={principles}
+            decoding="async"
+            loading="lazy"
+            className="rounded-3xl"
+            width={600}
+            height={370}
+            src={principlesSmall}
+            srcSet={`
+              ${principlesSmall} 600w,
+              ${principles} 1200w
+              `}
+            sizes="(min-width: 680px) 600px, 92.22vw"
             alt="Principios"
           />
         </picture>
@@ -206,6 +216,8 @@ export default function Principios() {
                         beforeEnter={() => heightFix()}
                       >
                         <img
+                          decoding="async"
+                          loading="lazy"
                           className="relative mt-5 left-1/2 -translate-x-1/2"
                           src={item.img}
                           width={150}

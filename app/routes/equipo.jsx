@@ -16,6 +16,8 @@ export default function Equipo() {
     <div>
       <div className="bg-[#012e46] h-[550px] w-full relative mb-12">
         <img
+          decoding="async"
+          loading="lazy"
           alt="Maximo rendimiento"
           className="md:clip-path-diagonal absolute h-[550px] w-full max-w-none object-cover bg-center"
           src={fondotech}
@@ -37,6 +39,8 @@ export default function Equipo() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 place-items-center w-full px-4">
         <img
+          decoding="async"
+          loading="lazy"
           style={shadowImg}
           alt="Colabora y aprende"
           className="h-[390px]  object-cover md:justify-self-start"
@@ -69,12 +73,16 @@ export default function Equipo() {
         </div>
 
         <img
+          decoding="async"
+          loading="lazy"
           style={shadowImg}
           alt="Crea ASAP"
           className="h-[390px] object-cover md:justify-self-end"
           src={creaAsap}
         />
         <img
+          decoding="async"
+          loading="lazy"
           style={shadowImg}
           alt="Retroalimenta"
           className="h-[390px]  shadow-lg object-cover md:justify-self-start"
@@ -103,6 +111,8 @@ export default function Equipo() {
           </p>
         </div>
         <img
+          decoding="async"
+          loading="lazy"
           style={shadowImg}
           alt="Adapta y mejora"
           className="h-[390px] shadow-lg object-cover md:justify-self-end"
@@ -119,6 +129,8 @@ export default function Equipo() {
       <div className="flex flex-wrap gap-x-8 gap-y-12 mt-10 relative">
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Octavio JS Fullstack Developer"
             className="h-[390px] w-[350px] max-w-none shadow-md object-cover relative"
@@ -133,6 +145,8 @@ export default function Equipo() {
         </div>
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Jaime Agile Coach"
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
@@ -147,6 +161,8 @@ export default function Equipo() {
         </div>
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Norberto Agile JS Developer"
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
@@ -161,6 +177,8 @@ export default function Equipo() {
         </div>
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Fatima Fronend Developer"
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
@@ -187,6 +205,8 @@ export default function Equipo() {
         </div>
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Nestor Frontend Developer"
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"

@@ -7,6 +7,15 @@ import { items, secondaryItems } from "~/data/navItems";
 import Nav from "~/components/Navs/Nav";
 import { useEffect, useRef, useState } from "react";
 import Principios from "~/components/pages/home/Principios";
+import poster from "app/assets/imgs/inicio/background-video-inicio.webp";
+import type { LinksFunction } from "@remix-run/node";
+import videoPoster from "app/assets/imgs/inicio/background-video-inicio.webp";
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "preload", href: videoPoster, as: "image", type: "image/webp" },
+  ];
+};
 
 export default function Index() {
   const targetRef = useRef<HTMLElement>(null);
@@ -43,7 +52,18 @@ export default function Index() {
         borderClasses={borderClasses}
       />
       <section className="relative pb-20 overflow-hidden min-h-screen bg-black px-4">
-        <Hero videoSrc="https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-3s-darker.mp4?alt=media&token=d66dd8d8-378a-4c35-968d-e1d3e31971d0" />
+        <Hero
+          preText="Creá con"
+          title="pensemosweb"
+          subtitle="Desarrollo web/app ágil"
+          videoPoster={poster}
+          videoSrcs={{
+            mp4: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.mp4?alt=media&token=3e2941d4-1b75-40dc-9ed8-ed4eed6476ef",
+            webm: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.webm?alt=media&token=ec9429ad-0d66-4da2-bafe-4504248a5419",
+            ogv: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.ogv?alt=media&token=eb4e4e9f-7e4a-4157-8f72-515f135045f6",
+          }}
+          timing={1}
+        />
       </section>
 
       <article ref={targetRef}>

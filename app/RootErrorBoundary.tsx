@@ -25,6 +25,8 @@ export default function RootErrorBoundary() {
           <section className="flex flex-wrap relative lg:mx-20">
             <div className="grid relative place-items-center flex-auto">
               <img
+                decoding="async"
+                loading="lazy"
                 alt="Error 404"
                 className="h-[300px] w-[300px] object-cover relative lg:h-[400px] lg:w-[400px]"
                 src={img}

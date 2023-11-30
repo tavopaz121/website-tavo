@@ -77,6 +77,8 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
         </div>
 
         <img
+          decoding="async"
+          loading="lazy"
           className="motion-safe:animate-fadeIn rounded-full block  h-[300px] w-[300px] lg:h-[600px] lg:w-[400px] bg-cover bg-center bg-no-repeat mx-auto mb-8 object-cover"
           style={{
             animationDelay: "0.5s",
@@ -85,6 +87,7 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
           }}
           src={servicesImg}
           alt="Mujer sonriendo con una latop"
+          loading="lazy"
         />
 
         <div className={`flex xl:flex-col max-w-lg overflow-hidden`}>

@@ -35,11 +35,15 @@ export default function Equipo() {
           }}
         >
           <img
+            decoding="async"
+            loading="lazy"
             className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full object-cover"
             src={circle}
             alt=""
           />
           <img
+            decoding="async"
+            loading="lazy"
             src={equipo}
             alt="Un equipo trabajando"
             className="absolute max-xl:static top-0 left-0 transform translate-x-0 h-full max-xl:h-auto max-xl:w-full object-cover motion-safe:animate-fadeInRight"
