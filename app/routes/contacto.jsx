@@ -12,7 +12,6 @@ import { validateFields } from "../functions/validatedFields";
 function validateFullName(name) {
   const nameRegex = /^\s*\S+(\s+\S+){2,}\s*$/;
   return nameRegex.test(name);
- 
 }
 
 export async function action({ request }) {
@@ -31,17 +30,17 @@ export default function Contacto() {
   console.log(response);
 
   // Estado para manejar la advertencia del nombre
-  const [nameWarning, setNameWarning] = useState('');
+  const [nameWarning, setNameWarning] = useState("");
 
   // Función para manejar el cambio en el campo de nombre
   const handleNameChange = (e) => {
     const newName = e.target.value;
-    
+
     // Validar el nombre completo
     if (!validateFullName(newName)) {
-      setNameWarning('Ingrese nombre, apellido paterno, materno');
+      setNameWarning("Ingrese nombre, apellido paterno, materno");
     } else {
-      setNameWarning('');
+      setNameWarning("");
     }
 
     // Resto de tu lógica de manejo de cambios en el nombre
@@ -77,6 +76,8 @@ export default function Contacto() {
           <div className="overflow-hidden bg-white rounded-xl">
             <div className="p-6">
               <img
+                decoding="async"
+                loading="lazy"
                 className="block mx-auto mb-3 w-15 h-15 "
                 src={icons}
                 alt=""
@@ -91,6 +92,8 @@ export default function Contacto() {
           <div className="bg-white rounded-xl">
             <div className="p-6">
               <img
+                decoding="async"
+                loading="lazy"
                 className="block mx-auto mb-3 w-15 h-15 "
                 src={email}
                 alt=""
@@ -104,7 +107,13 @@ export default function Contacto() {
           {/* Dirección */}
           <div className="overflow-hidden bg-white rounded-xl">
             <div className="p-6">
-              <img className="block mx-auto mb-3 w-15 h-15 " src={map} alt="" />
+              <img
+                decoding="async"
+                loading="lazy"
+                className="block mx-auto mb-3 w-15 h-15 "
+                src={map}
+                alt=""
+              />
               <p className="mt-6 text-lg font-medium leading-relaxed text-gray-900">
                 Melchor Ocampo, 2, Las Flores, 95096
               </p>
@@ -114,6 +123,8 @@ export default function Contacto() {
           <div className="overflow-hidden bg-white rounded-xl">
             <div className="p-6">
               <img
+                decoding="async"
+                loading="lazy"
                 className="block mx-auto mb-3 w-15 h-15 "
                 src={hour}
                 alt=""
@@ -266,7 +277,13 @@ export default function Contacto() {
                 Con dedicación y creatividad, damos vida a cada proyecto
               </h3>
 
-              <img src={equipo} className="w-50 h-auto" alt="Imagen" />
+              <img
+                decoding="async"
+                loading="lazy"
+                src={equipo}
+                className="w-50 h-auto"
+                alt="Imagen"
+              />
             </div>
           </div>
         </div>

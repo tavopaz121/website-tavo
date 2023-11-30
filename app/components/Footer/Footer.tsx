@@ -9,7 +9,13 @@ export default function Footer() {
         <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div className="grid max-md:grid-cols-1 grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12 max-md:gap-x-0">
             <div className=" max-md:col-span-1 max-md:w-full">
-              <img className="h-8" src={logoPensemosWeb} alt="" />
+              <img
+                decoding="async"
+                loading="lazy"
+                className="h-8"
+                src={logoPensemosWeb}
+                alt=""
+              />
 
               <p className="text-base leading-relaxed text-gray-400 mt-7">
                 En PensemosWeb, estamos dedicados a ofrecerte soluciones
@@ -27,6 +33,8 @@ export default function Footer() {
                 <li className="w-full gap-2">
                   <a href="/" className="flex gap-4">
                     <img
+                      decoding="async"
+                      loading="lazy"
                       src={notice1Img}
                       alt=""
                       className="w-full h-18 object-cover"
@@ -41,6 +49,8 @@ export default function Footer() {
                 <li className="w-full gap-2">
                   <a href="/" className="flex gap-4">
                     <img
+                      decoding="async"
+                      loading="lazy"
                       src={notice1Img}
                       alt=""
                       className="w-full h-18 object-cover"
@@ -55,6 +65,8 @@ export default function Footer() {
                 <li className="w-full gap-2">
                   <a href="/" className="flex gap-4">
                     <img
+                      decoding="async"
+                      loading="lazy"
                       src={notice1Img}
                       alt=""
                       className="w-full h-18 object-cover"
@@ -156,6 +168,8 @@ export default function Footer() {
               <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 xl:justify-end">
                 <li className="flex items-center gap-2">
                   <img
+                    decoding="async"
+                    loading="lazy"
                     src={iconPhone}
                     className="w-4 h-4"
                     alt="Icon Telefono celular"

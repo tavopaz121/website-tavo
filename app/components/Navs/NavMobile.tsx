@@ -45,7 +45,7 @@ export default function NavMobile({
         </div>
         <div>
           {items && (
-            <ul className="mb-2">
+            <ul className="mb-6">
               {items?.map(({ to, label }) => (
                 <li key={to}>
                   <a
@@ -60,7 +60,7 @@ export default function NavMobile({
             </ul>
           )}
 
-          {secondaryItems && (
+          {secondaryItems?.length ? (
             <div className="py-6 px-4 mb-6 border-t border-b border-white">
               {secondaryItems?.map(({ to, label, isButton }) => (
                 <a
@@ -85,7 +85,7 @@ export default function NavMobile({
                 </a>
               ))}
             </div>
-          )}
+          ) : null}
           {children}
         </div>
       </nav>

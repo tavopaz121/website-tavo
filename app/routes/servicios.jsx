@@ -60,6 +60,8 @@ export default function Productos() {
 
             <div className="relative">
               <img
+                decoding="async"
+                loading="lazy"
                 className="w-full object-cover relative z-auto motion-safe:animate-fadeInUp"
                 src={heroImg}
                 alt=""
@@ -140,6 +142,8 @@ export default function Productos() {
                   <circle cx="4" cy="4" r="3" />
                 </svg>
                 <img
+                  decoding="async"
+                  loading="lazy"
                   className="relative w-full max-w-xs mx-auto -mb-60 lg:-mb-64"
                   src="https://cdn.rareblocks.xyz/collection/celebration/images/cta/8/iphone-mockup.png"
                   alt=""
@@ -171,7 +175,13 @@ export default function Productos() {
               >
                 <div className="p-8">
                   <div className="flex items-center">
-                    <img src={item.img} alt="" className="w-12" />
+                    <img
+                      decoding="async"
+                      loading="lazy"
+                      src={item.img}
+                      alt=""
+                      className="w-12"
+                    />
 
                     <div className="ml-5 mr-auto">
                       <p className="text-xl font-semibold text-black">

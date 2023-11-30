@@ -85,19 +85,22 @@ export default function Nosotros() {
           }}
         >
           <img
-            className="w-full object-cover rounded-6xl"
+            decoding="async"
+            loading="lazy"
+            className="w-full object-cover rounded-3xl"
             src={feedbackLoop}
             alt="Ciclo de retroalimentación y adaptaciones"
+            loading="lazy"
           />
         </div>
       </div>
 
       <div className="text-center mt-5">
         <a
-          className="relative group inline-block py-4 px-6 text-gray-900 hover:text-white font-semibold rounded-full overflow-hidden border-b-3 border-gray-500"
+          className="relative group inline-block py-4 px-6 text-white font-semibold rounded-full overflow-hidden border bg-gray-900 "
           href="/nosotros"
         >
-          <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
+          <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-105 transition duration-500"></div>
           <div className="relative flex items-center justify-center">
             <span className="mr-4">Conocenos</span>
             <span>

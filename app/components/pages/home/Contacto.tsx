@@ -38,7 +38,7 @@ const iconPhone = (
 const cardMail: PropsCardCotact = {
   urlImg: orangeEmail,
   isEmail: true,
-  description: "Mandadamos un correo para atenderte a la mas brevedad posible",
+  description: "Mandadamos un correo para atenderte a la brevedad posible",
   medio: "pensemoswebjs@gmail.com",
   icon: iconEmail,
   anchor: "mailto:",
@@ -48,7 +48,7 @@ const cardPhone: PropsCardCotact = {
   urlImg: orangePhone,
   isEmail: false,
   description:
-    "Puede marcar a nuestro numero si desea obtner infomacion personalizada",
+    "Puede marcar a nuestro número si desea obtner infomación personalizada",
   medio: "278 688 3881",
   icon: iconPhone,
   anchor: "tel:",

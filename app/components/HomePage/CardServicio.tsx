@@ -48,7 +48,14 @@ export default function Servicio({
       <div
         className={`flex flex-shrink-0 rounded-full w-15 h-15 items-center justify-center ${iconColor} ${marginIcon}`}
       >
-        <img src={urlImg} alt="" width={50} />
+        <img
+          decoding="async"
+          loading="lazy"
+          src={urlImg}
+          alt=""
+          width={50}
+          loading="lazy"
+        />
       </div>
 
       <a href="/servicios" className={`${textOrientation}`}>

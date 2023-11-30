@@ -24,6 +24,8 @@ export default function Blog({
       <div className="flex flex-wrap lg:flex-nowrap items-center max-lg:w-96">
         <div className="w-full lg:w-auto px-4 mb-8 lg:mb-0 flex flex-col items-center">
           <img
+            decoding="async"
+            loading="lazy"
             className="block w-44 h-30 max-lg:w-full max-lg:h-auto"
             src={image}
             alt=""

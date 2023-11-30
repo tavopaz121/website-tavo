@@ -62,6 +62,8 @@ export default function Slug() {
           <h1 className="font-bold">{title}</h1>
           <figure className="relative">
             <img
+              decoding="async"
+              loading="lazy"
               src={image}
               alt={title}
               className="rounded-xl w-full object-contain"
