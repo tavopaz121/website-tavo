@@ -23,6 +23,7 @@
     "kill": "npx kill-port 5001 5000 9099 8080 9199"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@remix-run/node": "^1.17.0",
     "@remix-run/react": "^1.17.0",
     "@remix-run/serve": "^1.17.0",

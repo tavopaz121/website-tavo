@@ -6,9 +6,9 @@ import { tools } from "~/data/tools.js";
 export default function Productos() {
   return (
     <>
-      <section className="h-screen max-md:h-full max-md:mb-4">
+      <section className="max-md:h-full max-md:mb-4">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+          <div className="grid items-center grid-cols-1 max-lg:gap-12 lg:grid-cols-2">
             <div>
               <h1
                 className="motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-6xl lg:text-7xl"
@@ -47,7 +47,7 @@ export default function Productos() {
                 }}
               >
                 <a
-                  className="relative max-sm:w-full group inline-block py-2.5 px-6 text-white font-semibold bg-pink-700 rounded overflow-hidden"
+                  className="relative max-sm:w-full w-1/2 group inline-block py-2.5 px-6 text-white font-semibold bg-pink-700 rounded overflow-hidden"
                   href="/"
                 >
                   <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
@@ -60,6 +60,8 @@ export default function Productos() {
 
             <div className="relative">
               <img
+                decoding="async"
+                loading="lazy"
                 className="w-full object-cover relative z-auto motion-safe:animate-fadeInUp"
                 src={heroImg}
                 alt=""
@@ -69,7 +71,7 @@ export default function Productos() {
                 }}
               />
               <div
-                className="bg-[#fb5975] absolute top-[-10rem] max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 motion-safe:animate-fadeInUp"
+                className="bg-[#fb5975] absolute top-[-10rem] max-lg:hidden max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 motion-safe:animate-fadeInUp"
                 style={{
                   animationDelay: "0.5s",
                   animationFillMode: "both",
@@ -80,7 +82,7 @@ export default function Productos() {
         </div>
       </section>
 
-      <section className={`py-5 bg-white sm:py-5 lg:py-5 `}>
+      <section className={`py-5 bg-white sm:py-5 lg:py-8 `}>
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl motion-safe:animate-fadeIn font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
@@ -101,6 +103,53 @@ export default function Productos() {
                 list={service.benefices}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-gray-900 2xl:py-24 2xl:bg-white">
+        <div className="px-4 mx-auto overflow-hidden bg-gray-900 max-w-7xl sm:px-6 lg:px-8">
+          <div className="py-10 sm:py-16 lg:py-24 2xl:pl-24">
+            <div className="grid items-center grid-cols-1 gap-y-12 lg:grid-cols-2 lg:gap-x-8 2xl:gap-x-20">
+              <div>
+                <h2 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl lg:leading-tight">
+                  Contrata tu paquete de desarrollo web{" "}
+                </h2>
+                <p className="mt-4 text-base text-gray-50">
+                  Llega a las personas adecuadas, en el momento adecuado, atrae
+                  a más clientes con una nueva página web.
+                </p>
+
+                <div className="flex flex-row items-center mt-4 space-x-4 lg:mt-8">
+                  <a
+                    className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-pink-700 rounded overflow-hidden w-1/2 max-md:w-full"
+                    href="/contacto"
+                  >
+                    <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
+                    <div className="relative flex items-center justify-center">
+                      <span className="mr-4">Cotiza tu página web</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <div className="relative px-12">
+                <svg
+                  className="absolute inset-x-0 bottom-0 left-1/2 -translate-x-1/2 -mb-48 lg:-mb-72 text-gray-800 w-[460px] h-[460px] sm:w-[600px] sm:h-[600px]"
+                  fill="currentColor"
+                  viewBox="0 0 8 8"
+                >
+                  <circle cx="4" cy="4" r="3" />
+                </svg>
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  className="relative w-full max-w-xs mx-auto -mb-60 lg:-mb-64"
+                  src="https://cdn.rareblocks.xyz/collection/celebration/images/cta/8/iphone-mockup.png"
+                  alt=""
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -126,7 +175,13 @@ export default function Productos() {
               >
                 <div className="p-8">
                   <div className="flex items-center">
-                    <img src={item.img} alt="" className="w-12" />
+                    <img
+                      decoding="async"
+                      loading="lazy"
+                      src={item.img}
+                      alt=""
+                      className="w-12"
+                    />
 
                     <div className="ml-5 mr-auto">
                       <p className="text-xl font-semibold text-black">

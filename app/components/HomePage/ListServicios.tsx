@@ -1,95 +1,19 @@
-import blog from "app/assets/imgs/icons/blogging.png";
-import landgin from "app/assets/imgs/icons/contenido.png";
-import corporativo from "app/assets/imgs/icons/corporativo.png";
-import aplicaciones from "app/assets/imgs/icons/desarrollo-de-aplicaciones.png";
-import exito from "app/assets/imgs/icons/desarrollo-de-carrera.png";
-import progresivo from "app/assets/imgs/icons/progresivo.png";
-import seo from "app/assets/imgs/icons/seo.png";
-import tienda from "app/assets/imgs/icons/tienda-online.png";
 import servicesImg from "~/assets/imgs/inicio/services.webp";
+import { serviciosUno, serviciosDos } from "~/data/servicesHome";
 
 import CardServicio from "./CardServicio";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 interface ProListServices {
   referenceTitle: React.MutableRefObject<null>;
 }
 
-const serviciosUno = [
-  {
-    urlImg: blog,
-    servive: "Blogs",
-    description: "Crea contenido con nuestros blogs",
-    iconColor: "bg-blue-100",
-    isUltimate: false,
-  },
-  {
-    urlImg: landgin,
-    servive: "Landing Pages",
-    description: "Captura leads y promociona ofertas",
-    iconColor: "bg-orange-100",
-    isUltimate: false,
-  },
-  {
-    urlImg: corporativo,
-    servive: "Páginas Web Corporativas",
-    description: "Diseñamos páginas web personalizadas",
-    iconColor: "bg-gray-300",
-    isUltimate: false,
-  },
-  {
-    urlImg: aplicaciones,
-    servive: "Aplicaciones Web",
-    description: "Apps que satisfacen tus necesidades específicas",
-    iconColor: "bg-red-200",
-    isUltimate: true,
-  },
-];
-
-const serviciosDos = [
-  {
-    urlImg: exito,
-    servive: "Tu Éxito, Nuestra Prioridad",
-    description: "¡Contáctanos hoy mismo!",
-    iconColor: "bg-yellow-200",
-    isUltimate: false,
-  },
-  {
-    urlImg: progresivo,
-    servive: "Aplicaciones Web Progresivas",
-    description: "Ofrece una experiencia aumentando la retención de usuarios",
-    iconColor: "bg-green-200",
-    isUltimate: false,
-  },
-  {
-    urlImg: seo,
-    servive: "SEO",
-    description: "Atrae clientes potenciales con estrategias de SEO",
-    iconColor: "bg-blue-100",
-    isUltimate: false,
-  },
-  {
-    urlImg: tienda,
-    servive: "Tiendas Online",
-    description:
-      "Aumentan ventas y ofrecen una experiencia de compra impecable",
-    iconColor: "bg-orange-100",
-    isUltimate: true,
-  },
-];
-
 export default function ListServicios({ referenceTitle }: ProListServices) {
-  const [isHidden, setIsHidden] = useState("hidden");
-  let gridColumns = isHidden == "hidden" ? "grid-cols-1" : "grid-cols-3";
-  let delayListLeft = 0.5;
-  let delayListRight = 0.5;
-
-  const options = { root: null, rootMargin: "0px", threshold: 1.0 };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(showListServices, options);
-    observer.observe(referenceTitle.current);
-  });
+  const [animation, setAnimation] = useState("");
+  const [start, setStart] = useState<boolean>(false);
+  let gridColumns = "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+  let delayListLeft = 1;
+  let delayListRight = 1;
 
   function showListServices(
     entries: IntersectionObserverEntry[],
@@ -97,23 +21,57 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
   ) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setIsHidden("");
+        setAnimation("motion-safe:animate-fadeInUp motion-safe:opacity-100");
+        setStart(true);
       }
     });
   }
 
+  const showListServicesCb = useCallback(showListServices, []);
+
+  useEffect(() => {
+    const options = { root: null, rootMargin: "0px", threshold: 1 };
+    const observer = new IntersectionObserver(showListServicesCb, options);
+    observer.observe(referenceTitle.current!);
+
+    //This is useful when reloading page and/or when user scroll up to the target
+    const scrollPosition = window.scrollY;
+    if (
+      referenceTitle &&
+      referenceTitle.current &&
+      scrollPosition > referenceTitle?.current?.offsetHeight
+    ) {
+      setAnimation("motion-safe:animate-fadeInUp motion-safe:opacity-100");
+      setStart(true);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [showListServicesCb, referenceTitle]);
+
   return (
-    <div data-testid="list-services" className="mx-auto">
-      <div className={`grid ${gridColumns} items-center justify-around`}>
+    <div
+      data-testid="list-services"
+      className={`mx-auto motion-safe:opacity-0 ${animation}`}
+      style={{
+        animationDelay: "0.5s",
+        animationFillMode: "both",
+      }}
+    >
+      <div
+        className={`grid gap-0 lg:gap-10 ${gridColumns} items-center md:justify-between`}
+      >
         <div
-          className={`flex xl:flex-col max-w-lg overflow-hidden ${isHidden}`}
+          className={`flex xl:flex-col max-w-lg overflow-hidden order-2 justify-self-center md:order-1`}
         >
-          <div className="xl:w-auto px-4 mb-16 lg:mb-0">
+          <div className="xl:w-auto px-4 lg:mb-0">
             {serviciosUno.map((servicio) => (
               <CardServicio
                 key={servicio.servive}
                 {...servicio}
                 position="left"
+                start={start}
                 delay={(delayListLeft += 0.25)}
               />
             ))}
@@ -121,7 +79,9 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
         </div>
 
         <img
-          className="motion-safe:animate-fadeIn rounded-[50%] h-[600px] bg-cover bg-center bg-no-repeat mx-auto mb-8 object-cover"
+          decoding="async"
+          loading="lazy"
+          className="md:order-2 motion-safe:animate-fadeIn rounded-full block  h-[300px] w-[300px] lg:h-[600px] lg:w-[400px] bg-cover bg-center bg-no-repeat mx-auto mb-8 object-cover"
           style={{
             animationDelay: "0.5s",
             animationFillMode: "both",
@@ -129,18 +89,20 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
           }}
           src={servicesImg}
           alt="Mujer sonriendo con una latop"
+          loading="lazy"
         />
 
         <div
-          className={`flex xl:flex-col max-w-lg overflow-hidden ${isHidden}`}
+          className={`flex xl:flex-col max-w-lg overflow-hidden order-1 justify-self-center md:order-3 col-span-2 lg:col-span-1`}
         >
-          <div className="xl:w-auto px-4 mb-16 lg:mb-0">
+          <div className="xl:w-auto px-4 lg:mb-0">
             {serviciosDos.map((servicio) => (
               <CardServicio
                 key={servicio.servive}
                 {...servicio}
                 position="right"
                 delay={(delayListRight += 0.25)}
+                start={start}
               />
             ))}
           </div>
@@ -149,4 +111,3 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
     </div>
   );
 }
-//iconos <a href="https://www.flaticon.es/iconos-gratis/empresa" title="empresa iconos">Empresa iconos creados por Freepik - Flaticon</a>

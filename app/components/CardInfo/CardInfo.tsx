@@ -12,6 +12,8 @@ export default function CardInfo({
         <div className="w-full lg:w-1/4 px-4 mb-12 lg:mb-0">
           <div>
             <img
+              decoding="async"
+              loading="lazy"
               className="block mb-6 shadow-md w-full h-100 object-cover"
               src={img}
               alt={title}

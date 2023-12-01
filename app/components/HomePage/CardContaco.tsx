@@ -19,11 +19,22 @@ export default function CardContact({
     <div
       className={`w-full md:w-1/2 lg:w-auto px-4 xl:px-10 ${
         isEmail ? "mb-10 md:mb-0" : null
-      }`}
+      } motion-safe:animate-fadeInUp`}
+      style={{
+        animationDelay: "0.6s",
+        animationFillMode: "both",
+      }}
     >
       <div className="max-w-sm mx-auto h-full py-8 px-6 bg-white border border-gray-200 rounded-5xl">
         <div className="max-w-2xs mx-auto text-center">
-          <img className="block mx-auto mb-3" src={urlImg} alt="" />
+          <img
+            decoding="async"
+            loading="lazy"
+            className="block mx-auto mb-3"
+            src={urlImg}
+            alt=""
+            loading="lazy"
+          />
           <h5 className="text-2xl font-bold text-gray-900 mb-3">
             {isEmail ? "Envía un correo" : "Puedes marcar a"}
           </h5>

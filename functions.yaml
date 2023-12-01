@@ -2,6 +2,6 @@ specVersion: v1alpha1
 endpoints:
   pensemosweb:
     platform: gcfv2
-    entryPoint: remix
+    entryPoint: pensemosweb
     httpsTrigger: {}
     maxInstances: 10

@@ -1,18 +1,52 @@
-import icons from "../assets/imgs/contacto/icons8-phone.png";
-import dots from "../assets/imgs/contacto/dots-side-2.svg";
+import icons from "../assets/imgs/contacto/icons8-phone.webp";
+import React, { useState } from "react";
 import email from "../assets/imgs/contacto/icon-orange-email.svg";
 import map from "../assets/imgs/contacto/map-pin.svg";
-import equipo from "../assets/imgs/contacto/img-formulario.png";
-import hour from "../assets/imgs/contacto/icons8-hour.png";
-export default function contacto() {
+import equipo from "../assets/imgs/contacto/img-formulario.webp";
+import hour from "../assets/imgs/contacto/icons8-hour.webp";
+import { json } from "@remix-run/node";
+import { Form, useActionData } from "@remix-run/react";
+import { validateFields } from "../functions/validatedFields";
+
+// Función para validar el nombre completo en tres partes
+function validateFullName(name) {
+  const nameRegex = /^\s*\S+(\s+\S+){2,}\s*$/;
+  return nameRegex.test(name);
+}
+
+export async function action({ request }) {
+  const form = await request.formData();
+  const data = Object.fromEntries(form);
+  const errorDescriptions = validateFields(data);
+
+  return json({
+    errorDescriptions,
+    status: errorDescriptions.length === 0 ? "success" : "error",
+  });
+}
+
+export default function Contacto() {
+  const response = useActionData();
+  console.log(response);
+
+  // Estado para manejar la advertencia del nombre
+  const [nameWarning, setNameWarning] = useState("");
+
+  // Función para manejar el cambio en el campo de nombre
+  const handleNameChange = (e) => {
+    const newName = e.target.value;
+
+    // Validar el nombre completo
+    if (!validateFullName(newName)) {
+      setNameWarning("Ingrese nombre, apellido paterno, materno");
+    } else {
+      setNameWarning("");
+    }
+
+    // Resto de tu lógica de manejo de cambios en el nombre
+  };
   return (
     <section className="relative pb-20 overflow-hidden -mt-4">
-      <img
-        className="absolute bottom-0 right-0 mb-8 lg:mb-24"
-        src={dots}
-        alt=""
-      />
-
       <section>
         <div
           style={{
@@ -42,6 +76,8 @@ export default function contacto() {
           <div className="overflow-hidden bg-white rounded-xl">
             <div className="p-6">
               <img
+                decoding="async"
+                loading="lazy"
                 className="block mx-auto mb-3 w-15 h-15 "
                 src={icons}
                 alt=""
@@ -56,6 +92,8 @@ export default function contacto() {
           <div className="bg-white rounded-xl">
             <div className="p-6">
               <img
+                decoding="async"
+                loading="lazy"
                 className="block mx-auto mb-3 w-15 h-15 "
                 src={email}
                 alt=""
@@ -69,7 +107,13 @@ export default function contacto() {
           {/* Dirección */}
           <div className="overflow-hidden bg-white rounded-xl">
             <div className="p-6">
-              <img className="block mx-auto mb-3 w-15 h-15 " src={map} alt="" />
+              <img
+                decoding="async"
+                loading="lazy"
+                className="block mx-auto mb-3 w-15 h-15 "
+                src={map}
+                alt=""
+              />
               <p className="mt-6 text-lg font-medium leading-relaxed text-gray-900">
                 Melchor Ocampo, 2, Las Flores, 95096
               </p>
@@ -79,6 +123,8 @@ export default function contacto() {
           <div className="overflow-hidden bg-white rounded-xl">
             <div className="p-6">
               <img
+                decoding="async"
+                loading="lazy"
                 className="block mx-auto mb-3 w-15 h-15 "
                 src={hour}
                 alt=""
@@ -105,7 +151,7 @@ export default function contacto() {
                   Mandanos un mensaje
                 </h3>
 
-                <form action="#" method="POST" className="mt-14">
+                <Form action="/contacto" method="POST" className="mt-14">
                   <div className="gap-x-5 gap-y-4 px-8">
                     <div>
                       <label
@@ -118,9 +164,14 @@ export default function contacto() {
                         <input
                           type="text"
                           id="nombre"
+                          name="name"
                           placeholder="Ingresa tu Nombre Completo"
+                          onChange={handleNameChange}
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
                         />
+                        {nameWarning && (
+                          <div style={{ color: "red" }}>{nameWarning}</div>
+                        )}
                       </div>
                     </div>
 
@@ -135,12 +186,12 @@ export default function contacto() {
                         <input
                           type="email"
                           id="email"
+                          name="email"
                           placeholder="Ingresa tu correo electronico"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
                         />
                       </div>
                     </div>
-
                     <div>
                       <label
                         htmlFor="telefono"
@@ -152,7 +203,13 @@ export default function contacto() {
                         <input
                           type="tel"
                           id="telefono"
+                          name="tel"
                           placeholder="Ingresa tu numero de telefono"
+                          onInput={(e) =>
+                            (e.target.value = e.target.value
+                              .replace(/[^0-9]/g, "")
+                              .slice(0, 10))
+                          }
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
                         />
                       </div>
@@ -169,6 +226,7 @@ export default function contacto() {
                         <input
                           type="text"
                           id="empresa"
+                          name="company"
                           placeholder="Ingresa el nombre de la empresa"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
                         />
@@ -185,7 +243,8 @@ export default function contacto() {
                       <div className="mt-2.5 relative">
                         <textarea
                           id="mensaje"
-                          placeholder=""
+                          name="message"
+                          placeholder="¿En que podemos ayudarte?"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-pink-500 caret-pink-500"
                           rows="4"
                         ></textarea>
@@ -201,7 +260,7 @@ export default function contacto() {
                       </button>
                     </div>
                   </div>
-                </form>
+                </Form>
               </div>
             </div>
           </div>
@@ -218,7 +277,13 @@ export default function contacto() {
                 Con dedicación y creatividad, damos vida a cada proyecto
               </h3>
 
-              <img src={equipo} className="w-50 h-auto" alt="Imagen" />
+              <img
+                decoding="async"
+                loading="lazy"
+                src={equipo}
+                className="w-50 h-auto"
+                alt="Imagen"
+              />
             </div>
           </div>
         </div>

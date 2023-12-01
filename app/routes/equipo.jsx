@@ -3,31 +3,33 @@ import fatima from "../assets/imgs/equipo/fatima.webp";
 import octavio from "~/assets/imgs/equipo/octavio.webp";
 import jaime from "~/assets/imgs/equipo/jaime.webp";
 import norberto from "~/assets/imgs/equipo/norberto.webp";
-import colaboraAprende from "~/assets/imgs/equipo/3D_Animation_Style_Colaboracin_en_equipo_oficina_2.webp";
-import creaAsap from "~/assets/imgs/equipo/3D_Animation_Style_equipo_oficina_computadora_trabajando_2.webp";
-import retroalimenta from "~/assets/imgs/equipo/3D_Animation_Style_reuniones_virtuales_skype_0.webp";
-import adaptaMejora from "~/assets/imgs/equipo/3D_Animation_Style_capacitacin_oficina_equipo_0.webp";
+import colaboraAprende from "../assets/imgs/equipo/Unsplash-colaborayaprende.webp";
+import creaAsap from "../assets/imgs/equipo/Unsplash-creaASAP.webp";
+import retroalimenta from "../assets/imgs/equipo/Unsplash-retroalimenta.webp";
+import adaptaMejora from "../assets/imgs/equipo/Unsplash-adapta.webp";
 import fondotech from "~/assets/imgs/equipo/Tech Marvels_ Aesthetic Wonders in Modern Technologies.webp";
 export default function Equipo() {
   const shadowImg = {
-    boxShadow: "5px 5px 20px rgba(0,0,0,0.5)",
+    boxShadow: "5px 5px 20px rgba(0,0,0,0.2)",
   };
   return (
     <div>
       <div className="bg-[#012e46] h-[550px] w-full relative mb-12">
         <img
-          alt="Colabora y aprende"
+          decoding="async"
+          loading="lazy"
+          alt="Maximo rendimiento"
           className="md:clip-path-diagonal absolute h-[550px] w-full max-w-none object-cover bg-center"
           src={fondotech}
         />
         <div className="px-4 top-[22%] w-full absolute">
-          <h2 className="sm:ml-[5%] text-white font-bold text-5xl sm:text-6xl">
+          <h2 className="sm:ml-[2%] text-white font-bold text-5xl sm:text-7xl font-heading">
             Máximo
           </h2>
-          <h2 className="sm:ml-[10%] text-white font-bold text-5xl sm:text-6xl">
+          <h2 className="sm:ml-[8%] text-white font-bold text-4xl sm:text-7xl font-serif italic">
             Rendimiento
           </h2>
-          <p className="sm:ml-[5%] mt-[3%] w-full sm:w-[55%] md:w-[50%] lg:w-[40%] text-white text-2xl">
+          <p className="sm:ml-[2%] mt-[2%] w-full sm:w-[55%] md:w-[50%] lg:w-[40%] text-white text-xl">
             Imagina un enfoque que maximice la colaboración, acelere la entrega
             de resultados, fomente la mejora constante y se adapte a los cambios
             en el camino.
@@ -35,16 +37,21 @@ export default function Equipo() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-12 place-items-center w-full px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 place-items-center w-full px-4">
         <img
+          decoding="async"
+          loading="lazy"
           style={shadowImg}
           alt="Colabora y aprende"
           className="h-[390px]  object-cover md:justify-self-start"
           src={colaboraAprende}
         />
-        <div className="content-end">
-          <h3 className="text-4xl">Colabora y Aprende</h3>
-          <p className="text-2xl text-gray-600">
+        <div className="content-end mx-auto">
+          <h3 className="text-4xl font-heading">
+            <span className="font-heading">Colabora y </span>
+            <span className="font-serif italic">Aprende</span>
+          </h3>
+          <p className="text-gray-600 text-2xl">
             En esta fase, trabajamos juntos como equipo, escuchamos tus ideas y
             necesidades, definimos objetivos en colaboración y mantenemos una
             comunicación abierta y continua, sin importar tu nivel de
@@ -52,8 +59,11 @@ export default function Equipo() {
           </p>
         </div>
 
-        <div className="">
-          <h3 className="text-4xl">Crea ASAP</h3>
+        <div>
+          <h3 className="text-4xl font-heading">
+            <span className="font-heading">Crea </span>
+            <span className="font-serif italic">ASAP</span>
+          </h3>
           <p className="text-2xl text-gray-600">
             Una vez entendida tu visión, avanzamos rápidamente en el desarrollo
             web sin demora. Priorizamos resultados en iteraciones ágiles,
@@ -63,20 +73,23 @@ export default function Equipo() {
         </div>
 
         <img
+          decoding="async"
+          loading="lazy"
           style={shadowImg}
           alt="Crea ASAP"
           className="h-[390px] object-cover md:justify-self-end"
           src={creaAsap}
         />
         <img
+          decoding="async"
+          loading="lazy"
           style={shadowImg}
           alt="Retroalimenta"
           className="h-[390px]  shadow-lg object-cover md:justify-self-start"
           src={retroalimenta}
         />
-
-        <div className="  ">
-          <h3 className="text-4xl">Retroalimenta</h3>
+        <div>
+          <h3 className="text-4xl font-serif italic">Retroalimenta</h3>
           <p className="text-2xl text-gray-600">
             En esta etapa, tu opinión y la de tus usuarios son cruciales.
             Probamos lo construido, recopilamos tus comentarios y ajustamos
@@ -85,8 +98,11 @@ export default function Equipo() {
           </p>
         </div>
 
-        <div className=" ">
-          <h3 className="text-4xl">Adapta/mejora</h3>
+        <div>
+          <h3 className="text-4xl font-heading">
+            <span className="font-heading">Adapta / </span>
+            <span className="font-serif italic">Mejora</span>
+          </h3>
           <p className="text-2xl text-gray-600">
             "Nos adaptamos al cambio constante en el mundo digital, mejorando
             continuamente nuestros procesos. Te entregamos un producto
@@ -95,21 +111,26 @@ export default function Equipo() {
           </p>
         </div>
         <img
+          decoding="async"
+          loading="lazy"
           style={shadowImg}
           alt="Adapta y mejora"
-          className="h-[390px]  max-w-none shadow-lg object-cover md:justify-self-end"
+          className="h-[390px] shadow-lg object-cover md:justify-self-end"
           src={adaptaMejora}
         />
       </div>
 
       <div className="m-20">
-        <h1 className="text-center text-5xl text-[#fb5975] font-pensemosweb shadow-black/80 text-shadow-sm tracking-tight mt-10 mb-10 mx-4">
-          Conoce nuestro equipo
+        <h1 className="text-center text-5xl tracking-tight mt-10 mb-10 mx-4 md:text-7xl font-bold">
+          <span className="font-heading">Conoce nuestro </span>
+          <span className="font-serif italic">equipo</span>
         </h1>
       </div>
       <div className="flex flex-wrap gap-x-8 gap-y-12 mt-10 relative">
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Octavio JS Fullstack Developer"
             className="h-[390px] w-[350px] max-w-none shadow-md object-cover relative"
@@ -124,6 +145,8 @@ export default function Equipo() {
         </div>
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Jaime Agile Coach"
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
@@ -138,6 +161,8 @@ export default function Equipo() {
         </div>
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Norberto Agile JS Developer"
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
@@ -152,6 +177,8 @@ export default function Equipo() {
         </div>
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Fatima Fronend Developer"
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
@@ -168,7 +195,7 @@ export default function Equipo() {
           style={shadowImg}
           className="h-[450px] w-[350px] max-w-none shadow-2xl grid relative place-items-center flex-auto"
         >
-          <h3 className="nombre text-4xl text-center text-neutral-800 top-20  absolute">
+          <h3 className="nombre text-4xl text-center text-neutral-800 top-20  font-heading absolute">
             Simplificamos la agilidad para ti
           </h3>
           <p className="puesto text-2xl text-center text-neutral-800 top-60 m-5  absolute">
@@ -178,6 +205,8 @@ export default function Equipo() {
         </div>
         <div className="grid relative place-items-center flex-auto">
           <img
+            decoding="async"
+            loading="lazy"
             style={shadowImg}
             alt="Nestor Frontend Developer"
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"

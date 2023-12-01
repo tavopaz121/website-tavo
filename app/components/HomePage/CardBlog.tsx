@@ -3,14 +3,29 @@ interface TypeBlog {
   fecha: string;
   contenido: string;
   anchor: string;
+  delay: number;
 }
 
-export default function Blog({ image, fecha, contenido, anchor }: TypeBlog) {
+export default function Blog({
+  image,
+  fecha,
+  contenido,
+  anchor,
+  delay,
+}: TypeBlog) {
   return (
-    <div className="py-12 border-t-2 border-gray-100 max-lg:flex justify-center">
+    <div
+      className="py-12 border-t-2 border-gray-100 max-lg:flex justify-center motion-safe:animate-fadeInRight"
+      style={{
+        animationDelay: `${delay}s`,
+        animationFillMode: "both",
+      }}
+    >
       <div className="flex flex-wrap lg:flex-nowrap items-center max-lg:w-96">
         <div className="w-full lg:w-auto px-4 mb-8 lg:mb-0 flex flex-col items-center">
           <img
+            decoding="async"
+            loading="lazy"
             className="block w-44 h-30 max-lg:w-full max-lg:h-auto"
             src={image}
             alt=""

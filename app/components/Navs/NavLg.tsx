@@ -15,6 +15,7 @@ export default forwardRef(function NavLg(
     logoColor,
     anchorClasses,
     highLightClasses,
+    borderClasses = "",
   }: PropsNavLg,
   ref: React.ForwardedRef<HTMLElement>,
 ) {
@@ -22,13 +23,14 @@ export default forwardRef(function NavLg(
     ? "bg-transparent"
     : "bg-white border border-x-0 border-t-0 border-pink-500";
   const bgOnScroll = hasScrolledDown
-    ? "!py-3 bg-white bg-opacity-0 backdrop-blur border border-x-0 border-t-0 border-pink-500 hover:bg-white"
+    ? "!py-3 bg-white bg-opacity-0 backdrop-blur hover:bg-white"
     : "py-6";
   return (
     <nav
       ref={ref}
-      className={`fixed top-0 z-10 w-full px-4 duration-1000 ${navClasses} ${bgOnScroll}`}
+      className={`font-heading fixed top-0 z-10 w-full px-4 duration-1000 ${navClasses} ${bgOnScroll} ${borderClasses}`}
       style={{
+        lineHeight: 1,
         transitionProperty:
           "padding-top, padding-bottom, background-color, backdrop-filter",
       }}
@@ -36,10 +38,7 @@ export default forwardRef(function NavLg(
       <div className="mx-auto">
         <div className={"flex items-center justify-" + aLign}>
           {hasLogo && (
-            <a
-              className="inline-block text-lg font-bold mr-14 max-xss:mr-1"
-              href="/"
-            >
+            <a className="inline-block text-lg mr-14 max-xss:mr-1" href="/">
               <Logo
                 className="h-10 fill-white transition-all duration-1000"
                 color={`${isHome ? logoColor : "#000"}`}
@@ -105,7 +104,7 @@ export default forwardRef(function NavLg(
                   return (
                     <a
                       key={to}
-                      className={`${anchorClasses} border border-gray-200 rounded-md hover:text-black`}
+                      className={`${anchorClasses} border border-gray-200 rounded-md text-white`}
                       href={to}
                     >
                       <div

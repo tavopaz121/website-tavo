@@ -6,6 +6,7 @@ interface PropsServicio {
   isUltimate: boolean;
   position: string;
   delay: number;
+  start: boolean;
 }
 
 export default function Servicio({
@@ -16,6 +17,7 @@ export default function Servicio({
   isUltimate,
   position,
   delay,
+  start = false,
 }: PropsServicio) {
   let fadeIn = "";
   let reverseCard = "";
@@ -23,19 +25,21 @@ export default function Servicio({
   let textOrientation = "";
 
   if (position === "left") {
-    fadeIn = "motion-safe:animate-fadeInRight";
+    fadeIn = "motion-safe:animate-fadeInRight motion-safe:opacity-100";
     reverseCard = "flex-row-reverse";
     marginIcon = "ml-6";
     textOrientation = "text-right";
   } else {
-    fadeIn = "motion-safe:animate-fadeInLeft";
+    fadeIn = "motion-safe:animate-fadeInLeft motion-safe:opacity-100";
     marginIcon = "mr-6";
     textOrientation = "text-left";
   }
 
   return (
     <div
-      className={`flex items-center min-h-[137px] ${reverseCard} ${fadeIn}`}
+      className={`flex items-center min-h-[137px] motion-safe:opacity-0 ${reverseCard} ${
+        start ? fadeIn : ""
+      }`}
       style={{
         animationDelay: `${delay}s`,
         animationFillMode: "both",
@@ -44,11 +48,18 @@ export default function Servicio({
       <div
         className={`flex flex-shrink-0 rounded-full w-15 h-15 items-center justify-center ${iconColor} ${marginIcon}`}
       >
-        <img src={urlImg} alt="" width={50} />
+        <img
+          decoding="async"
+          loading="lazy"
+          src={urlImg}
+          alt=""
+          width={50}
+          loading="lazy"
+        />
       </div>
 
       <a href="/servicios" className={`${textOrientation}`}>
-        <h3 className={`text-xl font-semibold`}>{servive}</h3>
+        <h3 className={`text-xl font-body`}>{servive}</h3>
         <span className={`text-sm text-gray-500`}>{description}</span>
       </a>
     </div>

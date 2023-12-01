@@ -1,35 +1,35 @@
 export default function Metodo() {
   const durationBetween = 0.3;
   const durationAnimation = 1;
-  let delay = 0.5;
+  let delay = 0.3;
 
   const listPhase = [
     {
-      title: "💡 Colabora y aprende",
+      title: "💡Colabora y aprende.",
       description:
-        "Trabajamos codo a codo contigo para comprender tus objetivos y necesidades",
+        "Trabajamos codo a codo contigo para comprender tus objetivos y necesidades.",
     },
     {
-      title: "🚀 Crea ASAP",
+      title: "🚀Crea ASAP.",
       description:
-        "Entregamos resultados en iteraciones rápidas y manejables. Permitiéndote ver el progreso de manera constante",
+        "Entregamos resultados en iteraciones rápidas y manejables. Permitiéndote ver el progreso de manera constante.",
     },
     {
-      title: "🔄 Retroalimenta",
+      title: "🔄Retroalimenta.",
       description:
-        "Ponemos a prueba lo que hemos construido y recopilamos tus comentarios permitiendonos identificar áreas de mejora y ajustar nuestro camino",
+        "Ponemos a prueba lo que hemos construido y recopilamos tus comentarios permitiendonos identificar áreas de mejora y ajustar nuestro camino.",
     },
     {
-      title: "🌟 Adapta/mejora",
+      title: "🌟Adapta/mejora.",
       description:
-        "Adaptamos nuestro enfoque y mejoramos continuamente nuestros procesos",
+        "Adaptamos nuestro enfoque y mejoramos continuamente nuestros proceso.s",
     },
   ];
 
   return (
     <div>
       <p
-        className="motion-safe:animate-fadeIn text-gray-800 font-semibold mb-4"
+        className="text-gray-800 font-semibold mb-4"
         style={{
           animationDelay: `${delay}s`,
           animationFillMode: "both",
@@ -37,7 +37,7 @@ export default function Metodo() {
         }}
       >
         La adaptabilidad es clave en el mundo digital. Nuestra metodología de
-        desarrolló web ágil se simplifica en 4 fases esenciales:
+        desarrolló ágil se simplifica en 4 fases esenciales:
       </p>
       <ul className="text-gray-800 text-lg mb-10 flex flex-col gap-5">
         {listPhase.map((tangLi) => (
@@ -63,14 +63,14 @@ interface LiParam {
 const LiTag = ({ title, description, delay, duration }: LiParam) => {
   return (
     <li
-      className="motion-safe:animate-bounceInDown"
+      className=""
       style={{
         animationDelay: `${delay}s`,
         animationFillMode: "both",
         animationDuration: `${duration}s`,
       }}
     >
-      <p className="font-semibold text-xl">{title}</p>
+      <p className="font-heading text-xl">{title}</p>
       <p>{description}</p>
     </li>
   );
