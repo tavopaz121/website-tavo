@@ -1,5 +1,7 @@
 import metodoAgile from "../assets/imgs/clasesonetoone/feedback_loo_transparent_noTitle.webp";
 import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
+import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
+
 export default function HeroHome() {
   return (
    <div className="bg-gray-900">
@@ -24,9 +26,9 @@ export default function HeroHome() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-10 md:pb-16">
-            <h1 className="mb-4 lg:text-7xl md:text-6xl text-white text-4xl" data-aos="fade-up">Mentorias One to One personalizadas</h1>
+            <h1 className="mb-4 lg:text-7xl md:text-6xl text-white text-4xl font-heading" data-aos="fade-up">Mentorias One to One personalizadas</h1>
             <p className="text-xl text-gray-400 mb-8" data-aos="fade-up" data-aos-delay="200">Proyectos reales, no pierdas años , devs de calidad para crear productos de calidad</p>
-            <div className="    flex justify-center">
+            <div className="flex justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
                 <a className="btn rounded-sm text-white bg-gradient-pink hover:bg-purple-700 lg:w-full lg:mb-4 w-auto mb-0" href="#0">Iniciar</a>
               </div>
@@ -55,7 +57,7 @@ export default function HeroHome() {
         <div className="pt-10 pb-12 md:pt-16 md:pb-20">     
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="text-4xl text-white font-extrabold leading-tight mb-4" data-aos="fade-up">Principios ágiles</h2>
+            <h2 className="text-4xl text-white font-bold leading-tight mb-4 font-heading" data-aos="fade-up">Principios ágiles</h2>
             <p className="text-xl text-gray-400" data-aos="fade-up" data-aos-delay="200">La aplicación de principios ágiles en el proceso de aprendizaje en programación conlleva a una evolución continua, facilitando la adaptación progresiva a cambios, maximizando la eficiencia y calidad del desarrollo de software.</p>
           </div>
 
@@ -90,12 +92,13 @@ export default function HeroHome() {
 
             {/* 3rd item */}
             <div className="relative flex flex-col items-center" data-aos="fade-up" data-aos-delay="400">
+            <div aria-hidden="true" className="absolute h-1 border-t border-dashed border-gray-700 hidden md:block" style={{ width: 'calc(100% - 32px)', left: 'calc(50% + 48px)', top: '32px' }} data-aos="fade-in" data-aos-delay="400"></div>
               <svg className="w-16 h-16 mb-4" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <rect className="fill-current text-pink-600" width="64" height="64" rx="32" />
                 <path className="stroke-current text-pink-300" strokeWidth="2" strokeLinecap="square" d="M21 35l4 4 12-15" fill="none" fillRule="evenodd" />
                 <path className="stroke-current text-pink-100" d="M42 29h-3M42 34h-7M42 39H31" strokeWidth="2" strokeLinecap="square" />
               </svg>
-              <h4 className="h4 mb-2 text-white"><span className="text-gray-400">3</span>. Ciclos de retroalimentación y adaptaciones</h4>
+              <h4 className="h4 mb-2 text-white text-center"><span className="text-gray-400">3</span>. Ciclos de retroalimentación y adaptaciones</h4>
               <p className="text-lg text-gray-400 text-center">Esto impulsa la evolución constante; es en la adaptación a sus enseñanzas donde encontramos la excelencia en cualquier proceso, permitiendo ajustes que transforman el presente y esculpen un futuro más eficiente y eficaz.</p>
             </div>
           </div>
@@ -104,13 +107,13 @@ export default function HeroHome() {
     </section>
     <section>
             <div className="grid place-items-center ">
-                <h1 className="text-white text-4xl font-bold">Método de aprendizaje</h1>
+                <h1 className="text-white text-4xl font-bold text-center font-heading">Método de aprendizaje</h1>
                 <figure className="px-4 mb-10">
                     <img src={metodoAgile} alt="Metodo ágile"/>
                 </figure>
             </div>
     </section>
-    <article className="relative mx-auto px-4 flex flex-col md:flex-row">
+    <article className="max-w-6xl relative mx-auto px-4 flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 bg-gray-800 p-8">
             <h4 className="h4 mb-2 text-white">Enseñanza ágil</h4>
             <p className="text-lg text-gray-400 mb-2">El metodo de enseñanza ágil se aplica en todos los niveles y aspectos de la capacitación.</p>
@@ -126,45 +129,71 @@ export default function HeroHome() {
             </a>
         </div>
         <figure className="w-full md:w-1/2 mt-5 mb-15">
-            <img className="w-full h-full object-cover"  src={dontLoseFocus} width={516} height={387} alt="Tabs 01" />
+            <img className="w-full h-full"  src={dontLoseFocus} width={516} height={387} alt="Tabs 01" />
         </figure>
     </article>
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20 border-t border-gray-800">
 
-          {/* Section header */}
+          {/* Section header
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2" data-aos="fade-up">From the big picture to every tiny detail, we got you covered.</h2>
           </div>
+           */}
 
           {/* Items */}
           <div className="grid gap-20" data-aos-id-target>
 
             {/* Item */}
-            <div className="md:grid md:grid-cols-12 md:gap-6 items-center">
+            <div className="grid grid-cols-1 gap-y-12 lg:grid lg:grid-cols-12 lg:gap-6 items-center">
 
               {/* Image */}
               <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 rtl" data-aos="fade-right" data-aos-delay="200" data-aos-anchor="[data-aos-id-target]">
-                <img className="mx-auto md:max-w-none" src={metodoAgile} width={540} height={520} alt="Features 02" />
+                <img className="mx-auto lg:w-full" src={sectionScrum} width={540} height={620} alt="Features 02" />
               </div>
 
               {/* Content */}
-              <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6">
-                <div className="md:pl-4 lg:pl-12 xl:pl-16">
-                  <div className="font-architects-daughter text-xl text-purple-600 mb-2" data-aos="fade-left" data-aos-anchor="[data-aos-id-target]">Be the change you want to see</div>
-                  <div className="mt-6" data-aos="fade-left" data-aos-delay="200" data-aos-anchor="[data-aos-id-target]">
-                    <h4 className="h4 mb-2"><span className="text-purple-600">.</span> For developers</h4>
-                    <p className="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <div className="lg:max-w-xl max-w-none w-full mx-auto md:col-span-8 lg:col-span-6">
+                <div className="mx-2 lg:mx-4 text-center lg:text-left">
+                  <div className="font-heading lg:text-3xl text-2xl text-pink-600 text-center lg:text-left" data-aos="fade-left" data-aos-anchor="[data-aos-id-target]">Metodología Ágil: Scrum</div>
+                  <div className="mt-4" data-aos="fade-left" data-aos-delay="200" data-aos-anchor="[data-aos-id-target]">
+                    {/* <h4 className="h4 mb-2"><span className="text-purple-600">.</span> For developers</h4> */}
+                    <p className="text-lg text-gray-400">Usamos Scrum para la creacion de proyectis reales de alta calidad</p>
+                    <p className="text-lg text-gray-400">Se aplica prácticas ágiles de forma sencilla para agilizar e interiorizar lo aprendido</p>
                   </div>
-                  <div className="mt-6" data-aos="fade-left" data-aos-delay="400" data-aos-anchor="[data-aos-id-target]">
-                    <h4 className="h4 mb-2"><span className="text-teal-500">.</span> For designers</h4>
-                    <p className="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  </div>
-                  <div className="mt-6" data-aos="fade-left" data-aos-delay="600" data-aos-anchor="[data-aos-id-target]">
-                    <h4 className="h4 mb-2"><span className="text-pink-500">.</span> For teams</h4>
-                    <p className="text-lg text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                  </div>
+                  <ul className="flex flex-wrap justify-center lg:justify-start mt-4 text-lg text-gray-400 -mx-2 -my-1">
+                    <li className="flex items-center mx-2 my-1">
+                      <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+                      </svg>
+                      <span>Simple Design</span>
+                    </li>
+                    <li className="flex items-center mx-2 my-1">
+                      <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+                      </svg>
+                      <span>Mob Programming</span>
+                    </li>
+                    <li className="flex items-center mx-2 my-1">
+                      <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+                      </svg>
+                      <span>Pair Programming</span>
+                    </li>
+                    <li className="flex items-center mx-2 my-1">
+                      <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+                      </svg>
+                      <span>BDD</span>
+                    </li>
+                    <li className="flex items-center mx-2 my-1">
+                      <svg className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
+                      </svg>
+                      <span>TDD</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
 
