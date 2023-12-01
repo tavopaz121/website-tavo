@@ -53,7 +53,7 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
   return (
     <div
       data-testid="list-services"
-      className={`mx-auto motion-safe:opacity-0 ${animation}`}
+      className={`motion-safe:opacity-0 ${animation}`}
       style={{
         animationDelay: "0.5s",
         animationFillMode: "both",
@@ -65,7 +65,7 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
         <div
           className={`flex xl:flex-col max-w-lg overflow-hidden order-2 justify-self-center md:order-1`}
         >
-          <div className="xl:w-auto px-4 lg:mb-0">
+          <div className="px-4 lg:mb-0">
             {serviciosUno.map((servicio) => (
               <CardServicio
                 key={servicio.servive}

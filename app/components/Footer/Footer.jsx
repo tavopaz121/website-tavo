@@ -198,7 +198,7 @@ function BgBlurSvg({ className }) {
             ></feGaussianBlur>
           </filter>
         </defs>
-        <g fill="none" fill-rule="evenodd">
+        <g fill="none" fillRule="evenodd">
           <path
             fill="#6D28D9"
             fillOpacity=".72"

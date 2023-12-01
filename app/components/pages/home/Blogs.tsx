@@ -54,9 +54,9 @@ export default function Blogs() {
   };
 
   return (
-    <section className="relative py-10 lg:py-20 overflow-hidden">
-      <div className="relative container px-4 mx-auto" ref={contentBlogs}>
-        <div className="max-w-2xl mx-auto mb-15 text-center">
+    <section className="relative py-10 lg:py-20 overflow-hidden  container px-4 mx-auto">
+      <div className="relative" ref={contentBlogs}>
+        <div className="mb-15 text-center">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
             NUESTRO BLOG
           </span>
@@ -66,7 +66,7 @@ export default function Blogs() {
           </h2>
         </div>
 
-        <div className={`max-w-5xl mx-auto ${isHidden}`}>
+        <div className={`${isHidden}`}>
           {blogs.map((blog, i) => (
             <Blog key={i} {...blog} delay={(delay += plusDelay)} />
           ))}

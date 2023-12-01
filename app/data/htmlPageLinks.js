@@ -17,7 +17,7 @@ export const htmlPageLinks = [
     type: "text/css",
   },
   { rel: "stylesheet", href: stylesheet, content: "text/css" },
-  { rel: "stylesheet", href: aosStyles, content: "text/css" },
+  //{ rel: "stylesheet", href: aosStyles, content: "text/css" },
   {
     rel: "apple-touch-icon",
     sizes: "180x180",
