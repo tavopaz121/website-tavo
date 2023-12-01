@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import Particles from "~/components/Particles/Particles";
+import ButtonLink from "~/components/ButtonLink/ButtonLink";
 
 import principles from "~/assets/imgs/inicio/principios-1200x740.webp";
 import principlesSmall from "~/assets/imgs/inicio/principios-600x370.webp";
@@ -67,8 +68,8 @@ export default function Principios() {
   }, []);
 
   return (
-    <section data-testid="servicios" className="relative py-10 lg:py-20">
-      <div className="px-4 mx-auto">
+    <section className="container mx-auto px-4 relative py-10 lg:py-20">
+      <div className="pb-5">
         <div className="max-w-3xl mx-auto text-center">
           <span className="uppercase inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
             Principios
@@ -195,11 +196,7 @@ export default function Principios() {
                 {/* Testimonial image */}
                 <div className="relative h-32 [mask-image:_linear-gradient(0deg,transparent,theme(colors.white)_40%,theme(colors.white))]">
                   <div
-                    className={`text-white absolute top-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px] -z-10 pointer-events-none
-                      before:rounded-full rounded-full before:absolute before:inset-0
-                      before:bg-gradient-to-b before:from-slate-400/20 before:to-transparent before:to-20%
-                      after:rounded-full after:absolute after:inset-0 before:-z-10 after:-z-20
-                      after:bg-gradient-to-t  after:from-transparent after:to-slate-900 after:from-50%
+                    className={`absolute top-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px] -z-10 pointer-events-none before:rounded-full rounded-full before:absolute before:inset-0 before:bg-gradient-to-b before:from-slate-400/20 before:to-transparent before:to-20% after:rounded-full after:absolute after:inset-0 after:bg-slate-900 after:m-px before:-z-20 after:-z-20
                       `}
                   >
                     {items.map((item, index) => (
@@ -277,6 +274,9 @@ export default function Principios() {
             </div>
           </div>
         </section>
+      </div>
+      <div className="text-center mt-5">
+        <ButtonLink to="/nosotros">Más sobre principios</ButtonLink>
       </div>
     </section>
   );

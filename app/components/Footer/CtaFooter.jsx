@@ -15,16 +15,15 @@ export default function CtaFooter() {
               data-aos-delay="100"
             >
               ¡Transforma tu presencia en línea ahora! Descubre cómo nuestro
-              equipo de desarrollo web puede llevar tu proyecto al siguiente
-              nivel.
+              equipo de desarrollo puede llevar tu proyecto al siguiente nivel.
             </h2>
             <div data-aos="fade-up" data-aos-delay="200">
               <a
-                className="btn inline-flex px-4 py-2 items-center text-white bg-pink-600 hover:bg-pink-700 group"
+                className="btn inline-flex px-4 py-2 items-center text-white bg-gradient-pink hover:scale-110 group"
                 href="/servicios"
               >
-                Explorar soluciones web
-                <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-2">
+                Explorar soluciones
+                <span className="tracking-normal text-white group-hover:translate-x-1 transition-transform duration-150 ease-in-out ml-2">
                   <svg
                     className="fill-current"
                     xmlns="http://www.w3.org/2000/svg"

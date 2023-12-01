@@ -67,8 +67,8 @@ export default function Index() {
       </section>
 
       <article ref={targetRef}>
-        <Principios />
         <Servicios />
+        <Principios />
         <Nosotros />
         <Blogs />
         <Contacto />

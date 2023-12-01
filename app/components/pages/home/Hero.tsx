@@ -1,5 +1,3 @@
-import Particles from "~/components/Particles/Particles";
-
 export default function Hero({
   videoSrcs,
   preText,
@@ -75,7 +73,6 @@ export default function Hero({
           </span>
         </span>
       </h1>
-      <Particles className="absolute inset-0" staticity={1} />
     </>
   );
 }
