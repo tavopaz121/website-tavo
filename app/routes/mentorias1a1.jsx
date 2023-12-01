@@ -1,6 +1,7 @@
 import metodoAgile from "../assets/imgs/clasesonetoone/feedback_loo_transparent_noTitle.webp";
 import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
+
 export default function HeroHome() {
   return (
    <div className="bg-gray-900">
