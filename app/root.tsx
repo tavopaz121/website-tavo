@@ -17,6 +17,8 @@ import { items, secondaryItems } from "~/data/navItems";
 import { htmlPageLinks } from "./data/htmlPageLinks";
 import RootErrorBoundary from "./RootErrorBoundary";
 import Footer from "./components/Footer/Footer";
+import AOS from "aos";
+import { useEffect } from "react";
 
 export const ErrorBoundary = RootErrorBoundary;
 
@@ -33,6 +35,13 @@ export async function loader({ request }: LoaderArgs) {
 export default function App() {
   const { pathname } = useLocation();
 
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      disable: "phone",
+      easing: "ease-out-sine",
+    });
+  });
   const isHome = pathname === "/";
 
   return (

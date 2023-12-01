@@ -1,7 +1,9 @@
 import stylesheet from "~/tailwind.css";
+import aosStyles from "aos/dist/aos.css";
 
 export const htmlPageLinks = [
   { rel: "stylesheet", href: stylesheet, content: "text/css" },
+  { rel: "stylesheet", href: aosStyles, content: "text/css" },
   {
     rel: "apple-touch-icon",
     sizes: "180x180",
