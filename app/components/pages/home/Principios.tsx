@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import Particles from "~/components/Particles/Particles";
-import ButtonLink from "~/components/ButtonLink/ButtonLink";
+import ButtonLink from "~/components/Buttons/ButtonLink";
 
 import principles from "~/assets/imgs/inicio/principios-1200x740.webp";
 import principlesSmall from "~/assets/imgs/inicio/principios-600x370.webp";
@@ -190,15 +190,20 @@ export default function Principios() {
             />
           </div>
           <div className="max-w-3xl mx-auto px-4 sm:px-6 relative">
-            <div className="relative  w-full">
+            <div className="relative w-full">
               {/* Carousel */}
               <div className="text-center sm:w-[50%] mx-auto">
                 {/* Testimonial image */}
                 <div className="relative h-32 [mask-image:_linear-gradient(0deg,transparent,theme(colors.white)_40%,theme(colors.white))]">
                   <div
-                    className={`absolute top-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px] -z-10 pointer-events-none before:rounded-full rounded-full before:absolute before:inset-0 before:bg-gradient-to-b before:from-slate-400/20 before:to-transparent before:to-20% after:rounded-full after:absolute after:inset-0 after:bg-slate-900 after:m-px before:-z-20 after:-z-20
+                    className={`absolute top-0 left-1/2 -translate-x-1/2 w-[480px] h-[480px] -z-10 pointer-events-none 
+                    before:rounded-full rounded-full 
+                    before:absolute before:inset-0 before:bg-gradient-to-b 
+                    before:from-slate-400/20 before:to-transparent before:to-30% after:rounded-full 
+                    
                       `}
                   >
+                    {/* after:absolute after:inset-0 after:bg-slate-900 after:m-px before:-z-20 after:-z-30 */}
                     {items.map((item, index) => (
                       <Transition
                         key={index}
@@ -240,8 +245,12 @@ export default function Principios() {
                         leaveTo="opacity-0 translate-x-4"
                         beforeEnter={() => heightFix()}
                       >
-                        <div className="text-xl font-bold text-white">
-                          {item.quote}
+                        <div className=" text-white">
+                          <span className=" text-xl font-bold font-heading">
+                            {item.title}
+                          </span>
+                          {". "}
+                          <span className="font-body text-lg">{item.text}</span>
                         </div>
                       </Transition>
                     ))}

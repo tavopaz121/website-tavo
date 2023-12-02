@@ -35,12 +35,12 @@ export default function Nav(props: PropsNav) {
   const { isHome } = props;
   let textClasses = isHome
     ? "text-white dark:text-white"
-    : "text-black dark:text-black";
-  textClasses = hasScrolledDown ? "text-black dark:text-black" : textClasses;
+    : "text-white dark:text-white";
+  textClasses = hasScrolledDown ? "text-white dark:text-white" : textClasses;
 
   const anchorClasses = `relative group inline-block py-3 px-4 font-semibold ${textClasses} overflow-hidden transition duration-1000`;
   const highLightClasses = "bg-gradient-pink";
-  const logoColor = hasScrolledDown ? "#000" : "#fff";
+  const logoColor = hasScrolledDown ? "#fff" : "#fff";
 
   return (
     <>

@@ -6,7 +6,7 @@ export const services = [
     benefices: [
       "Diseño original",
       "Responsive",
-      "Rapido y seguro",
+      "Rápido y seguro",
       "Optimizado para SEO",
     ],
   },
@@ -15,8 +15,8 @@ export const services = [
     description:
       "Vende por internet 24/7 con una tienda virtual lista para crecer en piloto automático.",
     benefices: [
-      "Facil de gestionar",
-      "Analitica integrada",
+      "Fácil de gestionar",
+      "Analítica integrada",
       "Rapida y segura",
       "Optimizado para SEO",
     ],
@@ -37,21 +37,21 @@ export const services = [
     description:
       "Lleva tu marketing de contenidos a otro nivel con blogs mega-optimizados para alcanzar tus metas.",
     benefices: [
-      "Eleccion de CMS",
+      "Elección de CMS",
       "Optimizado para SEO",
       "Diseño optimizado",
-      "Facil de gestionar",
+      "Fácil de gestionar",
     ],
   },
   {
-    name: "Web's corporativas",
+    name: "Webs corporativas",
     description:
       "Diseñamos y desarrollamos páginas web corporativas personalizadas que reflejan la identidad y los valores de tu empresa.",
     benefices: [
       "Modulos personalizados",
       "Plantillas",
       "Diseño optimizado",
-      "Facil de gestionar",
+      "Fácil de gestionar",
     ],
   },
   {

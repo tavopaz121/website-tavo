@@ -1,6 +1,6 @@
 import ListServicios from "~/components/HomePage/ListServicios";
 import { useRef } from "react";
-import ButtonLink from "~/components/ButtonLink/ButtonLink";
+import ButtonLink from "~/components/Buttons/ButtonLink";
 
 export default function SectionServicios() {
   const titleServicios = useRef(null);
