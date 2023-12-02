@@ -34,6 +34,6 @@ export const tools = [
   {
     name: "Escalabilidad y Gestión",
     img: escabilidad,
-    desc: "Tu sitio web debe estar preparado para crecer y funcionar en un entorno amigable y fácil de usar para todo tu equipo con el objetivo de mantenerla siempre actualizada.",
+    desc: "Tu sitio web debe estar preparado para crecer y funcionar en un entorno amigable y fácil de usar para todo tu equipo con el objetivo de mantenerla siempre actúalizada.",
   },
 ];

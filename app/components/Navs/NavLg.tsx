@@ -86,9 +86,9 @@ export default forwardRef(function NavLg(
 
           {items && (
             <ul className="hidden lg:flex lg:w-auto lg:space-x-6">
-              {items?.map(({ to, label }) => (
+              {items?.map(({ to, label, target }) => (
                 <li key={to}>
-                  <a className={anchorClasses} href={to}>
+                  <a className={anchorClasses} href={to} target={target}>
                     <div
                       className={`absolute bottom-4 right-full w-full h-1 ${highLightClasses} transform group-hover:translate-x-full transition duration-500`}
                     />
@@ -115,12 +115,13 @@ export default forwardRef(function NavLg(
             </a>
             {secondaryItems && (
               <div className="flex items-center">
-                {secondaryItems.map(({ to, label, isButton }) => {
+                {secondaryItems.map(({ to, label, isButton, target }) => {
                   return (
                     <a
                       key={to}
                       className={`${anchorClasses} border border-gray-200 rounded-md text-white`}
                       href={to}
+                      target={target}
                     >
                       <div
                         className={`absolute top-0 right-full w-full h-full ${highLightClasses} transform group-hover:translate-x-full group-hover:scale-102 transition duration-500`}

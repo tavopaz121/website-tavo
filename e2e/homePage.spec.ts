@@ -17,14 +17,14 @@ test.describe("When user visit the page Pensemos web", () => {
 
     await expect(page.getByText("Nosotros")).toBeVisible();
     await expect(page.getByText("🌟 Adapta/mejora")).toBeVisible();
-    await expect(page.getByRole("link", { name: "Conocenos" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Conócenos" })).toBeVisible();
 
     await expect(page.getByText("¿Listo")).toBeVisible();
     await expect(page.getByText("equipo de trabajo")).toBeVisible();
     await expect(page.getByRole("link", { name: "Vamos" })).toBeVisible();
 
     await expect(page.getByText("NUESTRO BLOG")).toBeVisible();
-    await expect(page.getByText("Algunos Articulos")).toBeVisible();
+    await expect(page.getByText("Algunos Artículos")).toBeVisible();
 
     await expect(page.getByText("¿Alguna duda o")).toBeVisible();
     await expect(page.getByText("Envía un correo")).toBeVisible();
@@ -43,7 +43,7 @@ test.describe("When user visit the page Pensemos web", () => {
 
     await page.keyboard.press("End");
 
-    await page.getByRole("link", { name: "Conocenos" }).click();
+    await page.getByRole("link", { name: "Conócenos" }).click();
     await expect(page).toHaveURL("nosotros");
     await page.goto("./");
 

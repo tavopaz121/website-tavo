@@ -53,7 +53,7 @@ export default function Index() {
       />
       <section className="relative pb-20 overflow-hidden min-h-screen bg-black px-4">
         <Hero
-          preText="Creá con"
+          preText="Crea con"
           title="pensemosweb"
           subtitle="Desarrollo web/app ágil"
           videoPoster={poster}

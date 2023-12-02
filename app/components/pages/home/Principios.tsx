@@ -41,8 +41,9 @@ export default function Principios() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setAnimations({
-            left: "motion-safe:animate-fadeInLeft motion-safe:opacity-100",
-            right: "motion-safe:animate-fadeInRight motion-safe:opacity-100",
+            left: "sm:motion-safe:animate-fadeInLeft sm:motion-safe:opacity-100",
+            right:
+              "sm:motion-safe:animate-fadeInRight sm:motion-safe:opacity-100",
           });
         }
       });
@@ -57,8 +58,8 @@ export default function Principios() {
       scrollPosition > referenceTitle?.current?.offsetHeight
     ) {
       setAnimations({
-        left: "motion-safe:animate-fadeInLeft motion-safe:opacity-100",
-        right: "motion-safe:animate-fadeInRight motion-safe:opacity-100",
+        left: "sm:motion-safe:animate-fadeInLeft sm:motion-safe:opacity-100",
+        right: "sm:motion-safe:animate-fadeInRight sm:motion-safe:opacity-100",
       });
     }
 
@@ -83,9 +84,9 @@ export default function Principios() {
           </h2>
         </div>
         <picture
-          className={`flex justify-center w-full mb-12 motion-safe:opacity-0 ${animations.left}`}
+          className={`flex justify-center w-full mb-12 sm:motion-safe:opacity-0 ${animations.left}`}
           style={{
-            animationDelay: "0.5s",
+            animationDelay: "0s",
             animationFillMode: "both",
           }}
         >
@@ -105,9 +106,9 @@ export default function Principios() {
           />
         </picture>
         <section
-          className={`relative overflow-hidden py-8 sm:rounded-r-full sm:rounded-l-full motion-safe:opacity-0 ${animations.right}`}
+          className={`relative overflow-hidden py-8 sm:rounded-r-full sm:rounded-l-full sm:motion-safe:opacity-0 ${animations.right}`}
           style={{
-            animationDelay: "1s",
+            animationDelay: "0.5s",
             animationFillMode: "both",
           }}
         >
