@@ -17,12 +17,12 @@ export default function Metodo() {
     {
       title: "🔄Retroalimenta.",
       description:
-        "Ponemos a prueba lo que hemos construido y recopilamos tus comentarios permitiendonos identificar áreas de mejora y ajustar nuestro camino.",
+        "Ponemos a prueba lo que hemos construido y recopilamos tus comentarios permitiéndonos identificar áreas de mejora y ajustar nuestro camino.",
     },
     {
       title: "🌟Adapta/mejora.",
       description:
-        "Adaptamos nuestro enfoque y mejoramos continuamente nuestros proceso.s",
+        "Adaptamos nuestro enfoque y mejoramos continuamente nuestros procesos",
     },
   ];
 

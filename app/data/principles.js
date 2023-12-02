@@ -12,13 +12,13 @@ export const items = [
   {
     img: simplicitySmallbatches,
     title: "Simplicidad y lotes pequeños",
-    text: "¿Grandes ideas?, dividela en partes pequeñas y produce.",
+    text: "¿Grandes ideas?, divídela en partes pequeñas y produce.",
     name: "2",
   },
   {
     img: feedbackLoopsAdaptations,
     title: "Ciclos de retroalimentación y adaptaciones",
-    text: "Método científico, refleja y actua.",
+    text: "Método científico, refleja y actúa.",
     name: "3",
   },
 ];

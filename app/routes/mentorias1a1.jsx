@@ -66,7 +66,7 @@ export default function HeroHome() {
             {/* Section header */}
             <div className="max-w-3xl mx-auto text-center pb-10 md:pb-16">
               <h1
-                className="mb-4 lg:text-7xl md:text-6xl text-white text-4xl font-heading"
+                className="mb-4 lg:text-7xl md:text-6xl text-4xl text-white "
                 data-aos="fade-up"
               >
                 Mentorías One to One personalizadas
@@ -94,7 +94,7 @@ export default function HeroHome() {
                     className="btn text-white bg-gray-700 hover:bg-gray-800 lg:w-full w-auto ml-4"
                     href="#principios"
                   >
-                    Más información
+                    Información
                   </a>
                 </div>
               </div>
@@ -118,7 +118,7 @@ export default function HeroHome() {
             {/* Section header */}
             <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
               <h2
-                className="text-5xl text-white font-bold leading-tight mb-4 font-heading"
+                className="lg:text-6xl md:text-5xl text-white text-4xl font-bold leading-tight mb-4 font-heading"
                 data-aos="fade-up"
               >
                 Principios ágiles
@@ -175,36 +175,36 @@ export default function HeroHome() {
       </section>
       <section>
         <div className="grid place-items-center ">
-          <h1 className="text-white text-4xl font-bold text-center font-heading">
+          <h2 className="lg:text-6xl md:text-5xl text-4xl font-bold text-white text-center">
             Método de aprendizaje
-          </h1>
+          </h2>
           <figure className="px-4 mb-10">
-            <img src={metodoAgile} alt="Metodo ágile" />
+            <img src={metodoAgile} alt="Método ágile" />
           </figure>
         </div>
       </section>
       <article className="max-w-6xl relative mx-auto px-4 flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 bg-gray-800 p-8">
-          <h4 className="h4 mb-2 text-white">Enseñanza ágil</h4>
-          <p className="text-lg text-gray-400 mb-2">
-            El metodo de enseñanza ágil se aplica en todos los niveles y
+          <h4 className="text-lg text-white">Enseñanza ágil</h4>
+          <p className="text-lg text-gray-400 mb-5">
+            El Método de enseñanza ágil se aplica en todos los niveles y
             aspectos de la capacitación.
           </p>
-          <h4 className="h4 text-white">Capacitación individual</h4>
-          <p className="text-lg text-gray-400 mb-2">
+          <h4 className="text-lg text-white">Capacitación individual</h4>
+          <p className="text-lg text-gray-400 mb-5">
             Se capacita individualmente porque cada estudiante es diferente, y
             brinda la oportunidad de un aprendizaje más eficaz, adaptado y
             enfocado en las necesidades particulares de cada persona.
           </p>
-          <h4 className="h4 text-white">Capacitación en equipo</h4>
+          <h4 className="text-lg text-white">Capacitación en equipo</h4>
           <p className="text-lg text-gray-400 ">
             Fortalece la dinámica grupal y el rendimiento colectivo, generando
             un impacto positivo en el funcionamiento general de una organización
             y también porque 1 + 1 = 3 o 5.
           </p>
           <a
-            className="btn-sm text-white bg-purple-600 hover:bg-purple-700 mt-6"
-            href="#0"
+            className="btn-sm text-white bg-gradient-pink mt-6"
+            href="/contacto"
           >
             <span className="text-sm">Mas información</span>
             <svg
@@ -229,11 +229,14 @@ export default function HeroHome() {
       <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="py-12 md:py-20 border-t border-gray-800">
-            {/* Section header
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2" data-aos="fade-up">From the big picture to every tiny detail, we got you covered.</h2>
-          </div>
-           */}
+            <div className="max-w-6xl mx-auto text-center pb-12 md:pb-20">
+              <h2
+                className="lg:text-7xl md:text-6xl text-4xl font-bold text-white"
+                data-aos="fade-up"
+              >
+                Agilidad en todo momento
+              </h2>
+            </div>
 
             {/* Items */}
             <div className="grid gap-20" data-aos-id-target>
@@ -259,11 +262,11 @@ export default function HeroHome() {
                 <div className="lg:max-w-xl max-w-none w-full mx-auto md:col-span-8 lg:col-span-6">
                   <div className="mx-2 lg:mx-4 text-center lg:text-left">
                     <div
-                      className="font-heading lg:text-3xl text-2xl text-pink-600 text-center lg:text-left"
+                      className="font-heading lg:text-3xl text-2xl text-pink-500 text-center lg:text-left"
                       data-aos="fade-left"
                       data-aos-anchor="[data-aos-id-target]"
                     >
-                      Metodología Ágil: Scrum
+                      Agilidad y prácticas ágiles
                     </div>
                     <div
                       className="mt-4"
@@ -273,12 +276,12 @@ export default function HeroHome() {
                     >
                       {/* <h4 className="h4 mb-2"><span className="text-purple-600">.</span> For developers</h4> */}
                       <p className="text-lg text-gray-400">
-                        Usamos Scrum para la creacion de proyectis reales de
-                        alta calidad
+                        usarás Scrum y extreme programming para la creación de
+                        proyectos reales de alta calidad.
                       </p>
-                      <p className="text-lg text-gray-400">
+                      <p className="text-lg text-gray-400 pt-2">
                         Se aplica prácticas ágiles de forma sencilla para
-                        agilizar e interiorizar lo aprendido
+                        agilizar e interiorizar lo aprendido.
                       </p>
                     </div>
                     <ul className="flex flex-wrap justify-center lg:justify-start mt-4 text-lg text-gray-400 -mx-2 -my-1">
