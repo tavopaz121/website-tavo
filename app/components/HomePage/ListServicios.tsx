@@ -93,7 +93,6 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
           }}
           src={servicesImg}
           alt="Mujer sonriendo con una latop"
-          loading="lazy"
         />
 
         <div

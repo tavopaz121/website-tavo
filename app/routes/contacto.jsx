@@ -4,9 +4,11 @@ import email from "../assets/imgs/contacto/icon-orange-email.svg";
 import equipo from "../assets/imgs/contacto/img-formulario.webp";
 import hour from "../assets/imgs/contacto/icons8-hour.webp";
 import { json } from "@remix-run/node";
-import { Form, useActionData } from "@remix-run/react";
+import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { validateFields } from "../functions/validatedFields";
 import WhatsAppLink from "../components/Buttons/WhatsApp";
+import { createMessage } from "../firebase/models/contactMessages.server";
+import Modal from "../components/Modal/Modal";
 
 // Función para validar el nombre completo en tres partes
 function validateFullName(name) {
@@ -19,15 +21,29 @@ export async function action({ request }) {
   const data = Object.fromEntries(form);
   const errorDescriptions = validateFields(data);
 
+  if (errorDescriptions.length === 0) {
+    const messageId = await createMessage(data);
+    if (messageId) {
+      return json({
+        errorDescriptions: [],
+        status: "success",
+        message: "Mensaje enviado correctamente",
+      });
+    }
+  }
+
   return json({
     errorDescriptions,
     status: errorDescriptions.length === 0 ? "success" : "error",
+    message: "Error al enviar el mensaje",
   });
 }
 
 export default function Contacto() {
-  const response = useActionData();
-  console.log(response);
+  const response = useActionData() || {};
+  const { status, message, errorDescriptions } = response;
+  const navigation = useNavigation();
+  const isSubmitting = navigation.formAction === "/contacto";
 
   // Estado para manejar la advertencia del nombre
   const [nameWarning, setNameWarning] = useState("");
@@ -36,15 +52,13 @@ export default function Contacto() {
   const handleNameChange = (e) => {
     const newName = e.target.value;
 
-    // Validar el nombre completo
     if (!validateFullName(newName)) {
       setNameWarning("Ingrese nombre, apellido paterno, materno");
     } else {
       setNameWarning("");
     }
-
-    // Resto de tu lógica de manejo de cambios en el nombre
   };
+
   return (
     <section className="relative pb-20 overflow-hidden pt-30">
       <section>
@@ -157,115 +171,128 @@ export default function Contacto() {
                   Envíanos un mensaje
                 </h3>
 
+                {status === "success" && <p>{message}</p>}
+                {status === "error" && (
+                  <p>{JSON.stringify(errorDescriptions)}</p>
+                )}
+
                 <Form action="/contacto" method="POST" className="mt-14">
-                  <div className="gap-x-5 gap-y-4 px-8 md:p-8 pl-0 pr-0">
-                    <div>
-                      <label
-                        htmlFor="nombre"
-                        className="text-base font-medium text-gray-900 "
-                      >
-                        Nombre completo
-                      </label>
-                      <div className="mt-2.5 relative">
-                        <input
-                          type="text"
-                          id="nombre"
-                          name="name"
-                          placeholder="Nombre Completo"
-                          onChange={handleNameChange}
-                          className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
-                        />
-                        {nameWarning && (
-                          <div style={{ color: "red" }}>{nameWarning}</div>
-                        )}
+                  <fieldset disabled={isSubmitting}>
+                    <div className="gap-x-5 gap-y-4 px-8 md:p-8 pl-0 pr-0">
+                      <div>
+                        <label
+                          htmlFor="nombre"
+                          className="text-base font-medium text-gray-900 "
+                        >
+                          Nombre completo
+                        </label>
+                        <div className="mt-2.5 relative">
+                          <input
+                            type="text"
+                            id="nombre"
+                            name="name"
+                            required
+                            placeholder="Nombre Completo"
+                            onChange={handleNameChange}
+                            className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
+                          />
+                          {nameWarning && (
+                            <div style={{ color: "red" }}>{nameWarning}</div>
+                          )}
+                        </div>
                       </div>
-                    </div>
 
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="text-base font-medium text-gray-900"
-                      >
-                        Dirección de correo electrónico
-                      </label>
-                      <div className="mt-2.5 relative">
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          placeholder="E-mail"
-                          className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
-                        />
+                      <div>
+                        <label
+                          htmlFor="email"
+                          className="text-base font-medium text-gray-900"
+                        >
+                          Dirección de correo electrónico
+                        </label>
+                        <div className="mt-2.5 relative">
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            placeholder="E-mail"
+                            className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="telefono"
-                        className="text-base font-medium text-gray-900"
-                      >
-                        Número de teléfono
-                      </label>
-                      <div className="mt-2.5 relative">
-                        <input
-                          type="tel"
-                          id="telefono"
-                          name="tel"
-                          placeholder="Número de teléfono"
-                          onInput={(e) =>
-                            (e.target.value = e.target.value
-                              .replace(/[^0-9]/g, "")
-                              .slice(0, 10))
-                          }
-                          className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
-                        />
+                      <div>
+                        <label
+                          htmlFor="telefono"
+                          className="text-base font-medium text-gray-900"
+                        >
+                          Número de teléfono
+                        </label>
+                        <div className="mt-2.5 relative">
+                          <input
+                            type="tel"
+                            id="telefono"
+                            name="tel"
+                            placeholder="Número de teléfono"
+                            required
+                            onInput={(e) =>
+                              (e.target.value = e.target.value
+                                .replace(/[^0-9]/g, "")
+                                .slice(0, 10))
+                            }
+                            className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
+                          />
+                        </div>
                       </div>
-                    </div>
 
-                    <div>
-                      <label
-                        htmlFor="empresa"
-                        className="text-base font-medium text-gray-900"
-                      >
-                        Nombre de la empresa
-                      </label>
-                      <div className="mt-2.5 relative">
-                        <input
-                          type="text"
-                          id="empresa"
-                          name="company"
-                          placeholder="Empresa"
-                          className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
-                        />
+                      <div>
+                        <label
+                          htmlFor="empresa"
+                          className="text-base font-medium text-gray-900"
+                        >
+                          Nombre de la empresa
+                        </label>
+                        <div className="mt-2.5 relative">
+                          <input
+                            type="text"
+                            id="empresa"
+                            name="company"
+                            required
+                            placeholder="Empresa"
+                            className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <label
+                          htmlFor="mensaje"
+                          className="text-base font-medium text-gray-900"
+                        >
+                          Mensaje
+                        </label>
+                        <div className="mt-2.5 relative">
+                          <textarea
+                            id="mensaje"
+                            name="message"
+                            required
+                            placeholder="¿En qué podemos ayudarte?"
+                            className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-pink-500 caret-pink-500"
+                            rows="4"
+                          ></textarea>
+                        </div>
+                      </div>
+
+                      <div className="sm:col-span-2">
+                        <button
+                          disabled={isSubmitting}
+                          type="submit"
+                          className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200 bg-gradient-pink border border-transparent rounded-md focus:outline-none hover:scale-105"
+                        >
+                          {isSubmitting ? "Enviando..." : "Enviar"}
+                        </button>
                       </div>
                     </div>
-
-                    <div className="sm:col-span-2">
-                      <label
-                        htmlFor="mensaje"
-                        className="text-base font-medium text-gray-900"
-                      >
-                        Mensaje
-                      </label>
-                      <div className="mt-2.5 relative">
-                        <textarea
-                          id="mensaje"
-                          name="message"
-                          placeholder="¿En qué podemos ayudarte?"
-                          className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-pink-500 caret-pink-500"
-                          rows="4"
-                        ></textarea>
-                      </div>
-                    </div>
-
-                    <div className="sm:col-span-2">
-                      <button
-                        type="submit"
-                        className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200 bg-gradient-pink border border-transparent rounded-md focus:outline-none hover:scale-105"
-                      >
-                        Enviar
-                      </button>
-                    </div>
-                  </div>
+                  </fieldset>
                 </Form>
               </div>
             </div>
@@ -294,6 +321,14 @@ export default function Contacto() {
           </div>
         </div>
       </div>
+      <Modal
+        isOpen={status === "success"}
+        title="Mensaje enviado"
+        shortDescription="Tu mensaje fue enviado con éxito."
+      >
+        <p>En breve nos pondremos en contacto contigo.</p>
+        <p>¡Gracias por confiar en nosotros!</p>
+      </Modal>
     </section>
   );
 }
