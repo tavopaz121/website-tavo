@@ -46,7 +46,7 @@ export default function Contacto() {
     // Resto de tu lógica de manejo de cambios en el nombre
   };
   return (
-    <section className="relative pb-20 overflow-hidden -mt-4">
+    <section className="relative pb-20 overflow-hidden pt-30">
       <section>
         <div
           style={{
