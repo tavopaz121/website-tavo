@@ -49,7 +49,7 @@ export const serviciosDos = [
   {
     urlImg: progresivo,
     servive: "Aplicaciones Web Progresivas",
-    description: "Ofrece una experiencia aumentando la retención de usuarios.",
+    description: "Ofrece una experiencia, aumentando la retención de usuarios.",
     iconColor: "bg-green-200",
     isUltimate: false,
   },

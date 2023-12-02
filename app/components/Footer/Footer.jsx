@@ -29,9 +29,9 @@ export default function Footer() {
             </div>
 
             <div className="sm:col-span-12 md:col-span-6 lg:col-span-3">
-              <h6 className="text-xs text-gray-100 font-bold uppercase mb-3">
+              <h5 className="text-xs text-gray-100 font-bold uppercase mb-3">
                 Enlaces
-              </h6>
+              </h5>
               <ul className="text-sm grid grid-cols-2 gap-4">
                 {items.map((item) => (
                   <li key={item.label}>
@@ -42,9 +42,9 @@ export default function Footer() {
             </div>
 
             <div className="sm:col-span-6 md:col-span-3 lg:col-span-3">
-              <h6 className="text-xs text-gray-100 font-bold uppercase mb-3">
+              <h5 className="text-xs text-gray-100 font-bold uppercase mb-3">
                 Contacto
-              </h6>
+              </h5>
               <ul className="text-sm space-y-4">
                 <li>
                   <LinkFooter
@@ -77,9 +77,9 @@ export default function Footer() {
             </div>
 
             <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-              <h6 className="text-xs text-gray-100 font-bold uppercase mb-3">
+              <h5 className="text-xs text-gray-100 font-bold uppercase mb-3">
                 Recursos
-              </h6>
+              </h5>
               <ul className="text-sm space-y-4">
                 <li>
                   <LinkFooter title="Terminos y condiciones" to="/" />

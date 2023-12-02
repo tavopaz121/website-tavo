@@ -11,7 +11,7 @@ export default function Productos() {
           <div className="grid items-center grid-cols-1 max-lg:gap-12 lg:grid-cols-2">
             <div>
               <h1
-                className="motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-6xl lg:text-7xl"
+                className="sm:motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-6xl lg:text-7xl"
                 style={{
                   animationDelay: "1.5s",
                   animationFillMode: "both",
@@ -27,7 +27,7 @@ export default function Productos() {
               </h1>
 
               <p
-                className="mt-8 text-base sm:text-xl motion-safe:animate-fadeIn"
+                className="mt-8 text-base sm:text-xl sm:motion-safe:animate-fadeIn"
                 style={{
                   animationDelay: "2s",
                   animationFillMode: "both",
@@ -44,7 +44,7 @@ export default function Productos() {
               <img
                 decoding="async"
                 loading="lazy"
-                className="w-full object-cover relative z-auto motion-safe:animate-fadeInUp"
+                className="w-full object-cover relative z-auto sm:motion-safe:animate-fadeInUp"
                 src={heroImg}
                 alt=""
                 style={{
@@ -53,7 +53,7 @@ export default function Productos() {
                 }}
               />
               <div
-                className="bg-pink-500 absolute top-[-10rem] max-lg:hidden max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 motion-safe:animate-fadeInUp"
+                className="bg-pink-500 absolute top-[-10rem] max-lg:hidden max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 sm:motion-safe:animate-fadeInUp"
                 style={{
                   animationDelay: "0.5s",
                   animationFillMode: "both",
@@ -67,7 +67,7 @@ export default function Productos() {
       <section className={`py-5 bg-white sm:py-5 lg:py-20 `}>
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl motion-safe:animate-fadeIn font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl sm:motion-safe:animate-fadeIn font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
               Nuestras <span className="font-serif italic">Soluciones</span>
             </h2>
             <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed ">

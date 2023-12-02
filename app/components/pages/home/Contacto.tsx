@@ -38,27 +38,27 @@ const iconPhone = (
 const cardMail: PropsCardCotact = {
   urlImg: orangeEmail,
   isEmail: true,
-  description: "Mandadamos un correo para atenderte a la brevedad posible",
+  description: "Mandanos un correo para atenderte a la brevedad posible",
   medio: "pensemoswebjs@gmail.com",
   icon: iconEmail,
-  anchor: "mailto:",
+  anchor: "/contacto",
 };
 
 const cardPhone: PropsCardCotact = {
   urlImg: orangePhone,
   isEmail: false,
   description:
-    "Puede marcar a nuestro número si desea obtner infomación personalizada",
+    "Puede marcar a nuestro número si desea obtener infomación personalizada",
   medio: "278 688 3881",
   icon: iconPhone,
   anchor: "tel:",
 };
 
 export default function Contacto() {
-  const [isHidden, setIsHidden] = useState("hidden");
+  const [animation, setAnimation] = useState("");
   const section = useRef(null);
 
-  const options = { root: null, rootMargin: "0px", threshold: 0.8 };
+  const options = { root: null, rootMargin: "0px", threshold: 1 };
 
   useEffect(() => {
     const observer = new IntersectionObserver(showContacs, options);
@@ -71,7 +71,7 @@ export default function Contacto() {
   ) => {
     entris.forEach((entry) => {
       if (entry.isIntersecting) {
-        setIsHidden("");
+        setAnimation("motion-safe:animate-fadeInLeft motion-safe:opacity-100");
       }
     });
   };
@@ -82,13 +82,16 @@ export default function Contacto() {
       className="relative py-10 lg:py-20 overflow-hidden"
       ref={section}
     >
-      <div className={`relative container px-4 mx-auto ${isHidden}`}>
+      <div className={`relative container px-4 mx-auto`}>
         <div className="max-w-2xl mx-auto mb-18 text-center">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
             ¿QUIERES CONTACTARNOS?
           </span>
-          <h1
-            className="font-heading text-5xl xs:text-6xl font-bold text-gray-900 mb-4 motion-safe:animate-fadeInLeft"
+          <h2
+            className={
+              "font-heading text-5xl xs:text-6xl font-bold text-gray-900 mb-4 " +
+              animation
+            }
             style={{
               animationFillMode: "both",
               animationDuration: "1s",
@@ -97,7 +100,7 @@ export default function Contacto() {
             <span>¿Alguna duda o </span>
             <span className="font-serif italic">necesitas ayuda </span>
             <span>?</span>
-          </h1>
+          </h2>
           <p className="text-xl text-gray-600 font-semibold">
             Tranquilo, estamos para atenderte cuanto antes.
           </p>

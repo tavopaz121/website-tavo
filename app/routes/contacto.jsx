@@ -1,12 +1,12 @@
 import icons from "../assets/imgs/contacto/icons8-phone.webp";
 import React, { useState } from "react";
 import email from "../assets/imgs/contacto/icon-orange-email.svg";
-import map from "../assets/imgs/contacto/map-pin.svg";
 import equipo from "../assets/imgs/contacto/img-formulario.webp";
 import hour from "../assets/imgs/contacto/icons8-hour.webp";
 import { json } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
 import { validateFields } from "../functions/validatedFields";
+import WhatsAppLink from "../components/Buttons/WhatsApp";
 
 // Función para validar el nombre completo en tres partes
 function validateFullName(name) {
@@ -75,13 +75,15 @@ export default function Contacto() {
           {/* Información de contacto */}
           <div className="overflow-hidden bg-white rounded-xl">
             <div className="p-6">
-              <img
-                decoding="async"
-                loading="lazy"
-                className="block mx-auto mb-3 w-15 h-15 "
-                src={icons}
-                alt=""
-              />
+              <a href="tel:2786883881" target="_blank" rel="noreferrer">
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  className="block mx-auto mb-3 w-15 h-15 filter hue-rotate-[310deg]"
+                  src={icons}
+                  alt=""
+                />
+              </a>
               <p className="mt-6 text-lg font-medium text-center text-gray-900">
                 278-688-3881
               </p>
@@ -91,13 +93,19 @@ export default function Contacto() {
           {/* Información de correo electrónico */}
           <div className="bg-white rounded-xl">
             <div className="p-6">
-              <img
-                decoding="async"
-                loading="lazy"
-                className="block mx-auto mb-3 w-15 h-15 "
-                src={email}
-                alt=""
-              />
+              <a
+                href="mailto:pensemoswebjs@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  decoding="async"
+                  loading="lazy"
+                  className="block mx-auto mb-3 w-15 h-15 filter hue-rotate-[310deg]"
+                  src={email}
+                  alt=""
+                />
+              </a>
               <p className="mt-6 text-lg font-medium leading-relaxed text-gray-900">
                 pensemoswebjs@gmail.com
               </p>
@@ -106,16 +114,14 @@ export default function Contacto() {
 
           {/* Dirección */}
           <div className="overflow-hidden bg-white rounded-xl">
-            <div className="p-6">
-              <img
-                decoding="async"
-                loading="lazy"
-                className="block mx-auto mb-3 w-15 h-15 "
-                src={map}
-                alt=""
+            <div className="p-6 flex flex-col items-center text-center text-pink-500">
+              <WhatsAppLink
+                width={70}
+                height={70}
+                iconClasses="text-pink-500 hover:text-black transition duration-200"
               />
               <p className="mt-6 text-lg font-medium leading-relaxed text-gray-900">
-                Melchor Ocampo, 2, Las Flores, 95096
+                278-109-2116
               </p>
             </div>
           </div>
@@ -125,7 +131,7 @@ export default function Contacto() {
               <img
                 decoding="async"
                 loading="lazy"
-                className="block mx-auto mb-3 w-15 h-15 "
+                className="block mx-auto mb-3 w-15 h-15 filter hue-rotate-[310deg]"
                 src={hour}
                 alt=""
               />
@@ -137,7 +143,7 @@ export default function Contacto() {
         </div>
       </div>
 
-      <div className="gap-4 flex flex-col md:flex-row w-full px-8">
+      <div className="gap-4 flex flex-col md:flex-row w-full px-4">
         {/* Sección de formulario */}
         <div
           id="formulario"
@@ -152,20 +158,20 @@ export default function Contacto() {
                 </h3>
 
                 <Form action="/contacto" method="POST" className="mt-14">
-                  <div className="gap-x-5 gap-y-4 px-8">
+                  <div className="gap-x-5 gap-y-4 px-8 md:p-8 pl-0 pr-0">
                     <div>
                       <label
                         htmlFor="nombre"
                         className="text-base font-medium text-gray-900 "
                       >
-                        Nombre Completo
+                        Nombre completo
                       </label>
                       <div className="mt-2.5 relative">
                         <input
                           type="text"
                           id="nombre"
                           name="name"
-                          placeholder="Ingresa tu Nombre Completo"
+                          placeholder="Nombre Completo"
                           onChange={handleNameChange}
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
                         />
@@ -180,14 +186,14 @@ export default function Contacto() {
                         htmlFor="email"
                         className="text-base font-medium text-gray-900"
                       >
-                        Direccion de correo electronico
+                        Dirección de correo electrónico
                       </label>
                       <div className="mt-2.5 relative">
                         <input
                           type="email"
                           id="email"
                           name="email"
-                          placeholder="Ingresa tu correo electronico"
+                          placeholder="E-mail"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
                         />
                       </div>
@@ -197,14 +203,14 @@ export default function Contacto() {
                         htmlFor="telefono"
                         className="text-base font-medium text-gray-900"
                       >
-                        Numero de Telefono
+                        Número de teléfono
                       </label>
                       <div className="mt-2.5 relative">
                         <input
                           type="tel"
                           id="telefono"
                           name="tel"
-                          placeholder="Ingresa tu numero de telefono"
+                          placeholder="Número de teléfono"
                           onInput={(e) =>
                             (e.target.value = e.target.value
                               .replace(/[^0-9]/g, "")
@@ -227,7 +233,7 @@ export default function Contacto() {
                           type="text"
                           id="empresa"
                           name="company"
-                          placeholder="Ingresa el nombre de la empresa"
+                          placeholder="Empresa"
                           className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
                         />
                       </div>
@@ -254,7 +260,7 @@ export default function Contacto() {
                     <div className="sm:col-span-2">
                       <button
                         type="submit"
-                        className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200 bg-pink-500 border border-transparent rounded-md focus:outline-none hover:bg-pink-500 focus:bg-pink-500"
+                        className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200 bg-gradient-pink border border-transparent rounded-md focus:outline-none hover:scale-105"
                       >
                         Enviar
                       </button>
