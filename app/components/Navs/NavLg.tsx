@@ -102,7 +102,7 @@ export default forwardRef(function NavLg(
           <div className="hidden lg:block ml-auto">
             <a
               href={`${whatsApp.to}${encodeURI(" tus servicios")}`}
-              className={`${anchorClasses} pr-0 pl-0 py-0 rounded-full text-white`}
+              className={`${anchorClasses} !px-0 !py-0 rounded-full text-white`}
               target="_blank"
               rel="noreferrer"
             >
