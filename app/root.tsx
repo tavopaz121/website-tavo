@@ -14,7 +14,7 @@ import { htmlPageLinks } from "./data/htmlPageLinks";
 import RootErrorBoundary from "./RootErrorBoundary";
 import Footer from "./components/Footer/Footer";
 // import AOS from "aos";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 export const ErrorBoundary = RootErrorBoundary;
 
@@ -45,7 +45,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <main className={`overflow-hidden ${isHome ? "" : "pt-[108px]"}`}>
+        <main className={`overflow-hidden`}>
           {isHome ? null : (
             <Nav
               items={items}
