@@ -32,8 +32,8 @@ export const tools = [
     desc: "Los visitantes buscan un sitio web fácil de navegar en cualquier dispositivo. Además, que se les ofrezca información relevante y que les aporte valor.",
   },
   {
-    name: "Escabilidad y Gestión",
+    name: "Escalabilidad y Gestión",
     img: escabilidad,
-    desc: "Tu sitio web debe estar preparado para crecer y funcionar en un entorno amigable y fácil de usar para todo tu equipo con el objetivo de mantenerla siempre actualizada.",
+    desc: "Tu sitio web debe estar preparado para crecer y funcionar en un entorno amigable y fácil de usar para todo tu equipo con el objetivo de mantenerla siempre actúalizada.",
   },
 ];

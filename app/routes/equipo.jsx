@@ -37,6 +37,13 @@ export default function Equipo() {
         </div>
       </div>
 
+      <div className="m-20">
+        <h1 className="text-center text-5xl tracking-tight mt-10 mb-10 mx-4 md:text-7xl font-bold">
+          <span className="font-heading">Nuestro </span>
+          <span className="font-serif italic">Método ágil</span>
+        </h1>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 place-items-center w-full px-4">
         <img
           decoding="async"
@@ -136,10 +143,10 @@ export default function Equipo() {
             className="h-[390px] w-[350px] max-w-none shadow-md object-cover relative"
             src={octavio}
           />
-          <h3 className="puesto text-2xl text-white bottom-15 text-shadow shadow-black/80 absolute">
+          <h3 className="puesto text-2xl text-white bottom-15 text-shadow shadow-black/80 font-bold absolute">
             JS FULLSTACK DEVELOPER
           </h3>
-          <p className="nombre text-5xl text-white bottom-5 shadow-black/80 text-shadow absolute">
+          <p className="nombre text-5xl text-white bottom-5 shadow-black/80 font-bold text-shadow absolute">
             OCTAVIO
           </p>
         </div>
@@ -152,10 +159,10 @@ export default function Equipo() {
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
             src={jaime}
           />
-          <h3 className="puesto text-2xl text-white bottom-15 shadow-black/80 text-shadow object-cover absolute">
+          <h3 className="puesto text-2xl text-white bottom-15 shadow-black/80 font-bold text-shadow object-cover absolute">
             AGILE COACH
           </h3>
-          <p className="nombre text-5xl text-white bottom-5 shadow-black/80 text-shadow absolute">
+          <p className="nombre text-5xl text-white bottom-5 shadow-black/80 font-bold text-shadow absolute">
             JAIME
           </p>
         </div>
@@ -168,10 +175,10 @@ export default function Equipo() {
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
             src={norberto}
           />
-          <h3 className="puesto text-2xl text-white bottom-15 shadow-black/80 text-shadow absolute">
+          <h3 className="puesto text-2xl text-white bottom-15 shadow-black/80 font-bold text-shadow absolute">
             AGILE JS DEVELOPER
           </h3>
-          <p className="nombre text-5xl text-white bottom-5 shadow-black/80 text-shadow absolute">
+          <p className="nombre text-5xl text-white bottom-5 shadow-black/80 font-bold text-shadow absolute">
             NORBERTO
           </p>
         </div>
@@ -184,10 +191,10 @@ export default function Equipo() {
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
             src={fatima}
           />
-          <h3 className="puesto text-2xl text-white bottom-20 shadow-black/80 text-shadow absolute">
+          <h3 className="puesto text-2xl text-white bottom-20 shadow-black/80 font-bold text-shadow absolute">
             FRONTEND DEVELOPER
           </h3>
-          <p className="nombre text-5xl text-white bottom-9 shadow-black/80 text-shadow absolute">
+          <p className="nombre text-5xl text-white bottom-9 shadow-black/80 font-bold text-shadow absolute">
             FATIMA
           </p>
         </div>
@@ -195,12 +202,12 @@ export default function Equipo() {
           style={shadowImg}
           className="h-[450px] w-[350px] max-w-none shadow-2xl grid relative place-items-center flex-auto"
         >
-          <h3 className="nombre text-4xl text-center text-neutral-800 top-20  font-heading absolute">
+          <h3 className="nombre text-4xl text-center text-neutral-800 top-20  font-serif italic absolute">
             Simplificamos la agilidad para ti
           </h3>
           <p className="puesto text-2xl text-center text-neutral-800 top-60 m-5  absolute">
-            ¡Potencia tu presencia en linea con nuestros servicios de
-            desarrolloo web ágil!{" "}
+            ¡Materializa tus ideas y objetivos con nuestros servicios de
+            desarrollo de software ágil!{" "}
           </p>
         </div>
         <div className="grid relative place-items-center flex-auto">
@@ -212,10 +219,10 @@ export default function Equipo() {
             className="h-[390px] w-[350px] max-w-none shadow-2xl object-cover relative"
             src={nestor}
           />
-          <h3 className="puesto text-2xl text-white bottom-20 shadow-black/80 text-shadow absolute">
+          <h3 className="puesto text-2xl text-white bottom-20 shadow-black/80 font-bold text-shadow absolute">
             FRONTEND DEVELOPER
           </h3>
-          <p className="nombre text-5xl text-white bottom-9 shadow-black/80 text-shadow absolute">
+          <p className="nombre text-5xl text-white bottom-9 shadow-black/80 font-bold text-shadow absolute">
             NESTOR
           </p>
         </div>

@@ -21,7 +21,9 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
   ) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setAnimation("motion-safe:animate-fadeInUp motion-safe:opacity-100");
+        setAnimation(
+          "sm:motion-safe:animate-fadeInUp sm:motion-safe:opacity-100",
+        );
         setStart(true);
       }
     });
@@ -41,7 +43,9 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
       referenceTitle.current &&
       scrollPosition > referenceTitle?.current?.offsetHeight
     ) {
-      setAnimation("motion-safe:animate-fadeInUp motion-safe:opacity-100");
+      setAnimation(
+        "sm:motion-safe:animate-fadeInUp sm:motion-safe:opacity-100",
+      );
       setStart(true);
     }
 
@@ -53,9 +57,9 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
   return (
     <div
       data-testid="list-services"
-      className={`mx-auto motion-safe:opacity-0 ${animation}`}
+      className={`sm:motion-safe:opacity-0 ${animation}`}
       style={{
-        animationDelay: "0.5s",
+        animationDelay: "0s`",
         animationFillMode: "both",
       }}
     >
@@ -65,7 +69,7 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
         <div
           className={`flex xl:flex-col max-w-lg overflow-hidden order-2 justify-self-center md:order-1`}
         >
-          <div className="xl:w-auto px-4 lg:mb-0">
+          <div className="px-4 lg:mb-0">
             {serviciosUno.map((servicio) => (
               <CardServicio
                 key={servicio.servive}
@@ -81,15 +85,14 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
         <img
           decoding="async"
           loading="lazy"
-          className="md:order-2 motion-safe:animate-fadeIn rounded-full block  h-[300px] w-[300px] lg:h-[600px] lg:w-[400px] bg-cover bg-center bg-no-repeat mx-auto mb-8 object-cover"
+          className="md:order-2 sm:motion-safe:animate-fadeIn rounded-full block  h-[300px] w-[300px] lg:h-[600px] lg:w-[400px] bg-cover bg-center bg-no-repeat mx-auto mb-8 object-cover"
           style={{
-            animationDelay: "0.5s",
+            animationDelay: "0s",
             animationFillMode: "both",
             animationDuration: "1.5s",
           }}
           src={servicesImg}
           alt="Mujer sonriendo con una latop"
-          loading="lazy"
         />
 
         <div

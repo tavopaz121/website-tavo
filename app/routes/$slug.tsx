@@ -56,8 +56,8 @@ export default function Slug() {
   const { image, title } = post;
 
   return (
-    <div className="px-4 flex flex-wrap gap-3">
-      <section className="flex-grow flex-shrink" style={{ flexBasis: "69%" }}>
+    <div className="px-4 py-20 flex flex-wrap gap-3">
+      <section className="flex-grow flex-shrink">
         <article className="slug">
           <h1 className="font-bold">{title}</h1>
           <figure className="relative">
@@ -80,9 +80,6 @@ export default function Slug() {
           ></section>
         </article>
       </section>
-      <aside className="flex-grow flex-shrink" style={{ flexBasis: "29%" }}>
-        Contenido secundario lateral
-      </aside>
     </div>
   );
 }

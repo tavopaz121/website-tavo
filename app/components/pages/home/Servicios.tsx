@@ -1,5 +1,6 @@
 import ListServicios from "~/components/HomePage/ListServicios";
 import { useRef } from "react";
+import ButtonLink from "~/components/Buttons/ButtonLink";
 
 export default function SectionServicios() {
   const titleServicios = useRef(null);
@@ -7,9 +8,9 @@ export default function SectionServicios() {
   return (
     <section
       data-testid="servicios"
-      className="relative overflow-hidden px-4 py-10 lg:py-20"
+      className="relative container mx-auto overflow-hidden px-4 py-10 lg:py-20"
     >
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="text-center">
         <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
           SERVICIOS
         </span>
@@ -23,6 +24,10 @@ export default function SectionServicios() {
         </h2>
       </div>
       <ListServicios referenceTitle={titleServicios} />
+
+      <div className="text-center mt-5">
+        <ButtonLink to="/servicios">Más sobre Servicios</ButtonLink>
+      </div>
     </section>
   );
 }
