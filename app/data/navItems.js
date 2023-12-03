@@ -1,6 +1,6 @@
 export const items = [
   { to: "/servicios", label: "Servicios" },
-  { to: "/mentorias1a1", label: "Mentorias1a1" },
+  { to: "/mentorias1a1", label: "Mentorías1a1" },
   { to: "/proyectos", label: "Proyectos" },
   { to: "/equipo", label: "Equipo" },
   { to: "/contacto", label: "Contacto" },
