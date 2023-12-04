@@ -28,6 +28,7 @@ export default function Mentorias() {
 
   return (
     <div className="bg-gray-900">
+      {/* Heroe mentorias */}
       <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
           {/* Illustration behind hero content */}
@@ -105,19 +106,10 @@ export default function Mentorias() {
                 </div>
               </div>
             </div>
-
-            {/* <ModalVideo
-            thumb={VideoThumb}
-            thumbWidth={1024}
-            thumbHeight={576}
-            thumbAlt="Modal video thumbnail"
-            video="/videos/video.mp4"
-            videoWidth={1920}
-            videoHeight={1080} /> */}
           </div>
         </div>
       </section>
-
+      {/* Principios Ágiles */}
       <section id="principios">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="pt-10 pb-12 md:pt-16 md:pb-20">
@@ -140,7 +132,6 @@ export default function Mentorias() {
                 calidad del estudiante.
               </p>
             </div>
-
             {/* Items */}
             <div className="max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none">
               {principles.map((item, index) => (
@@ -179,6 +170,7 @@ export default function Mentorias() {
           </div>
         </div>
       </section>
+      {/* Titulo ágile */}
       <section>
         <div className="grid place-items-center ">
           <h2 className="lg:text-6xl md:text-5xl text-4xl font-bold text-white text-center">
@@ -189,6 +181,7 @@ export default function Mentorias() {
           </figure>
         </div>
       </section>
+      {/* Enseñanza ágile */}
       <article className="max-w-6xl relative mx-auto px-4 flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 bg-gray-800 p-8">
           <h4 className="text-lg text-white">Enseñanza ágil</h4>
@@ -232,6 +225,7 @@ export default function Mentorias() {
           />
         </figure>
       </article>
+      {/* Agilidad en todo momento */}
       <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="py-12 md:py-20 border-t border-gray-800">
