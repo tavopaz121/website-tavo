@@ -12,8 +12,8 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
   const [animation, setAnimation] = useState("");
   const [start, setStart] = useState<boolean>(false);
   let gridColumns = "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
-  let delayListLeft = 1;
-  let delayListRight = 1;
+  let delayListLeft = 0.3;
+  let delayListRight = 0.3;
 
   function showListServices(
     entries: IntersectionObserverEntry[],
@@ -76,7 +76,7 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
                 {...servicio}
                 position="left"
                 start={start}
-                delay={(delayListLeft += 0.25)}
+                delay={(delayListLeft += 0.15)}
               />
             ))}
           </div>
@@ -89,7 +89,7 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
           style={{
             animationDelay: "0s",
             animationFillMode: "both",
-            animationDuration: "1.5s",
+            animationDuration: "1s",
           }}
           src={servicesImg}
           alt="Mujer sonriendo con una latop"
@@ -104,7 +104,7 @@ export default function ListServicios({ referenceTitle }: ProListServices) {
                 key={servicio.servive}
                 {...servicio}
                 position="right"
-                delay={(delayListRight += 0.25)}
+                delay={(delayListRight += 0.15)}
                 start={start}
               />
             ))}

@@ -10,9 +10,15 @@ import WhatsAppLink from "../components/Buttons/WhatsApp";
 import { createMessage } from "../firebase/models/contactMessages.server";
 import Modal from "../components/Modal/Modal";
 
+import { metaFn } from "~/functions/shared/meta";
+import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+
+export const meta = metaFn;
+export const loader = loaderSeoFn("contacto");
+
 // Función para validar el nombre completo en tres partes
 function validateFullName(name) {
-  const nameRegex = /^\s*\S+(\s+\S+){2,}\s*$/;
+  const nameRegex = /^\s*\S+(\s+\S+){1,}\s*$/;
   return nameRegex.test(name);
 }
 
@@ -172,9 +178,6 @@ export default function Contacto() {
                 </h3>
 
                 {status === "success" && <p>{message}</p>}
-                {status === "error" && (
-                  <p>{JSON.stringify(errorDescriptions)}</p>
-                )}
 
                 <Form action="/contacto" method="POST" className="mt-14">
                   <fieldset disabled={isSubmitting}>
@@ -325,9 +328,54 @@ export default function Contacto() {
         isOpen={status === "success"}
         title="Mensaje enviado"
         shortDescription="Tu mensaje fue enviado con éxito."
+        actions={
+          <a
+            href="/servicios"
+            className="inline-flex w-full justify-center rounded-md bg-gradient-pink px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
+          >
+            Aceptar
+          </a>
+        }
       >
         <p>En breve nos pondremos en contacto contigo.</p>
         <p>¡Gracias por confiar en nosotros!</p>
+      </Modal>
+
+      <Modal
+        isOpen={status === "error"}
+        title="Error"
+        shortDescription="Hubó un error al enviar tu mensaje."
+        icon={
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-red-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        }
+        actions={
+          <>
+            <a
+              href="/contacto"
+              className="inline-flex w-full justify-center rounded-md bg-gradient-pink px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
+            >
+              Cerrar
+            </a>
+          </>
+        }
+      >
+        <p>Sentimos mucho los inconvenientes.</p>
+        <p className="font-bold">
+          También te puedes comunicar con whatsapp, email o teléfono
+        </p>
       </Modal>
     </section>
   );

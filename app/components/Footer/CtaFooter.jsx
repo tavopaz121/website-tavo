@@ -15,8 +15,8 @@ export default function CtaFooter() {
               data-aos-delay="100"
             >
               ¡Materializa tus ideas y objetivos! Descubre cómo nuestro equipo
-              de desarrollo de software puede llevar tu proyecto al siguiente
-              nivel.
+              lo hace posible. Cuidando tu recurso máximo, no renovable: tu
+              tiempo.
             </h2>
             <div
               data-aos="fade-up"
