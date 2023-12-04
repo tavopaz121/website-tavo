@@ -3,23 +3,29 @@ import CardService from "~/components/CardServices/CardService";
 import { services } from "~/data/services.js";
 import { tools } from "~/data/tools.js";
 
-export default function Productos() {
+import { metaFn } from "~/functions/shared/meta";
+import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+
+export const meta = metaFn;
+export const loader = loaderSeoFn("servicios");
+
+export default function Servicios() {
   return (
     <>
-      <section className="max-md:h-full max-md:mb-4">
-        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <section className="max-md:h-full max-md:mb-4 pt-20">
+        <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 py-20">
           <div className="grid items-center grid-cols-1 max-lg:gap-12 lg:grid-cols-2">
             <div>
               <h1
-                className="motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-6xl lg:text-7xl"
+                className="sm:motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-6xl lg:text-7xl"
                 style={{
                   animationDelay: "1.5s",
                   animationFillMode: "both",
                 }}
               >
-                Desarrollo Web simplificado,
+                Desarrollo ágil simplificado,
                 <div className="relative inline-flex">
-                  <span className="absolute inset-x-0 bottom-0 border-b-[22px] border-[#fb5975]"></span>
+                  <span className="absolute inset-x-0 bottom-0 border-b-[22px] border-pink-500"></span>
                   <h1 className="relative text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
                     para tu <span className="font-serif italic">éxito</span>.
                   </h1>
@@ -27,7 +33,7 @@ export default function Productos() {
               </h1>
 
               <p
-                className="mt-8 text-base text-gray-500 sm:text-xl motion-safe:animate-fadeIn"
+                className="mt-8 text-base sm:text-xl sm:motion-safe:animate-fadeIn"
                 style={{
                   animationDelay: "2s",
                   animationFillMode: "both",
@@ -38,31 +44,13 @@ export default function Productos() {
                 soluciones innovadoras y de vanguardia para que tu presencia en
                 la web destaque y alcance nuevos niveles de éxito.
               </p>
-
-              <div
-                className="mt-10 sm:flex sm:items-center sm:space-x-8 motion-safe:animate-fadeIn"
-                style={{
-                  animationDelay: "2s",
-                  animationFillMode: "both",
-                }}
-              >
-                <a
-                  className="relative max-sm:w-full w-1/2 group inline-block py-2.5 px-6 text-white font-semibold bg-pink-700 rounded overflow-hidden"
-                  href="/"
-                >
-                  <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
-                  <div className="relative flex items-center justify-center">
-                    <span className="mr-4">Ver servivios</span>
-                  </div>
-                </a>
-              </div>
             </div>
 
             <div className="relative">
               <img
                 decoding="async"
                 loading="lazy"
-                className="w-full object-cover relative z-auto motion-safe:animate-fadeInUp"
+                className="w-full object-cover relative z-auto sm:motion-safe:animate-fadeInUp"
                 src={heroImg}
                 alt=""
                 style={{
@@ -71,7 +59,7 @@ export default function Productos() {
                 }}
               />
               <div
-                className="bg-[#fb5975] absolute top-[-10rem] max-lg:hidden max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 motion-safe:animate-fadeInUp"
+                className="bg-pink-500 absolute top-[-10rem] max-lg:hidden max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 sm:motion-safe:animate-fadeInUp"
                 style={{
                   animationDelay: "0.5s",
                   animationFillMode: "both",
@@ -82,15 +70,15 @@ export default function Productos() {
         </div>
       </section>
 
-      <section className={`py-5 bg-white sm:py-5 lg:py-8 `}>
+      <section className={`py-5 bg-white sm:py-5 lg:py-20 `}>
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl motion-safe:animate-fadeIn font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+            <h2 className="text-3xl sm:motion-safe:animate-fadeIn font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
               Nuestras <span className="font-serif italic">Soluciones</span>
             </h2>
-            <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
+            <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed ">
               Explora nuestras soluciones y elige la que mejor se adapte a tus
-              necesidades
+              necesidades.
             </p>
           </div>
 
@@ -122,7 +110,7 @@ export default function Productos() {
 
                 <div className="flex flex-row items-center mt-4 space-x-4 lg:mt-8">
                   <a
-                    className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-pink-700 rounded overflow-hidden w-1/2 max-md:w-full"
+                    className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-black rounded overflow-hidden w-1/2 max-md:w-full"
                     href="/contacto"
                   >
                     <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
@@ -161,7 +149,7 @@ export default function Productos() {
               ¿Qué no debe faltar en tu{" "}
               <span className="font-serif italic">sitio web</span>?
             </h2>
-            <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">
+            <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed ">
               Que para tu tranquilidad, lo incluimos en todos nuestros
               proyectos.
             </p>
@@ -189,9 +177,7 @@ export default function Productos() {
                       </p>
                     </div>
                   </div>
-                  <p className="text-base leading-relaxed text-gray-600 mt-7">
-                    {item.desc}
-                  </p>
+                  <p className="text-base leading-relaxed  mt-7">{item.desc}</p>
                 </div>
               </div>
             ))}

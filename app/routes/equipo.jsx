@@ -14,6 +14,13 @@ import codigoresfatima from "~/assets/imgs/equipo/bg-codigo-fatima.webp"
 import codigoresnestor from "~/assets/imgs/equipo/bg-codigo-nestor.webp"
 import codigoresoctavio from "~/assets/imgs/equipo/bg-codigo-octavio.webp"
 import codigoresnorberto from "~/assets/imgs/equipo/bg-codigo-norberto.webp"
+
+import { metaFn } from "~/functions/shared/meta";
+import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+
+export const meta = metaFn;
+export const loader = loaderSeoFn("equipo");
+
 export default function Equipo() {
   const shadowImg = {
     boxShadow: "5px 5px 20px rgba(0,0,0,0.1)",
@@ -81,6 +88,13 @@ export default function Equipo() {
           </p>
         </div>
       </div> */}
+
+<div className="m-20">
+        <h1 className="text-center text-5xl tracking-tight mt-10 mb-10 mx-4 md:text-7xl font-bold">
+          <span className="font-heading">Nuestro </span>
+          <span className="font-serif italic">Método ágil</span>
+        </h1>
+      </div>
 
       <section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 ">

@@ -18,7 +18,9 @@ export const ErrorBoundary = RootErrorBoundary;
 
 export const links: LinksFunction = () => htmlPageLinks;
 
-export const meta = () => [{ title: "Pensemos web" }];
+export const meta = () => [
+  { title: "Desarrollo ágil, apps y web - Pensemosweb" },
+];
 
 export default function App() {
   const { pathname } = useLocation();
@@ -36,7 +38,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <main className={`overflow-hidden ${isHome ? "" : "pt-[108px]"}`}>
+        <main className={`overflow-hidden`}>
           {isHome ? null : (
             <Nav
               items={items}

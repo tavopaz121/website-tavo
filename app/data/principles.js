@@ -5,20 +5,20 @@ import feedbackLoopsAdaptations from "~/assets/imgs/icons/feedbackloops-adaptati
 export const items = [
   {
     img: peopleJustice,
-    quote:
-      "Personas y Justicias. Las personas forman empresas y crean productos. Lo más importante, eres tu, persona.",
+    title: "Personas y Justicia",
+    text: "Las personas crean y usan productos, también forman empresas.",
     name: "1",
   },
   {
     img: simplicitySmallbatches,
-    quote:
-      "Simplicidad y lotes pequeños. Si quieres hacer algo realmente exitoso y grande. Arma tu cadena de lotes.",
+    title: "Simplicidad y lotes pequeños",
+    text: "¿Grandes ideas?, divídela en partes pequeñas y produce.",
     name: "2",
   },
   {
     img: feedbackLoopsAdaptations,
-    quote:
-      "Ciclos de retroalimentación y adaptaciones. Método cientifico para reflejar aprendizajes y actuar.",
+    title: "Ciclos de retroalimentación y adaptaciones",
+    text: "Método científico, refleja y actúa.",
     name: "3",
   },
 ];

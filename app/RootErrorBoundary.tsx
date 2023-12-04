@@ -36,9 +36,9 @@ export default function RootErrorBoundary() {
               className="grid relative place-items-center text-center flex-auto lg:my-[13%]"
               bg-src={img2}
             >
-              <h1 className="lg:text-7xl font-serif">Lo sentimos .....</h1>
+              <h1 className="lg:text-7xl">Lo sentimos .....</h1>
               <h4 className="w-[60%] lg:text-2xl lg:w-[60%] lg:mt-[5%]">
-                ¡La página que estas buscando ha sido eliminada o movida!
+                ¡La página que estas buscando esta en construcción o no existe!
               </h4>
             </div>
             {process?.env?.NODE_ENV === "development" && (

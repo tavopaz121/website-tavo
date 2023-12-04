@@ -20,8 +20,8 @@ export default function Nosotros() {
       scrollPosition > referenceTitle?.current?.offsetHeight
     ) {
       setAnimations({
-        left: "motion-safe:animate-fadeInLeft motion-safe:opacity-100",
-        right: "motion-safe:animate-fadeInRight motion-safe:opacity-100",
+        left: "sm:motion-safe:animate-fadeInLeft sm:motion-safe:opacity-100",
+        right: "sm:motion-safe:animate-fadeInRight sm:motion-safe:opacity-100",
       });
     }
 
@@ -37,15 +37,16 @@ export default function Nosotros() {
     entris.forEach((entry) => {
       if (entry.isIntersecting) {
         setAnimations({
-          left: "motion-safe:animate-fadeInLeft motion-safe:opacity-100",
-          right: "motion-safe:animate-fadeInRight motion-safe:opacity-100",
+          left: "sm:motion-safe:animate-fadeInLeft sm:motion-safe:opacity-100",
+          right:
+            "sm:motion-safe:animate-fadeInRight sm:motion-safe:opacity-100",
         });
       }
     });
   };
 
   return (
-    <section className={`relative px-4 py-10 lg:py-20`}>
+    <section className={`container mx-auto relative px-4 py-10 lg:py-20`}>
       <div className="max-w-3xl mx-auto text-center">
         <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
           NOSOTROS/EQUIPO
@@ -60,9 +61,9 @@ export default function Nosotros() {
       </div>
       <div className={`flex flex-wrap gap-5 justify-between`}>
         <div
-          className={`xs:max-w-xs sm:max-w-lg lg:max-w-xl motion-safe:opacity-0 ${animations.left}`}
+          className={`xs:max-w-xs sm:max-w-lg lg:max-w-xl sm:motion-safe:opacity-0 ${animations.left}`}
           style={{
-            animationDelay: "0.5s",
+            animationDelay: "0s",
             animationFillMode: "both",
           }}
         >
@@ -78,9 +79,9 @@ export default function Nosotros() {
         </div>
 
         <div
-          className={`w-full lg:w-1/3 xl:w-1/2 flex items-center motion-safe:opacity-0 ${animations.right}`}
+          className={`w-full lg:w-1/3 xl:w-1/2 flex items-center sm:motion-safe:opacity-0 ${animations.right}`}
           style={{
-            animationDelay: "0.5s",
+            animationDelay: "0s",
             animationFillMode: "both",
           }}
         >
@@ -90,7 +91,6 @@ export default function Nosotros() {
             className="w-full object-cover rounded-3xl"
             src={feedbackLoop}
             alt="Ciclo de retroalimentación y adaptaciones"
-            loading="lazy"
           />
         </div>
       </div>
@@ -102,7 +102,7 @@ export default function Nosotros() {
         >
           <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-105 transition duration-500"></div>
           <div className="relative flex items-center justify-center">
-            <span className="mr-4">Conocenos</span>
+            <span className="mr-4">Conócenos</span>
             <span>
               <svg
                 width="8"

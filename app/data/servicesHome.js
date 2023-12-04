@@ -11,28 +11,29 @@ export const serviciosUno = [
   {
     urlImg: blog,
     servive: "Blogs",
-    description: "Crea contenido con nuestros blogs",
+    description: "¿Tu sitio necesita un impulso de contenido?",
     iconColor: "bg-blue-100",
     isUltimate: false,
   },
   {
     urlImg: landgin,
     servive: "Landing Pages",
-    description: "Captura leads y promociona ofertas",
+    description: "¿Tienes dificultades para convertir visitantes en clientes?",
     iconColor: "bg-orange-100",
     isUltimate: false,
   },
   {
     urlImg: corporativo,
     servive: "Páginas Web Corporativas",
-    description: "Diseñamos páginas web personalizadas",
+    description: "¿Tu presencia en línea no refleja la grandeza de tu empresa?",
     iconColor: "bg-gray-300",
     isUltimate: false,
   },
   {
     urlImg: aplicaciones,
     servive: "Aplicaciones Web",
-    description: "Apps que satisfacen tus necesidades específicas",
+    description:
+      "¿Necesitas una herramienta potente accesible desde cualquier navegador?",
     iconColor: "bg-red-200",
     isUltimate: true,
   },
@@ -41,30 +42,31 @@ export const serviciosUno = [
 export const serviciosDos = [
   {
     urlImg: exito,
-    servive: "Software a la medida",
-    description: "Soluciones que impulsan el éxito de tu negocio",
+    servive: "Aplicaciones móviles",
+    description: "¿Quieres llevar tu negocio al bolsillo de tus clientes?",
     iconColor: "bg-yellow-200",
     isUltimate: false,
   },
   {
     urlImg: progresivo,
     servive: "Aplicaciones Web Progresivas",
-    description: "Ofrece una experiencia aumentando la retención de usuarios",
+    description:
+      "¿Quieres una experiencia móvil sin la necesidad de una descarga de app?",
     iconColor: "bg-green-200",
     isUltimate: false,
   },
   {
     urlImg: seo,
     servive: "SEO",
-    description: "Atrae clientes potenciales con estrategias de SEO",
+    description:
+      "¿Tu negocio no se encuentra en los primeros resultados de búsqueda?",
     iconColor: "bg-blue-100",
     isUltimate: false,
   },
   {
     urlImg: tienda,
     servive: "Tiendas Online",
-    description:
-      "Aumentan ventas y ofrecen una experiencia de compra impecable",
+    description: " ¡Transforma tu tienda, en un e-commerce imán de ventas!.",
     iconColor: "bg-orange-100",
     isUltimate: true,
   },
