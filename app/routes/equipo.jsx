@@ -8,6 +8,13 @@ import creaAsap from "../assets/imgs/equipo/Unsplash-creaASAP.webp";
 import retroalimenta from "../assets/imgs/equipo/Unsplash-retroalimenta.webp";
 import adaptaMejora from "../assets/imgs/equipo/Unsplash-adapta.webp";
 import fondotech from "~/assets/imgs/equipo/Tech Marvels_ Aesthetic Wonders in Modern Technologies.webp";
+
+import { metaFn } from "~/functions/shared/meta";
+import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+
+export const meta = metaFn;
+export const loader = loaderSeoFn("equipo");
+
 export default function Equipo() {
   const shadowImg = {
     boxShadow: "5px 5px 20px rgba(0,0,0,0.2)",

@@ -3,7 +3,13 @@ import CardService from "~/components/CardServices/CardService";
 import { services } from "~/data/services.js";
 import { tools } from "~/data/tools.js";
 
-export default function Productos() {
+import { metaFn } from "~/functions/shared/meta";
+import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+
+export const meta = metaFn;
+export const loader = loaderSeoFn("servicios");
+
+export default function Servicios() {
   return (
     <>
       <section className="max-md:h-full max-md:mb-4 pt-20">
