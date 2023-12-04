@@ -30,9 +30,9 @@ export default function Hero({
         <source src={videoSrcs.ogv} type="video/ogg" />
       </video>
 
-      <h1 className="absolute h-[100vb] text-white w-full xl:w-[50%] flex justify-start sm:justify-center top-20 sm:top-0 items-start flex-col mx-auto">
+      <h1 className="absolute h-[100vb] text-white w-full max-xs:w-[100vi] xl:w-[100vi] flex justify-start sm:justify-center top-40 sm:top-0 items-start flex-col mx-auto">
         <span
-          className="sm:motion-safe:animate-fadeInDown :text-3xl sm:text-4xl lg:text-5xl font-heading mb-2 lg:mb-4"
+          className="sm:motion-safe:animate-fadeInDown text-2xl sm:text-3xl lg:text-4xl font-heading mb-2 lg:mb-4"
           style={{
             animationDuration: `${timing}s`,
             animationDelay: "0s",
@@ -42,7 +42,7 @@ export default function Hero({
           <mark className="text-white bg-transparent p-2">{preText}</mark>
         </span>
         <span
-          className="relative max-xs:w-full sm:motion-safe:animate-fadeInLeft font-bold text-3xl sm:text-5xl lg:text-7xl mb-4 lg:mb-5 tracking-tighter"
+          className="relative max-xs:w-full sm:motion-safe:animate-fadeInLeft font-bold text-xl xs:text-2xl sm:text-3xl md:text-5xl mt-3 mb-4 lg:mb-5 tracking-tighter"
           style={{
             animationDuration: `${timing}s`,
             animationDelay: "0.25s",
@@ -50,7 +50,7 @@ export default function Hero({
           }}
         >
           <mark className="text-white bg-transparent uppercase p-2 relative xs:pr-8">
-            <span className="absolute -left-12 inset-0 bg-gradient-pink bg-opacity-70 transform -skew-x-12 sm:-z-10 h-full scale-x-110 xs:scale-x-100">
+            <span className="absolute -left-12 inset-0 bg-gradient-pink bg-opacity-70 max-xs:w-[100vi] transform -skew-x-12 sm:-z-10 h-full scale-x-110 xs:scale-x-100">
               {" "}
             </span>
             <span className="relative">{title}</span>
@@ -63,9 +63,9 @@ export default function Hero({
               animationFillMode: "both",
             }}
           >
-            <mark className="text-white bg-transparent relative p-2 sm:px-4 top-2 sm:top-0">
+            <mark className="text-white bg-transparent relative p-2 sm:px-4 top-4 sm:top-3 lg:top-0">
               <span className="opacity-0  h-full p-2">{subtitle}</span>
-              <span className="absolute -left-12 inset-0 bg-black transform -skew-x-12 sm:-z-20 h-full">
+              <span className="absolute -left-8 sm:-left-12 inset-0 bg-black transform max-xs:w-[100vi] -skew-x-12 sm:-z-20 h-full">
                 {" "}
               </span>
               <span className="absolute left-0 transform h-full">

@@ -7,11 +7,17 @@ import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
 import { useEffect } from "react";
 
+import { metaFn } from "~/functions/shared/meta";
+import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+
+export const meta = metaFn;
+export const loader = loaderSeoFn("mentorias1a1");
+
 export function links() {
   return [{ rel: "stylesheet", href: aosStyles, content: "text/css" }];
 }
 
-export default function HeroHome() {
+export default function Mentorias() {
   useEffect(() => {
     AOS.init({
       once: true,
@@ -276,7 +282,7 @@ export default function HeroHome() {
                     >
                       {/* <h4 className="h4 mb-2"><span className="text-purple-600">.</span> For developers</h4> */}
                       <p className="text-lg text-gray-400">
-                        usarás Scrum y extreme programming para la creación de
+                        Usarás Xtreme programming y Scrum para la creación de
                         proyectos reales de alta calidad.
                       </p>
                       <p className="text-lg text-gray-400 pt-2">
