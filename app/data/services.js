@@ -1,13 +1,31 @@
 export const services = [
   {
-    name: "Desarrollo web",
+    name: "Aplicaciones web",
     description:
-      "Desarrollamos un sitio web de alto impacto que te ayude a lograr tus objetivos.",
+      "¿Necesitas una herramienta potente accesible desde cualquier dispositivo?",
     benefices: [
-      "Diseño original",
-      "Responsive",
-      "Rápido y seguro",
-      "Optimizado para SEO",
+      "🌐 El 60% de los usuarios abandonan un sitio web si no es compatible con sus dispositivos móviles (Fuente: Google).",
+      "⚡️ Las actualizaciones de apps web pueden desplegarse hasta un 70% más rápido que las nativas (Fuente: Forrester), manteniendo la relevancia.",
+      "🌍 Elimina las barreras entre sistemas operativos y dispositivos. Alcanza a más clientes con una sola solución.",
+      "💰 Desarrollo más económico que las aplicaciones nativas. Menor inversión inicial.",
+      "⬇️ Tus clientes no necesitan descargar nada.",
+      "🔍 Aparece en los resultados de búsqueda, lo que atrae a nuevos clientes.",
+      "💡 Ofrecen una experiencia similar a las aplicaciones nativas, ¡manteniendo a los usuarios satisfechos!",
+    ],
+  },
+  {
+    name: "Apps móviles",
+    description: `¿Quieres llevar tu negocio al bolsillo de tus clientes?
+    Desarrollamos apps móviles de primer nivel para mantener tu marca en la mente de tus clientes con un solo toque.
+`,
+    benefices: [
+      "📱Más del 50% del tráfico web global proviene de dispositivos móviles (Fuente: Statista). ",
+      "🌟 Las empresas con aplicaciones móviles ven un aumento del 300% en la participación del cliente (Fuente: Business of Apps).",
+      "📊 Usa los insights de la app para un crecimiento continuo y estratégico.",
+      "🔔 Usa las notificaciones push para mantener a tus clientes informados sobre ofertas, actualizaciones o eventos.",
+      "🚀 Los usuarios prefieren accesos directos. Proporcionan una experiencia más ágil y directa que un navegador web.",
+      "📈 Aumenta la visibilidad de tu marca y la fidelidad de tus clientes. ",
+      "🤝 Crea una app que se adapte a sus preferencias.",
     ],
   },
   {
@@ -52,17 +70,6 @@ export const services = [
       "Plantillas",
       "Diseño optimizado",
       "Fácil de gestionar",
-    ],
-  },
-  {
-    name: "Diseño web",
-    description:
-      "Creamos diseños impactantes y sobre todo funcionales para llevar a cada visitante a convertir.",
-    benefices: [
-      "Enfocado en la experiencia",
-      "Responsive Design",
-      "Enfocado a tus objetivos",
-      "Listos para desarrollo",
     ],
   },
 ];
