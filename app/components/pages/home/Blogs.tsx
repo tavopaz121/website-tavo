@@ -3,7 +3,6 @@ import imageBlog2 from "app/assets/imgs/individuosEInteracciones.webp";
 import imageBlog3 from "app/assets/imgs/Portada-IntroLEanStartup-.webp";
 
 import Blog from "../../HomePage/CardBlog";
-import { useEffect, useRef, useState } from "react";
 
 const blogs = [
   {

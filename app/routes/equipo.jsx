@@ -286,7 +286,6 @@ export default function Equipo() {
               src={team}
               width={1440}
               height={394}
-              priority
               alt="About"
             />
             <div

@@ -39,10 +39,12 @@ export default function Servicios() {
                   animationFillMode: "both",
                 }}
               >
-                ¡Bienvenido a la puerta de entrada al éxito en línea! En
-                <strong> PensemosWeb</strong>, estamos dedicados a ofrecerte
-                soluciones innovadoras y de vanguardia para que tu presencia en
-                la web destaque y alcance nuevos niveles de éxito.
+                ¿Sitios web obsoletos o poco funcionales? ¿Tu presencia en línea
+                no refleja la grandeza de tu empresa? Te sientes frustrado
+                porque tus visitantes no se convierten en clientes? ¿Necesitas
+                una herramienta potente accesible desde cualquier navegador?
+                ¿Quieres tener tu negocio siempre al alcance de tus clientes, en
+                la palma de sus manos?
               </p>
             </div>
 
