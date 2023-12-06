@@ -7,7 +7,11 @@ import principles from "~/assets/imgs/inicio/principios-1200x740.webp";
 import principlesSmall from "~/assets/imgs/inicio/principios-600x370.webp";
 import { items } from "~/data/principles";
 
-export default function Principios() {
+export default function Principios({
+  hasParticles = false,
+}: {
+  hasParticles?: boolean;
+}) {
   const [active, setActive] = useState<number>(0);
   const [autorotate, setAutorotate] = useState<boolean>(true);
   const [autorotateTiming] = useState<number>(7000);
@@ -183,13 +187,15 @@ export default function Principios() {
             </div>
           </div>
           {/* Particles animation */}
-          <div className="absolute left-0 top-0 w-[100%] h-[100%] -mt-6">
-            <Particles
-              className="absolute inset-0 -z-1"
-              quantity={100}
-              staticity={20}
-            />
-          </div>
+          {hasParticles ? (
+            <div className="absolute left-0 top-0 w-[100%] h-[100%] -mt-6">
+              <Particles
+                className="absolute inset-0 -z-1"
+                quantity={100}
+                staticity={20}
+              />
+            </div>
+          ) : null}
           <div className="max-w-3xl mx-auto px-4 sm:px-6 relative">
             <div className="relative w-full">
               {/* Carousel */}

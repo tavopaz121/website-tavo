@@ -49,7 +49,7 @@ export default function Servicios() {
                 dispositivo con una{" "}
                 <strong className="font-bold">web app</strong> 💻📱? ¿Quieres
                 llevar tu negocio al bolsillo de tus clientes con una{" "}
-                <strong className="font-bold">app móvil 📱.</strong>?
+                <strong className="font-bold">app móvil 📱</strong>?
               </p>
             </div>
 
