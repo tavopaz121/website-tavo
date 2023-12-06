@@ -84,7 +84,7 @@ export default function Principios({
             className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900 mb-8"
           >
             <span>Nuestros </span>
-            <span className="font-serif italic relative">principios</span>
+            <span className="font-serif italic relative">Principios</span>
           </h2>
         </div>
         <picture
@@ -292,7 +292,7 @@ export default function Principios({
         </section>
       </div>
       <div className="text-center mt-5">
-        <ButtonLink to="/nosotros">Más sobre principios</ButtonLink>
+        <ButtonLink to="/nosotros">Más sobre Principios</ButtonLink>
       </div>
     </section>
   );
