@@ -8,7 +8,7 @@ export default function CardService({
 }: CardServiceProps) {
   return (
     <div className="overflow-hidden bg-white border-2 border-pink-50 rounded-md">
-      <div className="p-8 xl:px-12">
+      <div className="p-8 xl:px-12 h-full flex flex-col justify-between">
         <p className="text-3xl font-bold text-black mt-7">{title}</p>
         <p className="mt-3 text-base text-gray-800">{description}</p>
 
