@@ -1,17 +1,9 @@
-import Particles from "~/components/Particles/Particles";
 import Illustration from "~/assets/imgs/proyectos/glow-bottom.svg";
 
 export default function Hero() {
   return (
     <section className="bg-black">
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Particles animation */}
-        <Particles
-          className="absolute inset-0 -z-0"
-          quantity={200}
-          staticity={10}
-        />
-
         {/* Illustration */}
         <div
           className="absolute inset-0 -z-0 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"

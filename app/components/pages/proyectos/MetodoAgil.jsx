@@ -41,7 +41,7 @@ export default function Features() {
                 {/* Content #1 */}
                 <div>
                   <div className="inline-flex font-medium bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-pink-500 to-pink-200 pb-3">
-                    Cuiadamos tu recurso máximo no renovable: tu tiempo.
+                    Cuidamos tu recurso máximo no renovable: tu tiempo.
                   </div>
                 </div>
                 <h3 className="h3 text-4xl lg:text-6xl font-bold bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-200/60 pb-3">
