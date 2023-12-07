@@ -134,7 +134,7 @@ export default function Proyectos() {
                             Diseño pastel responsivo
                           </h3>
                           <p className="text-slate-400">
-                            Deseño pastel responsivo, listo para smartphones,
+                            Diseño pastel responsivo, listo para smartphones,
                             tabletas, laptop y computadoras de escritorio. 🍰🎂
                           </p>
                         </div>
