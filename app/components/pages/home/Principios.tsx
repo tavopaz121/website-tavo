@@ -227,7 +227,7 @@ export default function Principios({
                         <img
                           decoding="async"
                           loading="lazy"
-                          className="relative mt-5 left-1/2 -translate-x-1/2"
+                          className="relative mt-5 left-1/2 -translate-x-1/2 rounded-full"
                           src={item.img}
                           width={150}
                           height={150}

@@ -30,7 +30,7 @@ export default forwardRef(function NavLg(
   return (
     <nav
       ref={ref}
-      className={`font-heading fixed top-0 z-10 w-full px-4 duration-1000 ${navClasses} ${bgOnScroll} ${borderClasses}`}
+      className={`font-heading fixed top-0 z-50 w-full px-4 duration-1000 ${navClasses} ${bgOnScroll} ${borderClasses}`}
       style={{
         lineHeight: 1,
         transitionProperty:

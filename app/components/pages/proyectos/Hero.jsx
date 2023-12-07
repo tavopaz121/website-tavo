@@ -3,7 +3,7 @@ import Illustration from "~/assets/imgs/proyectos/glow-bottom.svg";
 
 export default function Hero() {
   return (
-    <section className="bg-black  ">
+    <section className="bg-black">
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         {/* Particles animation */}
         <Particles
@@ -27,12 +27,12 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative pt-32 pb-16 md:pt-52 md:pb-32">
+        <div className="relative pt-32 pb-16 md:pt-52 md:pb-52">
           {/* Hero content */}
           <div className="max-w-3xl mx-auto text-center">
             <h1
               className="h1 text-5xl lg:text-7xl bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4"
-              data-aos="fade-down"
+              data-aos="fade-up"
               style={{
                 WebkitBackgroundClip: "text",
                 MozBackgroundClip: "text",
@@ -42,7 +42,7 @@ export default function Hero() {
             </h1>
             <p
               className="text-2xl xl:4xl mb-8 font-bold bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-200/60"
-              data-aos="fade-down"
+              data-aos="fade-up"
               data-aos-delay="200"
             >
               ¡Innovación con Agilidad en Cada Paso! 🚀 Nuestra agilidad no se
@@ -50,20 +50,20 @@ export default function Hero() {
             </p>
             <div
               className="max-w-xs mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4"
-              data-aos="fade-down"
+              data-aos="fade-up"
               data-aos-delay="400"
             >
               <div>
                 <a
-                  className="btn text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white w-full transition duration-150 ease-in-out group"
-                  href="#0"
+                  className="pw-btn text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white w-full transition duration-150 ease-in-out group"
+                  href="/contacto"
                 >
                   Iniciar{" "}
                 </a>
               </div>
               <div>
                 <a
-                  className="btn text-slate-200 hover:text-white bg-slate-900 bg-opacity-25 hover:bg-opacity-30 w-full transition duration-150 ease-in-out"
+                  className="pw-btn text-slate-200 hover:text-white bg-slate-900 bg-opacity-25 hover:bg-opacity-30 w-full transition duration-150 ease-in-out"
                   href="/contacto"
                 >
                   <svg
