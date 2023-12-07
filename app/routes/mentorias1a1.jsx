@@ -1,14 +1,14 @@
 import metodoAgile from "../assets/imgs/clasesonetoone/feedback_loo_transparent_noTitle.webp";
 import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
-import picturejs from "~/assets/imgs/clasesonetoone/picture-js-front.jpg";
-import picturejsb from "~/assets/imgs/clasesonetoone/picture-js-back-code.jpg";
-import picturehtml5 from "~/assets/imgs/clasesonetoone/picture-html-code.jpg";
-import picturecss3 from "~/assets/imgs/clasesonetoone/picture-css-code.jpg";
+import picturejs from "~/assets/imgs/clasesonetoone/picture-js-front.webp";
+import picturejsb from "~/assets/imgs/clasesonetoone/picture-js-back-code.webp";
+import picturehtml5 from "~/assets/imgs/clasesonetoone/picture-html-code.webp";
+import picturecss3 from "~/assets/imgs/clasesonetoone/picture-css-code.webp";
 import pictureagile from "~/assets/imgs/clasesonetoone/picture-agile-devops.webp";
-import pictureagilefront from "~/assets/imgs/clasesonetoone/picture-agile-front.jpg";
-import pictureagileback from "~/assets/imgs/clasesonetoone/picture-agile-back.jpg";
-import pictureagilfull from "~/assets/imgs/clasesonetoone/picture-agile-full.jpg";
+import pictureagilefront from "~/assets/imgs/clasesonetoone/picture-agile-front.webp";
+import pictureagileback from "~/assets/imgs/clasesonetoone/picture-agile-back.webp";
+import pictureagilfull from "~/assets/imgs/clasesonetoone/picture-agile-full.webp";
 import { items as principles } from "~/data/principles.js";
 
 import AOS from "aos";
@@ -182,17 +182,17 @@ export default function Mentorias() {
       {/* Titulo ágile */}
       <section>
         <div className="grid place-items-center ">
-          <h2 className="lg:text-6xl md:text-5xl text-4xl font-bold text-white text-center">
+          <h2 className="lg:text-6xl md:text-5xl text-4xl font-bold text-white text-center" data-aos="fade-up">
             Método de aprendizaje
           </h2>
           <figure className="px-4 mb-10">
-            <img src={metodoAgile} alt="Método ágile" />
+            <img src={metodoAgile} alt="Método ágile" data-aos="fade-up" />
           </figure>
         </div>
       </section>
       {/* Enseñanza ágile */}
       <article className="max-w-6xl relative mx-auto px-4 flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 bg-gray-800 p-8">
+        <div className="w-full md:w-1/2 bg-gray-800 p-8" data-aos="fade-up">
           <h4 className="text-lg text-white">Enseñanza ágil</h4>
           <p className="text-lg text-gray-400 mb-5">
             El Método de enseñanza ágil se aplica en todos los niveles y
@@ -231,6 +231,7 @@ export default function Mentorias() {
             width={516}
             height={387}
             alt="Tabs 01"
+            data-aos="fade-up"
           />
         </figure>
       </article>
@@ -363,7 +364,7 @@ export default function Mentorias() {
             Inscribete a cualquiera de nuestras mentorias
           </h2>
         </div>
-        <div className="max-w-6xl grid grid-cols-12 gap-6 px-4 mx-auto pb-4 ">
+        <div className="max-w-6xl grid grid-cols-12 gap-6 px-4 mx-auto pb-4">
           {/* Cards a */}
           <div className="flex flex-col items-center col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
             <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
@@ -1018,7 +1019,7 @@ export default function Mentorias() {
             </div>
           </div>
           {/* Cards h */}
-          <div className="flex flex-col items-center col-span-full xl:col-span-12 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 px-4">
+          <div className="flex flex-col items-center col-span-full xl:col-span-12 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 px-4 mb-20">
             <div className=" py-1">
               <div className="xl:flex xl:flex-wrap tex-justify items-center ">
                 <div className="w-full xl:w-1/3 px-4 py-4">
