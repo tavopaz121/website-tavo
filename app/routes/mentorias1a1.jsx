@@ -463,9 +463,9 @@ export default function Mentorias() {
                     <div>
                       <div className="pb-5">
                         <img
-                          className="mx-auto w-full"
+                          className="mx-auto w-full md:w-[50%] xl:w-full"
                           src={picturejsb}
-                          width={150}
+                          width={210}
                           height={200}
                           alt="JavaScript Frontend"
                         />
@@ -558,7 +558,7 @@ export default function Mentorias() {
                     <div>
                       <div className="pb-5">
                         <img
-                          className="mx-auto w-full"
+                          className="mx-auto w-full md:w-[50%] xl:w-full"
                           src={picturehtml5}
                           width={150}
                           height={200}
@@ -653,7 +653,7 @@ export default function Mentorias() {
                     <div>
                       <div className="pb-5">
                         <img
-                          className="mx-auto w-full"
+                          className="mx-auto w-full md:w-[50%] xl:w-full"
                           src={picturecss3}
                           width={105}
                           height={200}
@@ -748,7 +748,7 @@ export default function Mentorias() {
                     <div>
                       <div className="pb-5">
                         <img
-                          className="mx-auto w-full"
+                          className="mx-auto w-full md:w-[50%] xl:w-full"
                           src={pictureagile}
                           width={150}
                           height={200}
@@ -843,7 +843,7 @@ export default function Mentorias() {
                     <div>
                       <div className="pb-5">
                         <img
-                          className="mx-auto w-full"
+                          className="mx-auto w-full md:w-[50%] xl:w-full"
                           src={pictureagilefront}
                           width={150}
                           height={200}
@@ -1019,19 +1019,19 @@ export default function Mentorias() {
             </div>
           </div>
           {/* Cards h */}
-          <div className="flex flex-col items-center col-span-full xl:col-span-12 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 px-4 mb-20">
-            <div className=" py-1">
+          <div className="flex flex-col items-center col-span-full xl:col-span-12 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 p-4 mb-20">
+            <div>
               <div className="xl:flex xl:flex-wrap tex-justify items-center ">
-                <div className="w-full xl:w-1/3 px-4 py-4">
+                <div className="w-full xl:w-1/3">
                   <img
-                    className="mx-auto w-full"
+                    className="mx-auto w-full md:w-[50%] xl:w-full"
                     src={pictureagilfull}
                     width={150}
                     height={200}
                     alt="JavaScript Frontend"
                   />
                 </div>
-                <div className="w-full xl:w-2/3 text-center text-white pb-5">
+                <div className="w-full xl:w-2/3 text-center text-white xl:pl-4">
                   <header className="text-center px-5 py-4 border-b border-slate-100 dark:border-slate-700">
                     <h2 className="font-semibold text-slate-800 dark:text-slate-100">
                       Agile Fullstack Developer
