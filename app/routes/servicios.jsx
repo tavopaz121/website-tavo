@@ -85,8 +85,11 @@ export default function Servicios() {
               <span className="font-serif italic">ayudar</span>?
             </h2>
             <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed ">
-              Recuerda, aplicamos principios y prácticas de desarrollo ágil,
-              para darte el mayor valor en el menor tiempo posible.
+              🌟 Con métodos ágiles innovadores, aceleramos el desarrollo,
+              asegurando resultados efectivos y adaptativos. 👨‍💻👩‍💻 Cada proyecto
+              es un lienzo donde la creatividad y la eficiencia se fusionan
+              gracias a nuestras prácticas ágiles. De esta forma te
+              proporcionamos el mayor valor en el menor tiempo posible.
             </p>
           </div>
 

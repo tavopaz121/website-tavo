@@ -153,7 +153,7 @@ export default function Equipo() {
                   </div>
                   <div className="relative pt-5">
                     <h2 className="mb-4 text-3xl font-heading">
-                      Colabora y
+                      Colabora y{" "}
                       <span className="font-serif italic">aprende</span>
                     </h2>
                     <h4 className="mb-4 text-base sm:text-justify">
