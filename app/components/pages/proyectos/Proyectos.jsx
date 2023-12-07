@@ -77,7 +77,7 @@ export default function Proyectos() {
                 data-aos="fade-down"
                 data-aos-delay="150"
               >
-                <HighlighterItem className="!h-auto">
+                <HighlighterItem className="!h-full">
                   <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
                     <div className="flex h-full flex-col justify-between">
                       {/* Radial gradient */}
@@ -161,9 +161,9 @@ export default function Proyectos() {
                 data-aos="fade-down"
                 data-aos-delay="150"
               >
-                <HighlighterItem className="!h-auto">
-                  <div className="relative h-auto bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <div className="flex flex-col h-auto justify-between">
+                <HighlighterItem className="!h-full">
+                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                    <div className="flex flex-col h-full justify-between">
                       {/* Radial gradient */}
                       <div
                         className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
@@ -298,9 +298,9 @@ export default function Proyectos() {
                 data-aos="fade-down"
                 data-aos-delay="300"
               >
-                <HighlighterItem className="!h-auto">
-                  <div className="relative h-auto bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <div className="flex h-auto flex-col justify-center h-full">
+                <HighlighterItem className="!h-full">
+                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                    <div className="flex h-full flex-col justify-center">
                       {/* Blurred shape */}
                       <div
                         className="absolute right-0 top-0 blur-2xl"
@@ -375,9 +375,9 @@ export default function Proyectos() {
                 data-aos="fade-down"
                 data-aos-delay="150"
               >
-                <HighlighterItem className="!h-auto">
-                  <div className="relative h-auto bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <div className="flex h-auto flex-col justify-between">
+                <HighlighterItem className="!h-full">
+                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                    <div className="flex h-full flex-col justify-between">
                       {/* Radial gradient */}
                       <div
                         className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
