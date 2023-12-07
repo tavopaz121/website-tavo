@@ -7,6 +7,8 @@ import partyRentalsWebApp from "~/assets/imgs/proyectos/party-rentals-android-io
 import insumoEstructuralWebApp from "~/assets/imgs/proyectos/insumo-estructural-web-app.webp";
 import partyRentalsWebsite from "~/assets/imgs/proyectos/party-rentals-website.webp";
 import cakesDesignWebsiteDesktop from "~/assets/imgs/proyectos/cakes-design-desktop.webp";
+import dasepResponsiveWebsite from "~/assets/imgs/proyectos/daseb-website-responsive.webp";
+import cmsMunicipios from "~/assets/imgs/proyectos/sitioweb-noticias-blog-citas.webp";
 
 export default function Proyectos() {
   return (
@@ -68,7 +70,7 @@ export default function Proyectos() {
               </svg>
             </div>
             {/* Grid */}
-            <Highlighter className="grid [grid-template-columns:repeat(auto-fit,minmax(100px,1fr))] gap-6 group auto-rows-auto">
+            <Highlighter className="grid [grid-template-columns:repeat(auto-fit,minmax(100px,1fr))] gap-6 group auto-rows-auto grid-flow-dense">
               {/* Box #1 */}
               <div
                 className="col-span-full md:col-span-3 lg:col-span-4"
@@ -89,7 +91,7 @@ export default function Proyectos() {
                       <div className="p-8">
                         <div>
                           <h3 className="inline-flex text-2xl font-bold bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
-                            RLD party rentals website
+                            RLD sitio web responsive
                           </h3>
                           <p className="text-slate-400">
                             Rebecca, Lucas & David! Family Operated Menifee
@@ -113,11 +115,143 @@ export default function Proyectos() {
 
               {/* Box #2 */}
               <div
+                className="col-span-full md:col-span-3 lg:col-span-4"
+                data-aos="fade-down"
+                data-aos-delay="300"
+              >
+                <HighlighterItem className="!h-full">
+                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                    <div className="flex h-full flex-col justify-between">
+                      {/* Radial gradient */}
+                      <div
+                        className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
+                        aria-hidden="true"
+                      >
+                        <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]" />
+                      </div>
+                      {/* Text */}
+                      <div className="p-8">
+                        <div>
+                          <h3 className="inline-flex text-2xl font-bold bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
+                            Daseb sitio web responsive
+                          </h3>
+                          <p className="text-slate-400">
+                            En DASEB, nos dedicamos apasionadamente a ayudar a
+                            las personas a superar las limitaciones físicas y a
+                            recuperar su calidad de vida
+                          </p>
+                        </div>
+                      </div>
+                      {/* img */}
+                      <div className="relative overflow-hidden z-30">
+                        <img
+                          className="block mx-auto"
+                          src={dasepResponsiveWebsite}
+                          alt="Daseb sitio web responsivo"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </HighlighterItem>
+              </div>
+
+              {/* Box #3 */}
+              <div
+                className="col-span-full md:col-span-3 lg-col-span-3"
+                data-aos="fade-down"
+                data-aos-delay="150"
+              >
+                <HighlighterItem className="!h-auto">
+                  <div className="relative h-auto bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                    <div className="flex flex-col h-auto justify-between">
+                      {/* Radial gradient */}
+                      <div
+                        className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
+                        aria-hidden="true"
+                      >
+                        <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]" />
+                      </div>
+                      {/* Text */}
+                      <div className="p-8">
+                        <div>
+                          <h3 className="inline-flex text-2xl font-bold bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
+                            RLD App móvil
+                          </h3>
+                          <p className="text-slate-400">
+                            Rebecca, Lucas & David! Family Operated Menifee
+                            based. Sitio web, Tienda en línea y también app
+                            móvil de un negocio familiar de renta de muebles y
+                            artefactos para fiestas. 🎉🎈
+                          </p>
+                        </div>
+                      </div>
+                      {/* img */}
+                      <div className="relative overflow-hidden">
+                        <img
+                          className="mx-auto relative overflow-hidden z-30"
+                          src={partyRentalsWebApp}
+                          width="200"
+                          alt="RLD party rentals web app y app móvil."
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </HighlighterItem>
+              </div>
+
+              {/* Box #5 */}
+              <div
                 className="col-span-full md:col-span-3 lg:col-span-5"
                 data-aos="fade-down"
                 data-aos-delay="300"
               >
-                <HighlighterItem className="!h-auto">
+                <HighlighterItem className="!h-full">
+                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                    <div className="flex h-full flex-col justify-between">
+                      {/* Radial gradient */}
+                      <div
+                        className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
+                        aria-hidden="true"
+                      >
+                        <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]" />
+                      </div>
+                      {/* Text */}
+                      <div className="p-8">
+                        <div>
+                          <h3 className="inline-flex text-2xl font-bold bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
+                            CMS autoadministrable
+                          </h3>
+                          <p className="text-slate-400">
+                            ¡Potencia tu presencia en línea con un sitio web
+                            totalmente responsive! 🌐 Incorpora secciones
+                            autoadministrables que mantienen a tu audiencia
+                            actualizada con noticias, eventos y un blog
+                            dinámico. Además, ofrece áreas exclusivas y la
+                            facilidad de agendar citas de manera rápida y
+                            sencilla. 📅✨
+                          </p>
+                        </div>
+                      </div>
+                      {/* img */}
+                      <div className="relative overflow-hidden z-30">
+                        <img
+                          className="w-full block mx-auto"
+                          src={cmsMunicipios}
+                          alt="Daseb sitio web responsivo"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </HighlighterItem>
+              </div>
+
+              {/* Box #4 */}
+              <div
+                className="col-span-full md:col-span-3 lg:col-span-5"
+                data-aos="fade-down"
+                data-aos-delay="150"
+              >
+                <HighlighterItem className="h-full">
                   <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
                     <div className="flex h-full flex-col justify-between">
                       {/* Radial gradient */}
@@ -134,8 +268,13 @@ export default function Proyectos() {
                             Diseño pastel responsivo
                           </h3>
                           <p className="text-slate-400">
-                            Diseño pastel responsivo, listo para smartphones,
-                            tabletas, laptop y computadoras de escritorio. 🍰🎂
+                            "¡Crea tu sitio web con tonos pastel y un diseño
+                            totalmente responsive! 🎨📱 Perfecto para
+                            smartphones, tabletas, laptops y computadoras de
+                            escritorio. Además, ofrece la opción de agregar
+                            videos en la portada y secciones autoadministrables.
+                            🍰🎬 ¡Haz que tu contenido destaque con un diseño
+                            atractivo y fácil de gestionar!"
                           </p>
                         </div>
                       </div>
@@ -144,6 +283,7 @@ export default function Proyectos() {
                         <img
                           className="w-full mx-auto relative z-30"
                           src={cakesDesignWebsiteDesktop}
+                          width="200"
                           alt="Insumo estructural web app"
                         />
                       </div>
@@ -152,15 +292,15 @@ export default function Proyectos() {
                 </HighlighterItem>
               </div>
 
-              {/* Box #3 */}
+              {/* Box #6 */}
               <div
                 className="col-span-full md:col-span-2 lg:col-span-3"
                 data-aos="fade-down"
-                data-aos-delay="150"
+                data-aos-delay="300"
               >
                 <HighlighterItem className="!h-auto">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <div className="flex flex-col justify-center h-full">
+                  <div className="relative h-auto bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                    <div className="flex h-auto flex-col justify-center h-full">
                       {/* Blurred shape */}
                       <div
                         className="absolute right-0 top-0 blur-2xl"
@@ -220,6 +360,7 @@ export default function Proyectos() {
                         <img
                           className="block mx-auto"
                           src={healthyFoodWebApp}
+                          width="200"
                           alt="HealthyFood web app"
                         />
                       </div>
@@ -227,58 +368,16 @@ export default function Proyectos() {
                   </div>
                 </HighlighterItem>
               </div>
-              {/* Box #4 */}
-              <div
-                className="col-span-full md:col-span-3 lg-col-span-3"
-                data-aos="fade-down"
-                data-aos-delay="300"
-              >
-                <HighlighterItem className="!h-auto">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <div className="flex flex-col h-full justify-between">
-                      {/* Radial gradient */}
-                      <div
-                        className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
-                        aria-hidden="true"
-                      >
-                        <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]" />
-                      </div>
-                      {/* Text */}
-                      <div className="p-8">
-                        <div>
-                          <h3 className="inline-flex text-2xl font-bold bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
-                            RLD party rentals
-                          </h3>
-                          <p className="text-slate-400">
-                            Rebecca, Lucas & David! Family Operated Menifee
-                            based. Sitio web, Tienda en línea y también app
-                            móvil de un negocio familiar de renta de muebles y
-                            artefactos para fiestas. 🎉🎈
-                          </p>
-                        </div>
-                      </div>
-                      {/* img */}
-                      <div className="relative overflow-hidden">
-                        <img
-                          className="block mx-auto relative overflow-hidden z-30"
-                          src={partyRentalsWebApp}
-                          alt="RLD party rentals web app y app móvil."
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
-              </div>
 
-              {/* Box #5 */}
+              {/* Box #7 */}
               <div
                 className="col-span-full md:col-span-2 lg:col-span-3"
                 data-aos="fade-down"
-                data-aos-delay="450"
+                data-aos-delay="150"
               >
                 <HighlighterItem className="!h-auto">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <div className="flex h-full flex-col justify-between">
+                  <div className="relative h-auto bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                    <div className="flex h-auto flex-col justify-between">
                       {/* Radial gradient */}
                       <div
                         className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
@@ -307,6 +406,7 @@ export default function Proyectos() {
                           className="mx-auto relative z-30"
                           src={insumoEstructuralWebApp}
                           alt="Insumo estructural web app"
+                          width="200"
                         />
                       </div>
                     </div>
