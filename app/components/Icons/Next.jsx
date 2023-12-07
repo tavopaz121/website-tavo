@@ -6,7 +6,10 @@ export function NextIcon() {
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       stroke=""
+     
+      aria-label="next"
     >
+      <title>next</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0">
         <rect
           x="-2.4"

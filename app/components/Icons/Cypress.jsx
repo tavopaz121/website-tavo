@@ -5,7 +5,10 @@ export function CypressIcon() {
       viewBox="0 0 24 24"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
+     
+      aria-label="cypress"
     >
+      <title>cypress</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"

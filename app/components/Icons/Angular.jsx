@@ -5,7 +5,10 @@ export function AngularIcon() {
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMinYMin meet"
       fill="#000000"
+      role="img"
+      aria-label="angular"
     >
+      <title>angular</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"

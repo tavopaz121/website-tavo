@@ -10,7 +10,10 @@ export function PlayWrightIcon() {
       viewBox="0 0 508 508"
       xmlSpace="preserve"
       fill="#000000"
+      role="img"
+      aria-label="wright"
     >
+      <title>wright</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
