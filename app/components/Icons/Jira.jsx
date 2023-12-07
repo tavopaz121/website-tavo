@@ -4,11 +4,11 @@ export function JiraIcon() {
       viewBox="0 0 256 256"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
       preserveAspectRatio="xMidYMid"
       fill="#000000"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
         strokeLinecap="round"
@@ -26,10 +26,10 @@ export function JiraIcon() {
             id="linearGradient-1"
           >
             {" "}
-            <stop stop-color="#0052CC" offset="18%">
+            <stop stopColor="#0052CC" offset="18%">
               {" "}
             </stop>{" "}
-            <stop stop-color="#2684FF" offset="100%">
+            <stop stopColor="#2684FF" offset="100%">
               {" "}
             </stop>{" "}
           </linearGradient>{" "}
@@ -41,10 +41,10 @@ export function JiraIcon() {
             id="linearGradient-2"
           >
             {" "}
-            <stop stop-color="#0052CC" offset="18%">
+            <stop stopColor="#0052CC" offset="18%">
               {" "}
             </stop>{" "}
-            <stop stop-color="#2684FF" offset="100%">
+            <stop stopColor="#2684FF" offset="100%">
               {" "}
             </stop>{" "}
           </linearGradient>{" "}

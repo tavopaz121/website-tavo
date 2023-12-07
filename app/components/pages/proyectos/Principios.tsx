@@ -31,17 +31,17 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section class="relative">
+    <section className="relative">
       {/* Particles animation */}
       <div className="absolute left-1/2 -translate-x-1/2 top-0 w-full h-full -mt-6">
         <Particles className="absolute inset-0" quantity={50} staticity={10} />
       </div>
       <div className="max-w-3xl mx-auto py-32 px-4 sm:px-6 text-center">
         <h3
-          className="h3 text-4xl lg:text-6xl relative z-10 bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-200/60 pb-3"
+          className="h3 font-bold text-4xl lg:text-6xl relative z-10 bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-200/60 pb-3"
           data-aos="fade-down"
         >
-          Principios agiles
+          Principios ágiles
         </h3>
         <p
           className="text-slate-400 mb-8 text-center relative z-10 text-xl"

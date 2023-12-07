@@ -4,12 +4,12 @@ export function AgileIcon() {
       viewBox="0 0 1000 1000"
       id="Layer_2"
       version="1.1"
-      xml:space="preserve"
+      xmlSpace="preserve"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
       fill="#000000"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
         strokeLinecap="round"

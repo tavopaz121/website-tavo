@@ -7,7 +7,7 @@ export function NextIcon() {
       xmlns="http://www.w3.org/2000/svg"
       stroke=""
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0">
+      <g id="SVGRepo_bgCarrier" strokeWidth="0">
         <rect
           x="-2.4"
           y="-2.4"
@@ -15,13 +15,13 @@ export function NextIcon() {
           height="28.80"
           rx="14.4"
           fill="#ffffff"
-          strokewidth="0"
+          strokeWidth="0"
         ></rect>
       </g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       ></g>
       <g id="SVGRepo_iconCarrier">
         <title>Next.js icon</title>

@@ -24,7 +24,7 @@ export default function Proyectos() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h2
-              className="h2 text-4xl lg:text-6xl bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4"
+              className="h2 font-bold text-4xl lg:text-6xl bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4"
               data-aos="fade-down"
             >
               Proyectos ágiles

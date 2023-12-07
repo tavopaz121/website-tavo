@@ -4,16 +4,12 @@ export function FlutterIcon() {
       viewBox="-30.5 0 317 317"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
       preserveAspectRatio="xMidYMid"
       fill="#000000"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-      <g
-        id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      ></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+      <g id="SVGRepo_tracerCarrier" strokeLinecap="round" className="round"></g>
       <g id="SVGRepo_iconCarrier">
         {" "}
         <defs>
@@ -26,10 +22,10 @@ export function FlutterIcon() {
             id="linearGradient-1"
           >
             {" "}
-            <stop stop-color="#000000" offset="0%">
+            <stop stopColor="#000000" offset="0%">
               {" "}
             </stop>{" "}
-            <stop stop-color="#000000" stop-opacity="0" offset="100%">
+            <stop stopColor="#000000" strokeLinecap="0" offset="100%">
               {" "}
             </stop>{" "}
           </linearGradient>{" "}
@@ -61,7 +57,7 @@ export function FlutterIcon() {
             {" "}
           </polygon>{" "}
           <polygon
-            fill-opacity="0.8"
+            clipRule="0.8"
             fill="url(#linearGradient-1)"
             points="121.132827 279.531454 161.692896 266.072227 165.721875 234.941308"
           >

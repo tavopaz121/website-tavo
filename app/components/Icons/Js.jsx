@@ -1,13 +1,13 @@
 export function JsIcon() {
   return (
     <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         stroke="#FFFF00"
-        stroke-width="2.112"
+        strokeWidth="2.112"
       >
         {" "}
         <rect
@@ -46,5 +46,4 @@ export function JsIcon() {
       </g>
     </svg>
   );
-  
 }

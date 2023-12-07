@@ -44,7 +44,7 @@ export default function Features() {
                     Cuiadamos tu recurso máximo no renovable: tu tiempo.
                   </div>
                 </div>
-                <h3 className="h3 text-4xl lg:text-6xl bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-200/60 pb-3">
+                <h3 className="h3 text-4xl lg:text-6xl font-bold bg-clip-text [-webkit-background-clip:text] text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-200/60 pb-3">
                   Método <span className={`font-serif italic`}>ágil</span>
                 </h3>
 
