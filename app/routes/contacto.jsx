@@ -47,7 +47,7 @@ export async function action({ request }) {
 
 export default function Contacto() {
   const response = useActionData() || {};
-  const { status, message, errorDescriptions } = response;
+  const { status, message } = response;
   const navigation = useNavigation();
   const isSubmitting = navigation.formAction === "/contacto";
 
@@ -374,7 +374,7 @@ export default function Contacto() {
       >
         <p>Sentimos mucho los inconvenientes.</p>
         <p className="font-bold">
-          También te puedes comunicar con whatsapp, email o teléfono
+          También te puedes comunicar con whatsapp, e-mail o teléfono
         </p>
       </Modal>
     </section>

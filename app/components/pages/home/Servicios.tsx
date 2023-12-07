@@ -20,7 +20,7 @@ export default function SectionServicios() {
           className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold text-gray-900 mb-8"
         >
           <span>Nuestros </span>
-          <span className="font-serif italic">servicios</span>
+          <span className="font-serif italic">Servicios</span>
         </h2>
       </div>
       <ListServicios referenceTitle={titleServicios} />

@@ -32,7 +32,7 @@ export default function Hero({
 
       <h1 className="absolute h-[100vb] text-white w-full max-xs:w-[100vi] xl:w-[100vi] flex justify-start sm:justify-center top-40 sm:top-0 items-start flex-col mx-auto">
         <span
-          className="sm:motion-safe:animate-fadeInDown text-2xl sm:text-3xl lg:text-4xl font-heading mb-2 lg:mb-4"
+          className="sm:motion-safe:animate-fadeInDown text-xl sm:text-3xl lg:text-4xl font-heading mb-0 sm:mb-1 lg:mb-4"
           style={{
             animationDuration: `${timing}s`,
             animationDelay: "0s",
