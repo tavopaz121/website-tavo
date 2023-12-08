@@ -7,7 +7,10 @@ export function ScrumIcon() {
       focusable="false"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
+     
+      aria-label="scrum"
     >
+      <title>scrum</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"

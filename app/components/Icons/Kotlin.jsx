@@ -1,6 +1,7 @@
 export function KotlinIcon() {
   return (
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+      role="img" aria-label="kotlin" >
       <title>Kotlin</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g

@@ -7,7 +7,10 @@ export function FirebaseIcon() {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       preserveAspectRatio="xMidYMid"
       fill="#000000"
+      role="img"
+      aria-label="firebase"
     >
+      <title>firebase</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"
