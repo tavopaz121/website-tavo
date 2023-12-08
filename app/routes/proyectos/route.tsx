@@ -1,12 +1,12 @@
 import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
 import { useEffect } from "react";
-import Hero from "~/components/pages/proyectos/Hero";
-import Lenguajes from "~/components/pages/proyectos/Lenguajes";
-import MetodoAgil from "~/components/pages/proyectos/MetodoAgil";
-import proyectosStyles from "~/css/proyectosStyles.css";
-import Proyectos from "~/components/pages/proyectos/Proyectos";
-import Principios from "~/components/pages/proyectos/Principios";
+import Hero from "./components/Hero";
+import Lenguajes from "./components/Lenguajes";
+import MetodoAgil from "./components/MetodoAgil";
+import proyectosStyles from "./styles.css";
+import Proyectos from "./components/Proyectos";
+import Principios from "./components/Principios";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
@@ -21,7 +21,7 @@ export function links() {
   ];
 }
 
-export default function Mentorias() {
+export default function ProyectosRoute() {
   useEffect(() => {
     AOS.init({
       once: true,
