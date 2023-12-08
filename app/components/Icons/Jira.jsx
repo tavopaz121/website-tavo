@@ -7,7 +7,10 @@ export function JiraIcon() {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       preserveAspectRatio="xMidYMid"
       fill="#000000"
+      role="img"
+      aria-label="jira"
     >
+      <title>jira</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g
         id="SVGRepo_tracerCarrier"

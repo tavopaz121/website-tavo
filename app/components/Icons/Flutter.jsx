@@ -7,7 +7,10 @@ export function FlutterIcon() {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       preserveAspectRatio="xMidYMid"
       fill="#000000"
+      role="img"
+      aria-label="flutter"
     >
+      <title>flutter</title>
       <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
       <g id="SVGRepo_tracerCarrier" strokeLinecap="round" className="round"></g>
       <g id="SVGRepo_iconCarrier">
