@@ -17,8 +17,11 @@ export default function Logo({
       height={height}
       viewBox="0 0 700.000000 113.000000"
       preserveAspectRatio="xMidYMid meet"
+      role="img"
       className={className}
+      aria-label="Logo de Pensemos web"
     >
+      <title>Pensemos web</title>
       <g
         style={{ fill: color || "#000000" }}
         transform="translate(0.000000,113.000000) scale(0.100000,-0.100000)"

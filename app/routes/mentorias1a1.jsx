@@ -2,6 +2,7 @@ import metodoAgile from "../assets/imgs/clasesonetoone/feedback_loo_transparent_
 import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
 import { items as principles } from "~/data/principles.js";
+import ListaMentorias from "~/components/pages/mentorias1a1/ListaMentorias";
 
 import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
@@ -28,6 +29,7 @@ export default function Mentorias() {
 
   return (
     <div className="bg-gray-900">
+      {/* Heroe mentorias */}
       <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
           {/* Illustration behind hero content */}
@@ -105,19 +107,11 @@ export default function Mentorias() {
                 </div>
               </div>
             </div>
-
-            {/* <ModalVideo
-            thumb={VideoThumb}
-            thumbWidth={1024}
-            thumbHeight={576}
-            thumbAlt="Modal video thumbnail"
-            video="/videos/video.mp4"
-            videoWidth={1920}
-            videoHeight={1080} /> */}
           </div>
         </div>
       </section>
 
+      {/* Principios Ágiles */}
       <section id="principios">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="pt-10 pb-12 md:pt-16 md:pb-20">
@@ -140,7 +134,6 @@ export default function Mentorias() {
                 calidad del estudiante.
               </p>
             </div>
-
             {/* Items */}
             <div className="max-w-sm mx-auto grid gap-8 md:grid-cols-3 lg:gap-16 items-start md:max-w-none">
               {principles.map((item, index) => (
@@ -179,18 +172,23 @@ export default function Mentorias() {
           </div>
         </div>
       </section>
+      {/* Titulo ágile */}
       <section>
         <div className="grid place-items-center ">
-          <h2 className="lg:text-6xl md:text-5xl text-4xl font-bold text-white text-center">
+          <h2
+            className="lg:text-6xl md:text-5xl text-4xl font-bold text-white text-center"
+            data-aos="fade-up"
+          >
             Método de aprendizaje
           </h2>
           <figure className="px-4 mb-10">
-            <img src={metodoAgile} alt="Método ágile" />
+            <img src={metodoAgile} alt="Método ágile" data-aos="fade-up" />
           </figure>
         </div>
       </section>
+      {/* Enseñanza ágile */}
       <article className="max-w-6xl relative mx-auto px-4 flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 bg-gray-800 p-8">
+        <div className="w-full md:w-1/2 bg-gray-800 p-8" data-aos="fade-up">
           <h4 className="text-lg text-white">Enseñanza ágil</h4>
           <p className="text-lg text-gray-400 mb-5">
             El Método de enseñanza ágil se aplica en todos los niveles y
@@ -229,9 +227,11 @@ export default function Mentorias() {
             width={516}
             height={387}
             alt="Tabs 01"
+            data-aos="fade-up"
           />
         </figure>
       </article>
+      {/* Agilidad en todo momento */}
       <section>
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="py-12 md:py-20 border-t border-gray-800">
@@ -290,7 +290,7 @@ export default function Mentorias() {
                         agilizar e interiorizar lo aprendido.
                       </p>
                     </div>
-                    <ul className="flex flex-wrap justify-center lg:justify-start mt-4 text-lg text-gray-400 -mx-2 -my-1">
+                    <ul className="flex flex-col items-start space-y-5 text-left text-gray-300 mt-9">
                       <li className="flex items-center mx-2 my-1">
                         <svg
                           className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0"
@@ -349,6 +349,8 @@ export default function Mentorias() {
           </div>
         </div>
       </section>
+
+      {/* <ListaMentorias /> */}
     </div>
   );
 }

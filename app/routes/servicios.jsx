@@ -14,21 +14,22 @@ export default function Servicios() {
     <>
       <section className="max-md:h-full max-md:mb-4 pt-20">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 py-20">
-          <div className="grid items-center grid-cols-1 max-lg:gap-12 lg:grid-cols-2">
+          <div className="grid items-center grid-cols-1 max-lg:gap-12 lg:grid-cols-2 gap-6">
             <div>
               <h1
-                className="sm:motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-6xl lg:text-7xl"
+                className="sm:motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-5xl lg:text-7xl"
                 style={{
                   animationDelay: "1.5s",
                   animationFillMode: "both",
                 }}
               >
-                Desarrollo ágil simplificado,
+                ¡Desbloquea el{" "}
+                <strong className="font-serif italic">Éxito Digital</strong>!
                 <div className="relative inline-flex">
-                  <span className="absolute inset-x-0 bottom-0 border-b-[22px] border-pink-500"></span>
-                  <h1 className="relative text-4xl font-bold text-black sm:text-6xl lg:text-7xl">
-                    para tu <span className="font-serif italic">éxito</span>.
-                  </h1>
+                  <span className="absolute inset-x-0 bottom-0 border-b-[10px] border-pink-500"></span>
+                  <span className="relative text-4xl font-bold text-black sm:text-4xl lg:text-4xl">
+                    Desarrollo ágil simplificado
+                  </span>
                 </div>
               </h1>
 
@@ -39,10 +40,16 @@ export default function Servicios() {
                   animationFillMode: "both",
                 }}
               >
-                ¡Bienvenido a la puerta de entrada al éxito en línea! En
-                <strong> PensemosWeb</strong>, estamos dedicados a ofrecerte
-                soluciones innovadoras y de vanguardia para que tu presencia en
-                la web destaque y alcance nuevos niveles de éxito.
+                ¿<strong className="font-bold">Sitios web</strong> obsoletos o
+                poco funcionales? 🚫 ¿Tu presencia en línea no refleja la{" "}
+                <strong className="font-bold">grandeza de tu empresa</strong>?
+                🏢 ¿Te sientes frustrado porque tus visitantes no se{" "}
+                <strong className="font-bold">convierten en clientes</strong>?
+                😟 ¿Necesitas una herramienta accesible desde cualquier
+                dispositivo con una{" "}
+                <strong className="font-bold">web app</strong> 💻📱? ¿Quieres
+                llevar tu negocio al bolsillo de tus clientes con una{" "}
+                <strong className="font-bold">app móvil 📱</strong>?
               </p>
             </div>
 
@@ -74,15 +81,19 @@ export default function Servicios() {
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl sm:motion-safe:animate-fadeIn font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-              Nuestras <span className="font-serif italic">Soluciones</span>
+              ¿En qué te podemos{" "}
+              <span className="font-serif italic">ayudar</span>?
             </h2>
             <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed ">
-              Explora nuestras soluciones y elige la que mejor se adapte a tus
-              necesidades.
+              🌟 Con métodos ágiles innovadores, aceleramos el desarrollo,
+              asegurando resultados efectivos y adaptativos. 👨‍💻👩‍💻 Cada proyecto
+              es un lienzo donde la creatividad y la eficiencia se fusionan
+              gracias a nuestras prácticas ágiles. De esta forma te
+              proporcionamos el mayor valor en el menor tiempo posible.
             </p>
           </div>
 
-          <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 text-center lg:max-w-full lg:mt-16 lg:grid-cols-3">
+          <div className="grid max-w-md grid-cols-1 gap-6 mx-auto mt-8 text-center lg:max-w-full lg:mt-16 lg:grid-cols-2">
             {services.map((service, index) => (
               <CardService
                 key={index}

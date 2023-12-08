@@ -76,7 +76,7 @@ export default function Index() {
 
       <article ref={targetRef}>
         <Servicios />
-        <Principios />
+        <Principios hasParticles={true} />
         <Nosotros />
         <Blogs />
         <Contacto />
