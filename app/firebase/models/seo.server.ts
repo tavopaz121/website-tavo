@@ -24,7 +24,7 @@ export async function getSeo(id: string) {
   };
 }
 
-export async function createMessage(seoInfo: Seo) {
+export async function createSeo(seoInfo: Seo) {
   invariant(
     seoInfo?.constructor === {}.constructor,
     `"seoInfo" debe ser un objeto, no un ${seoInfo && seoInfo?.constructor}`,

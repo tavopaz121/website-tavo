@@ -9,10 +9,16 @@ import Proyectos from "./components/Proyectos";
 import Principios from "./components/Principios";
 
 import { metaFn } from "~/functions/shared/meta";
-import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+import { json, type LoaderArgs } from "@remix-run/node";
+import { getPage } from "~/firebase/models/pages.server";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta = metaFn;
-export const loader = loaderSeoFn("proyectos");
+export async function loader({ params }: LoaderArgs) {
+  const page = await getPage("proyectos");
+
+  return json(page);
+}
 
 export function links() {
   return [
@@ -22,6 +28,8 @@ export function links() {
 }
 
 export default function ProyectosRoute() {
+  const data = useLoaderData();
+  const projects = data.projects;
   useEffect(() => {
     AOS.init({
       once: true,
@@ -36,7 +44,7 @@ export default function ProyectosRoute() {
       <Lenguajes />
       <MetodoAgil />
       <Principios />
-      <Proyectos />
+      <Proyectos list={projects} />
     </div>
   );
 }
