@@ -2,6 +2,7 @@ import icons from "~/assets/imgs/contacto/icons8-phone.webp";
 import email from "~/assets/imgs/contacto/icon-orange-email.svg";
 import hour from "~/assets/imgs/contacto/icons8-hour.webp";
 import WhatsAppLink from "~/components/Buttons/WhatsApp";
+import { Link } from "@remix-run/react";
 
 export default function Header() {
   return (
@@ -19,12 +20,12 @@ export default function Header() {
         >
           <div className="relative inline-flex">
             <span className="absolute inset-x-0 bottom-0 border-b-[14px] border-pink-500"></span>
-            <a href="#formulario">
+            <Link to="#formulario">
               {" "}
               <h1 className="relative text-4xl font-bold text-whit sm:text-6xl lg:text-7xl ">
                 ¡Contáctanos ahora!
               </h1>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -34,7 +35,7 @@ export default function Header() {
           {/* Información de contacto */}
           <div className="overflow-hidden bg-white rounded-xl">
             <div className="p-6">
-              <a href="tel:2786883881" target="_blank" rel="noreferrer">
+              <Link to="tel:2786883881" target="_blank" rel="noreferrer">
                 <img
                   decoding="async"
                   loading="lazy"
@@ -42,7 +43,7 @@ export default function Header() {
                   src={icons}
                   alt=""
                 />
-              </a>
+              </Link>
               <p className="mt-6 text-lg font-medium text-center text-gray-900">
                 278-688-3881
               </p>
@@ -52,8 +53,8 @@ export default function Header() {
           {/* Información de correo electrónico */}
           <div className="bg-white rounded-xl">
             <div className="p-6">
-              <a
-                href="mailto:pensemoswebjs@gmail.com"
+              <Link
+                to="mailto:pensemoswebjs@gmail.com"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -64,7 +65,7 @@ export default function Header() {
                   src={email}
                   alt=""
                 />
-              </a>
+              </Link>
               <p className="mt-6 text-lg font-medium leading-relaxed text-gray-900">
                 pensemoswebjs@gmail.com
               </p>

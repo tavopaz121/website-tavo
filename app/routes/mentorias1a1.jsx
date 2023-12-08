@@ -2,7 +2,8 @@ import metodoAgile from "../assets/imgs/clasesonetoone/feedback_loo_transparent_
 import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
 import { items as principles } from "~/data/principles.js";
-// import ListaMentorias from "~/components/pages/mentorias1a1/ListaMentorias";
+import ListaMentorias from "~/components/pages/mentorias1a1/ListaMentorias";
+import { Link } from "@remix-run/react";
 
 import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
@@ -90,21 +91,21 @@ export default function Mentorias() {
               </p>
               <div className="flex justify-center">
                 <div data-aos="fade-up" data-aos-delay="400">
-                  <a
-                    className="btn rounded-sm text-white bg-gradient-pink hover:bg-purple-700 lg:w-full lg:mb-4 w-auto mb-0"
-                    href="/contacto"
+                  <Link
+                    className="btn rounded-sm text-white bg-gradient-pink hover:scale-110 lg:w-full lg:mb-4 w-auto mb-0"
+                    to="/contacto"
                   >
                     Iniciar
-                  </a>
+                  </Link>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="600">
-                  <a
+                {/* <div data-aos="fade-up" data-aos-delay="600">
+                  <Link
                     className="btn text-white bg-gray-700 hover:bg-gray-800 lg:w-full w-auto ml-4"
-                    href="#principios"
+                    to="#principios"
                   >
                     Información
-                  </a>
-                </div>
+                  </Link>
+                </div> */}
               </div>
             </div>
           </div>
@@ -206,9 +207,9 @@ export default function Mentorias() {
             un impacto positivo en el funcionamiento general de una organización
             y también porque 1 + 1 = 3 o 5.
           </p>
-          <a
-            className="btn-sm text-white bg-gradient-pink mt-6"
-            href="/contacto"
+          <Link
+            className="btn-sm text-white bg-gradient-pink hover:scale-110 mt-6"
+            to="/contacto"
           >
             <span className="text-sm">Mas información</span>
             <svg
@@ -218,7 +219,7 @@ export default function Mentorias() {
             >
               <path d="M6 5H0v2h6v4l6-5-6-5z" />
             </svg>
-          </a>
+          </Link>
         </div>
         <figure className="w-full md:w-1/2 mt-5 mb-15">
           <img
@@ -237,7 +238,7 @@ export default function Mentorias() {
           <div className="py-12 md:py-20 border-t border-gray-800">
             <div className="max-w-6xl mx-auto text-center pb-12 md:pb-20">
               <h2
-                className="lg:text-7xl md:text-6xl text-4xl font-bold text-white"
+                className="lg:text-6xl md:text-5xl text-4xl font-bold text-white"
                 data-aos="fade-up"
               >
                 Agilidad en todo momento
@@ -349,8 +350,7 @@ export default function Mentorias() {
           </div>
         </div>
       </section>
-
-      {/* <ListaMentorias /> */}
+      <ListaMentorias />
     </div>
   );
 }

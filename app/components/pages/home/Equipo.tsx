@@ -1,6 +1,7 @@
 import circle from "app/assets/imgs/cta/circle-bg.svg";
 import equipo from "app/assets/imgs/equipo.webp";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "@remix-run/react";
 
 export default function Equipo() {
   const section = useRef(null);
@@ -73,13 +74,13 @@ export default function Equipo() {
               <span>Conoce a nuestro equipo de trabajo</span>
               <span className="font-serif italic"></span>
             </h2>
-            <a
+            <Link
               className="relative group inline-block w-full max-xl:w-3/4 sm:w-auto py-4 px-6 text-blue-900 hover:text-white font-semibold bg-gray-100 rounded-md overflow-hidden transition duration-300 motion-safe:animate-fadeIn"
               style={{
                 animationDelay: `1.4s`,
                 animationFillMode: "both",
               }}
-              href="/equipo"
+              to="/equipo"
             >
               <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-110 transition duration-500" />
               <div className="relative flex items-center justify-center">
@@ -99,7 +100,7 @@ export default function Equipo() {
                   </svg>
                 </span>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

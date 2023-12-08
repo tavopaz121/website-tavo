@@ -1,3 +1,5 @@
+import { Link } from "@remix-run/react";
+
 export default function Button({
   to,
   children,
@@ -8,9 +10,9 @@ export default function Button({
   icon?: JSX.Element;
 }) {
   return (
-    <a
+    <Link
       className="relative group inline-block py-4 px-6 text-white font-semibold rounded-full overflow-hidden border bg-gray-900 "
-      href={to}
+      to={to}
     >
       <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-105 transition duration-500"></div>
       <div className="relative flex items-center justify-center">
@@ -34,6 +36,6 @@ export default function Button({
           )}
         </span>
       </div>
-    </a>
+    </Link>
   );
 }

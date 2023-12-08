@@ -3,6 +3,7 @@ import { render } from "@testing-library/react";
 import type { RenderResult } from "@testing-library/react";
 import Card from "./Card";
 import { props } from "./dummies/props";
+import { Link } from "@remix-run/react";
 
 describe("When a Card is rendered", () => {
   let cardView: RenderResult;
@@ -57,7 +58,7 @@ it("When AnchorElement prop is a Component, then the AnchorElement should render
     children: JSX.Element;
     href: string;
   }) {
-    return <a href={href}>{children}</a>;
+    return <Link to={href}>{children}</Link>;
   }
 
   const { container } = render(

@@ -13,6 +13,7 @@ import codigoresfatima from "~/assets/imgs/equipo/bg-codigo-fatima.webp";
 import codigoresnestor from "~/assets/imgs/equipo/bg-codigo-nestor.webp";
 import codigoresoctavio from "~/assets/imgs/equipo/bg-codigo-octavio.webp";
 import codigoresnorberto from "~/assets/imgs/equipo/bg-codigo-norberto.webp";
+import { Link } from "@remix-run/react";
 
 import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
@@ -103,21 +104,21 @@ export default function Equipo() {
                 </p>
                 <div className="flex justify-center">
                   <div data-aos="fade-up" data-aos-delay="400">
-                    <a
+                    <Link
                       className="btn rounded-sm text-white bg-gradient-pink hover:bg-purple-700 lg:w-full lg:mb-4 w-auto mb-0"
-                      href="#0"
+                      to="/contacto"
                     >
                       Iniciar
-                    </a>
+                    </Link>
                   </div>
-                  <div data-aos="fade-up" data-aos-delay="600">
-                    <a
+                  {/* <div data-aos="fade-up" data-aos-delay="600">
+                    <Link
                       className="btn text-white bg-gray-700 hover:bg-gray-800 lg:w-full w-auto ml-4"
-                      href="#0"
+                      to="#
                     >
                       Learn more
-                    </a>
-                  </div>
+                    </Link>
+                  </div> */}
                 </div>
               </div>
             </div>
