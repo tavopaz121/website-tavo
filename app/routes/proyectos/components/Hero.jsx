@@ -1,4 +1,5 @@
 import Illustration from "~/assets/imgs/proyectos/glow-bottom.svg";
+import { Link } from "@remix-run/react";
 
 export default function Hero() {
   return (
@@ -46,17 +47,17 @@ export default function Hero() {
               data-aos-delay="400"
             >
               <div>
-                <a
+                <Link
                   className="pw-btn text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white w-full transition duration-150 ease-in-out group"
-                  href="/contacto"
+                  to="/contacto"
                 >
                   Iniciar{" "}
-                </a>
+                </Link>
               </div>
-              <div>
-                <a
+              {/* <div>
+                <Link
                   className="pw-btn text-slate-200 hover:text-white bg-slate-900 bg-opacity-25 hover:bg-opacity-30 w-full transition duration-150 ease-in-out"
-                  href="/contacto"
+                  to="/contacto"
                 >
                   <svg
                     className="shrink-0 fill-slate-300 mr-3"
@@ -67,8 +68,8 @@ export default function Hero() {
                     <path d="m1.999 0 1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 0l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 10l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM6.292 7.586l2.646-2.647L11.06 7.06 8.413 9.707zM0 13.878l5.586-5.586 2.122 2.121L2.12 16z" />
                   </svg>
                   <span>Más información</span>
-                </a>
-              </div>
+                </Link>
+              </div> */}
             </div>
           </div>
         </div>

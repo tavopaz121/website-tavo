@@ -1,5 +1,6 @@
 import feedbackLoop from "app/assets/imgs/inicio/feedback-loop.webp";
 import WorkMetodo from "../../HomePage/WorkNosotros";
+import { Link } from "@remix-run/react";
 
 import { useRef, useEffect, useState } from "react";
 
@@ -96,9 +97,9 @@ export default function Nosotros() {
       </div>
 
       <div className="text-center mt-5">
-        <a
+        <Link
           className="relative group inline-block py-4 px-6 text-white font-semibold rounded-full overflow-hidden border bg-gray-900 "
-          href="/nosotros"
+          to="/nosotros"
         >
           <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-105 transition duration-500"></div>
           <div className="relative flex items-center justify-center">
@@ -118,7 +119,7 @@ export default function Nosotros() {
               </svg>
             </span>
           </div>
-        </a>
+        </Link>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import imageBlog from "app/assets/imgs/corazon-agilidad.webp";
 import imageBlog2 from "app/assets/imgs/individuosEInteracciones.webp";
 import imageBlog3 from "app/assets/imgs/Portada-IntroLEanStartup-.webp";
+import { Link } from "@remix-run/react";
 
 import Blog from "../../HomePage/CardBlog";
 
@@ -52,9 +53,9 @@ export default function Blogs() {
         </div>
 
         <div className="border-gray-100 text-center">
-          <a
+          <Link
             className="relative group inline-block py-4 px-7 font-semibold text-white bg-gray-900 rounded-full transition duration-300 overflow-hidden"
-            href="https://www.pensemosweb.com/"
+            to="https://www.pensemosweb.com/"
             target="_blank"
             rel="noreferrer"
           >
@@ -76,7 +77,7 @@ export default function Blogs() {
                 </svg>
               </span>
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import type { CardServiceProps } from "./CardService.d";
+import { Link } from "@remix-run/react";
 
 export default function CardService({
   title,
@@ -35,17 +36,17 @@ export default function CardService({
             ))}
         </ul>
 
-        <a
+        <Link
           target="_blank"
           rel="noreferrer"
           className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-black rounded overflow-hidden w-full"
-          href={`https://api.whatsapp.com/send?phone=+522781092116&text=Hola,%20estoy%20interesad@%20en%20adquirir%20el%20paquete%20${title}`}
+          to={`https://api.whatsapp.com/send?phone=+522781092116&text=Hola,%20estoy%20interesad@%20en%20adquirir%20el%20paquete%20${title}`}
         >
           <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
           <div className="relative flex items-center justify-center">
             <span className="mr-4">Necesito esto</span>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );
