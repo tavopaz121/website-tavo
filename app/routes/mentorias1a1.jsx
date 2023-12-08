@@ -91,7 +91,7 @@ export default function Mentorias() {
               <div className="flex justify-center">
                 <div data-aos="fade-up" data-aos-delay="400">
                   <a
-                    className="btn rounded-sm text-white bg-gradient-pink hover:bg-purple-700 lg:w-full lg:mb-4 w-auto mb-0"
+                    className="btn rounded-sm text-white bg-gradient-pink hover:scale-110 lg:w-full lg:mb-4 w-auto mb-0"
                     href="/contacto"
                   >
                     Iniciar
@@ -207,7 +207,7 @@ export default function Mentorias() {
             y también porque 1 + 1 = 3 o 5.
           </p>
           <a
-            className="btn-sm text-white bg-gradient-pink mt-6"
+            className="btn-sm text-white bg-gradient-pink hover:scale-110 mt-6"
             href="/contacto"
           >
             <span className="text-sm">Mas información</span>
@@ -237,7 +237,7 @@ export default function Mentorias() {
           <div className="py-12 md:py-20 border-t border-gray-800">
             <div className="max-w-6xl mx-auto text-center pb-12 md:pb-20">
               <h2
-                className="lg:text-7xl md:text-6xl text-4xl font-bold text-white"
+                className="lg:text-6xl md:text-5xl text-4xl font-bold text-white"
                 data-aos="fade-up"
               >
                 Agilidad en todo momento
@@ -349,8 +349,7 @@ export default function Mentorias() {
           </div>
         </div>
       </section>
-
-      {/* <ListaMentorias /> */}
+      <ListaMentorias />
     </div>
   );
 }
