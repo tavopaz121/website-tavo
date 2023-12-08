@@ -3,6 +3,7 @@ import Logo from "~/components/Logo/Logo";
 import type { PropsNavLg } from "./Nav.d";
 import { whatsApp } from "~/data/navItems";
 import WhatsApp from "~/components/Icons/WhatsApp";
+import { Link } from "@remix-run/react";
 
 export default forwardRef(function NavLg(
   {
@@ -40,12 +41,12 @@ export default forwardRef(function NavLg(
       <div className="mx-auto">
         <div className={"flex items-center justify-" + aLign}>
           {hasLogo && (
-            <a className="inline-block text-lg mr-14 max-xss:mr-1" href="/">
+            <Link className="inline-block text-lg mr-14 max-xss:mr-1" to="/">
               <Logo
                 className="h-10 fill-white transition-all duration-1000"
                 color={logoColor}
               />
-            </a>
+            </Link>
           )}
           <div className="lg:hidden ml-auto">
             <button
@@ -88,20 +89,20 @@ export default forwardRef(function NavLg(
             <ul className="hidden lg:flex lg:w-auto lg:space-x-6">
               {items?.map(({ to, label, target }) => (
                 <li key={to}>
-                  <a className={anchorClasses} href={to} target={target}>
+                  <Link className={anchorClasses} to={to} target={target}>
                     <div
                       className={`absolute bottom-4 right-full w-full h-1 ${highLightClasses} transform group-hover:translate-x-full transition duration-500`}
                     />
                     <span className="relative">{label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           )}
 
           <div className="hidden lg:block ml-auto">
-            <a
-              href={`${whatsApp.to}${encodeURI(" tus servicios")}`}
+            <Link
+              to={`${whatsApp.to}${encodeURI(" tus servicios")}`}
               className={`${anchorClasses} !px-0 !py-0 rounded-full text-white`}
               target="_blank"
               rel="noreferrer"
@@ -112,22 +113,22 @@ export default forwardRef(function NavLg(
               <span className="relative">
                 <WhatsApp />
               </span>
-            </a>
+            </Link>
             {secondaryItems && (
               <div className="flex items-center">
                 {secondaryItems.map(({ to, label, isButton, target }) => {
                   return (
-                    <a
+                    <Link
                       key={to}
                       className={`${anchorClasses} border border-gray-200 rounded-md text-white`}
-                      href={to}
+                      to={to}
                       target={target}
                     >
                       <div
                         className={`absolute top-0 right-full w-full h-full ${highLightClasses} transform group-hover:translate-x-full group-hover:scale-102 transition duration-500`}
                       />
                       <span className="relative">{label}</span>
-                    </a>
+                    </Link>
                   );
                 })}
               </div>

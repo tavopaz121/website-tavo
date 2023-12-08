@@ -3,6 +3,7 @@ import picturejsb from "~/assets/imgs/clasesonetoone/picture-js-back-code.webp";
 import picturehtml5 from "~/assets/imgs/clasesonetoone/picture-html-code.webp";
 import picturecss3 from "~/assets/imgs/clasesonetoone/picture-css-code.webp";
 import pictureagile from "~/assets/imgs/clasesonetoone/picture-agile-devops.webp";
+import { Link } from "@remix-run/react";
 
 import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
@@ -35,9 +36,13 @@ export default function ListaMentorias() {
           Inscribete a cualquiera de nuestras mentorias
         </h2>
       </div>
-      <div className="max-w-6xl grid grid-cols-12 gap-6 px-4 mx-auto pb-12" >
+      <div className="max-w-6xl grid grid-cols-12 gap-6 px-4 mx-auto pb-12">
         {/* Cards a */}
-        <div className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up" data-aos-delay="400">
+        <div
+          className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
           <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
               Agile Frontend Developer
@@ -57,20 +62,24 @@ export default function ListaMentorias() {
                       alt="JavaScript Frontend"
                     />
                   </div>
-                  <a
+                  <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    href="/contacto"
+                    to="/contacto"
                   >
                     Obtener
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
         {/* Cards b */}
-        <div className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up" data-aos-delay="600">
-        <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
+        <div
+          className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
               Agile Node.js Developer
             </h2>
@@ -91,20 +100,24 @@ export default function ListaMentorias() {
                       />
                     </div>
                   </div>
-                  <a
+                  <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    href="/contacto"
+                    to="/contacto"
                   >
                     Obtener
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
         {/* Cards c */}
-        <div className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up" data-aos-delay="800">
-        <header className="px-5 py-4 border-b border-slate-200 dark:border-slate-700">
+        <div
+          className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+          data-aos="fade-up"
+          data-aos-delay="800"
+        >
+          <header className="px-5 py-4 border-b border-slate-200 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
               Agile
             </h2>
@@ -125,19 +138,23 @@ export default function ListaMentorias() {
                       />
                     </div>
                   </div>
-                  <a
+                  <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    href="/contacto"
+                    to="/contacto"
                   >
                     Obtener
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
         {/* Cards d */}
-        <div className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up" data-aos-delay="1000">
+        <div
+          className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+          data-aos="fade-up"
+          data-aos-delay="1000"
+        >
           <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
               HTML 5
@@ -159,19 +176,23 @@ export default function ListaMentorias() {
                       />
                     </div>
                   </div>
-                  <a
+                  <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    href="/contacto"
+                    to="/contacto"
                   >
                     Obtener
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
         {/* Cards e */}
-        <div className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up" data-aos-delay="1200">
+        <div
+          className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+          data-aos="fade-up"
+          data-aos-delay="1200"
+        >
           <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
               CSS 3
@@ -193,19 +214,23 @@ export default function ListaMentorias() {
                       />
                     </div>
                   </div>
-                  <a
+                  <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    href="/contacto"
+                    to="/contacto"
                   >
                     Obtener
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
         {/* Cards f */}
-        <div className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700" data-aos="fade-up" data-aos-delay="1400">
+        <div
+          className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+          data-aos="fade-up"
+          data-aos-delay="1400"
+        >
           <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
               JavaScript
@@ -220,19 +245,19 @@ export default function ListaMentorias() {
                     <div className="pb-5">
                       <img
                         className="mx-auto w-full"
-                        src={picturejs  }
+                        src={picturejs}
                         width={150}
                         height={200}
                         alt="JavaScript Frontend"
                       />
                     </div>
                   </div>
-                  <a
+                  <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    href="/contacto"
+                    to="/contacto"
                   >
                     Obtener
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

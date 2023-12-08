@@ -1,3 +1,5 @@
+import { Link } from "@remix-run/react";
+
 interface TypeBlog {
   image: string;
   fecha: string;
@@ -32,11 +34,11 @@ export default function Blog({
           </div>
         </div>
         <div className="w-full lg:w-auto px-4 ml-auto text-right">
-          <a
+          <Link
             className="inline-flex items-center text-xl font-semibold text-pink-500 hover:text-blue-800"
             target="_blank"
             rel="noreferrer"
-            href={anchor}
+            to={anchor}
           >
             <span className="mr-2">Leer</span>
             <svg
@@ -62,7 +64,7 @@ export default function Blog({
                 strokeLinejoin="round"
               ></path>
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

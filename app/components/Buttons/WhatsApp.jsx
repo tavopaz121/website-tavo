@@ -1,5 +1,6 @@
 import { whatsApp as data } from "~/data/navItems";
 import WhatsAppIcon from "~/components/Icons/WhatsApp";
+import { Link } from "@remix-run/react";
 
 export default function WhatsApp({
   width = 32,
@@ -9,8 +10,8 @@ export default function WhatsApp({
   children,
 }) {
   return (
-    <a
-      href={`${data.to}${encodeURI(message)}`}
+    <Link
+      to={`${data.to}${encodeURI(message)}`}
       className={`relative group inline-block overflow-hidden transition duration-1000 px-0 py-0 rounded-full text-white`}
       target="_blank"
       rel="noreferrer"
@@ -22,6 +23,6 @@ export default function WhatsApp({
         <WhatsAppIcon width={width} height={height} />
         {children}
       </span>
-    </a>
+    </Link>
   );
 }

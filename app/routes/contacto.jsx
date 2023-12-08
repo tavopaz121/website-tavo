@@ -4,7 +4,7 @@ import email from "../assets/imgs/contacto/icon-orange-email.svg";
 import equipo from "../assets/imgs/contacto/img-formulario.webp";
 import hour from "../assets/imgs/contacto/icons8-hour.webp";
 import { json } from "@remix-run/node";
-import { Form, useActionData, useNavigation } from "@remix-run/react";
+import { Form, useActionData, useNavigation, Link } from "@remix-run/react";
 import { validateFields } from "../functions/validatedFields";
 import WhatsAppLink from "../components/Buttons/WhatsApp";
 import { createMessage } from "../firebase/models/contactMessages.server";
@@ -329,12 +329,12 @@ export default function Contacto() {
         title="Mensaje enviado"
         shortDescription="Tu mensaje fue enviado con éxito."
         actions={
-          <a
-            href="/servicios"
+          <Link
+            to="/servicios"
             className="inline-flex w-full justify-center rounded-md bg-gradient-pink px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
           >
             Aceptar
-          </a>
+          </Link>
         }
       >
         <p>En breve nos pondremos en contacto contigo.</p>
@@ -363,12 +363,12 @@ export default function Contacto() {
         }
         actions={
           <>
-            <a
-              href="/contacto"
+            <Link
+              to="/contacto"
               className="inline-flex w-full justify-center rounded-md bg-gradient-pink px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto"
             >
               Cerrar
-            </a>
+            </Link>
           </>
         }
       >

@@ -4,6 +4,7 @@ import IconPhone from "./IconPhone";
 import IconEmail from "./IconEmail";
 import IconExtraLink from "./IconExtraLink";
 import { items } from "~/data/navItems";
+import { Link } from "@remix-run/react";
 
 export default function Footer() {
   return (
@@ -23,9 +24,9 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid sm:grid-cols-12 lg:grid-cols-10 gap-8 py-8 border-t border-blue-500">
             <div className="sm:col-span-12 lg:col-span-2 lg:max-w-xs max-lg:inline-flex max-lg:justify-center">
-              <a className="block group" href="/" aria-label="Cruip">
+              <Link className="block group" to="/" aria-label="Cruip">
                 <Logo color="white" className=" max-lg:w-[300px]" />
-              </a>
+              </Link>
             </div>
 
             <div className="sm:col-span-12 md:col-span-6 lg:col-span-3">
@@ -94,9 +95,9 @@ export default function Footer() {
           <div className="md:flex md:items-center md:justify-between pb-4 md:pb-8">
             <ul className="flex mb-4 md:order-1 md:ml-4 md:mb-0">
               <li className="ml-2">
-                <a
+                <Link
                   className="flex justify-center items-center text-blue-300 hover:text-white transition duration-150 ease-in-out"
-                  href="https://www.facebook.com/pensemosweb"
+                  to="https://www.facebook.com/pensemosweb"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Facebook"
@@ -108,12 +109,12 @@ export default function Footer() {
                   >
                     <path d="M14.023 24L14 17h-3v-3h3v-2c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V14H21l-1 3h-2.72v7h-3.257z" />
                   </svg>
-                </a>
+                </Link>
               </li>
               <li className="ml-2">
-                <a
+                <Link
                   className="flex justify-center items-center text-blue-300 hover:text-white transition duration-150 ease-in-out"
-                  href="https://www.instagram.com/pensemosweb/"
+                  to="https://www.instagram.com/pensemosweb/"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"
@@ -127,7 +128,7 @@ export default function Footer() {
                     <path d="M16 20c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4zm0-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2z" />
                     <path d="M20 24h-8c-2.056 0-4-1.944-4-4v-8c0-2.056 1.944-4 4-4h8c2.056 0 4 1.944 4 4v8c0 2.056-1.944 4-4 4zm-8-14c-.935 0-2 1.065-2 2v8c0 .953 1.047 2 2 2h8c.935 0 2-1.065 2-2v-8c0-.935-1.065-2-2-2h-8z" />
                   </svg>
-                </a>
+                </Link>
               </li>
             </ul>
 
@@ -141,13 +142,13 @@ export default function Footer() {
 
 function LinkFooter({ title, className, to, children }) {
   return (
-    <a
+    <Link
       className={`text-blue-300 hover:text-white transition duration-150 ease-in-out ${className}`}
-      href={to}
+      to={to}
     >
       {children}
       {title}
-    </a>
+    </Link>
   );
 }
 

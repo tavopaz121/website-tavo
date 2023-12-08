@@ -2,6 +2,7 @@ import heroImg from "~/assets/imgs/services/3D_Animation_pink3.webp";
 import CardService from "~/components/CardServices/CardService";
 import { services } from "~/data/services.js";
 import { tools } from "~/data/tools.js";
+import { Link } from "@remix-run/react";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
@@ -120,15 +121,15 @@ export default function Servicios() {
                 </p>
 
                 <div className="flex flex-row items-center mt-4 space-x-4 lg:mt-8">
-                  <a
+                  <Link
                     className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-black rounded overflow-hidden w-1/2 max-md:w-full"
-                    href="/contacto"
+                    to="/contacto"
                   >
                     <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
                     <div className="relative flex items-center justify-center">
                       <span className="mr-4">Cotiza tu página web</span>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
 

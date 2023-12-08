@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 interface PropsServicio {
   svgIcon: string | JSX.Element | JSX.Element[];
   servive: string;
@@ -51,10 +52,10 @@ export default function Servicio({
         {svgIcon}
       </div>
 
-      <a href="/servicios" className={`${textOrientation}`}>
+      <Link to="/servicios" className={`${textOrientation}`}>
         <h3 className={`text-xl font-body`}>{servive}</h3>
         <span className={`text-sm text-gray-500`}>{description}</span>
-      </a>
+      </Link>
     </div>
   );
 }
