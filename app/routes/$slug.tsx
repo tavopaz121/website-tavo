@@ -20,7 +20,7 @@ export async function loader({ params }: LoaderArgs) {
 
   return json({
     post,
-    html: marked(content.replace(/#NEWLINE#/g, "\n")),
+    html: marked(content),
   });
 }
 

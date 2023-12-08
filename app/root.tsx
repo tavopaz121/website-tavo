@@ -24,8 +24,8 @@ export const meta = () => [
 
 export default function App() {
   const { pathname } = useLocation();
-
   const isHome = pathname === "/";
+  const isAdmin = /admin.*/.test(pathname);
 
   return (
     <html lang="es">
@@ -39,7 +39,7 @@ export default function App() {
       </head>
       <body>
         <main className={`overflow-hidden`}>
-          {isHome ? null : (
+          {isHome || isAdmin ? null : (
             <Nav
               items={items}
               secondaryItems={secondaryItems}

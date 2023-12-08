@@ -15,7 +15,7 @@ export async function loader({ request }: LoaderArgs) {
   return json({ posts: mapPostsToCards(posts) });
 }
 
-export default function Index() {
+export default function Blog() {
   const loaderData = useLoaderData();
   const { posts } = loaderData;
 
