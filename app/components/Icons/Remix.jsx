@@ -8,7 +8,10 @@ export function RemixIcon() {
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       className="text-white"
+      role="img"
+      aria-label="remix"
     >
+     
       <title>Remix Logo</title>
       <path
         fillRule="evenodd"
