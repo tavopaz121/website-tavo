@@ -2,13 +2,6 @@ import Particles from "~/components/Particles/Particles";
 import Highlighter, {
   HighlighterItem,
 } from "~/components/HighLighter/HighLighter";
-import healthyFoodWebApp from "~/assets/imgs/proyectos/healthy-food-web-app.webp";
-import partyRentalsWebApp from "~/assets/imgs/proyectos/party-rentals-android-ios-app.webp";
-import insumoEstructuralWebApp from "~/assets/imgs/proyectos/insumo-estructural-web-app.webp";
-import partyRentalsWebsite from "~/assets/imgs/proyectos/party-rentals-website.webp";
-import cakesDesignWebsiteDesktop from "~/assets/imgs/proyectos/cakes-design-desktop.webp";
-import dasepResponsiveWebsite from "~/assets/imgs/proyectos/daseb-website-responsive.webp";
-import cmsMunicipios from "~/assets/imgs/proyectos/sitioweb-noticias-blog-citas.webp";
 
 export default function Proyectos({ list = [] }) {
   return (
