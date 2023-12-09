@@ -13,7 +13,9 @@ export type Post =
       id?: string;
       title: string;
       slug: string;
+      summary: string;
       content: string;
+      tags: string[];
     }
   | { [k: string]: FormDataEntryValue };
 

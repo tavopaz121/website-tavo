@@ -56,30 +56,29 @@ export default function Slug() {
   const { image, title } = post;
 
   return (
-    <div className="px-4 py-20 flex flex-wrap gap-3">
-      <section className="flex-grow flex-shrink">
-        <article className="slug">
-          <h1 className="font-bold">{title}</h1>
-          <figure className="relative">
-            <img
-              decoding="async"
-              loading="lazy"
-              src={image}
-              alt={title}
-              className="rounded-xl w-full object-contain"
-            />
+    <div className="px-4 my-10 py-20">
+      <article className="mx-auto">
+        <h1 className="font-bold">{title}</h1>
+        <figure className="relative block max-w-xl mx-auto text-center">
+          <img
+            decoding="async"
+            loading="lazy"
+            src={image}
+            alt={title}
+            className="rounded-xl"
+          />
 
-            <Link>
-              <BiLeftArrowAlt className="text-white text-2xl" />
-            </Link>
-          </figure>
+          <Link>
+            <BiLeftArrowAlt className="text-white text-2xl" />
+          </Link>
+        </figure>
 
-          <section
-            className="mt-4"
-            dangerouslySetInnerHTML={{ __html: html }}
-          ></section>
-        </article>
-      </section>
+        <section
+          id="slug-content"
+          className="mt-4"
+          dangerouslySetInnerHTML={{ __html: html }}
+        ></section>
+      </article>
     </div>
   );
 }

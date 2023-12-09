@@ -7,12 +7,13 @@ import {
   ScrollRestoration,
   useLocation,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import { json, type LinksFunction } from "@remix-run/node";
 import Nav from "./components/Navs/Nav";
 import { items, secondaryItems } from "~/data/navItems";
 import { htmlPageLinks } from "./data/htmlPageLinks";
 import RootErrorBoundary from "./RootErrorBoundary";
 import Footer from "./components/Footer/Footer";
+import { initFirebase } from "./firebase/firebase.server";
 
 export const ErrorBoundary = RootErrorBoundary;
 
@@ -21,6 +22,12 @@ export const links: LinksFunction = () => htmlPageLinks;
 export const meta = () => [
   { title: "Desarrollo ágil, apps y web - Pensemosweb" },
 ];
+
+export async function loader({ request }: { request: Request }) {
+  initFirebase();
+
+  return json({});
+}
 
 export default function App() {
   const { pathname } = useLocation();
