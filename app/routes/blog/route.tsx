@@ -2,27 +2,25 @@ import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/firebase/models/posts.server";
-import Card from "~/components/Card/Card";
-import { mapPostsToCards } from "~/mappers/mapPostsToCards";
+import Card from "./Card/Card";
+import { mapPostsToCards } from "./mappers/mapPostsToCards";
 import { FaInfoCircle } from "react-icons/fa";
 import { Link } from "@remix-run/react";
-import { initFirebase } from "~/firebase/firebase.server";
 
 export async function loader({ request }: LoaderArgs) {
-  initFirebase();
   const posts = await getPosts();
 
   return json({ posts: mapPostsToCards(posts) });
 }
 
-export default function Index() {
+export default function Blog() {
   const loaderData = useLoaderData();
   const { posts } = loaderData;
 
   return (
     <>
       <section
-        className="grid gap-2 p-2"
+        className="grid gap-2 p-2 mt-22 py-10"
         style={{
           gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
         }}
