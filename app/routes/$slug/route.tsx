@@ -8,6 +8,8 @@ import type { Post } from "~/types/publish";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
+  console.log(params);
+
   const post: Post = await getPost(slug || "");
 
   const content: string | undefined = post.content as string;
@@ -60,8 +62,10 @@ export default function SlugRoute() {
 
   const { image, title } = post;
 
+  console.log(html);
+
   return (
-    <div className="px-4 my-10 py-20">
+    <div className="px-4 py-20 container-slug-blg">
       <article className="mx-auto max-w-4xl slug-blog">
         <h1 className="font-bold">{title}</h1>
         <figure className="relative block max-w-xl mx-auto text-center mb-12">
@@ -72,10 +76,6 @@ export default function SlugRoute() {
             alt={title}
             className="rounded-xl"
           />
-
-          <Link>
-            <BiLeftArrowAlt className="text-white text-2xl" />
-          </Link>
         </figure>
 
         <section
