@@ -3,6 +3,7 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { getPost } from "~/firebase/models/posts.server";
 import { marked } from "marked";
+import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
 
 export async function loader({ params }: LoaderArgs) {
@@ -22,6 +23,10 @@ export async function loader({ params }: LoaderArgs) {
     post,
     html: marked(content),
   });
+}
+
+export function links() {
+  return [{ rel: "stylesheet", href: stylesSlug, content: "text/css" }];
 }
 
 export function meta({ data, params }: any) {
@@ -50,16 +55,16 @@ export function meta({ data, params }: any) {
   ];
 }
 
-export default function Slug() {
+export default function SlugRoute() {
   const { post, html } = useLoaderData();
 
   const { image, title } = post;
 
   return (
     <div className="px-4 my-10 py-20">
-      <article className="mx-auto">
+      <article className="mx-auto max-w-4xl slug-blog">
         <h1 className="font-bold">{title}</h1>
-        <figure className="relative block max-w-xl mx-auto text-center">
+        <figure className="relative block max-w-xl mx-auto text-center mb-12">
           <img
             decoding="async"
             loading="lazy"
@@ -75,7 +80,7 @@ export default function Slug() {
 
         <section
           id="slug-content"
-          className="mt-4"
+          className="slug-blog-content"
           dangerouslySetInnerHTML={{ __html: html }}
         ></section>
       </article>

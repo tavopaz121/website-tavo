@@ -1,0 +1,14 @@
+.slug-blog {
+  font-family: CabinetGrotesk, Sora, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.slug-blog h1 {
+  font-size: 3.2rem;
+  line-height: 4rem;
+  margin-bottom: 3rem;
+}
+
+.slug-blog .slug-blog-content h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+}
