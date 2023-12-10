@@ -1,9 +1,9 @@
 import imageBlog from "app/assets/imgs/corazon-agilidad.webp";
 import imageBlog2 from "app/assets/imgs/individuosEInteracciones.webp";
 import imageBlog3 from "app/assets/imgs/Portada-IntroLEanStartup-.webp";
+import { Link } from "@remix-run/react";
 
 import Blog from "../../HomePage/CardBlog";
-import { useEffect, useRef, useState } from "react";
 
 const blogs = [
   {
@@ -15,7 +15,7 @@ const blogs = [
   },
   {
     image: imageBlog2,
-    fecha: "Agt 18, 2019",
+    fecha: "Ago 18, 2019",
     contenido: "¿CÓMO SURGIÓ EL DESARROLLO ÁGIL? PRINCIPIOS FUNDAMENTALES",
     anchor:
       "https://www.pensemosweb.com/como-surgio-el-desarrollo-agil-principios-fundamentales/",
@@ -30,52 +30,32 @@ const blogs = [
 ];
 
 export default function Blogs() {
-  const contentBlogs = useRef(null);
-  const [isHidden, setIsHidden] = useState("hidden");
-  let delay = 0.2;
-  let plusDelay = 0.3;
-
-  const options = { root: null, rootMargin: "0px", threshold: 0.5 };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(showBlogs, options);
-    observer.observe(contentBlogs.current);
-  });
-
-  const showBlogs = (
-    entris: IntersectionObserverEntry[],
-    oberver: IntersectionObserver,
-  ) => {
-    entris.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setIsHidden("");
-      }
-    });
-  };
+  let delay = 0;
+  let plusDelay = 0;
 
   return (
-    <section className="relative py-10 lg:py-20 overflow-hidden">
-      <div className="relative container px-4 mx-auto" ref={contentBlogs}>
-        <div className="max-w-2xl mx-auto mb-15 text-center">
+    <section className="relative py-10 lg:py-20 overflow-hidden  container px-4 mx-auto">
+      <div className="relative">
+        <div className="mb-15 text-center">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
             NUESTRO BLOG
           </span>
           <h2 className="font-heading text-5xl xs:text-6xl md:text-7xl font-bold">
             <span>Algunos </span>
-            <span className="font-serif italic">Articulos</span>
+            <span className="font-serif italic">Artículos</span>
           </h2>
         </div>
 
-        <div className={`max-w-5xl mx-auto ${isHidden}`}>
+        <div className={``}>
           {blogs.map((blog, i) => (
             <Blog key={i} {...blog} delay={(delay += plusDelay)} />
           ))}
         </div>
 
         <div className="border-gray-100 text-center">
-          <a
+          <Link
             className="relative group inline-block py-4 px-7 font-semibold text-white bg-gray-900 rounded-full transition duration-300 overflow-hidden"
-            href="https://www.pensemosweb.com/"
+            to="https://www.pensemosweb.com/"
             target="_blank"
             rel="noreferrer"
           >
@@ -97,7 +77,7 @@ export default function Blogs() {
                 </svg>
               </span>
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

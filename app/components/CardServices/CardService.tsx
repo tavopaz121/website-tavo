@@ -1,4 +1,5 @@
 import type { CardServiceProps } from "./CardService.d";
+import { Link } from "@remix-run/react";
 
 export default function CardService({
   title,
@@ -8,9 +9,9 @@ export default function CardService({
 }: CardServiceProps) {
   return (
     <div className="overflow-hidden bg-white border-2 border-pink-50 rounded-md">
-      <div className="p-8 xl:px-12">
+      <div className="p-8 xl:px-12 h-full flex flex-col justify-between">
         <p className="text-3xl font-bold text-black mt-7">{title}</p>
-        <p className="mt-3 text-base text-gray-600">{description}</p>
+        <p className="mt-3 text-base text-gray-800">{description}</p>
 
         <ul className="flex flex-col items-start space-y-5 text-left mt-9">
           {list &&
@@ -35,17 +36,17 @@ export default function CardService({
             ))}
         </ul>
 
-        <a
+        <Link
           target="_blank"
           rel="noreferrer"
-          className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-pink-700 rounded overflow-hidden w-full"
-          href={`https://api.whatsapp.com/send?phone=+522781092116&text=Hola,%20estoy%20interesad@%20en%20adquirir%20el%20paquete%20${title}`}
+          className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-black rounded overflow-hidden w-full"
+          to={`https://api.whatsapp.com/send?phone=+522781092116&text=Hola,%20estoy%20interesad@%20en%20adquirir%20el%20paquete%20${title}`}
         >
           <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
           <div className="relative flex items-center justify-center">
             <span className="mr-4">Necesito esto</span>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );

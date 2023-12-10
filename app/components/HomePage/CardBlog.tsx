@@ -1,3 +1,5 @@
+import { Link } from "@remix-run/react";
+
 interface TypeBlog {
   image: string;
   fecha: string;
@@ -14,13 +16,7 @@ export default function Blog({
   delay,
 }: TypeBlog) {
   return (
-    <div
-      className="py-12 border-t-2 border-gray-100 max-lg:flex justify-center motion-safe:animate-fadeInRight"
-      style={{
-        animationDelay: `${delay}s`,
-        animationFillMode: "both",
-      }}
-    >
+    <div className="py-12 border-t-2 border-gray-100 max-lg:flex justify-center">
       <div className="flex flex-wrap lg:flex-nowrap items-center max-lg:w-96">
         <div className="w-full lg:w-auto px-4 mb-8 lg:mb-0 flex flex-col items-center">
           <img
@@ -38,11 +34,11 @@ export default function Blog({
           </div>
         </div>
         <div className="w-full lg:w-auto px-4 ml-auto text-right">
-          <a
+          <Link
             className="inline-flex items-center text-xl font-semibold text-pink-500 hover:text-blue-800"
             target="_blank"
             rel="noreferrer"
-            href={anchor}
+            to={anchor}
           >
             <span className="mr-2">Leer</span>
             <svg
@@ -68,7 +64,7 @@ export default function Blog({
                 strokeLinejoin="round"
               ></path>
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

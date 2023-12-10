@@ -3,6 +3,7 @@ import NavMobile from "./NavMobile";
 import type { PropsNav } from "./Nav.d";
 import { useState, useEffect, useRef } from "react";
 import Logo from "../Logo/Logo";
+import { Link } from "@remix-run/react";
 
 export default function Nav(props: PropsNav) {
   const [hasScrolledDown, setHasScrolledDown] = useState<boolean>(false);
@@ -35,12 +36,12 @@ export default function Nav(props: PropsNav) {
   const { isHome } = props;
   let textClasses = isHome
     ? "text-white dark:text-white"
-    : "text-black dark:text-black";
-  textClasses = hasScrolledDown ? "text-black dark:text-black" : textClasses;
+    : "text-white dark:text-white";
+  textClasses = hasScrolledDown ? "text-white dark:text-white" : textClasses;
 
   const anchorClasses = `relative group inline-block py-3 px-4 font-semibold ${textClasses} overflow-hidden transition duration-1000`;
   const highLightClasses = "bg-gradient-pink";
-  const logoColor = hasScrolledDown ? "#000" : "#fff";
+  const logoColor = hasScrolledDown ? "#fff" : "#fff";
 
   return (
     <>
@@ -77,9 +78,9 @@ export default function Nav(props: PropsNav) {
             </svg>
           </div>
           <span className="block mb-3 text-sm text-white">Escribenos a</span>
-          <a className="font-semibold text-white" href="/contacto">
+          <Link className="font-semibold text-white" to="/contacto">
             pensemoswebjs@gmail.com
-          </a>
+          </Link>
         </div>
       </NavMobile>
       {props.children}

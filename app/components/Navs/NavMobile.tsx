@@ -1,4 +1,7 @@
 import type { PropsNavMobile } from "./Nav.d";
+import { whatsApp } from "~/data/navItems";
+import WhatsApp from "~/components/Icons/WhatsApp";
+import { Link } from "@remix-run/react";
 
 export default function NavMobile({
   handleMenuButton,
@@ -39,22 +42,34 @@ export default function NavMobile({
           </svg>
         </button>
         <div className="flex items-center mb-8">
-          <a className="mr-auto text-2xl font-medium leading-none" href="/">
+          <Link className="mr-auto text-2xl font-medium leading-none" to="/">
             {logo}
-          </a>
+          </Link>
         </div>
+
         <div>
           {items && (
             <ul className="mb-6">
+              <li key="whatsApp">
+                <Link
+                  to={`${whatsApp.to}${encodeURI(" tus servicios")}`}
+                  className="relative group block py-3 px-4 font-semibold text-white overflow-hidden transition duration-300"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="absolute bottom-4 right-full w-full h-1 bg-gradient-aqua transform group-hover:translate-x-full transition duration-500" />
+                  <WhatsApp />
+                </Link>
+              </li>
               {items?.map(({ to, label }) => (
                 <li key={to}>
-                  <a
+                  <Link
                     className="relative group block py-3 px-4 font-semibold text-white overflow-hidden transition duration-300"
-                    href={to}
+                    to={to}
                   >
                     <div className="absolute bottom-4 right-full w-full h-1 bg-gradient-aqua transform group-hover:translate-x-full transition duration-500" />
                     <span className="relative">{label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -63,10 +78,10 @@ export default function NavMobile({
           {secondaryItems?.length ? (
             <div className="py-6 px-4 mb-6 border-t border-b border-white">
               {secondaryItems?.map(({ to, label, isButton }) => (
-                <a
+                <Link
                   key={to}
                   className="group relative flex py-3 px-0 items-center font-semibold text-white mb-2 mt-2 overflow-hidden transition duration-300"
-                  href={to}
+                  to={to}
                 >
                   <svg
                     width={18}
@@ -82,7 +97,7 @@ export default function NavMobile({
                   </svg>
                   <div className="absolute bottom-4 right-full w-full h-1 bg-gradient-aqua transform group-hover:translate-x-full transition duration-500" />
                   <span className="ml-3">{label}</span>
-                </a>
+                </Link>
               ))}
             </div>
           ) : null}

@@ -1,3 +1,5 @@
+import { Link } from "@remix-run/react";
+
 export interface PropsCardCotact {
   urlImg: string;
   isEmail: boolean;
@@ -21,7 +23,7 @@ export default function CardContact({
         isEmail ? "mb-10 md:mb-0" : null
       } motion-safe:animate-fadeInUp`}
       style={{
-        animationDelay: "0.6s",
+        animationDelay: "0s",
         animationFillMode: "both",
       }}
     >
@@ -33,16 +35,15 @@ export default function CardContact({
             className="block mx-auto mb-3"
             src={urlImg}
             alt=""
-            loading="lazy"
           />
-          <h5 className="text-2xl font-bold text-gray-900 mb-3">
+          <h3 className="text-2xl font-bold text-gray-900 mb-3">
             {isEmail ? "Envía un correo" : "Puedes marcar a"}
-          </h5>
+          </h3>
           <p className="text-gray-600 mb-3">{description}</p>
           <span className="block text-sm text-pink-500 mb-8">{medio}</span>
-          <a
+          <Link
             className="relative group inline-block py-4 px-6 text-white font-semibold bg-gray-900 rounded-full overflow-hidden"
-            href={anchor}
+            to={anchor}
           >
             <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
             <div className="relative flex items-center justify-center">
@@ -51,7 +52,7 @@ export default function CardContact({
               </span>
               <span>{icon}</span>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

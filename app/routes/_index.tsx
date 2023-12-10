@@ -8,8 +8,16 @@ import Nav from "~/components/Navs/Nav";
 import { useEffect, useRef, useState } from "react";
 import Principios from "~/components/pages/home/Principios";
 import poster from "app/assets/imgs/inicio/background-video-inicio.webp";
+
 import type { LinksFunction } from "@remix-run/node";
+
 import videoPoster from "app/assets/imgs/inicio/background-video-inicio.webp";
+
+import { metaFn } from "~/functions/shared/meta";
+import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+
+export const meta = metaFn;
+export const loader = loaderSeoFn("inicio");
 
 export const links: LinksFunction = () => {
   return [
@@ -53,8 +61,8 @@ export default function Index() {
       />
       <section className="relative pb-20 overflow-hidden min-h-screen bg-black px-4">
         <Hero
-          preText="Creá con"
-          title="pensemosweb"
+          preText="¿Visibilidad en línea deficiente?"
+          title="¡Desbloquea el Éxito Digital!"
           subtitle="Desarrollo web/app ágil"
           videoPoster={poster}
           videoSrcs={{
@@ -67,8 +75,8 @@ export default function Index() {
       </section>
 
       <article ref={targetRef}>
-        <Principios />
         <Servicios />
+        <Principios hasParticles={true} />
         <Nosotros />
         <Blogs />
         <Contacto />

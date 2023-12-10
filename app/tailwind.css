@@ -39,3 +39,16 @@ label {
     clip-path: polygon(56% 0, 100% 0, 100% 100%, 40% 100%);
   }
 }
+/* Buttons */
+.btn,
+.btn-sm {
+  @apply font-medium inline-flex items-center justify-center border border-transparent rounded-sm leading-snug transition duration-150 ease-in-out;
+}
+
+.btn {
+  @apply px-8 py-3;
+}
+
+.btn-sm {
+  @apply px-4 py-2;
+}

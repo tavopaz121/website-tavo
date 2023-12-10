@@ -1,7 +1,7 @@
 import type { Timestamp } from "firebase-admin/firestore";
 
 export type PostUser = {
-  uid: string;
+  uid?: string;
   email?: string;
   displayName?: string;
   phoneNumber?: string;
@@ -12,15 +12,18 @@ export type Post =
   | {
       id?: string;
       title: string;
+      slug: string;
+      summary: string;
       content: string;
-      description: string;
-      price: number;
+      tags: string[];
     }
   | { [k: string]: FormDataEntryValue };
 
 export type FirestorePost = Post & {
   image: string;
   user: PostUser;
+  modifiedBy?: PostUser;
+  modifiedAt?: Timestamp;
   createdAt: Timestamp;
   slug?: string;
 };

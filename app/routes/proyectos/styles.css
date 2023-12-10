@@ -1,0 +1,63 @@
+@keyframes pulseLoop {
+  0% {
+    opacity: 0;
+    transform: scale(0.25) translateZ(0);
+  }
+
+  30% {
+    opacity: 0.4;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  80% {
+    transform: scale(1) translateZ(0);
+  }
+}
+
+.pulse {
+  opacity: 0;
+  transform-origin: center;
+  animation: pulseLoop 12000ms linear infinite;
+}
+
+.pulse-1 {
+  animation-delay: -4000ms;
+}
+
+.pulse-2 {
+  animation-delay: -8000ms;
+}
+
+.translate-z-0 {
+  transform: translateZ(0);
+}
+
+/* Buttons */
+.btn,
+.btn-sm {
+  @apply text-sm font-medium inline-flex items-center justify-center border border-transparent rounded-full transition duration-150 ease-in-out;
+}
+
+.btn {
+  @apply px-4 py-1.5;
+}
+
+.btn-sm {
+  @apply px-3 py-1;
+}
+
+.pw-btn,
+.pw-btn-sm {
+  @apply font-medium inline-flex items-center justify-center border border-transparent rounded-sm leading-snug transition duration-150 ease-in-out;
+}
+
+.pw-btn {
+  @apply px-8 py-3;
+}
+
+.pw-btn-sm {
+  @apply px-4 py-2;
+}

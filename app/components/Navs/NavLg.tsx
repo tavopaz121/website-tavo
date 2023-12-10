@@ -1,6 +1,9 @@
 import { forwardRef } from "react";
 import Logo from "~/components/Logo/Logo";
 import type { PropsNavLg } from "./Nav.d";
+import { whatsApp } from "~/data/navItems";
+import WhatsApp from "~/components/Icons/WhatsApp";
+import { Link } from "@remix-run/react";
 
 export default forwardRef(function NavLg(
   {
@@ -20,15 +23,15 @@ export default forwardRef(function NavLg(
   ref: React.ForwardedRef<HTMLElement>,
 ) {
   let navClasses = isHome
-    ? "bg-transparent"
-    : "bg-white border border-x-0 border-t-0 border-pink-500";
+    ? "bg-white bg-opacity-0 hover:bg-black"
+    : "bg-black border border-x-0 border-t-0 border-pink-500";
   const bgOnScroll = hasScrolledDown
-    ? "!py-3 bg-white bg-opacity-0 backdrop-blur hover:bg-white"
+    ? "!py-3 !bg-black bg-opacity-100 backdrop-blur"
     : "py-6";
   return (
     <nav
       ref={ref}
-      className={`font-heading fixed top-0 z-10 w-full px-4 duration-1000 ${navClasses} ${bgOnScroll} ${borderClasses}`}
+      className={`font-heading fixed top-0 z-50 w-full px-4 duration-1000 ${navClasses} ${bgOnScroll} ${borderClasses}`}
       style={{
         lineHeight: 1,
         transitionProperty:
@@ -38,12 +41,12 @@ export default forwardRef(function NavLg(
       <div className="mx-auto">
         <div className={"flex items-center justify-" + aLign}>
           {hasLogo && (
-            <a className="inline-block text-lg mr-14 max-xss:mr-1" href="/">
+            <Link className="inline-block text-lg mr-14 max-xss:mr-1" to="/">
               <Logo
                 className="h-10 fill-white transition-all duration-1000"
-                color={`${isHome ? logoColor : "#000"}`}
+                color={logoColor}
               />
-            </a>
+            </Link>
           )}
           <div className="lg:hidden ml-auto">
             <button
@@ -84,39 +87,54 @@ export default forwardRef(function NavLg(
 
           {items && (
             <ul className="hidden lg:flex lg:w-auto lg:space-x-6">
-              {items?.map(({ to, label }) => (
+              {items?.map(({ to, label, target }) => (
                 <li key={to}>
-                  <a className={anchorClasses} href={to}>
+                  <Link className={anchorClasses} to={to} target={target}>
                     <div
                       className={`absolute bottom-4 right-full w-full h-1 ${highLightClasses} transform group-hover:translate-x-full transition duration-500`}
                     />
                     <span className="relative">{label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           )}
 
-          {secondaryItems && (
-            <div className="hidden lg:block ml-auto">
+          <div className="hidden lg:block ml-auto">
+            <Link
+              to={`${whatsApp.to}${encodeURI(" tus servicios")}`}
+              className={`${anchorClasses} !px-0 !py-0 rounded-full text-white`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={`absolute top-0 right-full w-full h-full ${highLightClasses} transform group-hover:translate-x-full group-hover:scale-102 transition duration-500`}
+              />
+              <span className="relative">
+                <WhatsApp />
+              </span>
+            </Link>
+            {secondaryItems && (
               <div className="flex items-center">
-                {secondaryItems.map(({ to, label, isButton }) => {
+                {secondaryItems.map(({ to, label, isButton, target }) => {
                   return (
-                    <a
+                    <Link
                       key={to}
                       className={`${anchorClasses} border border-gray-200 rounded-md text-white`}
-                      href={to}
+                      to={to}
+                      target={target}
                     >
                       <div
                         className={`absolute top-0 right-full w-full h-full ${highLightClasses} transform group-hover:translate-x-full group-hover:scale-102 transition duration-500`}
                       />
                       <span className="relative">{label}</span>
-                    </a>
+                    </Link>
                   );
                 })}
               </div>
-            </div>
-          )}
+            )}
+          </div>
+
           {children}
         </div>
       </div>

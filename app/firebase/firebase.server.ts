@@ -30,39 +30,46 @@ export const getRestConfig = (): {
 };
 const restConfig = getRestConfig();
 
-if (getServerApps().length === 0) {
-  let config = {
-    projectId: process.env.PROJECT_ID || "healhty-food-2023-2024",
-  };
-  if (process.env.NODE_ENV === "development" && !process.env.SERVICE_ACCOUNT) {
-    console.warn(
-      "Missing SERVICE_ACCOUNT environment variable, using local emulator",
-    );
-    // https://github.com/firebase/firebase-admin-node/issues/776
-    // Use serveral environment variable for emulators
+export function initFirebase() {
+  if (getServerApps().length === 0) {
+    let config = {
+      projectId: process.env.PROJECT_ID || "pensemosweb-mx",
+    };
+    if (
+      process.env.NODE_ENV === "development" &&
+      !process.env.SERVICE_ACCOUNT
+    ) {
+      console.warn(
+        "Missing SERVICE_ACCOUNT environment variable, using local emulator",
+      );
+      // https://github.com/firebase/firebase-admin-node/issues/776
+      // Use serveral environment variable for emulators
 
-    // Use credential for emulators
-    const serviceAccount = JSON.parse(
-      process.env.FIREBASE_SERVICE_ACCOUNT_EMULATORS || "{}",
-    );
-    config.credential = serverCert(serviceAccount);
-  } else if (!process.env.SERVICE_ACCOUNT) {
-    throw new Error("Missing SERVICE_ACCOUNT environment variable");
-  } else {
-    try {
-      const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT);
+      // Use credential for emulators
+      const serviceAccount = JSON.parse(
+        process.env.FIREBASE_SERVICE_ACCOUNT_EMULATORS || "{}",
+      );
       config.credential = serverCert(serviceAccount);
-    } catch {
-      throw Error("Invalid SERVICE_ACCOUNT environment variable");
+    } else if (!process.env.SERVICE_ACCOUNT) {
+      throw new Error("Missing SERVICE_ACCOUNT environment variable");
+    } else {
+      try {
+        const serviceAccount = JSON.parse(process.env.SERVICE_ACCOUNT);
+        config.credential = serverCert(serviceAccount);
+      } catch {
+        throw Error("Invalid SERVICE_ACCOUNT environment variable");
+      }
     }
+
+    config.storageBucket =
+      process.env.STORAGE_BUCKET || `${config.projectId}.appspot.com`;
+
+    initializeServerApp(config);
+    serverFirestore().settings({ ignoreUndefinedProperties: true });
   }
-
-  config.storageBucket =
-    process.env.STORAGE_BUCKET || `${config.projectId}.appspot.com`;
-
-  initializeServerApp(config);
-  serverFirestore().settings({ ignoreUndefinedProperties: true });
 }
+
+initFirebase();
 
 const signInWithPassword = async (email: string, password: string) => {
   const signInResponse = await firebaseRest.signInWithPassword(

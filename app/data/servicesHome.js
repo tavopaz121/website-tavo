@@ -1,38 +1,39 @@
-import blog from "app/assets/imgs/icons/blogging.png";
-import landgin from "app/assets/imgs/icons/contenido.png";
-import corporativo from "app/assets/imgs/icons/corporativo.png";
-import aplicaciones from "app/assets/imgs/icons/desarrollo-de-aplicaciones.png";
-import exito from "app/assets/imgs/icons/desarrollo-de-carrera.png";
-import progresivo from "app/assets/imgs/icons/progresivo.png";
-import seo from "app/assets/imgs/icons/seo.png";
-import tienda from "app/assets/imgs/icons/tienda-online.png";
+import LadingPageSvg from "~/components/HomePage/svgs/LadingPageSvg";
+import SeoSvg from "~/components/HomePage/svgs/SeoSvg";
+import SvgAppMovil from "~/components/HomePage/svgs/SvgAppMovil";
+import SvgAppWeb from "~/components/HomePage/svgs/SvgAppWeb";
+import SvgBlog from "~/components/HomePage/svgs/SvgBlog";
+import SvgEcommerce from "~/components/HomePage/svgs/SvgEcommerce";
+import SvgWebCorporativa from "~/components/HomePage/svgs/SvgWebCorporativa";
+import SvgWebProgressive from "~/components/HomePage/svgs/SvgWebProgressive";
 
 export const serviciosUno = [
   {
-    urlImg: blog,
+    svgIcon: <SvgBlog title="Blogs" />,
     servive: "Blogs",
-    description: "Crea contenido con nuestros blogs",
+    description: "¿Tu sitio necesita un impulso de contenido?",
     iconColor: "bg-blue-100",
     isUltimate: false,
   },
   {
-    urlImg: landgin,
+    svgIcon: <LadingPageSvg title="Landing Pages" />,
     servive: "Landing Pages",
-    description: "Captura leads y promociona ofertas",
+    description: "¿Tienes dificultades para convertir visitantes en clientes?",
     iconColor: "bg-orange-100",
     isUltimate: false,
   },
   {
-    urlImg: corporativo,
+    svgIcon: <SvgWebCorporativa title="Páginas Web Corporativas" />,
     servive: "Páginas Web Corporativas",
-    description: "Diseñamos páginas web personalizadas",
+    description: "¿Tu presencia en línea no refleja la grandeza de tu empresa?",
     iconColor: "bg-gray-300",
     isUltimate: false,
   },
   {
-    urlImg: aplicaciones,
+    svgIcon: <SvgAppWeb title="Aplicaciones Web" />,
     servive: "Aplicaciones Web",
-    description: "Apps que satisfacen tus necesidades específicas",
+    description:
+      "¿Necesitas una herramienta potente accesible desde cualquier navegador?",
     iconColor: "bg-red-200",
     isUltimate: true,
   },
@@ -40,31 +41,32 @@ export const serviciosUno = [
 
 export const serviciosDos = [
   {
-    urlImg: exito,
-    servive: "Software a la medida",
-    description: "Soluciones que impulsan el éxito de tu negocio",
+    svgIcon: <SvgAppMovil title="Aplicaciones móviles" />,
+    servive: "Aplicaciones móviles",
+    description: "¿Quieres llevar tu negocio al bolsillo de tus clientes?",
     iconColor: "bg-yellow-200",
     isUltimate: false,
   },
   {
-    urlImg: progresivo,
+    svgIcon: <SvgWebProgressive title="Aplicaciones Web Progresivas" />,
     servive: "Aplicaciones Web Progresivas",
-    description: "Ofrece una experiencia aumentando la retención de usuarios",
+    description:
+      "¿Quieres una experiencia móvil sin la necesidad de una descarga de app?",
     iconColor: "bg-green-200",
     isUltimate: false,
   },
   {
-    urlImg: seo,
+    svgIcon: <SeoSvg title="SEO" />,
     servive: "SEO",
-    description: "Atrae clientes potenciales con estrategias de SEO",
+    description:
+      "¿Tu negocio no se encuentra en los primeros resultados de búsqueda?",
     iconColor: "bg-blue-100",
     isUltimate: false,
   },
   {
-    urlImg: tienda,
+    svgIcon: <SvgEcommerce title="Tiendas Online" />,
     servive: "Tiendas Online",
-    description:
-      "Aumentan ventas y ofrecen una experiencia de compra impecable",
+    description: " ¡Transforma tu tienda, en un e-commerce imán de ventas!.",
     iconColor: "bg-orange-100",
     isUltimate: true,
   },

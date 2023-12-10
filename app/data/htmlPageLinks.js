@@ -1,21 +1,7 @@
 import stylesheet from "~/tailwind.css";
-import cabinetGroteskFont from "~/css/fonts/cabinet-grotesk-font.css";
-import aspektaFont from "~/css/fonts/aspekta-font.css";
 
 export const htmlPageLinks = [
-  {
-    rel: "preload",
-    href: cabinetGroteskFont,
-    as: "style",
-    type: "text/css",
-  },
-  {
-    rel: "prefetch",
-    href: aspektaFont,
-    as: "style",
-    type: "text/css",
-  },
-  { rel: "stylesheet", href: stylesheet, content: "text/css" },
+  { rel: "stylesheet", href: stylesheet, type: "text/css", as: "style" },
   {
     rel: "apple-touch-icon",
     sizes: "180x180",
