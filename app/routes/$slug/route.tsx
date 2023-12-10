@@ -33,19 +33,24 @@ export function links() {
 
 export function meta({ data, params }: any) {
   const { title, description, image } = data.post;
+  let metaTitle = "";
+  let metaDescription = "";
 
-  if (!title || !description)
-    return [
-      { title: `Post no disponible - Pensemosweb` },
-      {
-        name: "description",
-        content: `No hay resultados con el nombre ${params.slug} 😥`,
-      },
-    ];
+  if (!title) {
+    metaTitle = "Post no disponible - Pensemosweb";
+  } else {
+    metaTitle = title;
+  }
+
+  if (!description) {
+    metaDescription = `No hay descripción de ${params.slug} 😥`;
+  } else {
+    metaDescription = description;
+  }
 
   return [
-    { title: `${title} - Pensemosweb` },
-    { name: "description", content: description },
+    { title: `${metaTitle} - Pensemosweb` },
+    { name: "description", content: metaDescription },
     {
       property: "og:title",
       content: title,
@@ -62,10 +67,8 @@ export default function SlugRoute() {
 
   const { image, title } = post;
 
-  console.log(html);
-
   return (
-    <div className="px-4 py-20 container-slug-blg">
+    <div className="px-4 mt-10 py-20 container-slug-blg">
       <article className="mx-auto max-w-4xl slug-blog">
         <h1 className="font-bold">{title}</h1>
         <figure className="relative block max-w-xl mx-auto text-center mb-12">
