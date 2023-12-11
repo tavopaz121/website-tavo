@@ -45,7 +45,7 @@ export default function Equipo() {
     <div>
       <section>
         <div className="bg-gray-900 mb-12">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+          <div className="max-w-6xl mx-auto px-4 relative">
             {/* Illustration behind hero content */}
             <div
               className="absolute left-0 bottom-0 -ml-20 hidden lg:block pointer-events-none"
@@ -111,14 +111,6 @@ export default function Equipo() {
                       Iniciar
                     </Link>
                   </div>
-                  {/* <div data-aos="fade-up" data-aos-delay="600">
-                    <Link
-                      className="btn text-white bg-gray-700 hover:bg-gray-800 lg:w-full w-auto ml-4"
-                      to="#
-                    >
-                      Learn more
-                    </Link>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -134,8 +126,12 @@ export default function Equipo() {
       </div>
 
       <section>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 ">
-          <div className="pb-2">
+        <div
+          className="max-w-7xl mx-4 lg:mx-auto"
+          data-aos="fade-right"
+          data-aos-delay="1000"
+        >
+          <div className="pb-4">
             <div className="relative">
               {/* Gray box */}
               <div className="absolute inset-0 bg-gray-50 -z-10 rounded-lg border border-gray-300" />
@@ -153,9 +149,9 @@ export default function Equipo() {
                     />
                   </div>
                   <div className="relative pt-5">
-                    <h2 className="mb-4 text-3xl font-heading">
+                    <h2 className="mb-4 text-2xl lg:text-3xl font-heading">
                       Colabora y{" "}
-                      <span className="font-serif italic">aprende</span>
+                      <span className="font-serif italic text-2xl lg:text-3xl">aprende</span>
                     </h2>
                     <h4 className="mb-4 text-base sm:text-justify">
                       En esta fase, trabajamos juntos como equipo, escuchamos
@@ -171,8 +167,12 @@ export default function Equipo() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="pb-2">
+        <div
+          className="max-w-7xl mx-4 lg:mx-auto"
+          data-aos="fade-left"
+          data-aos-delay="1000"
+        >
+          <div className="pb-4">
             <div className="relative">
               {/* Gray box */}
               <div className="absolute inset-0 bg-gray-100 rotate -z-10 rounded-lg border border-gray-300" />
@@ -181,8 +181,8 @@ export default function Equipo() {
                 {/* Testimonial */}
                 <div className="lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left pt-5 lg:py-10">
                   <div className="relative pt-5">
-                    <h2 className="mb-4 text-3xl font-heading">
-                      Crea <span className="font-serif italic">ASAP</span>
+                    <h2 className="mb-4 text-2xl lg:text-3xl font-heading">
+                      Crea <span className="font-serif italic text-2xl lg:text-3xl">ASAP</span>
                     </h2>
                     <h4 className="mb-4 text-base sm:text-justify">
                       Una vez entendida tu visión, avanzamos rápidamente en el
@@ -206,8 +206,12 @@ export default function Equipo() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="pb-2">
+        <div
+          className="max-w-7xl mx-4 lg:mx-auto"
+          data-aos="fade-right"
+          data-aos-delay="800"
+        >
+          <div className="pb-4">
             <div className="relative">
               {/* Gray box */}
               <div className="absolute inset-0 bg-gray-100 rotate -z-10 rounded-lg border border-gray-300" />
@@ -225,8 +229,8 @@ export default function Equipo() {
                     />
                   </div>
                   <div className="relative pt-5">
-                    <h2 className="mb-4 text-3xl font-heading">
-                      <span className="font-serif italic">Retroalimenta</span>
+                    <h2 className="mb-4 text-2xl lg:text-3xl font-heading">
+                      <span className="font-serif italic text-2xl lg:text-3xl">Retroalimenta</span>
                     </h2>
                     <h4 className="mb-4 text-base sm:text-justify">
                       En esta etapa, tu opinión y la de tus usuarios son
@@ -242,8 +246,12 @@ export default function Equipo() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-12">
-          <div className="pb-2">
+        <div
+          className="max-w-7xl mx-4 lg:mx-auto mb-12"
+          data-aos="fade-left"
+          data-aos-delay="800"
+        >
+          <div className="pb-4">
             <div className="relative">
               {/* Gray box */}
               <div className="absolute inset-0 bg-gray-100 rotate -z-10 rounded-lg border border-gray-300" />
@@ -252,8 +260,8 @@ export default function Equipo() {
                 {/* Testimonial */}
                 <div className="lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left pt-5 lg:py-10">
                   <div className="relative pt-5">
-                    <h2 className="mb-4 text-3xl font-heading">
-                      Adapta / <span className="font-serif italic">Mejora</span>
+                    <h2 className="mb-4 text-2xl lg:text-3xl font-heading">
+                      Adapta / <span className="font-serif italic text-2xl lg:text-3xl">Mejora</span>
                     </h2>
                     <h4 className="mb-4 text-base sm:text-justify">
                       "Nos adaptamos al cambio constante en el mundo digital,
@@ -279,7 +287,7 @@ export default function Equipo() {
       </section>
 
       <section>
-        <div className="relative">
+        <div className="relative max-w-7xl mx-auto" >
           {/* Background image */}
           <div className="absolute inset-0">
             <img
@@ -294,14 +302,25 @@ export default function Equipo() {
               aria-hidden="true"
             ></div>
           </div>
-
           {/* Hero content */}
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
             <div className="pt-20 pb-20">
               <div className="max-w-3xl mx-auto text-center">
                 <h1 className="text-5xl text-white tracking-tight mx-4 md:text-7xl font-bold">
-                  <span className="font-heading">Conoce nuestro </span>
-                  <span className="font-serif italic">equipo</span>
+                  <span
+                    className="font-heading"
+                    data-aos="fade-up"
+                    data-aos-delay="800"
+                  >
+                    Conoce nuestro{" "}
+                  </span>
+                  <span
+                    className="font-serif italic"
+                    data-aos="fade-up"
+                    data-aos-delay="400"
+                  >
+                    equipo
+                  </span>
                 </h1>
                 <p
                   className="text-xl text-gray-300 pt-5"
@@ -315,19 +334,20 @@ export default function Equipo() {
           </div>
         </div>
 
-        <div className="flex flex-wrap  gap-y-12 mt-10 relative px-8 items-center mb-12">
-          <div className="grid flex-auto  mx-auto px-8 sm:px-6 relative md:min-w-[300px]">
+        <div className="max-w-7xl mx-auto flex flex-wrap  gap-8 mt-10 relative items-center mb-12">
+          <div className="grid flex-auto relative md:min-w-[300px]">
             {/* Section content */}
             <div className="md:max-w-none items-center space-y-8 md:space-y-0">
               {/* Creatives cards */}
               <div className="w-full " data-aos-id-cards>
                 {/* Column 1 */}
-                <div style={shadowImg}>
+                <div style={shadowImg} className="mx-4 lg:mx-0">
                   {/* Item */}
                   <div
-                    className="text-center "
+                    className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
+                    data-aos-delay="400"
                   >
                     <img
                       className="w-full h-30 object-cover"
@@ -361,18 +381,19 @@ export default function Equipo() {
             </div>
           </div>
 
-          <div className="grid flex-auto  mx-auto px-8 sm:px-6 relative md:min-w-[300px]">
+          <div className="grid flex-auto   relative md:min-w-[300px]">
             {/* Section content */}
             <div className=" md:max-w-none md:items-center space-y-8 md:space-y-0">
               {/* Creatives cards */}
               <div className="w-full " data-aos-id-cards>
                 {/* Column 1 */}
-                <div style={shadowImg}>
+                <div style={shadowImg} className="mx-4 lg:mx-0">
                   {/* Item */}
                   <div
-                    className="text-center "
+                    className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
+                    data-aos-delay="800"
                   >
                     <img
                       className="w-full h-30 object-cover"
@@ -406,18 +427,19 @@ export default function Equipo() {
             </div>
           </div>
 
-          <div className="grid flex-auto mx-auto px-8 sm:px-6 relative md:min-w-[300px]">
+          <div className="grid flex-auto   relative md:min-w-[300px]">
             {/* Section content */}
             <div className="flex flex-wrap md:max-w-none items-center space-y-8 md:space-y-0">
               {/* Creatives cards */}
               <div className="w-full " data-aos-id-cards>
                 {/* Column 1 */}
-                <div style={shadowImg}>
+                <div style={shadowImg} className="mx-4 lg:mx-0">
                   {/* Item */}
                   <div
-                    className="text-center "
+                    className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
+                    data-aos-delay="1200"
                   >
                     <img
                       className="w-full h-30 object-cover "
@@ -451,18 +473,19 @@ export default function Equipo() {
             </div>
           </div>
 
-          <div className="grid flex-auto mx-auto px-8 sm:px-6 relative md:min-w-[300px]">
+          <div className="grid flex-auto  relative md:min-w-[300px]">
             {/* Section content */}
             <div className="flex flex-wrap md:max-w-none items-center space-y-8 md:space-y-0">
               {/* Creatives cards */}
               <div className="w-full " data-aos-id-cards>
                 {/* Column 1 */}
-                <div style={shadowImg}>
+                <div style={shadowImg} className="mx-4 lg:mx-0">
                   {/* Item */}
                   <div
-                    className="text-center "
+                    className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
+                    data-aos-delay="1600"
                   >
                     <img
                       className="w-full h-30 object-cover"
@@ -496,18 +519,19 @@ export default function Equipo() {
             </div>
           </div>
 
-          <div className="grid flex-auto mx-auto px-8 sm:px-6 relative md:min-w-[300px]">
+          <div className="grid flex-auto  relative md:min-w-[300px]">
             {/* Section content */}
             <div className="flex flex-wrap md:max-w-none items-center space-y-8 md:space-y-0">
               {/* Creatives cards */}
               <div className="w-full " data-aos-id-cards>
                 {/* Column 1 */}
-                <div style={shadowImg}>
+                <div style={shadowImg} className="mx-4 lg:mx-0">
                   {/* Item */}
                   <div
-                    className="text-center "
+                    className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
+                    data-aos-delay="2000"
                   >
                     <img
                       className="w-full h-30 object-cover"
