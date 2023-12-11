@@ -12,10 +12,10 @@ export type Post =
   | {
       id?: string;
       title: string;
-      slug: string;
       summary: string;
       content: string;
-      tags: string[];
+      tags: string;
+      slug?: string;
     }
   | { [k: string]: FormDataEntryValue };
 
@@ -25,5 +25,4 @@ export type FirestorePost = Post & {
   modifiedBy?: PostUser;
   modifiedAt?: Timestamp;
   createdAt: Timestamp;
-  slug?: string;
 };

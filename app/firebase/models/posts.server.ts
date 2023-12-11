@@ -9,13 +9,25 @@ export const collections = {
   posts: () => dataPoint<FirestorePost>("posts"),
 };
 
-export async function getPosts() {
-  const posts = await collections.posts().get();
+const firstPage = 1;
+export async function getPosts(page = 1, pageSize = 10) {
+  page = Math.max(Number(page), firstPage);
+  const posts = await collections
+    .posts()
+    .orderBy("createdAt", "desc")
+    .limit(pageSize)
+    .offset(page === firstPage ? 0 : Number(page - 1) * pageSize)
+    .get();
+
   const postData = posts.docs.map((doc) => {
     return { ...doc.data(), id: doc.id };
   });
 
-  return postData;
+  return {
+    posts: postData,
+    nextPage: page + 1,
+    prevPage: page === firstPage ? firstPage : page - 1,
+  };
 }
 
 export async function getPost(
@@ -23,67 +35,109 @@ export async function getPost(
   collection: CollectionReference<FirestorePost> = collections.posts(),
 ) {
   try {
-    const post = await collection.where("slug", "==", slug).get();
+    const queryResult = await collection.where("slug", "==", slug).get();
 
-    if (post.empty) {
+    if (queryResult.empty) {
       return {
         errorMessage: "No se encontró el post",
       };
     }
 
     const postInfo = {
-      id: post.docs[0]?.id,
-      ...post.docs[0]?.data(),
+      ...queryResult.docs[0]?.data(),
+      id: queryResult.docs[0]?.id, // at the if by error we insert an empty id field in the post, so this return the real id from firebase
     };
 
     return postInfo;
   } catch (error: any) {
     return {
+      error,
       errorMessage: "Algo salio mal al buscar/obtener el post",
     };
   }
 }
 
 export async function createPost(postInfo: Post, image: File, user: PostUser) {
-  invariant(
-    postInfo?.constructor === {}.constructor,
-    `"postInfo" debe ser un objeto, no un ${postInfo && postInfo?.constructor}`,
-  );
+  validateFields(postInfo, image, user);
 
-  invariant(
-    image?.constructor === File,
-    `"image" debe ser un File, no un ${image && image?.constructor}`,
-  );
+  const slug = await defineSlug(postInfo.title, postInfo.slug);
 
-  invariant(
-    user?.constructor === {}.constructor,
-    `"user" debe ser un objeto, no un ${user && user?.constructor}`,
-  );
+  try {
+    const post = await collections.posts().add({
+      ...postInfo,
+      slug,
+      image: await createImageInStorage(image),
+      user,
+      createdAt: Timestamp.now(),
+    });
 
-  const bucket = getStorage().bucket();
-  const buffer = Buffer.from(await image.arrayBuffer());
-
-  await bucket
-    .file(`posts/${image.name}`)
-    .save(buffer, { contentType: image.type });
-
-  const imageUrl = await getDownloadURL(bucket.file(`posts/${image.name}`));
-
-  const post = await collections.posts().add({
-    ...postInfo,
-    image: imageUrl,
-    user,
-    createdAt: Timestamp.now(),
-  });
-
-  return post.id;
+    return { id: post.id, slug };
+  } catch (error: any) {
+    return {
+      error,
+      errorMessage: "Algo salio mal al crear el post",
+    };
+  }
 }
 
-export async function updatePost(postInfo: Post, image: any, user: PostUser) {
-  if (postInfo.id === undefined) {
-    throw new Error("No se puede actualizar un post sin su id");
+export async function updatePost(
+  id: string,
+  postInfo: Post,
+  image: File | null,
+  user: PostUser,
+) {
+  invariant(id, "No se puede actualizar un post sin su id");
+  invariant(postInfo.slug, "No se puede actualizar un post sin su slug");
+
+  validateFields(postInfo, image, user);
+
+  let editingPost = { slug: postInfo.slug };
+  if (image) {
+    const downloadURL = await createImageInStorage(image);
+    editingPost.image = downloadURL;
   }
 
+  try {
+    const result = await collections
+      .posts()
+      .doc(id)
+      .update({
+        ...postInfo,
+        ...editingPost,
+        modifiedBy: user,
+        modifiedAt: Timestamp.now(),
+      });
+
+    return result.writeTime;
+  } catch (error: any) {
+    return {
+      error,
+      errorMessage: "Algo salio mal al crear el post",
+    };
+  }
+}
+
+export async function createSlug(
+  title: string,
+  collection: CollectionReference<FirestorePost> = collections.posts(),
+) {
+  const slug = title
+    .toLowerCase()
+    .normalize("NFD") // Normal Form Decomposition, convierte un character en dos o más, por ejemplo, su forma base y su acento
+    .replace(/[\u0300-\u036f]/g, "") // Remueve los acentos de las letras (diacríticos)
+    .replace(/[^a-z0-9]+/g, "-") // Remueve los carácteres que no sean letras o números, (incluyendo acentos)
+    .replace(/(^-|-$)+/g, ""); // Remueve los guiones al inicio y al final
+
+  const doc = await collection.where("slug", "==", slug).get();
+
+  if (doc.size) {
+    return `${slug}-${doc.size}`;
+  }
+
+  return slug;
+}
+
+function validateFields(postInfo: Post, image: any, user: PostUser) {
   invariant(
     postInfo?.constructor === {}.constructor,
     `"postInfo" debe ser un objeto, no un ${postInfo && postInfo?.constructor}`,
@@ -101,28 +155,29 @@ export async function updatePost(postInfo: Post, image: any, user: PostUser) {
     `"user" debe ser un objeto, no un ${user && user?.constructor}`,
   );
 
-  let editingPost = {};
-  if (image) {
-    const bucket = getStorage().bucket();
-    const buffer = Buffer.from(await image.arrayBuffer());
+  invariant(postInfo.title, "El título es requerido");
+  invariant(postInfo.summary, "El resumen es requerido");
+  invariant(postInfo.tags, "Los tags son requeridos");
+  invariant(postInfo.content, "El contenido es requerido");
+}
 
-    await bucket
-      .file(`posts/${image.name}`)
-      .save(buffer, { contentType: image.type });
-
-    editingPost.image = await getDownloadURL(
-      bucket.file(`posts/${image.name}`),
-    );
+async function defineSlug(title, slug) {
+  if (!slug || slug?.trim() === "") {
+    slug = await createSlug(title, collections.posts());
   }
-  const post = await collections
-    .posts()
-    .doc(postInfo.id)
-    .update({
-      ...postInfo,
-      ...editingPost,
-      modifiedBy: user,
-      modifiedAt: Timestamp.now(),
-    });
 
-  return post.id;
+  return slug;
+}
+
+async function createImageInStorage(image: File) {
+  const bucket = getStorage().bucket();
+  const buffer = Buffer.from(await image.arrayBuffer());
+
+  await bucket
+    .file(`posts/${image.name}`)
+    .save(buffer, { contentType: image.type });
+
+  const imageUrl = await getDownloadURL(bucket.file(`posts/${image.name}`));
+
+  return imageUrl;
 }

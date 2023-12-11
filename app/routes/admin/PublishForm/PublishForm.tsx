@@ -26,6 +26,7 @@ export default function PublishForm({ mode = "create" }) {
     const [preview, setPreview] = useState(post?.content || "");
     const [summary, setSummary] = useState(post?.summary || "");
     const [tags, setTags] = useState(post?.tags || "");
+
     const titleRef = useRef<HTMLInputElement>(null);
     const slugRef = useRef<HTMLInputElement>(null);
     const contentRef = useRef<HTMLTextAreaElement>(null);
@@ -82,7 +83,7 @@ export default function PublishForm({ mode = "create" }) {
         className="max-md:col-span-12 md:col-span-6"
         encType="multipart/form-data"
       >
-        <h1 className="mb-4">Creating:</h1>
+        <h1 className="mb-4">{mode === "edit" ? "Editar" : "Publicar"}:</h1>
 
         {errors?.id ? (
           <div className={errorClassName}>
@@ -94,7 +95,7 @@ export default function PublishForm({ mode = "create" }) {
         <input type="hidden" name="id" value={post?.id} />
 
         <TextField
-          label="Post Title: "
+          label="Título: "
           ref={titleRef}
           required={true}
           autoFocus={true}
@@ -108,23 +109,6 @@ export default function PublishForm({ mode = "create" }) {
           onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setTitle(e.target.value)
           }
-        />
-
-        <TextField
-          label="Post tags: "
-          required={true}
-          autoFocus={true}
-          name="tags"
-          type="text"
-          autoComplete="tags"
-          error={errors?.tags}
-          isInvalid={errors?.tags ? true : undefined}
-          aria-describedby="tags-error"
-          ref={tagsRef}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => {
-            setTags(e.target.value);
-          }}
-          value={tags}
         />
 
         <TextField
@@ -145,7 +129,24 @@ export default function PublishForm({ mode = "create" }) {
         />
 
         <TextField
-          label="Summary: "
+          label="Etiquetas: "
+          required={true}
+          autoFocus={true}
+          name="tags"
+          type="text"
+          autoComplete="tags"
+          error={errors?.tags}
+          isInvalid={errors?.tags ? true : undefined}
+          aria-describedby="tags-error"
+          ref={tagsRef}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setTags(e.target.value);
+          }}
+          value={tags}
+        />
+
+        <TextField
+          label="Resumen: "
           required={true}
           autoFocus={true}
           name="summary"
@@ -162,7 +163,7 @@ export default function PublishForm({ mode = "create" }) {
 
         <div className="mb-4">
           <label htmlFor="content">
-            Content in "markdown" format:
+            Contenido en formato "markdown":
             {errors?.content ? (
               <div className={errorClassName} id="slug-content">
                 <XcircleSolidIcon />
@@ -224,7 +225,7 @@ export default function PublishForm({ mode = "create" }) {
           >
             {isSubmitting
               ? mode === "edit"
-                ? "Editando`..."
+                ? "Editando..."
                 : "Creando"
               : mode === "edit"
               ? "Editar Post"

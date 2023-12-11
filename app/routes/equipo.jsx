@@ -44,7 +44,7 @@ export default function Equipo() {
   return (
     <div>
       <section>
-        <div className="bg-gray-900 mb-12">
+        <div className="bg-gray-900">
           <div className="max-w-6xl mx-auto px-4 relative">
             {/* Illustration behind hero content */}
             <div
@@ -125,12 +125,8 @@ export default function Equipo() {
         </h1>
       </div>
 
-      <section>
-        <div
-          className="max-w-7xl mx-4 lg:mx-auto"
-          data-aos="fade-right"
-          data-aos-delay="1000"
-        >
+      <section className="max-w-7xl lg:mx-auto px-4">
+        <div data-aos="fade-right" data-aos-delay="1000">
           <div className="pb-4">
             <div className="relative">
               {/* Gray box */}
@@ -151,7 +147,9 @@ export default function Equipo() {
                   <div className="relative pt-5">
                     <h2 className="mb-4 text-2xl lg:text-3xl font-heading">
                       Colabora y{" "}
-                      <span className="font-serif italic text-2xl lg:text-3xl">aprende</span>
+                      <span className="font-serif italic text-2xl lg:text-3xl">
+                        aprende
+                      </span>
                     </h2>
                     <h4 className="mb-4 text-base sm:text-justify">
                       En esta fase, trabajamos juntos como equipo, escuchamos
@@ -182,7 +180,10 @@ export default function Equipo() {
                 <div className="lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left pt-5 lg:py-10">
                   <div className="relative pt-5">
                     <h2 className="mb-4 text-2xl lg:text-3xl font-heading">
-                      Crea <span className="font-serif italic text-2xl lg:text-3xl">ASAP</span>
+                      Crea{" "}
+                      <span className="font-serif italic text-2xl lg:text-3xl">
+                        ASAP
+                      </span>
                     </h2>
                     <h4 className="mb-4 text-base sm:text-justify">
                       Una vez entendida tu visión, avanzamos rápidamente en el
@@ -230,7 +231,9 @@ export default function Equipo() {
                   </div>
                   <div className="relative pt-5">
                     <h2 className="mb-4 text-2xl lg:text-3xl font-heading">
-                      <span className="font-serif italic text-2xl lg:text-3xl">Retroalimenta</span>
+                      <span className="font-serif italic text-2xl lg:text-3xl">
+                        Retroalimenta
+                      </span>
                     </h2>
                     <h4 className="mb-4 text-base sm:text-justify">
                       En esta etapa, tu opinión y la de tus usuarios son
@@ -261,7 +264,10 @@ export default function Equipo() {
                 <div className="lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left pt-5 lg:py-10">
                   <div className="relative pt-5">
                     <h2 className="mb-4 text-2xl lg:text-3xl font-heading">
-                      Adapta / <span className="font-serif italic text-2xl lg:text-3xl">Mejora</span>
+                      Adapta /{" "}
+                      <span className="font-serif italic text-2xl lg:text-3xl">
+                        Mejora
+                      </span>
                     </h2>
                     <h4 className="mb-4 text-base sm:text-justify">
                       "Nos adaptamos al cambio constante en el mundo digital,
@@ -286,55 +292,53 @@ export default function Equipo() {
         </div>
       </section>
 
-      <section>
-        <div className="relative max-w-7xl mx-auto" >
-          {/* Background image */}
-          <div className="absolute inset-0">
-            <img
-              className="w-full h-full object-cover"
-              src={team}
-              width={1440}
-              height={394}
-              alt="About"
-            />
-            <div
-              className="absolute inset-0 bg-gray-900 opacity-75"
-              aria-hidden="true"
-            ></div>
-          </div>
-          {/* Hero content */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
-            <div className="pt-20 pb-20">
-              <div className="max-w-3xl mx-auto text-center">
-                <h1 className="text-5xl text-white tracking-tight mx-4 md:text-7xl font-bold">
-                  <span
-                    className="font-heading"
-                    data-aos="fade-up"
-                    data-aos-delay="800"
-                  >
-                    Conoce nuestro{" "}
-                  </span>
-                  <span
-                    className="font-serif italic"
-                    data-aos="fade-up"
-                    data-aos-delay="400"
-                  >
-                    equipo
-                  </span>
-                </h1>
-                <p
-                  className="text-xl text-gray-300 pt-5"
+      <section className="relative max-w-7xl mx-auto px-4 pb-12">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            className="w-full h-full object-cover"
+            src={team}
+            width={1440}
+            height={394}
+            alt=""
+          />
+          <div
+            className="absolute inset-0 bg-gray-900 opacity-75"
+            aria-hidden="true"
+          ></div>
+        </div>
+        {/* Hero content */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
+          <div className="pt-20 pb-20">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="text-5xl text-white tracking-tight mx-4 md:text-7xl font-bold">
+                <span
+                  className="font-heading"
                   data-aos="fade-up"
-                  data-aos-delay="200"
+                  data-aos-delay="800"
                 >
-                  Permitimos a los desarrolladores crear cosas increibles
-                </p>
-              </div>
+                  Conoce nuestro{" "}
+                </span>
+                <span
+                  className="font-serif italic"
+                  data-aos="fade-up"
+                  data-aos-delay="400"
+                >
+                  equipo
+                </span>
+              </h1>
+              <p
+                className="text-xl text-gray-300 pt-5"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                Permitimos a los desarrolladores crear cosas increibles
+              </p>
             </div>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto flex flex-wrap  gap-8 mt-10 relative items-center mb-12">
+        <div className="max-w-7xl mx-auto flex flex-wrap  gap-8 mt-10 relative items-center pb-12">
           <div className="grid flex-auto relative md:min-w-[300px]">
             {/* Section content */}
             <div className="md:max-w-none items-center space-y-8 md:space-y-0">

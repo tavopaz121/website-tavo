@@ -11,11 +11,10 @@ import type { CardProps } from "./Card/Card.d";
 import Sidebar from "~/components/Blog/sidebar";
 
 export async function loader({ request }: LoaderArgs) {
-  const posts = await getPosts();
-
-
-
-  return json({ posts: mapPostsToCards(posts) });
+  const url = new URL(request.url);
+  const numPage = Number(url.searchParams.get("pagina"));
+  const { posts, nextPage, prevPage } = await getPosts(numPage);
+  return json({ posts: mapPostsToCards(posts), nextPage, prevPage });
 }
 
 export default function Blog() {
