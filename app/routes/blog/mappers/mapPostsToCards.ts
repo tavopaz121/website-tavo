@@ -23,6 +23,8 @@ export function mapPostsToCards(posts: FirestorePost[]) {
         hour12: true,
       }),
       user: item.user,
+      summary: item.summary,
+      tags: item.tags,
       to:
         item.slug ??
         `${item.title?.toLowerCase()?.replace(/\s/g, "-")}-${item.id}`,
