@@ -17,20 +17,30 @@
 }
 
 .slug-blog .slug-blog-content h2 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
-@media (max-width: 787px) {
+.slug-blog .slug-blog-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
   .slug-blog h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     line-height: 2.5rem;
     margin-bottom: 2rem;
   }
 
   .slug-blog .slug-blog-content h2 {
     font-size: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .slug-blog .slug-blog-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -38,6 +48,7 @@
 .slug-blog .slug-blog-content p {
   font-size: 1.125rem;
   margin-bottom: 1rem;
+  letter-spacing: 0.6px;
 }
 
 .slug-blog .slug-blog-content strong {
@@ -54,4 +65,27 @@
 .slug-blog .slug-blog-content li {
   font-size: 1.125rem;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+  .slug-blog .slug-blog-content p {
+    font-size: medium;
+    margin-bottom: 0.8rem;
+    letter-spacing: normal;
+    text-align: justify;
+  }
+
+  .slug-blog .slug-blog-content ul {
+    font-size: medium;
+    padding-left: 28px;
+  }
+
+  .slug-blog .slug-blog-content li {
+    font-size: medium;
+    margin-bottom: 0.2rem;
+  }
+}
+
+.slug-blog code {
+  @apply bg-gray-800 text-white font-light px-2 py-1 rounded;
 }

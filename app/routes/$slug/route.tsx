@@ -3,12 +3,13 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { BiLeftArrowAlt } from "react-icons/bi";
 import { getPost } from "~/firebase/models/posts.server";
 import { marked } from "marked";
+import Prism from "prismjs";
 import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
+import { useEffect } from "react";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
-  console.log(params);
 
   const post: Post = await getPost(slug || "");
 
@@ -66,6 +67,10 @@ export default function SlugRoute() {
   const { post, html } = useLoaderData();
 
   const { image, title } = post;
+
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
 
   return (
     <div className="px-4 mt-10 py-20 container-slug-blg">
