@@ -9,8 +9,8 @@ export default function SvgContainer({
   return (
     <svg
       fill={color || "#000000"}
-      height={width || "800px"}
-      width={height || "800px"}
+      height={width || "50"}
+      width={height || "50"}
       aria-label={title}
       role="img"
       {...props}
