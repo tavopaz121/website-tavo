@@ -6,6 +6,20 @@
 
 .slug-blog {
   font-family: CabinetGrotesk, Sora, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  max-width: 1024px;
+  padding: 0 4rem;
+}
+
+@media (max-width:767px) {
+  .slug-blog {
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width:374px) {
+  .slug-blog {
+    padding: 0;
+  }
 }
 
 .slug-blog h1 {
@@ -17,13 +31,13 @@
 }
 
 .slug-blog .slug-blog-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  margin: 1.5rem 0;
 }
 
 .slug-blog .slug-blog-content h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width: 767px) {
@@ -34,16 +48,17 @@
   }
 
   .slug-blog .slug-blog-content h2 {
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 1.2rem;
+    line-height: 1.4rem;
   }
 
   .slug-blog .slug-blog-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    line-height: 1.2rem;
   }
 }
-
 
 .slug-blog .slug-blog-content p {
   font-size: 1.125rem;
@@ -72,7 +87,6 @@
     font-size: medium;
     margin-bottom: 0.8rem;
     letter-spacing: normal;
-    text-align: justify;
   }
 
   .slug-blog .slug-blog-content ul {
@@ -86,6 +100,21 @@
   }
 }
 
+@media (max-width:425px) {
+  .slug-blog .slug-blog-content p {
+    text-align: justify;
+  }
+}
+
 .slug-blog code {
-  @apply bg-gray-800 text-white font-light px-2 py-1 rounded;
+  @apply bg-gray-800 text-white px-2 rounded;
+  display: inline-block;
+  font-weight: 100;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+@media (max-width:425px) {
+  .slug-blog code {
+    font-size: small;
+  }
 }

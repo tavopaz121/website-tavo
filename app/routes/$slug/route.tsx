@@ -1,12 +1,10 @@
 import { json, type LoaderArgs } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { BiLeftArrowAlt } from "react-icons/bi";
 import { getPost } from "~/firebase/models/posts.server";
 import { marked } from "marked";
-import Prism from "prismjs";
 import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
@@ -68,13 +66,9 @@ export default function SlugRoute() {
 
   const { image, title } = post;
 
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
   return (
     <div className="px-4 mt-10 py-20 container-slug-blg">
-      <article className="mx-auto max-w-4xl slug-blog">
+      <article className="mx-auto slug-blog">
         <h1 className="font-bold">{title}</h1>
         <figure className="relative block max-w-xl mx-auto text-center mb-12">
           <img
