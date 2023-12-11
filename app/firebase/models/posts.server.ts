@@ -9,13 +9,25 @@ export const collections = {
   posts: () => dataPoint<FirestorePost>("posts"),
 };
 
-export async function getPosts() {
-  const posts = await collections.posts().get();
+const firstPage = 1;
+export async function getPosts(page = 1, pageSize = 10) {
+  page = Math.max(Number(page), firstPage);
+  const posts = await collections
+    .posts()
+    .orderBy("createdAt", "desc")
+    .limit(pageSize)
+    .offset(page === firstPage ? 0 : Number(page - 1) * pageSize)
+    .get();
+
   const postData = posts.docs.map((doc) => {
     return { ...doc.data(), id: doc.id };
   });
 
-  return postData;
+  return {
+    posts: postData,
+    nextPage: page + 1,
+    prevPage: page === firstPage ? firstPage : page - 1,
+  };
 }
 
 export async function getPost(
