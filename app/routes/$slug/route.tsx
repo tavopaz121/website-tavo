@@ -76,7 +76,7 @@ export default function SlugRoute() {
             loading="lazy"
             src={image}
             alt={title}
-            className="rounded-xl block mx-auto max-w-7xl"
+            className="rounded-xl block mx-auto"
           />
         </figure>
 

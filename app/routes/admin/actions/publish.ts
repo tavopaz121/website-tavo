@@ -37,12 +37,14 @@ export function getPublishAction(mode: string) {
       return json<ActionData>(errors);
     }
 
+    const tagList = tags.split(",").map((tag) => tag.trim());
+
     const postInfo: Post = {
       title,
       slug,
       content,
       summary,
-      tags,
+      tags: tagList,
     };
 
     const user = {

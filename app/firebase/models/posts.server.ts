@@ -23,10 +23,13 @@ export async function getPosts(page = 1, pageSize = 10) {
     return { ...doc.data(), id: doc.id };
   });
 
+  const total = (await collections.posts().count().get()).data().count;
+
   return {
     posts: postData,
     nextPage: page + 1,
     prevPage: page === firstPage ? firstPage : page - 1,
+    total: total,
   };
 }
 

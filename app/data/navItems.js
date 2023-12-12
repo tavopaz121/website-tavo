@@ -4,7 +4,7 @@ export const items = [
   { to: "/proyectos", label: "Proyectos" },
   { to: "/equipo", label: "Equipo" },
   { to: "/contacto", label: "Contacto" },
-  { to: "https://pensemosweb.com", label: "Blog", target: "_blank" },
+  { to: "/blog", label: "Blog" },
 ];
 
 export const secondaryItems = [

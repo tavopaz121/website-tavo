@@ -1,7 +1,16 @@
 .container-slug-blg {
   background-color: rgb(16, 16, 20);
+  /* color: white; */
+  color: rgb(200 200 200);
+}
+
+.slug-blog h1,
+.slug-blog h2,
+.slug-blog h3,
+.slug-blog h4,
+.slug-blog h5,
+.slug-blog h6 {
   color: white;
-  /* color: rgb(200 200 200); */
 }
 
 .slug-blog {
@@ -144,4 +153,8 @@
 
 .slug-blog-content strong code {
   font-weight: bold;
+}
+
+.slug-blog-content pre code {
+  width: 100%;
 }
