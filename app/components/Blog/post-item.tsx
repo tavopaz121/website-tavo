@@ -44,7 +44,11 @@ export default function PostItem({
       </header>
       <p className="text-lg text-gray-400 grow line-clamp-2">{summary}</p>
       <footer className="flex items-center mt-4">
-        <a href="/">
+        <a
+          href="https://www.facebook.com/jaime.cervantes"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img
             className="rounded-full shrink-0 mr-4"
             src={authorImg}
@@ -55,7 +59,9 @@ export default function PostItem({
         </a>
         <div className="font-medium">
           <a
-            href="/"
+            href="https://www.facebook.com/jaime.cervantes"
+            target="_blank"
+            rel="noreferrer"
             className="text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out"
           >
             {author}

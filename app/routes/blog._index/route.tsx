@@ -16,13 +16,12 @@ export async function loader({ request }: LoaderArgs) {
   const numPage = Number(url.searchParams.get("pagina"));
   const { posts, nextPage, prevPage, total } = await getPosts(numPage);
 
-
   return json({ posts: mapPostsToCards(posts), nextPage, prevPage, total });
 }
 
 export default function Blog() {
   const loaderData = useLoaderData();
-  const { posts, total} = loaderData;
+  const { posts, total } = loaderData;
 
   const featuredPost = posts[0];
 
@@ -78,7 +77,11 @@ export default function Blog() {
                     {featuredPost.summary}
                   </p>
                   <footer className="flex items-center mt-4">
-                    <a href="/">
+                    <a
+                      href="https://www.facebook.com/jaime.cervantes"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <img
                         className="rounded-full shrink-0 mr-4"
                         src={featuredPost.user.photoURL}
@@ -89,7 +92,9 @@ export default function Blog() {
                     </a>
                     <div>
                       <a
-                        href="/"
+                        href="https://www.facebook.com/jaime.cervantes"
+                        target="_blank"
+                        rel="noreferrer"
                         className="font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out"
                       >
                         {featuredPost.user.displayName}
@@ -158,7 +163,7 @@ export default function Blog() {
               </div>
             </section>
 
-            <Pagination currentPage={1} numPages={total}/>
+            <Pagination currentPage={1} numPages={total} />
           </div>
         </div>
       </section>
