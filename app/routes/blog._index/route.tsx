@@ -9,17 +9,19 @@ import PageIllustration from "~/components/Blog/page-illustration";
 import PostItem from "~/components/Blog/post-item";
 import type { CardProps } from "./Card/Card.d";
 import Sidebar from "~/components/Blog/sidebar";
+import Pagination from "~/components/Blog/pagination";
 
 export async function loader({ request }: LoaderArgs) {
   const url = new URL(request.url);
   const numPage = Number(url.searchParams.get("pagina"));
-  const { posts, nextPage, prevPage } = await getPosts(numPage);
-  return json({ posts: mapPostsToCards(posts), nextPage, prevPage });
+  const { posts, nextPage, prevPage, total } = await getPosts(numPage);
+
+  return json({ posts: mapPostsToCards(posts), nextPage, prevPage, total });
 }
 
 export default function Blog() {
   const loaderData = useLoaderData();
-  const { posts } = loaderData;
+  const { posts, total } = loaderData;
 
   const featuredPost = posts[0];
 
@@ -56,9 +58,11 @@ export default function Blog() {
                 <div data-aos="fade-left" data-aos-delay="200">
                   <header>
                     <div className="mb-3">
-                      <div className="mb-3">
-                        <PostTags tags={featuredPost.tags?.split(",")} />
-                      </div>
+                      {featuredPost?.tags && (
+                        <div className="mb-3">
+                          <PostTags tags={featuredPost?.tags} />
+                        </div>
+                      )}
                     </div>
                     <h3 className="h3 text-2xl lg:text-3xl mb-2">
                       <a
@@ -73,7 +77,11 @@ export default function Blog() {
                     {featuredPost.summary}
                   </p>
                   <footer className="flex items-center mt-4">
-                    <a href="/">
+                    <a
+                      href="https://www.facebook.com/jaime.cervantes"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <img
                         className="rounded-full shrink-0 mr-4"
                         src={featuredPost.user.photoURL}
@@ -84,7 +92,9 @@ export default function Blog() {
                     </a>
                     <div>
                       <a
-                        href="/"
+                        href="https://www.facebook.com/jaime.cervantes"
+                        target="_blank"
+                        rel="noreferrer"
                         className="font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out"
                       >
                         {featuredPost.user.displayName}
@@ -137,7 +147,7 @@ export default function Blog() {
                                 createdAt={createdAt}
                                 authorImg={user.photoURL}
                                 author={user.displayName}
-                                tags={tags.split(",")}
+                                tags={tags}
                                 imageSrc={image.src}
                                 imageAlt={image.alt}
                                 summary={summary}
@@ -153,65 +163,7 @@ export default function Blog() {
               </div>
             </section>
 
-            {/*  Pagination */}
-            <nav
-              className="flex justify-center pt-16"
-              role="navigation"
-              aria-label="Pagination Navigation"
-            >
-              <ul className="inline-flex flex-wrap font-medium text-sm -m-1">
-                <li className="m-1">
-                  <span className="inline-flex h-10 min-w-[2.5rem] justify-center items-center bg-gray-800 px-4 rounded-full text-gray-500">
-                    Prev
-                  </span>
-                </li>
-                <li className="m-1">
-                  <a
-                    href="/"
-                    className="inline-flex h-10 min-w-[2.5rem] justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-pink-600 transition-colors duration-150 ease-in-out"
-                  >
-                    1
-                  </a>
-                </li>
-                <li className="m-1">
-                  <a
-                    href="/"
-                    className="inline-flex h-10 min-w-[2.5rem] justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-pink-600 transition-colors duration-150 ease-in-out"
-                  >
-                    2
-                  </a>
-                </li>
-                <li className="m-1">
-                  <a
-                    href="/"
-                    className="inline-flex h-10 min-w-[2.5rem] justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-pink-600 transition-colors duration-150 ease-in-out"
-                  >
-                    3
-                  </a>
-                </li>
-                <li className="m-1">
-                  <span className="inline-flex h-10 min-w-[2.5rem] justify-center items-center bg-gray-800 px-2 rounded-full text-gray-500">
-                    ...
-                  </span>
-                </li>
-                <li className="m-1">
-                  <a
-                    href="/"
-                    className="inline-flex h-10 min-w-[2.5rem] justify-center items-center bg-gray-800 px-2 rounded-full text-gray-300 hover:bg-pink-600 transition-colors duration-150 ease-in-out"
-                  >
-                    12
-                  </a>
-                </li>
-                <li className="m-1">
-                  <a
-                    href="/"
-                    className="inline-flex h-10 min-w-[2.5rem] justify-center items-center bg-gray-800 px-4 rounded-full text-gray-300 hover:bg-pink-600 transition-colors duration-150 ease-in-out"
-                  >
-                    Next
-                  </a>
-                </li>
-              </ul>
-            </nav>
+            <Pagination currentPage={1} numPages={total} />
           </div>
         </div>
       </section>
