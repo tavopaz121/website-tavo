@@ -2,23 +2,22 @@ import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/firebase/models/posts.server";
-import { mapPostsToCards } from "./mappers/mapPostsToCards";
+import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
 import PostDate from "~/components/Blog/post-date";
 import PostTags from "~/components/Blog/post-tags";
 import PageIllustration from "~/components/Blog/page-illustration";
 import PostItem from "~/components/Blog/post-item";
-import type { CardProps } from "./Card/Card.d";
+import type { CardProps } from "../blog._index/Card/Card.d";
 import Sidebar from "~/components/Blog/sidebar";
 
-export async function loader({ request }: LoaderArgs) {
-  const url = new URL(request.url);
-  const numPage = Number(url.searchParams.get("pagina"));
+export async function loader({ request, params }: LoaderArgs) {
+  const numPage = Number(params.page);
   const { posts, nextPage, prevPage } = await getPosts(numPage);
   return json({ posts: mapPostsToCards(posts), nextPage, prevPage });
 }
 
-export default function Blog() {
-  const loaderData = useLoaderData();
+export default function BlogPagination() {
+  const loaderData = useLoaderData<typeof loader>();
   const { posts } = loaderData;
 
   const featuredPost = posts[0];
@@ -57,7 +56,7 @@ export default function Blog() {
                   <header>
                     <div className="mb-3">
                       <div className="mb-3">
-                        <PostTags tags={featuredPost.tags?.split(",")} />
+                        <PostTags tags={featuredPost.tags} />
                       </div>
                     </div>
                     <h3 className="h3 text-2xl lg:text-3xl mb-2">
@@ -137,7 +136,7 @@ export default function Blog() {
                                 createdAt={createdAt}
                                 authorImg={user.photoURL}
                                 author={user.displayName}
-                                tags={tags.split(",")}
+                                tags={tags}
                                 imageSrc={image.src}
                                 imageAlt={image.alt}
                                 summary={summary}

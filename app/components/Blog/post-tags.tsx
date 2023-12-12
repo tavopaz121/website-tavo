@@ -18,7 +18,7 @@ export default function PostTags({ tags }: { tags: string[] }) {
 
   return (
     <ul className="flex flex-wrap text-xs font-medium -m-1">
-      {tags.map((tag, tagIndex) => (
+      {tags?.map((tag, tagIndex) => (
         <li key={tagIndex} className="m-1">
           <a
             href={`/category/${tag}`}
@@ -33,4 +33,3 @@ export default function PostTags({ tags }: { tags: string[] }) {
     </ul>
   );
 }
-
