@@ -1,0 +1,16 @@
+export const tagColor = {
+  javascript: "text-gray-100 bg-yellow-500 hover:bg-yellow-600",
+  "node-js": "text-gray-100 bg-yellow-500 hover:bg-yellow-600",
+  react: "text-gray-100 bg-blue-500 hover:bg-blue-600",
+  linux: "text-gray-100 bg-blue-500 hover:bg-blue-600",
+  jsx: "text-gray-100 bg-sky-500 hover:bg-sky-600",
+  redux: "text-gray-100 bg-purple-500 hover:bg-purple-600",
+  memoizacion: "text-gray-100 bg-green-500 hover:bg-green-600",
+  html: "text-gray-100 bg-red-500 hover:bg-red-600",
+  git: "text-gray-100 bg-red-500 hover:bg-red-600",
+  usecallback: "text-gray-100 bg-orange-500 hover:bg-orange-600",
+  usememo: "text-gray-100 bg-lime-500 hover:bg-lime-600",
+  useeffect: "text-gray-100 bg-emerald-500 hover:bg-emerald-600",
+  windows: "text-gray-100 bg-blue-500 hover:bg-blue-600",
+  macos: "text-gray-100 bg-slate-500 hover:bg-slate-600",
+};

@@ -16,7 +16,7 @@ export default function PostItem({
   return (
     <article className="flex flex-col h-full" data-aos="fade-up">
       <header>
-        <a href={to} className="block mb-6">
+        <a href={`/${to}`} className="block mb-6">
           <figure className="relative h-0 pb-[56.25%] overflow-hidden rounded-sm">
             <img
               className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out"
@@ -35,7 +35,7 @@ export default function PostItem({
         )}
         <h3 className="h4 mb-2">
           <a
-            href={to}
+            href={`/${to}`}
             className="hover:text-gray-300 text-white transition duration-150 ease-in-out"
           >
             {title}

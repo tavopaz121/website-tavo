@@ -7,7 +7,7 @@ export type CardProps = {
   createdAt: string;
   user: {photoURL: string, displayName: string}
   image: { src: string; alt: string };
-  tags: string;
+  tags: string[];
   summary: string;
   className?: string;
   Container?: ElementType;
