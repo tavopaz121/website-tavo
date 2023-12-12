@@ -57,7 +57,7 @@ export default function Blog() {
                   <header>
                     <div className="mb-3">
                       <div className="mb-3">
-                        <PostTags tags={featuredPost.tags} />
+                        <PostTags tags={featuredPost?.tags || []} />
                       </div>
                     </div>
                     <h3 className="h3 text-2xl lg:text-3xl mb-2">

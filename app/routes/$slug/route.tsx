@@ -70,19 +70,19 @@ export default function SlugRoute() {
     <div className="px-4 mt-10 py-20 container-slug-blg">
       <article className="mx-auto slug-blog">
         <h1 className="font-bold">{title}</h1>
-        <figure className="relative block max-w-xl mx-auto text-center mb-12">
+        <figure className="relative text-center mb-12">
           <img
             decoding="async"
             loading="lazy"
             src={image}
             alt={title}
-            className="rounded-xl"
+            className="rounded-xl block mx-auto max-w-7xl"
           />
         </figure>
 
         <section
           id="slug-content"
-          className="slug-blog-content"
+          className="slug-blog-content max-w-7xl mx-auto"
           dangerouslySetInnerHTML={{ __html: html }}
         ></section>
       </article>
