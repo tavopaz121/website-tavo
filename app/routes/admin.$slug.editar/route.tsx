@@ -3,10 +3,12 @@ import type { Post } from "~/types/publish";
 import { json, type LoaderArgs } from "@remix-run/node";
 import PublishForm from "../admin/PublishForm/PublishForm";
 import { getPublishAction } from "../admin/actions/publish";
+import type { FormDataEntryValue } from "types/form-data";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
-  const post: Post = await getPost(slug || "");
+
+  const post: Post | FormDataEntryValue = await getPost(slug || "");
 
   const content: string | undefined = post.content as string;
 

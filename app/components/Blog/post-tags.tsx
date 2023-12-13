@@ -20,4 +20,3 @@ export default function PostTags({ tags }: { tags: string[] }) {
     </ul>
   );
 }
-
