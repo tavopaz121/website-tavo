@@ -1,6 +1,5 @@
 .container-slug-blg {
   background-color: rgb(16, 16, 20);
-  /* color: white; */
   color: rgb(200 200 200);
 }
 
@@ -29,18 +28,6 @@
     "Segoe UI Emoji",
     "Segoe UI Symbol",
     "Noto Color Emoji";
-}
-
-@media (max-width: 767px) {
-  .slug-blog {
-    /* padding: 0 0.5rem; */
-  }
-}
-
-@media (max-width: 374px) {
-  .slug-blog {
-    /* padding: 0; */
-  }
 }
 
 .slug-blog h1 {
