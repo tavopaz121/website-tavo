@@ -4,6 +4,11 @@ import { getPost } from "~/firebase/models/posts.server";
 import { marked } from "marked";
 import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
+
+// Importa los estilos de highlight.js
+import styleCode from "highlight.js/styles/atom-one-dark.css";
+// Importa highlight.js
+import hljs from "highlight.js";
 import { useEffect, useRef, useState } from "react";
 
 export async function loader({ params }: LoaderArgs) {
@@ -27,7 +32,10 @@ export async function loader({ params }: LoaderArgs) {
 }
 
 export function links() {
-  return [{ rel: "stylesheet", href: stylesSlug, content: "text/css" }];
+  return [
+    { rel: "stylesheet", href: stylesSlug, content: "text/css" },
+    { rel: "stylesheet", href: styleCode, content: "text/css" },
+  ];
 }
 
 export function meta({ data, params }: any) {
@@ -62,9 +70,16 @@ export function meta({ data, params }: any) {
 }
 
 export default function SlugRoute() {
+  const [change, setChange] = useState(false);
   const { post, html } = useLoaderData();
+  const contentBlog = useRef(null);
 
   const { image, title } = post;
+
+  useEffect(() => {
+    hljs.highlightAll();
+    setChange(!change);
+  }, []);
 
   return (
     <div className="px-4 mt-10 py-20 container-slug-blg">
@@ -81,6 +96,7 @@ export default function SlugRoute() {
         </figure>
 
         <section
+          ref={contentBlog}
           id="slug-content"
           className="slug-blog-content max-w-7xl mx-auto"
           dangerouslySetInnerHTML={{ __html: html }}
