@@ -17,7 +17,7 @@ export default function PostItem({
   return (
     <article className="flex flex-col h-full" data-aos="fade-up">
       <header>
-        <a href={`/${to}`} className="block mb-6">
+        <Link to={`/${to}`} className="block mb-6">
           <figure className="relative h-0 pb-[56.25%] overflow-hidden rounded-sm">
             <img
               className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out"
@@ -27,7 +27,7 @@ export default function PostItem({
               alt={imageAlt}
             />
           </figure>
-        </a>
+        </Link>
 
         {tags && (
           <div className="mb-3">
