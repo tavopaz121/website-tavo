@@ -1,6 +1,7 @@
 import PostDate from "../post-date";
 import PostTags from "../post-tags";
 import type { FeaturedArticleProps } from "./featuredArticle.d";
+import { Link } from "@remix-run/react";
 
 export default function FeaturesArticle({
   to,
@@ -16,8 +17,8 @@ export default function FeaturesArticle({
   return (
     <div className="pb-12 md:pb-20">
       <article className="max-w-sm mx-auto md:max-w-none grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center">
-        <a
-          href={to}
+        <Link
+          to={to}
           className="relative block group"
           data-aos="fade-right"
           data-aos-delay="200"
@@ -36,7 +37,7 @@ export default function FeaturesArticle({
               alt={imageAlt}
             />
           </figure>
-        </a>
+        </Link>
         <div data-aos="fade-left" data-aos-delay="200">
           <header>
             <div className="mb-3">
@@ -47,12 +48,12 @@ export default function FeaturesArticle({
               )}
             </div>
             <h3 className="h3 text-2xl lg:text-3xl mb-2">
-              <a
-                href={to}
+              <Link
+                to={to}
                 className="hover:text-gray-300 transition duration-150 ease-in-out text-white"
               >
                 {title}
-              </a>
+              </Link>
             </h3>
           </header>
           <p className="text-lg text-gray-400 grow line-clamp-3">{summary}</p>

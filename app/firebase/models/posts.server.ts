@@ -16,11 +16,13 @@ export async function getPosts(
   by: null | { field: string; operator: string; value: string } = null,
 ) {
   page = Math.max(Number(page), firstPage);
-  let query = collections.posts();
+  let query: any = collections.posts();
 
   if (by?.field && by?.operator && by?.value) {
     query = query.where(by.field, by.operator as WhereFilterOp, by.value);
   }
+
+  const total = (await query.count().get()).data().count;
 
   const posts = await query
     .orderBy("createdAt", "desc")
@@ -31,8 +33,6 @@ export async function getPosts(
   const postData = posts.docs.map((doc) => {
     return { ...doc.data(), id: doc.id };
   });
-
-  const total = (await collections.posts().count().get()).data().count;
 
   return {
     posts: postData,
