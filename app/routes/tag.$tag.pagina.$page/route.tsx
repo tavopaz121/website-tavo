@@ -3,11 +3,11 @@ import { json, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/firebase/models/posts.server";
 import PageIllustration from "~/components/Blog/page-illustration";
-import PostItem from "~/components/Blog/post-item";
-import Sidebar from "~/components/Blog/sidebar";
+import PostItem from "~/components/Blog/PostItem/post-item";
+import Sidebar from "~/components/Siderbar/sidebar";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
 import type { CardProps } from "../blog._index/Card/Card";
-import Pagination from "~/components/Blog/pagination";
+import Pagination from "~/components/Blog/Pagination/pagination";
 
 export async function loader({ request, params }: LoaderArgs) {
   const numPage = Number(params.page || 1);
