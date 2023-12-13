@@ -4,12 +4,10 @@ import { getPost } from "~/firebase/models/posts.server";
 import { marked } from "marked";
 import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
-
-// Importa los estilos de highlight.js
-import styleCode from "highlight.js/styles/atom-one-dark.css";
-// Importa highlight.js
-import hljs from "highlight.js";
 import { useEffect, useRef, useState } from "react";
+
+import styleCode from "highlight.js/styles/atom-one-dark.css";
+import hljs from "highlight.js";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
