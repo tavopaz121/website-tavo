@@ -19,7 +19,7 @@ export default function RootErrorBoundary() {
         <Links />
       </head>
       <body>
-        <main className="pt-[108px]">
+        <main className="pt-[108px] pb-20">
           <Nav items={items} secondaryItems={secondaryItems} />
           <section className="flex flex-wrap relative lg:mx-20">
             <div className="grid relative place-items-center flex-auto">
@@ -38,13 +38,13 @@ export default function RootErrorBoundary() {
               </h4>
             </div>
             {process?.env?.NODE_ENV === "development" && (
-              <h1>
+              <p className="break-words break-all">
                 {isRouteErrorResponse(error)
                   ? `${error.data}. ${error.status} ${error.statusText}.`
                   : error instanceof Error
                   ? error.message
                   : "Unknown Error"}
-              </h1>
+              </p>
             )}
           </section>
         </main>
