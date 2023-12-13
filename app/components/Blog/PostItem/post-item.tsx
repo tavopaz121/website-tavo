@@ -1,5 +1,5 @@
-import PostDate from "./post-date";
-import PostTags from "./post-tags";
+import PostDate from "../post-date";
+import PostTags from "../post-tags";
 import { Link } from "@remix-run/react";
 import type { PostItemProps } from "./post-item.d";
 
