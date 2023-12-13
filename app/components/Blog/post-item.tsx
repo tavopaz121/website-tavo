@@ -1,5 +1,6 @@
 import PostDate from "./post-date";
 import PostTags from "./post-tags";
+import { Link } from "@remix-run/react";
 import type { PostItemProps } from "./post-item.d";
 
 export default function PostItem({
@@ -34,12 +35,12 @@ export default function PostItem({
           </div>
         )}
         <h3 className="h4 mb-2">
-          <a
-            href={`/${to}`}
+          <Link
+            to={`/${to}`}
             className="hover:text-gray-300 text-white transition duration-150 ease-in-out"
           >
             {title}
-          </a>
+          </Link>
         </h3>
       </header>
       <p className="text-lg text-gray-400 grow line-clamp-2">{summary}</p>
@@ -75,4 +76,3 @@ export default function PostItem({
     </article>
   );
 }
-

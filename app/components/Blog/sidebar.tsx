@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 const categorys = [
   "javaScript",
   "React",
@@ -27,12 +28,12 @@ export default function Sidebar() {
         <ul className="-my-3">
           {categorys.map((category, index) => (
             <li className="flex py-3 border-b border-gray-500" key={index}>
-              <a
-                href={`/category/${category}`}
+              <Link
+                to={`/categoria/${category}`}
                 className="text-gray-200 font-bold tracking-tight mb-1 capitalize"
               >
                 {category}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -40,4 +41,3 @@ export default function Sidebar() {
     </aside>
   );
 }
-

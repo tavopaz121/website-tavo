@@ -2,7 +2,7 @@ import { dataPoint } from "../db.server";
 import { getStorage, getDownloadURL } from "firebase-admin/storage";
 import invariant from "tiny-invariant";
 import type { Post, FirestorePost, PostUser } from "~/types/publish";
-import { Timestamp } from "firebase-admin/firestore";
+import { Timestamp, WhereFilterOp } from "firebase-admin/firestore";
 import type { CollectionReference } from "@google-cloud/firestore";
 
 export const collections = {
@@ -10,10 +10,19 @@ export const collections = {
 };
 
 const firstPage = 1;
-export async function getPosts(page = 1, pageSize = 10) {
+export async function getPosts(
+  page: number = 1,
+  pageSize: number = 10,
+  by: null | { field: string; operator: string; value: string } = null,
+) {
   page = Math.max(Number(page), firstPage);
-  const posts = await collections
-    .posts()
+  let query = collections.posts();
+
+  if (by?.field && by?.operator && by?.value) {
+    query = query.where(by.field, by.operator as WhereFilterOp, by.value);
+  }
+
+  const posts = await query
     .orderBy("createdAt", "desc")
     .limit(pageSize)
     .offset(page === firstPage ? 0 : Number(page - 1) * pageSize)
