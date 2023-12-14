@@ -33,7 +33,7 @@ async function loginSetSessionAndRedirectWithCookie(
   const sessionCookie = await loginWithTokenOrEmailPassword(form, idToken);
   const session = await getSession(headers.get("cookie"));
   session.set("session", sessionCookie);
-  return redirect("/", {
+  return redirect("/admin", {
     headers: {
       "Set-Cookie": await commitSession(session),
     },

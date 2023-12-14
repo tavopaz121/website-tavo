@@ -2,7 +2,8 @@ import { dataPoint } from "../db.server";
 import { getStorage, getDownloadURL } from "firebase-admin/storage";
 import invariant from "tiny-invariant";
 import type { Post, FirestorePost, PostUser } from "~/types/publish";
-import { Timestamp, WhereFilterOp } from "firebase-admin/firestore";
+import { Timestamp } from "firebase-admin/firestore";
+import type { WhereFilterOp } from "firebase-admin/firestore";
 import type { CollectionReference } from "@google-cloud/firestore";
 
 export const collections = {
