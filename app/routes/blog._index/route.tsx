@@ -27,7 +27,7 @@ export default function Blog() {
 
   return (
     <>
-      <section className="relative bg-gray-900 px-8">
+      <section className="relative bg-gray-900">
         <PageIllustration />
         <div className="max-w-full mx-auto px-4 sm:px-6">
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
@@ -45,11 +45,11 @@ export default function Blog() {
             />
 
             {/* Articles list */}
-            <ArticlesList posts={posts.slice(1)} title="Ultimos Articulos">
+            <ArticlesList posts={posts.slice(1)} title="Últimos Artículos">
               <Sidebar>
                 <SideBarList
                   listCategorys={listCategorysTags}
-                  title="Categorias"
+                  title="Categorías"
                 />
               </Sidebar>
             </ArticlesList>
