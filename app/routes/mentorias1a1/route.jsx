@@ -3,8 +3,7 @@ import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
 import { items as principles } from "~/data/principles.js";
 import ListaMentorias from "~/components/pages/mentorias1a1/ListaMentorias";
-import MentoriaForm from "./components/MentoriaForm";
-import { Link } from "@remix-run/react";
+import { Link, Outlet } from "@remix-run/react";
 
 import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
@@ -352,7 +351,7 @@ export default function MentoriasRoute() {
         </div>
       </section>
       <ListaMentorias />
-      <MentoriaForm />
+      <Outlet />
     </div>
   );
 }

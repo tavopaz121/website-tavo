@@ -1,17 +1,52 @@
-import type { ActionFunction } from "@remix-run/node";
-import { json, redirect } from "@remix-run/node";
+import { json, type ActionArgs } from "@remix-run/node";
 import { Form } from "@remix-run/react";
-import stylesForm from "../styles.css";
 
-export async function links() {
-  return [{ rel: "stylesheet", href: stylesForm, content: "text/css" }];
-}
-
-export const action = async ({ request }) => {
+export const action = async ({ request }: ActionArgs) => {
   const form = await request.formData();
-  console.log(form);
+  let firstname = String(form.get("firstname")).trim();
+  let lastname = String(form.get("lastname")).trim();
+  let email = String(form.get("email")).trim();
+  let phone = String(form.get("telephone")).trim();
+  let interest = form.get("interest");
+  let message = String(form.get("message")).trim();
+  let politics = form.get("politics");
 
-  return redirect("/");
+  const errors = {};
+
+  if (firstname === "") {
+    errors.firstname = "Ingrese su nombre";
+  }
+  if (lastname === "") {
+    errors.lastname = "Ingrese su apellido";
+  }
+  if (!email.includes(".com")) {
+    errors.email = "Ingrese correo valido";
+  }
+  if (interest === "none") {
+    errors.interest = "Seleccione topico de interes valido";
+  }
+  if (politics === null) {
+    errors.politics =
+      "Marque la casilla para aceptar las politias de privaciadad";
+  }
+
+  if (Object.keys(errors).length > 0) {
+    console.log(errors);
+    return json({ errors });
+  }
+
+  const data = {
+    firstname,
+    lastname,
+    email,
+    phone,
+    interest,
+    message,
+    politics,
+  };
+
+  console.log(data);
+  return json(data);
 };
 
 export default function MentoriaForm() {
@@ -19,7 +54,6 @@ export default function MentoriaForm() {
     <section className="relative text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
-          {/* Page header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <h1
               className="lg:text-6xl md:text-5xl text-4xl font-bold text-white"
@@ -53,7 +87,7 @@ export default function MentoriaForm() {
                 </label>
                 <input
                   id="first-name"
-                  name="name"
+                  name="firstname"
                   type="text"
                   className="form-input bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
                   placeholder="Introcude tu nombre"
@@ -71,7 +105,7 @@ export default function MentoriaForm() {
                 </label>
                 <input
                   id="last-name"
-                  name="last-name"
+                  name="lastname"
                   type="text"
                   className="form-input bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
                   placeholder="Coloca tu apellido"
@@ -122,7 +156,7 @@ export default function MentoriaForm() {
                 </label>
                 <select
                   id="country"
-                  name="subject-interest"
+                  name="interest"
                   className="form-select bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
                 >
                   <option value="none">Elije el tema que te interese</option>
