@@ -3,11 +3,12 @@ import { json, redirect } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getPosts } from "~/firebase/models/posts.server";
 import PageIllustration from "~/components/Blog/page-illustration";
-import PostItem from "~/components/Blog/post-item";
-import Sidebar from "~/components/Blog/sidebar";
+import ArticlesList from "~/components/Blog/ArticlesList/ArticlesList";
+import Sidebar from "~/components/Siderbar/sidebar";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
-import type { CardProps } from "../blog._index/Card/Card";
-import Pagination from "~/components/Blog/pagination";
+import Pagination from "~/components/Blog/Pagination/pagination";
+import SideBarList from "~/components/Siderbar/sidebarList";
+import { listCategorysTags } from "~/data/listCategorysTags";
 
 export async function loader({ request, params }: LoaderArgs) {
   const numPage = Number(params.page || 1);
@@ -41,63 +42,22 @@ export default function BlogTag() {
 
   return (
     <>
-      <section className="relative bg-gray-900">
+      <section className="relative bg-gray-900 px-8 max-sm:px-4">
         <PageIllustration />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="max-w-full">
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
-            {/*  Featured article */}
-
             {/* Articles list */}
-            <section>
-              <div className="max-w-6xl mx-auto px-4 sm:px-6">
-                <div className="pb-12 md:pb-20">
-                  <div className="lg:flex lg:justify-between">
-                    {/* Main content */}
-                    <div
-                      className="lg:grow"
-                      data-aos="fade-down"
-                      data-aos-delay="200"
-                    >
-                      {/* Section title */}
-                      <p className="text-3xl text-white mb-8">
-                        Artículos con etiqueta {category}, página {numPage}
-                      </p>
-
-                      {/* Articles container */}
-                      <div className="grid gap-12 sm:grid-cols-2 sm:gap-x-6 md:gap-y-8 items-start">
-                        {posts.map(
-                          ({
-                            id,
-                            to,
-                            title,
-                            image,
-                            createdAt,
-                            user,
-                            tags,
-                            summary,
-                          }: CardProps) => (
-                            <PostItem
-                              key={id}
-                              to={to}
-                              title={title}
-                              createdAt={createdAt}
-                              authorImg={user.photoURL}
-                              author={user.displayName}
-                              tags={tags}
-                              imageSrc={image.src}
-                              imageAlt={image.alt}
-                              summary={summary}
-                            />
-                          ),
-                        )}
-                      </div>
-                    </div>
-
-                    <Sidebar />
-                  </div>
-                </div>
-              </div>
-            </section>
+            <ArticlesList
+              posts={posts}
+              title={`Artículos con etiqueta ${category}, página ${numPage}`}
+            >
+              <Sidebar>
+                <SideBarList
+                  listCategorys={listCategorysTags}
+                  title="Lista de categorias"
+                />
+              </Sidebar>
+            </ArticlesList>
 
             {/*  Pagination */}
             <Pagination

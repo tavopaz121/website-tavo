@@ -1,10 +1,10 @@
 import { json, type LoaderArgs } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { getPost } from "~/firebase/models/posts.server";
 import { marked } from "marked";
 import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import styleCode from "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
@@ -68,7 +68,6 @@ export function meta({ data, params }: any) {
 }
 
 export default function SlugRoute() {
-  const [change, setChange] = useState(false);
   const { post, html } = useLoaderData();
   const contentBlog = useRef(null);
 
@@ -76,7 +75,6 @@ export default function SlugRoute() {
 
   useEffect(() => {
     hljs.highlightAll();
-    setChange(!change);
   }, []);
 
   return (

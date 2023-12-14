@@ -1,5 +1,5 @@
-import PostDate from "./post-date";
-import PostTags from "./post-tags";
+import PostDate from "../post-date";
+import PostTags from "../post-tags";
 import { Link } from "@remix-run/react";
 import type { PostItemProps } from "./post-item.d";
 
@@ -15,9 +15,9 @@ export default function PostItem({
   imageAlt,
 }: PostItemProps) {
   return (
-    <article className="flex flex-col h-full" data-aos="fade-up">
+    <article className="flex flex-col h-full max-sm:mb-10" data-aos="fade-up">
       <header>
-        <a href={`/${to}`} className="block mb-6">
+        <Link to={`/${to}`} className="block mb-6">
           <figure className="relative h-0 pb-[56.25%] overflow-hidden rounded-sm">
             <img
               className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out"
@@ -27,7 +27,7 @@ export default function PostItem({
               alt={imageAlt}
             />
           </figure>
-        </a>
+        </Link>
 
         {tags && (
           <div className="mb-3">
