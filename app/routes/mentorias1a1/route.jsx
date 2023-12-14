@@ -1,9 +1,9 @@
-import metodoAgile from "../assets/imgs/clasesonetoone/feedback_loo_transparent_noTitle.webp";
+import metodoAgile from "~/assets/imgs/clasesonetoone/feedback_loo_transparent_noTitle.webp";
 import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
 import { items as principles } from "~/data/principles.js";
 import ListaMentorias from "~/components/pages/mentorias1a1/ListaMentorias";
-import { Link } from "@remix-run/react";
+import { Link, Outlet } from "@remix-run/react";
 
 import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
@@ -19,7 +19,7 @@ export function links() {
   return [{ rel: "stylesheet", href: aosStyles, content: "text/css" }];
 }
 
-export default function Mentorias() {
+export default function MentoriasRoute() {
   useEffect(() => {
     AOS.init({
       once: true,
@@ -351,6 +351,7 @@ export default function Mentorias() {
         </div>
       </section>
       <ListaMentorias />
+      <Outlet />
     </div>
   );
 }
