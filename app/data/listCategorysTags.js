@@ -2,7 +2,6 @@ export const listCategorysTags = [
   "javaScript",
   "React",
   "Redux",
-  "reactDom",
   "jsx",
   "CSS",
   "git",
