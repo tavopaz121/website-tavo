@@ -1,5 +1,5 @@
 import { json, type ActionArgs } from "@remix-run/node";
-import { Form } from "@remix-run/react";
+import { Form, useActionData } from "@remix-run/react";
 
 export const action = async ({ request }: ActionArgs) => {
   const form = await request.formData();
@@ -45,11 +45,12 @@ export const action = async ({ request }: ActionArgs) => {
     politics,
   };
 
-  console.log(data);
   return json(data);
 };
 
 export default function MentoriaForm() {
+  const actionData = useActionData<typeof action>();
+
   return (
     <section className="relative text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
@@ -93,7 +94,9 @@ export default function MentoriaForm() {
                   placeholder="Introcude tu nombre"
                 />
                 <p className="text-red-500 text-sm mt-2">
-                  Este campo es requrido
+                  {actionData?.errors?.email
+                    ? actionData?.errors.firstname
+                    : null}
                 </p>
               </div>
               <div className="w-full md:w-1/2 px-3">
@@ -110,6 +113,11 @@ export default function MentoriaForm() {
                   className="form-input bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
                   placeholder="Coloca tu apellido"
                 />
+                <p className="text-red-500 text-sm mt-2">
+                  {actionData?.errors?.email
+                    ? actionData?.errors.lastname
+                    : null}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-4">
@@ -127,6 +135,9 @@ export default function MentoriaForm() {
                   className="form-input bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
                   placeholder="Tu email va aquí"
                 />
+                <p className="text-red-500 text-sm mt-2">
+                  {actionData?.errors?.email ? actionData?.errors.email : null}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-4">
@@ -171,6 +182,11 @@ export default function MentoriaForm() {
                   <option value="css3">CSS 3</option>
                   <option value="javascript">JavaScript</option>
                 </select>
+                <p className="text-red-500 text-sm mt-2">
+                  {actionData?.errors?.email
+                    ? actionData?.errors.interest
+                    : null}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-4">
@@ -199,9 +215,15 @@ export default function MentoriaForm() {
                     name="politics"
                   />
                   <span className="text-gray-400 font-normal ml-2">
-                    Acepto las politicas de privacidad
+                    Acepto las politicas de privacidad{" "}
+                    <span className="text-red-600">*</span>
                   </span>
                 </label>
+                <p className="text-red-500 text-sm mt-2">
+                  {actionData?.errors?.politics
+                    ? actionData?.errors.politics
+                    : null}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mt-6">
