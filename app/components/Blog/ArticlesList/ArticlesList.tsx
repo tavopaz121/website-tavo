@@ -26,7 +26,7 @@ export default function ArticlesList({
               <div
                 className={`grid gap-12 ${
                   !children ? "sm:grid-cols-3" : "sm:grid-cols-2"
-                } sm:gap-x-6 md:gap-y-8 items-start`}
+                } sm:gap-x-6 md:gap-y-8 items-start max-sm:block`}
               >
                 {posts.map(
                   ({

@@ -42,9 +42,9 @@ export default function BlogTag() {
 
   return (
     <>
-      <section className="relative bg-gray-900">
+      <section className="relative bg-gray-900 px-8 max-sm:px-4">
         <PageIllustration />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="max-w-full">
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
             {/* Articles list */}
             <ArticlesList
