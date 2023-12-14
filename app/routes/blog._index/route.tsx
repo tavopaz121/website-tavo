@@ -33,7 +33,7 @@ export default function Blog() {
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
             {/*  Featured article */}
             <FeaturesArticle
-              to={featuredPost.title}
+              to={featuredPost.to}
               imageSrc={featuredPost.image.src}
               imageAlt={featuredPost.image.alt}
               tags={featuredPost.tags}
