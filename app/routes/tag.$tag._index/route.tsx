@@ -42,7 +42,7 @@ export default function BlogTag() {
               posts={posts}
               title={
                 total <= 0
-                  ? "Sin articulos encontrados"
+                  ? "Sin artículos encontrados"
                   : `Artículos con etiqueta ${tag}, página ${numPage}`
               }
             />

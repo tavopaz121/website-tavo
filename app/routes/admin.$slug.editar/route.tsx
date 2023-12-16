@@ -13,7 +13,7 @@ export async function loader({ params }: LoaderArgs) {
   const content: string | undefined = post.content as string;
 
   if (!content) {
-    throw new Response(`El articulo "${slug}" no existe 😥`, {
+    throw new Response(`El artículo "${slug}" no existe 😥`, {
       status: 404,
       statusText: "Not Found",
     });
