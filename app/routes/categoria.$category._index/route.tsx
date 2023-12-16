@@ -46,7 +46,7 @@ export default function Categoria() {
               title={
                 total <= 0
                   ? "Sin artículos encontrados"
-                  : `Artículos con etiqueta ${category}, página ${numPage}`
+                  : `Artículos de ${category}, página ${numPage}`
               }
             >
               <Sidebar>

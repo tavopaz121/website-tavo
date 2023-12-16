@@ -49,7 +49,7 @@ export default function BlogTag() {
             {/* Articles list */}
             <ArticlesList
               posts={posts}
-              title={`Artículos con etiqueta ${category}, página ${numPage}`}
+              title={`Artículos de ${category}, página ${numPage}`}
             >
               <Sidebar>
                 <SideBarList
