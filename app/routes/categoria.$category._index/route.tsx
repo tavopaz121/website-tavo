@@ -45,7 +45,7 @@ export default function Categoria() {
               posts={posts}
               title={
                 total <= 0
-                  ? "Sin articulos encontrados"
+                  ? "Sin artículos encontrados"
                   : `Artículos con etiqueta ${category}, página ${numPage}`
               }
             >
