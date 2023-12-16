@@ -1,39 +1,21 @@
-import type { ActionFunction } from "@remix-run/node";
-import { json, redirect } from "@remix-run/node";
 import { Form } from "@remix-run/react";
-import stylesForm from "../styles.css";
+import BgIllustration from "~/components/BgIlustration/BgIlustration";
 
-export async function links() {
-  return [{ rel: "stylesheet", href: stylesForm, content: "text/css" }];
-}
-
-export const action = async ({ request }) => {
-  const form = await request.formData();
-  console.log(form);
-
-  return redirect("/");
-};
-
-export default function MentoriaForm() {
+export default function MentoriaForm({ actionData }) {
   return (
-    <section className="relative text-white">
+    <section className="relative text-white pb-20">
+      <BgIllustration />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
-          {/* Page header */}
+        <div className="pt-32 pb-12 md:pt-40 md:pb-20" id="registro">
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <h1
               className="lg:text-6xl md:text-5xl text-4xl font-bold text-white"
               data-aos="fade-up"
             >
-              Mandanos tus datos para contacarte
+              Registrate
             </h1>
-            <p
-              className="text-xl text-gray-400"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              Para poder atenderte mejor puede mandarnos una descripcion tuya
-              junto a las habilidades de este tipo de mentorias
+            <p className="text-xl" data-aos="fade-up" data-aos-delay="200">
+              Te contactamos de inmediato para agendar tu mentoría.
             </p>
           </div>
 
@@ -53,13 +35,15 @@ export default function MentoriaForm() {
                 </label>
                 <input
                   id="first-name"
-                  name="name"
+                  name="firstname"
                   type="text"
-                  className="form-input bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
-                  placeholder="Introcude tu nombre"
+                  className="form-input bg-black autofill:!bg-black p-4 w-full text-white autofill:!text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
+                  placeholder="Tu nombre va aquí"
                 />
                 <p className="text-red-500 text-sm mt-2">
-                  Este campo es requrido
+                  {actionData?.errors?.firstname
+                    ? actionData?.errors.firstname
+                    : null}
                 </p>
               </div>
               <div className="w-full md:w-1/2 px-3">
@@ -67,15 +51,20 @@ export default function MentoriaForm() {
                   className="block text-gray-200 text-base font-normal mb-1"
                   htmlFor="last-name"
                 >
-                  Apellido <span className="text-red-600">*</span>
+                  Apellidos <span className="text-red-600">*</span>
                 </label>
                 <input
                   id="last-name"
-                  name="last-name"
+                  name="lastname"
                   type="text"
                   className="form-input bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
-                  placeholder="Coloca tu apellido"
+                  placeholder="Tus apellidos"
                 />
+                <p className="text-red-500 text-sm mt-2">
+                  {actionData?.errors?.lastname
+                    ? actionData?.errors.lastname
+                    : null}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-4">
@@ -93,6 +82,9 @@ export default function MentoriaForm() {
                   className="form-input bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
                   placeholder="Tu email va aquí"
                 />
+                <p className="text-red-500 text-sm mt-2">
+                  {actionData?.errors?.email ? actionData?.errors.email : null}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-4">
@@ -101,15 +93,24 @@ export default function MentoriaForm() {
                   className="block text-gray-200 text-base font-normal mb-1"
                   htmlFor="subject"
                 >
-                  Telefono
+                  Teléfono <span className="text-red-600">*</span>
                 </label>
                 <input
                   id="subject"
-                  type="number"
-                  name="telephone"
+                  type="tel"
+                  name="phone"
+                  required
                   className="form-input bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
                   placeholder="Tu número de telefono"
+                  onInput={(e) =>
+                    (e.target.value = e.target.value
+                      .replace(/[^0-9]/g, "")
+                      .slice(0, 10))
+                  }
                 />
+                <p className="text-red-500 text-sm mt-2">
+                  {actionData?.errors?.phone ? actionData?.errors.phone : null}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-4">
@@ -118,14 +119,16 @@ export default function MentoriaForm() {
                   className="block text-gray-200 text-base font-normal mb-1"
                   htmlFor="country"
                 >
-                  Tema de interes <span className="text-red-600">*</span>
+                  Mentoría <span className="text-red-600">*</span>
                 </label>
                 <select
                   id="country"
-                  name="subject-interest"
+                  name="course"
                   className="form-select bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600 placeholder-slate-400"
                 >
-                  <option value="none">Elije el tema que te interese</option>
+                  <option value="none">
+                    Elije la mentoría que te interesa
+                  </option>
                   <option value="agile-frontend-developer">
                     Agile Frontend Developer
                   </option>
@@ -137,44 +140,18 @@ export default function MentoriaForm() {
                   <option value="css3">CSS 3</option>
                   <option value="javascript">JavaScript</option>
                 </select>
-              </div>
-            </div>
-            <div className="flex flex-wrap -mx-3 mb-4">
-              <div className="w-full px-3">
-                <label
-                  className="block text-gray-200 text-base font-normal mb-1"
-                  htmlFor="message"
-                >
-                  Mensaje
-                </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  name="message"
-                  className="form-textarea bg-black p-4 w-full text-white focus:outline-none focus:border-[1px] focus:border-pink-600"
-                  placeholder="Cuentanos tu interes o lo que quieres saber"
-                ></textarea>
-              </div>
-            </div>
-            <div className="flex flex-wrap -mx-3 mb-4">
-              <div className="w-full px-3">
-                <label className="flex items-center">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox"
-                    name="politics"
-                  />
-                  <span className="text-gray-400 font-normal ml-2">
-                    Acepto las politicas de privacidad
-                  </span>
-                </label>
+                <p className="text-red-500 text-sm mt-2">
+                  {actionData?.errors?.course
+                    ? actionData?.errors.course
+                    : null}
+                </p>
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mt-6">
               <div className="w-full px-3">
                 <button
                   type="submit"
-                  className="btn text-white bg-gradient-pink hover:opacity-80 lg:w-full w-auto mx-auto"
+                  className="btn text-white bg-gradient-pink hover:opacity-80 w-full mx-auto"
                 >
                   Enviar
                 </button>

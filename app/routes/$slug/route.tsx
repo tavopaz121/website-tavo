@@ -5,6 +5,8 @@ import { marked } from "marked";
 import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
 import { useEffect, useRef } from "react";
+import SideBarList from "~/components/Siderbar/sidebarList";
+import { listCategorysTags } from "~/data/listCategorysTags";
 
 import styleCode from "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
@@ -78,26 +80,33 @@ export default function SlugRoute() {
   }, []);
 
   return (
-    <div className="px-4 mt-10 py-20 container-slug-blg">
-      <article className="mx-auto slug-blog">
-        <h1 className="font-bold">{title}</h1>
-        <figure className="relative text-center mb-12">
-          <img
-            decoding="async"
-            loading="lazy"
-            src={image}
-            alt={title}
-            className="rounded-xl block mx-auto"
-          />
-        </figure>
+    <section className="px-4 mt-10 py-20 bg-black">
+      <div className="mx-auto max-w-7xl grid gap-8 grid-cols-12 container-slug-blg">
+        <article className="slug-blog col-span-12 lg:col-span-8">
+          <h1 className="font-bold">{title}</h1>
+          <figure className="relative text-center mb-12">
+            <img
+              decoding="async"
+              loading="lazy"
+              src={image}
+              alt={title}
+              className="rounded-xl block mx-auto"
+            />
+          </figure>
 
-        <section
-          ref={contentBlog}
-          id="slug-content"
-          className="slug-blog-content max-w-7xl mx-auto"
-          dangerouslySetInnerHTML={{ __html: html }}
-        ></section>
-      </article>
-    </div>
+          <section
+            ref={contentBlog}
+            id="slug-content"
+            className="slug-blog-content mx-auto"
+            dangerouslySetInnerHTML={{ __html: html }}
+          ></section>
+        </article>
+        <SideBarList
+          className="col-span-12 lg:col-span-4"
+          listCategorys={listCategorysTags}
+          title="Categorías"
+        ></SideBarList>
+      </div>
+    </section>
   );
 }
