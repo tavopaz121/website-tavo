@@ -195,7 +195,7 @@ export default function Contacto() {
                             id="nombre"
                             name="name"
                             required
-                            placeholder="Nombre Completo"
+                            placeholder="Nombre completo"
                             onChange={handleNameChange}
                             className="block w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-[#fb5975] caret-[#fb5975]"
                           />

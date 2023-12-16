@@ -1,7 +1,7 @@
 export default function BgIllustration() {
   return (
     <div
-      className="absolute left-0 bottom-0 -ml-20 hidden lg:block pointer-events-none"
+      className="absolute left-0 bottom-0 -ml-20 hidden lg:block pointer-events-none overflow-hidden"
       aria-hidden="true"
       data-aos="fade-up"
       data-aos-delay="400"
