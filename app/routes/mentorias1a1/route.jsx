@@ -29,7 +29,7 @@ export default function MentoriasRoute() {
   });
 
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-900 overflow-hidden">
       <Outlet />
       <section id="principios">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">

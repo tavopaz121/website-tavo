@@ -39,7 +39,7 @@ export default function ProyectosRoute() {
   });
 
   return (
-    <div className="flex flex-col min-h-screen overflow-hidde bg-slate-900 pb-48">
+    <div className="flex flex-col min-h-screen overflow-hidde bg-slate-900 pb-48 overflow-hidden">
       <Hero />
       <Lenguajes />
       <MetodoAgil />

@@ -14,7 +14,7 @@ export default function SideBarList({
   return (
     <div className={`mb-8 ${className}`}>
       <h4 className="text-2xl text-gray-200 mb-5">{title}</h4>
-      <ul className="-my-3">
+      <ul className="-my-3 sticky top-20">
         {listCategorys?.map((category, index) => (
           <li className="flex py-3 border-b border-gray-500" key={index}>
             <Link

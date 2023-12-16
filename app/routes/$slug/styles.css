@@ -9,6 +9,8 @@
 .slug-blog h5,
 .slug-blog h6 {
   color: white;
+  margin-block-end: 2rem;
+  @apply font-bold;
 }
 
 .slug-blog {
@@ -34,7 +36,6 @@
   line-height: 4rem;
   margin-bottom: 3rem;
   font-weight: 600;
-  color: rgb(217 227 234);
 }
 
 .slug-blog .slug-blog-content h2 {
@@ -143,4 +144,47 @@
 
 .slug-blog-content pre code {
   width: 100%;
+}
+
+.slug-blog-content img {
+  width: 100%;
+  margin-block-end: 2rem;
+}
+
+.slug-blog-content blockquote {
+  border-inline-start: 4px solid #ffffff;
+  margin-inline-start: 1rem;
+  padding-inline-start: 1rem;
+  margin-block-end: 2rem;
+}
+
+.slug-blog-content a {
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+  display: inline-block;
+  @apply border-b border-pink-500 font-bold text-white relative hover:-translate-y-1;
+}
+
+.slug-blog-content img {
+  width: 100%;
+  margin-block-end: 0rem;
+}
+
+.slug-blog-content a::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  transform-origin: center center;
+  @apply hover:bg-gradient-pink hover:w-full motion-safe:transform motion-safe:duration-500;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .slug-blog-content a::after {
+    transition:
+      transform 0.5s ease-in-out,
+      width 0.5s ease-in-out;
+  }
 }
