@@ -21,7 +21,7 @@ export default function SideBarList({
               to={`/categoria/${category}`}
               className="text-gray-200 font-bold tracking-tight mb-1 capitalize"
             >
-              {category}
+              {category.split("-").join(" ")}
             </Link>
           </li>
         ))}

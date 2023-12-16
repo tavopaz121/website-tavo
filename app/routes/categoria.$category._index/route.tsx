@@ -52,7 +52,7 @@ export default function Categoria() {
               <Sidebar>
                 <SideBarList
                   listCategorys={listCategorysTags}
-                  title="Lista de categorias"
+                  title="Lista de categorías"
                 />
               </Sidebar>
             </ArticlesList>
