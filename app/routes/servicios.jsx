@@ -1,4 +1,4 @@
-import heroImg from "~/assets/imgs/services/3D_Animation_pink3.webp";
+import heroImg from "~/assets/imgs/services/hero-img.webp";
 import CardService from "~/components/CardServices/CardService";
 import { services } from "~/data/services.js";
 import { tools } from "~/data/tools.js";
@@ -26,9 +26,11 @@ export default function Servicios() {
               >
                 ¡Desbloquea el{" "}
                 <strong className="font-serif italic">Éxito Digital</strong>!
-                <div className="relative inline-flex">
-                  <span className="absolute inset-x-0 bottom-0 border-b-[10px] border-pink-500"></span>
-                  <span className="relative text-4xl font-bold text-black sm:text-4xl lg:text-4xl">
+                <div className="relative">
+                  <span
+                    className="relative text-4xl font-bold text-black sm:text-4xl lg:text-4xl after:w-full after:h-3 after:bg-pink-500 after:absolute after:left-0 after:bottom-[-5px] after:-z-10"
+                    style={{ content: " " }}
+                  >
                     Desarrollo ágil simplificado
                   </span>
                 </div>
