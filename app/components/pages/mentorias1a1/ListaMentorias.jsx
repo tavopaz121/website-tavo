@@ -64,7 +64,7 @@ export default function ListaMentorias() {
                   </div>
                   <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    to="/contacto"
+                    to="./registro"
                   >
                     Obtener
                   </Link>
@@ -102,7 +102,7 @@ export default function ListaMentorias() {
                   </div>
                   <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    to="/contacto"
+                    to="./registro"
                   >
                     Obtener
                   </Link>
@@ -140,7 +140,7 @@ export default function ListaMentorias() {
                   </div>
                   <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    to="/contacto"
+                    to="./registro"
                   >
                     Obtener
                   </Link>
@@ -178,7 +178,7 @@ export default function ListaMentorias() {
                   </div>
                   <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    to="/contacto"
+                    to="./registro"
                   >
                     Obtener
                   </Link>
@@ -216,7 +216,7 @@ export default function ListaMentorias() {
                   </div>
                   <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    to="/contacto"
+                    to="./registro"
                   >
                     Obtener
                   </Link>
@@ -254,7 +254,7 @@ export default function ListaMentorias() {
                   </div>
                   <Link
                     className="btn text-white bg-gradient-pink hover:scale-110 lg:w-full w-auto mx-auto"
-                    to="/contacto"
+                    to="./registro"
                   >
                     Obtener
                   </Link>
