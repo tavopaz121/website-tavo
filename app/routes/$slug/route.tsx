@@ -11,6 +11,7 @@ import asoStyles from "aos/dist/aos.css";
 
 import styleCode from "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
+import { useEffect, useRef } from "react";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
