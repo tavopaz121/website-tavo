@@ -1,4 +1,4 @@
-import ListServicios from "~/components/HomePage/ListServicios";
+import ListServicios from "./ListServicios";
 import { useRef } from "react";
 import ButtonLink from "~/components/Buttons/ButtonLink";
 

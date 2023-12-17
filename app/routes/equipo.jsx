@@ -1,12 +1,13 @@
-import nestor from "../assets/imgs/equipo/nestor.webp";
-import fatima from "../assets/imgs/equipo/fatima.webp";
+import feedbackLoop from "~/assets/imgs/inicio/feedback-loop.webp";
+import nestor from "~/assets/imgs/equipo/nestor.webp";
+import fatima from "~/assets/imgs/equipo/fatima.webp";
 import octavio from "~/assets/imgs/equipo/octavio.webp";
 import jaime from "~/assets/imgs/equipo/jaime.webp";
 import norberto from "~/assets/imgs/equipo/norberto.webp";
-import colaboraAprende from "../assets/imgs/equipo/Unsplash-colaborayaprende.webp";
-import creaAsap from "../assets/imgs/equipo/Unsplash-creaASAP.webp";
-import retroalimenta from "../assets/imgs/equipo/Unsplash-retroalimenta.webp";
-import adaptaMejora from "../assets/imgs/equipo/Unsplash-adapta.webp";
+import colaboraAprende from "~/assets/imgs/equipo/Unsplash-colaborayaprende.webp";
+import creaAsap from "~/assets/imgs/equipo/Unsplash-creaASAP.webp";
+import retroalimenta from "~/assets/imgs/equipo/Unsplash-retroalimenta.webp";
+import adaptaMejora from "~/assets/imgs/equipo/Unsplash-adapta.webp";
 import team from "~/assets/imgs/equipo/bg-section-team.webp";
 import codigores from "~/assets/imgs/equipo/bg-codigo.webp";
 import codigoresfatima from "~/assets/imgs/equipo/bg-codigo-fatima.webp";
@@ -118,22 +119,27 @@ export default function Equipo() {
         </div>
       </section>
 
-      <div className="m-20" data-aos="fade-up" data-aos-delay="400">
+      <div className="mt-20 mb-8 px-4" data-aos="fade-up">
         <h1 className="text-center text-5xl tracking-tight mt-10 mb-10 mx-4 md:text-7xl font-bold">
           <span className="font-heading">Nuestro </span>
           <span className="font-serif italic">Método ágil</span>
         </h1>
+        <img
+          decoding="async"
+          loading="lazy"
+          width="600"
+          className="block rounded-3xl mx-auto"
+          src={feedbackLoop}
+          alt="Ciclo de retroalimentación y adaptaciones"
+        />
       </div>
 
       <section className="max-w-7xl lg:mx-auto px-4">
-        <div data-aos="fade-right" data-aos-delay="1000">
+        <div data-aos="fade-right">
           <div className="pb-4">
             <div className="relative">
-              {/* Gray box */}
-              <div className="absolute inset-0 bg-gray-50 -z-10 rounded-lg border border-gray-300" />
               {/* Content */}
-              <div className="relative px-6 pb-8 md:px-12 lg:pb-0">
-                {/* Testimonial */}
+              <div className="relative px-6 pb-8 md:px-12 lg:pb-0 rounded-lg border border-pink-500">
                 <div className="lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left pt-5 lg:py-10">
                   <div className="shrink-0 relative ">
                     <img
@@ -151,7 +157,7 @@ export default function Equipo() {
                         aprende
                       </span>
                     </h2>
-                    <h4 className="mb-4 text-base sm:text-justify">
+                    <h4 className="mb-4 text-xl">
                       En esta fase, trabajamos juntos como equipo, escuchamos
                       tus ideas y necesidades, definimos objetivos en
                       colaboración y mantenemos una comunicación abierta y
@@ -165,17 +171,11 @@ export default function Equipo() {
           </div>
         </div>
 
-        <div
-          className="max-w-7xl mx-4 lg:mx-auto"
-          data-aos="fade-left"
-          data-aos-delay="1000"
-        >
+        <div className="max-w-7xl mx-4 lg:mx-auto" data-aos="fade-left">
           <div className="pb-4">
             <div className="relative">
-              {/* Gray box */}
-              <div className="absolute inset-0 bg-gray-100 rotate -z-10 rounded-lg border border-gray-300" />
               {/* Content */}
-              <div className="relative px-6 pb-8 md:px-12 lg:pb-0">
+              <div className="relative px-6 pb-8 md:px-12 lg:pb-0 rounded-lg border border-pink-500">
                 {/* Testimonial */}
                 <div className="lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left pt-5 lg:py-10">
                   <div className="relative pt-5">
@@ -185,7 +185,7 @@ export default function Equipo() {
                         ASAP
                       </span>
                     </h2>
-                    <h4 className="mb-4 text-base sm:text-justify">
+                    <h4 className="mb-4 text-xl">
                       Una vez entendida tu visión, avanzamos rápidamente en el
                       desarrollo web sin demora. Priorizamos resultados en
                       iteraciones ágiles, acercándote gradualmente a tu producto
@@ -207,17 +207,11 @@ export default function Equipo() {
           </div>
         </div>
 
-        <div
-          className="max-w-7xl mx-4 lg:mx-auto"
-          data-aos="fade-right"
-          data-aos-delay="800"
-        >
+        <div className="max-w-7xl mx-4 lg:mx-auto" data-aos="fade-right">
           <div className="pb-4">
             <div className="relative">
-              {/* Gray box */}
-              <div className="absolute inset-0 bg-gray-100 rotate -z-10 rounded-lg border border-gray-300" />
               {/* Content */}
-              <div className="relative px-6 pb-8 md:px-12 lg:pb-0">
+              <div className="relative px-6 pb-8 md:px-12 lg:pb-0 rounded-lg border border-pink-500">
                 {/* Testimonial */}
                 <div className="lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left pt-5 lg:py-10">
                   <div className="shrink-0 relative ">
@@ -235,7 +229,7 @@ export default function Equipo() {
                         Retroalimenta
                       </span>
                     </h2>
-                    <h4 className="mb-4 text-base sm:text-justify">
+                    <h4 className="mb-4 text-xl">
                       En esta etapa, tu opinión y la de tus usuarios son
                       cruciales. Probamos lo construido, recopilamos tus
                       comentarios y ajustamos nuestro enfoque. La
@@ -249,17 +243,11 @@ export default function Equipo() {
           </div>
         </div>
 
-        <div
-          className="max-w-7xl mx-4 lg:mx-auto mb-12"
-          data-aos="fade-left"
-          data-aos-delay="800"
-        >
+        <div className="max-w-7xl mx-4 lg:mx-auto mb-12" data-aos="fade-left">
           <div className="pb-4">
             <div className="relative">
-              {/* Gray box */}
-              <div className="absolute inset-0 bg-gray-100 rotate -z-10 rounded-lg border border-gray-300" />
               {/* Content */}
-              <div className="relative px-6 pb-8 md:px-12 lg:pb-0">
+              <div className="relative px-6 pb-8 md:px-12 lg:pb-0 rounded-lg border border-pink-500">
                 {/* Testimonial */}
                 <div className="lg:flex items-center lg:space-y-0 lg:space-x-8 text-center lg:text-left pt-5 lg:py-10">
                   <div className="relative pt-5">
@@ -269,11 +257,11 @@ export default function Equipo() {
                         Mejora
                       </span>
                     </h2>
-                    <h4 className="mb-4 text-base sm:text-justify">
-                      "Nos adaptamos al cambio constante en el mundo digital,
+                    <h4 className="mb-4 text-xl">
+                      Nos adaptamos al cambio constante en el mundo digital,
                       mejorando continuamente nuestros procesos. Te entregamos
                       un producto excepcional y te capacitamos para mantenerlo
-                      relevante en un mercado en evolución."
+                      relevante en un mercado en evolución.
                     </h4>
                   </div>
                   <div className="shrink-0 relative ">
@@ -312,17 +300,13 @@ export default function Equipo() {
           <div className="pt-20 pb-20">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-5xl text-white tracking-tight mx-4 md:text-7xl font-bold">
-                <span
-                  className="font-heading"
-                  data-aos="fade-up"
-                  data-aos-delay="800"
-                >
+                <span className="font-heading" data-aos="fade-up">
                   Conoce nuestro{" "}
                 </span>
                 <span
                   className="font-serif italic"
                   data-aos="fade-up"
-                  data-aos-delay="400"
+                  data-aos-delay="200"
                 >
                   equipo
                 </span>
@@ -330,7 +314,7 @@ export default function Equipo() {
               <p
                 className="text-xl text-gray-300 pt-5"
                 data-aos="fade-up"
-                data-aos-delay="200"
+                data-aos-delay="400"
               >
                 Permitimos a los desarrolladores crear cosas increibles
               </p>
@@ -351,7 +335,6 @@ export default function Equipo() {
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="400"
                   >
                     <img
                       className="w-full h-30 object-cover"
@@ -397,7 +380,7 @@ export default function Equipo() {
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="800"
+                    data-aos-delay="100"
                   >
                     <img
                       className="w-full h-30 object-cover"
@@ -443,7 +426,7 @@ export default function Equipo() {
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="1200"
+                    data-aos-delay="200"
                   >
                     <img
                       className="w-full h-30 object-cover "
@@ -489,7 +472,7 @@ export default function Equipo() {
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="1600"
+                    data-aos-delay="300"
                   >
                     <img
                       className="w-full h-30 object-cover"
@@ -535,7 +518,7 @@ export default function Equipo() {
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="2000"
+                    data-aos-delay="400"
                   >
                     <img
                       className="w-full h-30 object-cover"

@@ -41,7 +41,7 @@ export default function ListaMentorias() {
         <div
           className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
           data-aos="fade-up"
-          data-aos-delay="400"
+          data-aos-delay="100"
         >
           <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
@@ -77,7 +77,7 @@ export default function ListaMentorias() {
         <div
           className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
           data-aos="fade-up"
-          data-aos-delay="600"
+          data-aos-delay="200"
         >
           <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
@@ -115,7 +115,7 @@ export default function ListaMentorias() {
         <div
           className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
           data-aos="fade-up"
-          data-aos-delay="800"
+          data-aos-delay="300"
         >
           <header className="px-5 py-4 border-b border-slate-200 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
@@ -153,7 +153,7 @@ export default function ListaMentorias() {
         <div
           className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
           data-aos="fade-up"
-          data-aos-delay="1000"
+          data-aos-delay="100"
         >
           <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
@@ -191,7 +191,7 @@ export default function ListaMentorias() {
         <div
           className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
           data-aos="fade-up"
-          data-aos-delay="1200"
+          data-aos-delay="200"
         >
           <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">
@@ -229,7 +229,7 @@ export default function ListaMentorias() {
         <div
           className="flex flex-col items-center col-span-full xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
           data-aos="fade-up"
-          data-aos-delay="1400"
+          data-aos-delay="300"
         >
           <header className="px-5 py-4 border-b border-slate-100 dark:border-slate-700">
             <h2 className="font-semibold text-slate-800 dark:text-slate-100">

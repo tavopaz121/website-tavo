@@ -69,7 +69,7 @@ export default function Proyectos({ list = [] }) {
 
                 return (
                   <div
-                    className="col-span-full row-span-4 md:col-span-3 lg:col-span-4"
+                    className="col-span-full row-span-5 md:col-span-3 lg:col-span-4"
                     data-aos="fade-down"
                     data-aos-delay={delay + 150}
                     key={item.title}

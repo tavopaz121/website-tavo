@@ -111,7 +111,7 @@ export default function Features() {
                   </div>
                 )}
 
-                <div className="grid sm:grid-cols-2 sm:grid-rows-2 gap-4 items-baseline items mt-8 space-y-2">
+                <div className="grid sm:grid-cols-2 sm:grid-rows-2 gap-0 sm:gap-4 items-baseline items mt-8 space-y-1">
                   <button
                     className={`flex items-center text-sm font-medium text-slate-50 rounded border bg-slate-800/25 px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
                       tab !== 1

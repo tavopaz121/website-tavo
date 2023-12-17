@@ -1,5 +1,5 @@
-import feedbackLoop from "app/assets/imgs/inicio/feedback-loop.webp";
-import WorkMetodo from "../../HomePage/WorkNosotros";
+import feedbackLoop from "~/assets/imgs/inicio/feedback-loop.webp";
+import WorkMetodo from "./WorkNosotros";
 import { Link } from "@remix-run/react";
 
 import { useRef, useEffect, useState } from "react";

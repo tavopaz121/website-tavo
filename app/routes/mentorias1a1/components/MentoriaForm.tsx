@@ -12,7 +12,7 @@ export default function MentoriaForm({ actionData }) {
               className="lg:text-6xl md:text-5xl text-4xl font-bold text-white"
               data-aos="fade-up"
             >
-              Registrate
+              Regístrate
             </h1>
             <p className="text-xl" data-aos="fade-up" data-aos-delay="200">
               Te contactamos de inmediato para agendar tu mentoría.
