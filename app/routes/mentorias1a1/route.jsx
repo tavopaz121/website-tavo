@@ -1,7 +1,7 @@
 import metodoAgile from "~/assets/imgs/clasesonetoone/feedback_loo_transparent_noTitle.webp";
 import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
-import { items as principles } from "~/data/principles.js";
+import { items as principles } from "./data/principles.js";
 import { Link, Outlet } from "@remix-run/react";
 import ListaMentorias from "~/components/pages/mentorias1a1/ListaMentorias";
 
@@ -47,10 +47,10 @@ export default function MentoriasRoute() {
                 data-aos="fade-up"
                 data-aos-delay="200"
               >
-                La aplicación de principios ágiles en el proceso de aprendizaje
-                en programación conlleva a una evolución continua, facilitando
-                la adaptación progresiva a cambios, maximizando la eficiencia y
-                calidad del estudiante.
+                🚀📚 La implementación de principios ágiles en el aprendizaje de
+                programación impulsa una evolución constante, facilitando una
+                adaptación progresiva a los cambios. Esto maximiza la eficiencia
+                y la calidad del estudiante. ¡Preparándote para triunfar! 💻✨
               </p>
             </div>
             {/* Items */}
@@ -98,7 +98,7 @@ export default function MentoriasRoute() {
             className="lg:text-6xl md:text-5xl text-4xl font-bold text-white text-center"
             data-aos="fade-up"
           >
-            Método de aprendizaje
+            Método de enseñanza ágil
           </h2>
           <figure className="px-4 mb-10">
             <img src={metodoAgile} alt="Método ágile" data-aos="fade-up" />
@@ -108,26 +108,29 @@ export default function MentoriasRoute() {
       {/* Enseñanza ágile */}
       <article className="max-w-6xl relative mx-auto px-4 flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 bg-gray-800 p-8" data-aos="fade-up">
-          <h4 className="text-lg text-white">Enseñanza ágil</h4>
+          <h4 className="text-lg text-white">🌟📚 Enseñanza ágil</h4>
           <p className="text-lg text-gray-400 mb-5">
-            El Método de enseñanza ágil se aplica en todos los niveles y
-            aspectos de la capacitación.
+            Descubre la potencia de la enseñanza ágil, este método
+            revolucionario se aplica de manera integral en todos los niveles y
+            áreas de la capacitación, asegurando un aprendizaje completo y
+            efectivo en cada paso del camino.
           </p>
-          <h4 className="text-lg text-white">Capacitación individual</h4>
+          <h4 className="text-lg text-white">👦 Capacitación individual</h4>
           <p className="text-lg text-gray-400 mb-5">
-            Se capacita individualmente porque cada estudiante es diferente, y
-            brinda la oportunidad de un aprendizaje más eficaz, adaptado y
-            enfocado en las necesidades particulares de cada persona.
+            ¡Cada estudiante es único! La formación individual permite un
+            aprendizaje eficaz y enfocado en las necesidades específicas de cada
+            persona.
           </p>
-          <h4 className="text-lg text-white">Capacitación en equipo</h4>
+          <h4 className="text-lg text-white">👦👩👧 Capacitación en equipo</h4>
           <p className="text-lg text-gray-400 ">
-            Fortalece la dinámica grupal y el rendimiento colectivo, generando
-            un impacto positivo en el funcionamiento general de una organización
-            y también porque 1 + 1 = 3 o 5.
+            Fortalece la dinámica grupal y el rendimiento colectivo. 1️⃣ + 1️⃣ =
+            3️⃣ o 5️⃣ cuando trabajamos juntos, generando un impacto
+            extraordinario en el funcionamiento general de las organizaciones.
+            ✨🌈🚀. Exacto, es una habilidad real del campo laboral.
           </p>
           <Link
             className="btn-sm text-white bg-gradient-pink hover:scale-110 mt-6"
-            to="/contacto"
+            to="./registro"
           >
             <span className="text-sm">Mas información</span>
             <svg
@@ -200,16 +203,19 @@ export default function MentoriasRoute() {
                       data-aos-anchor="[data-aos-id-target]"
                     >
                       {/* <h4 className="h4 mb-2"><span className="text-purple-600">.</span> For developers</h4> */}
-                      <p className="text-lg text-gray-400">
-                        Usarás Xtreme programming y Scrum para la creación de
-                        proyectos reales de alta calidad.
+                      <p className="text-lg text-gray-100 mb-4">
+                        🚀📈 ¡Descubre la agilidad y las prácticas ágiles en
+                        acción! Utilizarás Xtreme Programming y Scrum para dar
+                        vida a proyectos reales de alta calidad.
                       </p>
-                      <p className="text-lg text-gray-400 pt-2">
-                        Se aplica prácticas ágiles de forma sencilla para
-                        agilizar e interiorizar lo aprendido.
+                      <p className="text-lg text-gray-100 pt-2">
+                        🎯 Se aplica prácticas ágiles de manera simple para
+                        acelerar la comprensión, interiorización e integración
+                        del conocimiento en proyectos reales del campo laboral
+                        en el menor tiempo posible.
                       </p>
                     </div>
-                    <ul className="flex flex-col items-start space-y-5 text-left text-gray-300 mt-9">
+                    <ul className="flex flex-col items-start text-left text-gray-100 text-lg mb-4 mt-4">
                       <li className="flex items-center mx-2 my-1">
                         <svg
                           className="w-3 h-3 fill-current text-green-500 mr-2 shrink-0"
@@ -261,6 +267,12 @@ export default function MentoriasRoute() {
                         <span>TDD</span>
                       </li>
                     </ul>
+                    <p className="text-lg text-gray-100">
+                      Son solo algunas de las herramientas que utilizarás para
+                      impulsar la eficiencia y la excelencia en la creación de
+                      proyectos. ¡Potencia tu aprendizaje con estas prácticas
+                      ágiles!
+                    </p>
                   </div>
                 </div>
               </div>

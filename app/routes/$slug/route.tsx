@@ -97,7 +97,7 @@ export default function SlugRoute() {
           <section
             ref={contentBlog}
             id="slug-content"
-            className="slug-blog-content mx-auto"
+            className="slug-blog-content mx-auto overflow-hidden"
             dangerouslySetInnerHTML={{ __html: html }}
           ></section>
         </article>

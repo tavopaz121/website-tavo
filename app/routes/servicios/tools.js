@@ -1,9 +1,9 @@
-import seoImg from "../assets/svgs/seo.svg";
-import rayoImg from "../assets/svgs/rayo.svg";
-import securityImg from "../assets/svgs/security.svg";
-import analiticaMedicion from "../assets/svgs/analiticaMedicion.svg";
-import experinceUser from "../assets/svgs/experinceUser.svg";
-import escabilidad from "../assets/svgs/escabilidad.svg";
+import seoImg from "~/components/assets/svgs/seo.svg";
+import rayoImg from "~/components/assets/svgs/rayo.svg";
+import securityImg from "~/components/assets/svgs/security.svg";
+import analiticaMedicion from "~/components/assets/svgs/analiticaMedicion.svg";
+import experinceUser from "~/components/assets/svgs/experinceUser.svg";
+import escabilidad from "~/components/assets/svgs/escabilidad.svg";
 
 export const tools = [
   {

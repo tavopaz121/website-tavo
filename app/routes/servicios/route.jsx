@@ -1,7 +1,6 @@
 import heroImg from "~/assets/imgs/services/hero-img.webp";
 import CardService from "~/components/CardServices/CardService";
 import { services } from "~/data/services.js";
-import { tools } from "~/data/tools.js";
 import { Link } from "@remix-run/react";
 
 import { metaFn } from "~/functions/shared/meta";
@@ -13,14 +12,14 @@ export const loader = loaderSeoFn("servicios");
 export default function Servicios() {
   return (
     <>
-      <section className="max-md:h-full max-md:mb-4 pt-20">
+      <section className="max-md:h-full max-md:mb-4 pt-20 overflow-hidden">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 py-20">
           <div className="grid items-center grid-cols-1 max-lg:gap-12 lg:grid-cols-2 gap-6">
             <div>
               <h1
                 className="sm:motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-5xl lg:text-7xl"
                 style={{
-                  animationDelay: "1.5s",
+                  animationDelay: "0.5s",
                   animationFillMode: "both",
                 }}
               >
@@ -37,9 +36,9 @@ export default function Servicios() {
               </h1>
 
               <p
-                className="mt-8 text-base sm:text-xl sm:motion-safe:animate-fadeIn"
+                className="mt-8 text-base sm:text-xl sm:motion-safe:animate-fadeInLeft"
                 style={{
-                  animationDelay: "2s",
+                  animationDelay: "1s",
                   animationFillMode: "both",
                 }}
               >
@@ -60,7 +59,7 @@ export default function Servicios() {
               <img
                 decoding="async"
                 loading="lazy"
-                className="w-full object-cover relative z-auto sm:motion-safe:animate-fadeInUp"
+                className="w-full object-cover relative z-auto sm:motion-safe:animate-fadeInRight"
                 src={heroImg}
                 alt=""
                 style={{
@@ -152,49 +151,6 @@ export default function Servicios() {
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-8">
-        <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-              ¿Qué no debe faltar en tu{" "}
-              <span className="font-serif italic">sitio web</span>?
-            </h2>
-            <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed ">
-              Que para tu tranquilidad, lo incluimos en todos nuestros
-              proyectos.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 mt-12 lg:mt-16 xl:gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {tools.map((item, index) => (
-              <div
-                className="overflow-hidden bg-white rounded shadow"
-                key={index}
-              >
-                <div className="p-8">
-                  <div className="flex items-center">
-                    <img
-                      decoding="async"
-                      loading="lazy"
-                      src={item.img}
-                      alt=""
-                      className="w-12"
-                    />
-
-                    <div className="ml-5 mr-auto">
-                      <p className="text-xl font-semibold text-black">
-                        {item.name}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-base leading-relaxed  mt-7">{item.desc}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
