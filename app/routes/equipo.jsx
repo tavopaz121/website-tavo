@@ -171,7 +171,7 @@ export default function Equipo() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-4 lg:mx-auto" data-aos="fade-left">
+        <div data-aos="fade-left">
           <div className="pb-4">
             <div className="relative">
               {/* Content */}
@@ -207,7 +207,7 @@ export default function Equipo() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-4 lg:mx-auto" data-aos="fade-right">
+        <div data-aos="fade-right">
           <div className="pb-4">
             <div className="relative">
               {/* Content */}
