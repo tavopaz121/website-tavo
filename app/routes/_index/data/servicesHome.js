@@ -1,11 +1,11 @@
-import LadingPageSvg from "~/components/HomePage/svgs/LadingPageSvg";
-import SeoSvg from "~/components/HomePage/svgs/SeoSvg";
-import SvgAppMovil from "~/components/HomePage/svgs/SvgAppMovil";
-import SvgAppWeb from "~/components/HomePage/svgs/SvgAppWeb";
-import SvgBlog from "~/components/HomePage/svgs/SvgBlog";
-import SvgEcommerce from "~/components/HomePage/svgs/SvgEcommerce";
-import SvgWebCorporativa from "~/components/HomePage/svgs/SvgWebCorporativa";
-import SvgWebProgressive from "~/components/HomePage/svgs/SvgWebProgressive";
+import LadingPageSvg from "../components/svgs/LadingPageSvg";
+import SeoSvg from "../components/svgs/SeoSvg";
+import SvgAppMovil from "../components/svgs/SvgAppMovil";
+import SvgAppWeb from "../components/svgs/SvgAppWeb";
+import SvgBlog from "../components/svgs/SvgBlog";
+import SvgEcommerce from "../components/svgs/SvgEcommerce";
+import SvgWebCorporativa from "../components/svgs/SvgWebCorporativa";
+import SvgWebProgressive from "../components/svgs/SvgWebProgressive";
 
 export const serviciosUno = [
   {

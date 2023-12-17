@@ -1,5 +1,5 @@
-import circle from "app/assets/imgs/cta/circle-bg.svg";
-import equipo from "app/assets/imgs/equipo.webp";
+import circle from "~/assets/imgs/cta/circle-bg.svg";
+import equipo from "~/assets/imgs/equipo.webp";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "@remix-run/react";
 

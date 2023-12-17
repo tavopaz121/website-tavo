@@ -1,5 +1,5 @@
 import servicesImg from "~/assets/imgs/inicio/services.webp";
-import { serviciosUno, serviciosDos } from "~/data/servicesHome";
+import { serviciosUno, serviciosDos } from "../data/servicesHome";
 
 import CardServicio from "./CardServicio";
 import { useCallback, useEffect, useState } from "react";

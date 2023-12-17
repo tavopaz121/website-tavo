@@ -1,17 +1,17 @@
-import Hero from "~/components/pages/home/Hero";
-import Servicios from "~/components/pages/home/Servicios";
-import Nosotros from "~/components/pages/home/Nosotros";
-import Blogs from "~/components/pages/home/Blogs";
-import Contacto from "~/components/pages/home/Contacto";
+import Hero from "./components/Hero";
+import Servicios from "./components/Servicios";
+import Nosotros from "./components/Nosotros";
+import Blogs from "./components/Blogs";
+import Contacto from "./components/Contacto";
+import Principios from "./components/Principios";
 import { items, secondaryItems } from "~/data/navItems";
 import Nav from "~/components/Navs/Nav";
 import { useEffect, useRef, useState } from "react";
-import Principios from "~/components/pages/home/Principios";
-import poster from "app/assets/imgs/inicio/background-video-inicio.webp";
+import poster from "~/assets/imgs/inicio/background-video-inicio.webp";
 
 import type { LinksFunction } from "@remix-run/node";
 
-import videoPoster from "app/assets/imgs/inicio/background-video-inicio.webp";
+import videoPoster from "~/assets/imgs/inicio/background-video-inicio.webp";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
@@ -74,7 +74,7 @@ export default function Index() {
         />
       </section>
 
-      <article ref={targetRef}>
+      <article ref={targetRef} className="overflow-hidden">
         <Servicios />
         <Principios hasParticles={true} />
         <Nosotros />

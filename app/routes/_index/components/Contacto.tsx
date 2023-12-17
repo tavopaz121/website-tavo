@@ -1,7 +1,7 @@
-import orangeEmail from "app/assets/imgs/icons/icon-orange-email.svg";
-import orangePhone from "app/assets/imgs/icons/icon-orange-headphones.svg";
-import CardContact from "../../HomePage/CardContaco";
-import type { PropsCardCotact } from "../../HomePage/CardContaco";
+import orangeEmail from "~/assets/imgs/icons/icon-orange-email.svg";
+import orangePhone from "~/assets/imgs/icons/icon-orange-headphones.svg";
+import CardContact from "./CardContaco";
+import type { PropsCardCotact } from "./CardContaco";
 
 import { useRef, useState, useEffect } from "react";
 
@@ -51,7 +51,7 @@ const cardPhone: PropsCardCotact = {
     "Puede marcar a nuestro número si desea obtener infomación personalizada",
   medio: "278 688 3881",
   icon: iconPhone,
-  anchor: "tel:",
+  anchor: "tel:2786883881",
 };
 
 export default function Contacto() {

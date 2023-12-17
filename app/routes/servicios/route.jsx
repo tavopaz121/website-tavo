@@ -1,5 +1,5 @@
 import heroImg from "~/assets/imgs/services/hero-img.webp";
-import CardService from "~/components/CardServices/CardService";
+import CardService from "./CardServices/CardService";
 import { services } from "~/data/services.js";
 import { Link } from "@remix-run/react";
 
@@ -27,7 +27,7 @@ export default function Servicios() {
                 <strong className="font-serif italic">Éxito Digital</strong>!
                 <div className="relative">
                   <span
-                    className="relative text-4xl font-bold text-black sm:text-4xl lg:text-4xl after:w-full after:h-3 after:bg-pink-500 after:absolute after:left-0 after:bottom-[-5px] after:-z-10"
+                    className="relative text-4xl font-bold text-black sm:text-4xl lg:text-4xl after:w-full after:h-3 after:bg-gradient-pink after:absolute after:left-0 after:bottom-[-5px] after:-z-10"
                     style={{ content: " " }}
                   >
                     Desarrollo ágil simplificado
@@ -68,7 +68,7 @@ export default function Servicios() {
                 }}
               />
               <div
-                className="bg-pink-500 absolute top-[-10rem] max-lg:hidden max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 sm:motion-safe:animate-fadeInUp"
+                className="bg-gradient-pink absolute top-[-10rem] max-lg:hidden max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 sm:motion-safe:animate-fadeInUp"
                 style={{
                   animationDelay: "0.5s",
                   animationFillMode: "both",

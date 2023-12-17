@@ -1,9 +1,9 @@
-import imageBlog from "app/assets/imgs/corazon-agilidad.webp";
-import imageBlog2 from "app/assets/imgs/individuosEInteracciones.webp";
-import imageBlog3 from "app/assets/imgs/Portada-IntroLEanStartup-.webp";
+import imageBlog from "~/assets/imgs/corazon-agilidad.webp";
+import imageBlog2 from "~/assets/imgs/individuosEInteracciones.webp";
+import imageBlog3 from "~/assets/imgs/Portada-IntroLEanStartup-.webp";
 import { Link } from "@remix-run/react";
 
-import Blog from "../../HomePage/CardBlog";
+import Blog from "./CardBlog";
 
 const blogs = [
   {
@@ -11,21 +11,21 @@ const blogs = [
     fecha: "Oct 02, 2019",
     contenido:
       "El manifiesto ágil, siempre he pensado que las cosas simples son las mejores.",
-    anchor: "https://www.pensemosweb.com/el-corazon-agil-manifiesto/",
+    anchor: "https://pensemosweb-mx.web.app/el-corazon-agil-manifiesto/",
   },
   {
     image: imageBlog2,
     fecha: "Ago 18, 2019",
     contenido: "¿CÓMO SURGIÓ EL DESARROLLO ÁGIL? PRINCIPIOS FUNDAMENTALES",
     anchor:
-      "https://www.pensemosweb.com/como-surgio-el-desarrollo-agil-principios-fundamentales/",
+      "https://pensemosweb-mx.web.app/como-surgio-el-desarrollo-agil-principios-fundamentales/",
   },
   {
     image: imageBlog3,
     fecha: "Dic 29, 2018",
     contenido:
       "Introducción Lean Startup, utilización del conocimiento y creatividad de los individuos.",
-    anchor: "https://www.pensemosweb.com/introduccion-lean-startup/",
+    anchor: "https://pensemosweb-mx.web.app/introduccion-lean-startup/",
   },
 ];
 
@@ -55,7 +55,7 @@ export default function Blogs() {
         <div className="border-gray-100 text-center">
           <Link
             className="relative group inline-block py-4 px-7 font-semibold text-white bg-gray-900 rounded-full transition duration-300 overflow-hidden"
-            to="https://www.pensemosweb.com/"
+            to="https://pensemosweb-mx.web.app/blog"
             target="_blank"
             rel="noreferrer"
           >

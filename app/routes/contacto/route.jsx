@@ -1,14 +1,14 @@
-import icons from "../assets/imgs/contacto/icons8-phone.webp";
+import icons from "~/assets/imgs/contacto/icons8-phone.webp";
 import React, { useState } from "react";
-import email from "../assets/imgs/contacto/icon-orange-email.svg";
-import equipo from "../assets/imgs/contacto/img-formulario.webp";
-import hour from "../assets/imgs/contacto/icons8-hour.webp";
+import email from "~/assets/imgs/contacto/icon-orange-email.svg";
+import equipo from "~/assets/imgs/contacto/img-formulario.webp";
+import hour from "~/assets/imgs/contacto/icons8-hour.webp";
 import { json } from "@remix-run/node";
 import { Form, useActionData, useNavigation, Link } from "@remix-run/react";
-import { validateFields } from "../functions/validatedFields";
-import WhatsAppLink from "../components/Buttons/WhatsApp";
-import { createMessage } from "../firebase/models/contactMessages.server";
-import Modal from "../components/Modal/Modal";
+import { validateFields } from "~/functions/validatedFields";
+import WhatsAppLink from "~/components/Buttons/WhatsApp";
+import { createMessage } from "~/firebase/models/contactMessages.server";
+import Modal from "~/components/Modal/Modal";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
