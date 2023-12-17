@@ -9,6 +9,7 @@ import ArticlesList from "~/components/Blog/ArticlesList/ArticlesList";
 import Sidebar from "~/components/Siderbar/sidebar";
 import SideBarList from "~/components/Siderbar/sidebarList";
 import { listCategorysTags } from "~/data/listCategorysTags";
+import aosStyles from "aos/dist/aos.css";
 
 export async function loader({ request, params }: LoaderArgs) {
   const numPage = Number(params.page || 1);
@@ -34,6 +35,10 @@ export async function loader({ request, params }: LoaderArgs) {
     total,
     tag,
   });
+}
+
+export function links() {
+  return [{ rel: "stylesheet", href: aosStyles, content: "text/css" }];
 }
 
 export default function BlogTag() {

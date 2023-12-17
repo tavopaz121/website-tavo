@@ -1,6 +1,9 @@
 import PostItem from "../PostItem/post-item";
 import type { CardProps } from "./Card.d";
 
+import AOS from "aos";
+import { useEffect } from "react";
+
 type ArticlesListProps = {
   posts: [];
   title?: string;
@@ -12,15 +15,28 @@ export default function ArticlesList({
   title,
   children,
 }: ArticlesListProps) {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      disable: "phone",
+      easing: "ease-out-sine",
+    });
+  });
   return (
     <section>
       <div className="w-full">
         <div className="pb-12 md:pb-20">
           <div className="lg:flex lg:justify-between">
             {/* Main content */}
-            <div className="lg:grow" data-aos="fade-down" data-aos-delay="200">
+            <div className="lg:grow" data-aos="fade-up" data-aos-delay="200">
               {/* Section title */}
-              <p className="text-3xl text-white mb-8">{title}</p>
+              <p
+                className="text-3xl text-white mb-8"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                {title}
+              </p>
 
               {/* Articles container */}
               <div
