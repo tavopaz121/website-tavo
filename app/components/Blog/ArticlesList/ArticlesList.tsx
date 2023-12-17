@@ -28,13 +28,9 @@ export default function ArticlesList({
         <div className="pb-12 md:pb-20">
           <div className="lg:flex lg:justify-between">
             {/* Main content */}
-            <div className="lg:grow" data-aos="fade-up" data-aos-delay="200">
+            <div className="lg:grow" data-aos="fade-up">
               {/* Section title */}
-              <p
-                className="text-3xl text-white mb-8"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
+              <p className="text-3xl text-white mb-8" data-aos="fade-up">
                 {title}
               </p>
 
@@ -45,16 +41,19 @@ export default function ArticlesList({
                 } sm:gap-x-6 md:gap-y-8 items-start max-sm:block`}
               >
                 {posts.map(
-                  ({
-                    id,
-                    to,
-                    title,
-                    image,
-                    createdAt,
-                    user,
-                    tags,
-                    summary,
-                  }: CardProps) => (
+                  (
+                    {
+                      id,
+                      to,
+                      title,
+                      image,
+                      createdAt,
+                      user,
+                      tags,
+                      summary,
+                    }: CardProps,
+                    index,
+                  ) => (
                     <PostItem
                       key={id}
                       to={to}
@@ -66,6 +65,7 @@ export default function ArticlesList({
                       imageSrc={image.src}
                       imageAlt={image.alt}
                       summary={summary}
+                      aosDelay={index % 2 === 0 ? 0 : 200}
                     />
                   ),
                 )}
