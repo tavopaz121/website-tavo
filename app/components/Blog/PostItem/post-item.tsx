@@ -15,7 +15,11 @@ export default function PostItem({
   imageAlt,
 }: PostItemProps) {
   return (
-    <article className="flex flex-col h-full max-sm:mb-10" data-aos="fade-up">
+    <article
+      className="flex flex-col h-full max-sm:mb-10"
+      data-aos="fade-up"
+      data-aos-delay="600"
+    >
       <header>
         <Link to={`/${to}`} className="block mb-6">
           <figure className="relative h-0 pb-[56.25%] overflow-hidden rounded-sm">

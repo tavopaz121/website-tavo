@@ -10,6 +10,7 @@ import FeaturesArticle from "~/components/Blog/FeaturedArticle/FeaturesArticle";
 import ArticlesList from "~/components/Blog/ArticlesList/ArticlesList";
 import SideBarList from "~/components/Siderbar/sidebarList";
 import { listCategorysTags } from "~/data/listCategorysTags";
+import aosStyles from "aos/dist/aos.css";
 
 export async function loader({ request }: LoaderArgs) {
   const url = new URL(request.url);
@@ -17,6 +18,10 @@ export async function loader({ request }: LoaderArgs) {
   const { posts, nextPage, prevPage, total } = await getPosts(numPage);
 
   return json({ posts: mapPostsToCards(posts), nextPage, prevPage, total });
+}
+
+export function links() {
+  return [{ rel: "stylesheet", href: aosStyles, content: "text/css" }];
 }
 
 export default function Blog() {
@@ -27,7 +32,7 @@ export default function Blog() {
 
   return (
     <>
-      <section className="relative bg-gray-900 px-8 max-sm:px-4">
+      <section className="relative bg-gray-900 px-8 max-sm:px-4 overflow-hidden">
         <PageIllustration />
         <div className="max-w-full">
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">

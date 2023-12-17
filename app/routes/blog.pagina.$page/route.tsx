@@ -9,6 +9,7 @@ import Pagination from "~/components/Blog/Pagination/pagination";
 import ArticlesList from "~/components/Blog/ArticlesList/ArticlesList";
 import SideBarList from "~/components/Siderbar/sidebarList";
 import { listCategorysTags } from "~/data/listCategorysTags";
+import aosStyles from "aos/dist/aos.css";
 
 export async function loader({ request }: LoaderArgs) {
   const url = new URL(request.url);
@@ -28,6 +29,10 @@ export async function loader({ request }: LoaderArgs) {
     numPage: numPage,
     total,
   });
+}
+
+export function links() {
+  return [{ rel: "stylesheet", href: aosStyles, content: "text/css" }];
 }
 
 export default function Blog() {
