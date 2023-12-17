@@ -4,9 +4,10 @@ import { getPost } from "~/firebase/models/posts.server";
 import { marked } from "marked";
 import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
-import { useEffect, useRef } from "react";
 import SideBarList from "~/components/Siderbar/sidebarList";
 import { listCategorysTags } from "~/data/listCategorysTags";
+import AOS from "aos";
+import asoStyles from "aos/dist/aos.css";
 
 import styleCode from "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
@@ -35,6 +36,7 @@ export function links() {
   return [
     { rel: "stylesheet", href: stylesSlug, content: "text/css" },
     { rel: "stylesheet", href: styleCode, content: "text/css" },
+    { rel: "stylesheet", href: asoStyles, content: "text/css" },
   ];
 }
 
@@ -77,15 +79,27 @@ export default function SlugRoute() {
 
   useEffect(() => {
     hljs.highlightAll();
+    AOS.init();
   }, []);
 
   return (
-    <section className="px-4 mt-10 py-20 bg-black">
+    <section className="px-4 mt-10 py-20 bg-black overflow-hidden">
       <div className="mx-auto max-w-7xl grid gap-8 grid-cols-12 container-slug-blg">
         <article className="slug-blog col-span-12 lg:col-span-9">
-          <h1 className="font-bold">{title}</h1>
+          <h1
+            className="font-bold"
+            data-aos="fade-right"
+            data-aos-easing="linear"
+            data-aos-duration="300"
+          >
+            {title}
+          </h1>
           <figure className="relative text-center mb-12">
             <img
+              data-aos="fade-right"
+              data-aos-easing="linear"
+              data-aos-duration="300"
+              data-aos-delay="500"
               decoding="async"
               loading="lazy"
               src={image}
@@ -101,11 +115,18 @@ export default function SlugRoute() {
             dangerouslySetInnerHTML={{ __html: html }}
           ></section>
         </article>
-        <SideBarList
+        <div
+          data-aos="fade-left"
+          data-aos-easing="linear"
+          data-aos-duration="300"
+          data-aos-delay="500"
           className="col-span-12 lg:col-span-3"
-          listCategorys={listCategorysTags}
-          title="Categorías"
-        ></SideBarList>
+        >
+          <SideBarList
+            listCategorys={listCategorysTags}
+            title="Categorías"
+          ></SideBarList>
+        </div>
       </div>
     </section>
   );
