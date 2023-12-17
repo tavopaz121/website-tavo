@@ -85,7 +85,7 @@ export default function SlugRoute() {
 
   return (
     <section className="px-4 mt-10 py-20 bg-black overflow-hidden">
-      <div className="mx-auto max-w-7xl grid gap-8 grid-cols-12 container-slug-blg">
+      <div className="mx-auto max-w-7xl grid lg:gap-8 grid-cols-12 container-slug-blg">
         <article className="slug-blog col-span-12 lg:col-span-9">
           <h1
             className="font-bold"
