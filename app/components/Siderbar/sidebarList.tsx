@@ -18,7 +18,7 @@ export default function SideBarList({
         {listCategorys?.map((category, index) => (
           <li className="flex py-3 border-b border-gray-500" key={index}>
             <Link
-              to={`/categoria/${category}`}
+              to={`/categoria/${category.toLowerCase()}`}
               className="text-gray-200 font-bold tracking-tight mb-1 capitalize"
             >
               {category.split("-").join(" ")}
