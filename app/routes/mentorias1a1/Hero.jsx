@@ -21,9 +21,10 @@ export default function MentoriasHero() {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Ama y cuida tu recurso máximo, no renovable, tu tiempo. Crea
-              proyectos reales, no pierdas tu tiempo. Devs de calidad para crear
-              productos de calidad.
+              ⏳🌟 Ama y cuida tu recurso máximo, no renovable: tu tiempo. Crea
+              proyectos reales; la práctica hace al maestro, evita agotarte con
+              información innecesaria. 👩‍💻👨‍💻 Desarrolladores de calidad para
+              crear productos de calidad.
             </p>
             <div className="flex justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
@@ -31,7 +32,7 @@ export default function MentoriasHero() {
                   className="btn rounded-sm text-white bg-gradient-pink hover:scale-110 lg:w-full lg:mb-4 w-auto mb-0"
                   to="./registro"
                 >
-                  Iniciar
+                  Registrate
                 </Link>
               </div>
               {/* <div data-aos="fade-up" data-aos-delay="600">
