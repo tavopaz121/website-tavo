@@ -10,7 +10,6 @@ export default function Sidebar({ children, className }: SideBarProps) {
       data-aos="fade-down"
       data-aos-delay="400"
     >
-      {/* Popular posts */}
       {children}
     </aside>
   );

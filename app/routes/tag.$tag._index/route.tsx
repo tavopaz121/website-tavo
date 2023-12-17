@@ -6,6 +6,9 @@ import PageIllustration from "~/components/Blog/page-illustration";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
 import Pagination from "~/components/Blog/Pagination/pagination";
 import ArticlesList from "~/components/Blog/ArticlesList/ArticlesList";
+import Sidebar from "~/components/Siderbar/sidebar";
+import SideBarList from "~/components/Siderbar/sidebarList";
+import { listCategorysTags } from "~/data/listCategorysTags";
 
 export async function loader({ request, params }: LoaderArgs) {
   const numPage = Number(params.page || 1);
@@ -45,7 +48,14 @@ export default function BlogTag() {
                   ? "Sin artículos encontrados"
                   : `Artículos con etiqueta ${tag}, página ${numPage}`
               }
-            />
+            >
+              <Sidebar>
+                <SideBarList
+                  title="Lista de Tags"
+                  listCategorys={listCategorysTags}
+                />
+              </Sidebar>
+            </ArticlesList>
             {/*  Pagination */}
             {total > 0 && (
               <Pagination
