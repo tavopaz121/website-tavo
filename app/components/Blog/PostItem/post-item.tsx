@@ -13,12 +13,13 @@ export default function PostItem({
   tags,
   imageSrc,
   imageAlt,
+  aosDelay,
 }: PostItemProps) {
   return (
     <article
       className="flex flex-col h-full max-sm:mb-10"
       data-aos="fade-up"
-      data-aos-delay="600"
+      data-aos-delay={aosDelay}
     >
       <header>
         <Link to={`/${to}`} className="block mb-6">
