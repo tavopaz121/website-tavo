@@ -10,5 +10,6 @@ export type PostItemProps = {
   tags?: string[];
   imageSrc?: string;
   imageAlt?: string;
+  aosDelay?: string;
   children?: JSX.Element | string | null;
 };

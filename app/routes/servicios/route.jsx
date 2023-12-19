@@ -19,7 +19,6 @@ export default function Servicios() {
               <h1
                 className="sm:motion-safe:animate-fadeInDown text-4xl font-bold text-black sm:text-5xl lg:text-7xl"
                 style={{
-                  animationDelay: "0.5s",
                   animationFillMode: "both",
                 }}
               >
@@ -38,7 +37,6 @@ export default function Servicios() {
               <p
                 className="mt-8 text-base sm:text-xl sm:motion-safe:animate-fadeInLeft"
                 style={{
-                  animationDelay: "1s",
                   animationFillMode: "both",
                 }}
               >
@@ -63,14 +61,12 @@ export default function Servicios() {
                 src={heroImg}
                 alt=""
                 style={{
-                  animationDelay: "1s",
                   animationFillMode: "both",
                 }}
               />
               <div
                 className="bg-gradient-pink absolute top-[-10rem] max-lg:hidden max-md:hidden left-[30%] h-[640px] w-[250px] -z-10 sm:motion-safe:animate-fadeInUp"
                 style={{
-                  animationDelay: "0.5s",
                   animationFillMode: "both",
                 }}
               ></div>

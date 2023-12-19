@@ -68,19 +68,23 @@ export default function MentoriasRoute() {
                     height={64}
                     className=""
                   />
-                  <div
-                    aria-hidden="true"
-                    className="absolute h-1 border-t border-dashed border-gray-700 hidden md:block"
-                    style={{
-                      width: "calc(100% - 32px)",
-                      left: "calc(50% + 48px)",
-                      top: "32px",
-                    }}
-                    data-aos="fade-in"
-                    data-aos-delay="200"
-                  ></div>
+
+                  {index !== principles.length - 1 && (
+                    <div
+                      aria-hidden="true"
+                      className="absolute h-1 border-t border-dashed border-gray-700 hidden md:block"
+                      style={{
+                        width: "calc(100% - 32px)",
+                        left: "calc(50% + 48px)",
+                        top: "32px",
+                      }}
+                      data-aos="fade-in"
+                      data-aos-delay="200"
+                    ></div>
+                  )}
                   <h4 className="h4 mb-2 text-white text-2xl text-center">
-                    <span className="text-gray-300">1</span>. {item.title}
+                    <span className="text-gray-300">{index + 1}</span>.{" "}
+                    {item.title}
                   </h4>
                   <p className="text-lg text-gray-300 text-center">
                     {item.text}
