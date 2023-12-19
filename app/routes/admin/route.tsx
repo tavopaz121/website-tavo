@@ -25,8 +25,7 @@ export default function Admin() {
           </button>
         </Form>
       </Nav>
-      <div className="mt-20 p-4">
-        <p>Admin</p>
+      <div>
         <Outlet />
       </div>
     </>
