@@ -43,6 +43,33 @@ export async function getPosts(
   };
 }
 
+export async function getRelatedPost({
+  field,
+  operator,
+  value,
+}: {
+  field: string;
+  operator: string;
+  value: any;
+}) {
+  try {
+    const collectioPost = await collections.posts();
+    const postsFiltrados = await collectioPost
+      .where(field, operator, value)
+      .orderBy("createdAt", "desc")
+      .limit(3)
+      .get();
+
+    const posts = postsFiltrados.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+
+    return { posts };
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function getPost(
   slug: string,
   collection: CollectionReference<FirestorePost> = collections.posts(),
