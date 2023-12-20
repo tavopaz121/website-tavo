@@ -1,10 +1,6 @@
 import { json, type LoaderArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import {
-  getPost,
-  getPosts,
-  getRelatedPost,
-} from "~/firebase/models/posts.server";
+import { getPost, getRelatedPost } from "~/firebase/models/posts.server";
 import { marked } from "marked";
 import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
@@ -33,14 +29,14 @@ export async function loader({ params }: LoaderArgs) {
     });
   }
 
-  //const by = { "tags", "==", };
-
-  //const { posts } = await getPosts();
-  const { posts } = await getRelatedPost({
-    field: "tags",
-    operator: "array-contains-any",
-    value: post.tags,
-  });
+  const { posts } = await getRelatedPost(
+    {
+      field: "tags",
+      operator: "array-contains-any",
+      value: post.tags,
+    },
+    slug,
+  );
 
   const showPosts = mapPostsToCards(posts);
 

@@ -43,20 +43,23 @@ export async function getPosts(
   };
 }
 
-export async function getRelatedPost({
-  field,
-  operator,
-  value,
-}: {
-  field: string;
-  operator: string;
-  value: any;
-}) {
+export async function getRelatedPost(
+  {
+    field,
+    operator,
+    value,
+  }: {
+    field: string;
+    operator: string;
+    value: any;
+  },
+  slug: string,
+) {
   try {
-    const collectioPost = await collections.posts();
+    const collectioPost = collections.posts();
     const postsFiltrados = await collectioPost
       .where(field, operator, value)
-      .orderBy("createdAt", "desc")
+      .where("slug", "!=", slug)
       .limit(3)
       .get();
 
