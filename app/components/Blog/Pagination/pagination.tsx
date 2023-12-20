@@ -13,7 +13,7 @@ export default function Pagination({
 
   return (
     <nav
-      className="flex justify-center pt-16"
+      className="flex justify-center pt-4"
       role="navigation"
       aria-label="Pagination Navigation"
     >

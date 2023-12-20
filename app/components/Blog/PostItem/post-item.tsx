@@ -14,10 +14,11 @@ export default function PostItem({
   imageSrc,
   imageAlt,
   aosDelay,
+  children,
 }: PostItemProps) {
   return (
     <article
-      className="flex flex-col h-full max-sm:mb-10"
+      className="flex flex-col h-full max-sm:mb-10 relative"
       data-aos="fade-up"
       data-aos-delay={aosDelay}
     >
@@ -39,14 +40,14 @@ export default function PostItem({
             <PostTags tags={tags} />
           </div>
         )}
-        <h3 className="h4 mb-2">
+        <h2 className="h4 mb-2">
           <Link
             to={`/${to}`}
             className="hover:text-gray-300 text-white transition duration-150 ease-in-out"
           >
             {title}
           </Link>
-        </h3>
+        </h2>
       </header>
       <p className="text-lg text-gray-400 grow line-clamp-2">{summary}</p>
       <footer className="flex items-center mt-4">
@@ -78,6 +79,8 @@ export default function PostItem({
           </span>
         </div>
       </footer>
+
+      {children}
     </article>
   );
 }

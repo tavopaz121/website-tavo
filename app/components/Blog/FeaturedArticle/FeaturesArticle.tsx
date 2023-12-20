@@ -47,14 +47,14 @@ export default function FeaturesArticle({
                 </div>
               )}
             </div>
-            <h3 className="h3 text-2xl lg:text-3xl mb-2">
+            <h2 className="h3 text-2xl lg:text-3xl mb-2">
               <Link
                 to={`/${to}`}
                 className="hover:text-gray-300 transition duration-150 ease-in-out text-white"
               >
                 {title}
               </Link>
-            </h3>
+            </h2>
           </header>
           <p className="text-lg text-gray-400 grow line-clamp-3">{summary}</p>
           <footer className="flex items-center mt-4">
