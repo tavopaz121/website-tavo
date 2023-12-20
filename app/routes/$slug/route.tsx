@@ -149,32 +149,34 @@ export default function SlugRoute() {
         <h2 className="font-bold md:text-4xl text-2xl mb-4">
           Prodria interesarte
         </h2>
-        <div className="grid grid-cols-3 w-full gap-4">
-          {showPosts.map(
-            ({
-              id,
-              to,
-              title,
-              image,
-              createdAt,
-              user,
-              tags,
-              summary,
-            }: CardProps) => (
-              <PostItem
-                key={id}
-                to={to}
-                title={title}
-                createdAt={createdAt}
-                authorImg={user.photoURL}
-                author={user.displayName}
-                tags={tags}
-                imageSrc={image.src}
-                imageAlt={image.alt}
-                summary={summary}
-              ></PostItem>
-            ),
-          )}
+        <div className="flex justify-center">
+          <div className="grid md:grid-flow-col grid-flow-row w-full gap-4 max-md:max-w-lg">
+            {showPosts.map(
+              ({
+                id,
+                to,
+                title,
+                image,
+                createdAt,
+                user,
+                tags,
+                summary,
+              }: CardProps) => (
+                <PostItem
+                  key={id}
+                  to={to}
+                  title={title}
+                  createdAt={createdAt}
+                  authorImg={user.photoURL}
+                  author={user.displayName}
+                  tags={tags}
+                  imageSrc={image.src}
+                  imageAlt={image.alt}
+                  summary={summary}
+                ></PostItem>
+              ),
+            )}
+          </div>
         </div>
       </div>
     </section>
