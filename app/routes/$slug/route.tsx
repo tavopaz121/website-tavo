@@ -1,6 +1,6 @@
 import { json, type LoaderArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getPost } from "~/firebase/models/posts.server";
+import { getPost, getPosts } from "~/firebase/models/posts.server";
 import { marked } from "marked";
 import stylesSlug from "./styles.css";
 import type { Post } from "~/types/publish";
@@ -12,12 +12,17 @@ import asoStyles from "aos/dist/aos.css";
 import styleCode from "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
 import { useEffect, useRef } from "react";
+import PostItem from "~/components/Blog/PostItem/post-item";
+import Dropdown from "~/components/Blog/Dropdown/Dropdown";
+import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
+import type { CardProps } from "../blog._index/Card/Card";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
-
+  const { posts } = await getPosts();
   const post: Post = await getPost(slug || "");
 
+  const showPosts = mapPostsToCards(posts.slice(0, 3));
   const content: string | undefined = post.content as string;
 
   if (!content) {
@@ -30,6 +35,7 @@ export async function loader({ params }: LoaderArgs) {
   return json({
     post,
     html: marked(content),
+    showPosts,
   });
 }
 
@@ -73,7 +79,8 @@ export function meta({ data, params }: any) {
 }
 
 export default function SlugRoute() {
-  const { post, html } = useLoaderData();
+  const { post, html, showPosts } = useLoaderData();
+
   const contentBlog = useRef(null);
 
   const { image, title } = post;
@@ -85,7 +92,7 @@ export default function SlugRoute() {
 
   return (
     <section className="px-4 mt-10 py-20 bg-black overflow-hidden">
-      <div className="mx-auto max-w-7xl grid lg:gap-8 grid-cols-12 container-slug-blg">
+      <div className="mx-auto max-w-7xl grid lg:gap-8 grid-cols-12 container-slug-blg mb-12">
         <article className="slug-blog col-span-12 lg:col-span-9">
           <h1
             className="font-bold"
@@ -128,6 +135,36 @@ export default function SlugRoute() {
             title="Categorías"
           ></SideBarList>
         </div>
+      </div>
+
+      <div className="mx-auto max-w-7xl grid grid-cols-3">
+        {showPosts.map(
+          ({
+            id,
+            to,
+            title,
+            image,
+            createdAt,
+            user,
+            tags,
+            summary,
+          }: CardProps) => (
+            <PostItem
+              key={id}
+              to={to}
+              title={title}
+              createdAt={createdAt}
+              authorImg={user.photoURL}
+              author={user.displayName}
+              tags={tags}
+              imageSrc={image.src}
+              imageAlt={image.alt}
+              summary={summary}
+            >
+              <Dropdown slug={to} className="absolute right-0 top-0 z-30 p-2" />
+            </PostItem>
+          ),
+        )}
       </div>
     </section>
   );
