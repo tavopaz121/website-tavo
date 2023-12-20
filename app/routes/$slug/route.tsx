@@ -13,16 +13,13 @@ import styleCode from "highlight.js/styles/atom-one-dark.css";
 import hljs from "highlight.js";
 import { useEffect, useRef } from "react";
 import PostItem from "~/components/Blog/PostItem/post-item";
-import Dropdown from "~/components/Blog/Dropdown/Dropdown";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
 import type { CardProps } from "../blog._index/Card/Card";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
-  const { posts } = await getPosts();
   const post: Post = await getPost(slug || "");
 
-  const showPosts = mapPostsToCards(posts.slice(0, 3));
   const content: string | undefined = post.content as string;
 
   if (!content) {
@@ -31,6 +28,9 @@ export async function loader({ params }: LoaderArgs) {
       statusText: "Not Found",
     });
   }
+
+  const { posts } = await getPosts();
+  const showPosts = mapPostsToCards(posts.slice(0, 3));
 
   return json({
     post,
@@ -137,34 +137,37 @@ export default function SlugRoute() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl grid grid-cols-3">
-        {showPosts.map(
-          ({
-            id,
-            to,
-            title,
-            image,
-            createdAt,
-            user,
-            tags,
-            summary,
-          }: CardProps) => (
-            <PostItem
-              key={id}
-              to={to}
-              title={title}
-              createdAt={createdAt}
-              authorImg={user.photoURL}
-              author={user.displayName}
-              tags={tags}
-              imageSrc={image.src}
-              imageAlt={image.alt}
-              summary={summary}
-            >
-              <Dropdown slug={to} className="absolute right-0 top-0 z-30 p-2" />
-            </PostItem>
-          ),
-        )}
+      <div className="mx-auto max-w-7xl text-white">
+        <h2 className="font-bold md:text-4xl text-2xl mb-4">
+          Prodria interesarte
+        </h2>
+        <div className="grid grid-cols-3 w-full gap-4">
+          {showPosts.map(
+            ({
+              id,
+              to,
+              title,
+              image,
+              createdAt,
+              user,
+              tags,
+              summary,
+            }: CardProps) => (
+              <PostItem
+                key={id}
+                to={to}
+                title={title}
+                createdAt={createdAt}
+                authorImg={user.photoURL}
+                author={user.displayName}
+                tags={tags}
+                imageSrc={image.src}
+                imageAlt={image.alt}
+                summary={summary}
+              ></PostItem>
+            ),
+          )}
+        </div>
       </div>
     </section>
   );
