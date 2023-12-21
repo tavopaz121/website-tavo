@@ -1,14 +1,15 @@
-import equipo from "~/assets/imgs/contacto/img-formulario.webp";
-import React, { useState } from "react";
 import { json } from "@remix-run/node";
 import { Form, useActionData, useNavigation, Link } from "@remix-run/react";
 import { validateFields } from "~/functions/validatedFields";
 import { createMessage } from "~/firebase/models/contactMessages.server";
-import Modal from "~/components/Modal/Modal";
+import { useState } from "react";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 
+import Modal from "~/components/Modal/Modal";
+import IconContact from "./components/IconContact";
+import equipo from "~/assets/imgs/contacto/img-formulario.webp";
 import { iconsContact } from "./data/icons";
 
 export const meta = metaFn;
@@ -91,7 +92,11 @@ export default function Contacto() {
       <div className="max-w-5xl mx-auto mt-8">
         <div className="grid xl:grid-cols-4 md:grid-cols-2 max-md:grid-cols-1 min-w-0 gap-6 px-8 text-center md:px-0">
           {iconsContact.map((icon) => (
-            <IconContact key={icon.text} srcImge={icon.icon} text={icon.text} />
+            <IconContact
+              key={`Icono de ${icon.text}`}
+              srcImge={icon.icon}
+              text={icon.text}
+            />
           ))}
         </div>
       </div>
@@ -311,35 +316,5 @@ export default function Contacto() {
         </p>
       </Modal>
     </section>
-  );
-}
-
-function IconContact({
-  srcImge,
-  text = "Ingrese texto",
-  altImage = "Un icono",
-}) {
-  return (
-    <div className="overflow-hidden bg-white rounded-xl">
-      <div className="p-6 flex flex-col items-center text-center text-pink-500 group">
-        <div className="relative inline-block overflow-hidden transition duration-1000 rounded-full text-white p-3">
-          <div
-            className={`absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500`}
-          />
-          <span className={`relative text-pink-500 transition duration-200`}>
-            <img
-              decoding="async"
-              loading="lazy"
-              className="block mx-auto w-15 h-15 hue-rotate-[310deg] group-hover:brightness-0 group-hover:invert-0"
-              src={srcImge}
-              alt={altImage}
-            />
-          </span>
-        </div>
-        <p className="mt-6 text-lg font-medium text-center text-gray-900">
-          {text}
-        </p>
-      </div>
-    </div>
   );
 }
