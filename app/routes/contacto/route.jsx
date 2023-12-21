@@ -7,8 +7,6 @@ import { useState } from "react";
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 
-import { includeProperty } from "../../functions/includeProperty";
-
 import Modal from "~/components/Modal/Modal";
 import IconContact from "./components/IconContact";
 import equipo from "~/assets/imgs/contacto/img-formulario.webp";
