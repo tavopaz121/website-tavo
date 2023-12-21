@@ -1,8 +1,8 @@
 import icons from "~/assets/imgs/contacto/icons8-phone.webp";
-import React, { useState } from "react";
 import email from "~/assets/imgs/contacto/icon-orange-email.svg";
 import equipo from "~/assets/imgs/contacto/img-formulario.webp";
 import hour from "~/assets/imgs/contacto/icons8-hour.webp";
+import React, { useState } from "react";
 import { json } from "@remix-run/node";
 import { Form, useActionData, useNavigation, Link } from "@remix-run/react";
 import { validateFields } from "~/functions/validatedFields";
@@ -145,9 +145,10 @@ export default function Contacto() {
               </p>
             </div>
           </div>
+
           {/* Horario */}
           <div className="overflow-hidden bg-white rounded-xl">
-            <div className="p-6">
+            <div className="p-6 flex flex-col items-center text-center text-pink-500">
               <img
                 decoding="async"
                 loading="lazy"
@@ -378,5 +379,39 @@ export default function Contacto() {
         </p>
       </Modal>
     </section>
+  );
+}
+
+function IconContact({
+  width = 70,
+  height = 70,
+  srcImge,
+  message = "Ingrese texto",
+  altImage = "Un icono",
+}) {
+  return (
+    <div className="overflow-hidden bg-white rounded-xl">
+      <div className="p-6 flex flex-col items-center text-center text-pink-500 group">
+        <div className="relative inline-block overflow-hidden transition duration-1000 px-0 py-0 rounded-full text-white">
+          <div
+            className={`absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500`}
+          />
+          <span className={`relative text-pink-500 transition duration-200`}>
+            <img
+              decoding="async"
+              loading="lazy"
+              className="block mx-auto w-15 h-15 hue-rotate-[310deg] group-hover:brightness-0 group-hover:invert-0"
+              width={width}
+              height={height}
+              src={srcImge}
+              alt={altImage}
+            />
+          </span>
+        </div>
+        <p className="mt-6 text-lg font-medium text-center text-gray-900">
+          {message}
+        </p>
+      </div>
+    </div>
   );
 }
