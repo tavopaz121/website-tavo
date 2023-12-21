@@ -7,6 +7,8 @@ import { useState } from "react";
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 
+import { includeProperty } from "../../functions/includeProperty";
+
 import Modal from "~/components/Modal/Modal";
 import IconContact from "./components/IconContact";
 import equipo from "~/assets/imgs/contacto/img-formulario.webp";
@@ -91,13 +93,24 @@ export default function Contacto() {
 
       <div className="max-w-5xl mx-auto mt-8">
         <div className="grid xl:grid-cols-4 md:grid-cols-2 max-md:grid-cols-1 min-w-0 gap-6 px-8 text-center md:px-0">
-          {iconsContact.map((icon) => (
-            <IconContact
-              key={`Icono de ${icon.text}`}
-              srcImge={icon.icon}
-              text={icon.text}
-            />
-          ))}
+          {iconsContact.map((icon) =>
+            icon?.href ? (
+              <a
+                key={`Icono de ${icon.text}`}
+                href={icon.href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <IconContact srcImge={icon.icon} text={icon.text} />
+              </a>
+            ) : (
+              <IconContact
+                key={`Icono de ${icon.text}`}
+                srcImge={icon.icon}
+                text={icon.text}
+              />
+            ),
+          )}
         </div>
       </div>
 
