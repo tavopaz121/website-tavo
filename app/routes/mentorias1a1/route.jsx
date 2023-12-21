@@ -1,4 +1,4 @@
-import metodoAgile from "~/assets/imgs/clasesonetoone/feedback_loo_transparent_noTitle.webp";
+import metodoAgile from "~/assets/imgs/clasesonetoone/metodoAgil.png";
 import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
 import { items as principles } from "./data/principles.js";
@@ -99,7 +99,7 @@ export default function MentoriasRoute() {
       <section>
         <div className="grid place-items-center ">
           <h2
-            className="lg:text-6xl md:text-5xl text-4xl font-bold text-white text-center"
+            className="lg:text-6xl px-2 md:text-5xl text-4xl font-bold text-white text-center"
             data-aos="fade-up"
           >
             Método de enseñanza ágil
@@ -107,6 +107,9 @@ export default function MentoriasRoute() {
           <figure className="px-4 mb-10">
             <img src={metodoAgile} alt="Método ágile" data-aos="fade-up" />
           </figure>
+          <h3 className="lg:text-4xl pt-0 pb-12 px-4 md:text-3xl text-2xl font-bold text-white text-center">
+            ⏳🌟 Ama y cuida tu recurso máximo, no renovable: tu tiempo.
+          </h3>
         </div>
       </section>
       {/* Enseñanza ágile */}
