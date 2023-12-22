@@ -199,7 +199,7 @@ export default function Principios({
           <div className="max-w-3xl mx-auto px-4 sm:px-6 relative">
             <div className="relative w-full">
               {/* Carousel */}
-              <div className="text-center sm:w-[50%] mx-auto">
+              <div className="text-center sm:w-[70%] mx-auto">
                 {/* Testimonial image */}
                 <div className="relative h-32 [mask-image:_linear-gradient(0deg,transparent,theme(colors.white)_40%,theme(colors.white))]">
                   <div

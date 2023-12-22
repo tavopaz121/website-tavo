@@ -1,6 +1,6 @@
-import imageBlog from "~/assets/imgs/corazon-agilidad.webp";
-import imageBlog2 from "~/assets/imgs/individuosEInteracciones.webp";
-import imageBlog3 from "~/assets/imgs/Portada-IntroLEanStartup-.webp";
+import imageBlog from "../imgs/corazon-agilidad.webp";
+import imageBlog2 from "../imgs/individuosEInteracciones.webp";
+import imageBlog3 from "../imgs/Portada-IntroLEanStartup-.webp";
 import { Link } from "@remix-run/react";
 
 import Blog from "./CardBlog";
