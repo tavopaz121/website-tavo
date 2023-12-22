@@ -1,17 +1,16 @@
-import icons from "~/assets/imgs/contacto/icons8-phone.webp";
-import React, { useState } from "react";
-import email from "~/assets/imgs/contacto/icon-orange-email.svg";
-import equipo from "~/assets/imgs/contacto/img-formulario.webp";
-import hour from "~/assets/imgs/contacto/icons8-hour.webp";
 import { json } from "@remix-run/node";
 import { Form, useActionData, useNavigation, Link } from "@remix-run/react";
 import { validateFields } from "~/functions/validatedFields";
-import WhatsAppLink from "~/components/Buttons/WhatsApp";
 import { createMessage } from "~/firebase/models/contactMessages.server";
-import Modal from "~/components/Modal/Modal";
+import { useState } from "react";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+
+import Modal from "~/components/Modal/Modal";
+import IconContact from "./components/IconContact";
+import equipo from "~/assets/imgs/contacto/img-formulario.webp";
+import { iconsContact } from "./data/icons";
 
 export const meta = metaFn;
 export const loader = loaderSeoFn("contacto");
@@ -92,74 +91,24 @@ export default function Contacto() {
 
       <div className="max-w-5xl mx-auto mt-8">
         <div className="grid xl:grid-cols-4 md:grid-cols-2 max-md:grid-cols-1 min-w-0 gap-6 px-8 text-center md:px-0">
-          {/* Información de contacto */}
-          <div className="overflow-hidden bg-white rounded-xl">
-            <div className="p-6">
-              <a href="tel:2786883881" target="_blank" rel="noreferrer">
-                <img
-                  decoding="async"
-                  loading="lazy"
-                  className="block mx-auto mb-3 w-15 h-15 filter hue-rotate-[310deg]"
-                  src={icons}
-                  alt=""
-                />
-              </a>
-              <p className="mt-6 text-lg font-medium text-center text-gray-900">
-                278-688-3881
-              </p>
-            </div>
-          </div>
-
-          {/* Información de correo electrónico */}
-          <div className="bg-white rounded-xl">
-            <div className="p-6">
+          {iconsContact.map((icon) =>
+            icon?.href ? (
               <a
-                href="mailto:pensemoswebjs@gmail.com"
+                key={`Icono de ${icon.text}`}
+                href={icon.href}
                 target="_blank"
                 rel="noreferrer"
               >
-                <img
-                  decoding="async"
-                  loading="lazy"
-                  className="block mx-auto mb-3 w-15 h-15 filter hue-rotate-[310deg]"
-                  src={email}
-                  alt=""
-                />
+                <IconContact srcImge={icon.icon} text={icon.text} />
               </a>
-              <p className="mt-6 text-lg font-medium leading-relaxed text-gray-900">
-                pensemoswebjs@gmail.com
-              </p>
-            </div>
-          </div>
-
-          {/* Dirección */}
-          <div className="overflow-hidden bg-white rounded-xl">
-            <div className="p-6 flex flex-col items-center text-center text-pink-500">
-              <WhatsAppLink
-                width={70}
-                height={70}
-                iconClasses="text-pink-500 hover:text-black transition duration-200"
+            ) : (
+              <IconContact
+                key={`Icono de ${icon.text}`}
+                srcImge={icon.icon}
+                text={icon.text}
               />
-              <p className="mt-6 text-lg font-medium leading-relaxed text-gray-900">
-                278-109-2116
-              </p>
-            </div>
-          </div>
-          {/* Horario */}
-          <div className="overflow-hidden bg-white rounded-xl">
-            <div className="p-6">
-              <img
-                decoding="async"
-                loading="lazy"
-                className="block mx-auto mb-3 w-15 h-15 filter hue-rotate-[310deg]"
-                src={hour}
-                alt=""
-              />
-              <p className="mt-6 text-lg font-medium text-center text-gray-900">
-                Lunes a Viernes de 9:00 AM a 5:00 PM
-              </p>
-            </div>
-          </div>
+            ),
+          )}
         </div>
       </div>
 

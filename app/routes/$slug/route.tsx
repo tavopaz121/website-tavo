@@ -89,6 +89,11 @@ export function meta({ data, params }: any) {
 export default function SlugRoute() {
   const { post, html, showPosts } = useLoaderData();
 
+  const titleInteres =
+    showPosts.length === 0
+      ? "No hay artículos relacionados"
+      : "Podría interesarte";
+
   const contentBlog = useRef(null);
 
   const { image, title } = post;
@@ -146,9 +151,7 @@ export default function SlugRoute() {
       </div>
 
       <div className="mx-auto max-w-7xl text-white">
-        <h2 className="font-bold md:text-4xl text-2xl mb-4">
-          Podría interesarte
-        </h2>
+        <h2 className="font-bold md:text-4xl text-2xl mb-4">{titleInteres}</h2>
         <div className="flex justify-center">
           <div className="grid md:grid-flow-col grid-flow-row w-full gap-4 max-md:max-w-lg">
             {showPosts.map(
