@@ -31,7 +31,7 @@
     "date-fns": "^2.30.0",
     "firebase": "^9.22.2",
     "firebase-admin": "^11.11.1",
-    "firebase-functions": "^4.3.1",
+    "firebase-functions": "^4.5.0",
     "highlight.js": "^11.9.0",
     "isbot": "^3.6.8",
     "marked": "^4.3.0",
