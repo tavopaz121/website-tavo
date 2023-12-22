@@ -1,4 +1,4 @@
-import metodoAgile from "~/assets/imgs/clasesonetoone/metodoAgil.png";
+import metodoAgile from "~/assets/imgs/feedback-loop.webp";
 import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
 import { items as principles } from "./data/principles.js";

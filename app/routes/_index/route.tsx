@@ -7,11 +7,10 @@ import Principios from "./components/Principios";
 import { items, secondaryItems } from "~/data/navItems";
 import Nav from "~/components/Navs/Nav";
 import { useEffect, useRef, useState } from "react";
-import poster from "~/assets/imgs/inicio/background-video-inicio.webp";
 
 import type { LinksFunction } from "@remix-run/node";
 
-import videoPoster from "~/assets/imgs/inicio/background-video-inicio.webp";
+import videoPoster from "./imgs/background-video-inicio.webp";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
@@ -64,7 +63,7 @@ export default function Index() {
           preText="¿Visibilidad en línea deficiente?"
           title="¡Desbloquea el Éxito Digital!"
           subtitle="Desarrollo web/app ágil"
-          videoPoster={poster}
+          videoPoster={videoPoster}
           videoSrcs={{
             mp4: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.mp4?alt=media&token=3e2941d4-1b75-40dc-9ed8-ed4eed6476ef",
             webm: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.webm?alt=media&token=ec9429ad-0d66-4da2-bafe-4504248a5419",
