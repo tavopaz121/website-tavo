@@ -45,7 +45,7 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <main className={`overflow-hidden`}>
+        <main>
           {isHome || isAdmin ? null : (
             <Nav
               items={items}

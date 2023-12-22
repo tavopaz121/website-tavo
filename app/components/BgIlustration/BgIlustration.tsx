@@ -5,7 +5,7 @@ export default function BgIllustration() {
       aria-hidden="true"
     >
       {/* Illustration */}
-      <div className="absolute -top-16 left-1/2 -translate-x-1/3 md:-translate-x-1/2 pointer-events-none blur-2xl">
+      <div className="absolute -top-16 left-1/2 -translate-x-1/3 md:-translate-x-1/2 pointer-events-none blur-3xl">
         <svg xmlns="http://www.w3.org/2000/svg" width="2106" height="1327">
           <defs>
             <filter

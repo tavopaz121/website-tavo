@@ -1,0 +1,15 @@
+export const listCategorysTags = [
+  "javaScript",
+  "React",
+  "Redux",
+  "JSX",
+  "react-hooks",
+  "CSS",
+  "git",
+  "angular",
+  "agilidad",
+  "HTML",
+  "node-js",
+  "vue",
+  "componentes-web",
+];

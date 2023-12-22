@@ -2,7 +2,8 @@ import { dataPoint } from "../db.server";
 import { getStorage, getDownloadURL } from "firebase-admin/storage";
 import invariant from "tiny-invariant";
 import type { Post, FirestorePost, PostUser } from "~/types/publish";
-import { Timestamp, WhereFilterOp } from "firebase-admin/firestore";
+import { Timestamp } from "firebase-admin/firestore";
+import type { WhereFilterOp } from "firebase-admin/firestore";
 import type { CollectionReference } from "@google-cloud/firestore";
 
 export const collections = {
@@ -16,11 +17,13 @@ export async function getPosts(
   by: null | { field: string; operator: string; value: string } = null,
 ) {
   page = Math.max(Number(page), firstPage);
-  let query = collections.posts();
+  let query: any = collections.posts();
 
   if (by?.field && by?.operator && by?.value) {
     query = query.where(by.field, by.operator as WhereFilterOp, by.value);
   }
+
+  const total = (await query.count().get()).data().count;
 
   const posts = await query
     .orderBy("createdAt", "desc")
@@ -32,14 +35,42 @@ export async function getPosts(
     return { ...doc.data(), id: doc.id };
   });
 
-  const total = (await collections.posts().count().get()).data().count;
-
   return {
     posts: postData,
     nextPage: page + 1,
     prevPage: page === firstPage ? firstPage : page - 1,
     total: total,
   };
+}
+
+export async function getRelatedPost(
+  {
+    field,
+    operator,
+    value,
+  }: {
+    field: string;
+    operator: string;
+    value: any;
+  },
+  slug: string,
+) {
+  try {
+    const collectioPost = collections.posts();
+    const postsFiltrados = await collectioPost
+      .where(field, operator, value)
+      .where("slug", "!=", slug)
+      .limit(3)
+      .get();
+
+    const posts = postsFiltrados.docs.map((doc) => {
+      return { ...doc.data(), id: doc.id };
+    });
+
+    return { posts };
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export async function getPost(
