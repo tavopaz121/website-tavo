@@ -14,7 +14,7 @@ export default function CardsEquipo() {
     boxShadow: "5px 5px 20px rgba(0,0,0,0.1)",
   };
   return (
-    <section className="relative max-w-7xl mx-auto px-4 pb-12">
+    <section className="relative max-w-7xl mx-auto px-4 pb-12 overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
