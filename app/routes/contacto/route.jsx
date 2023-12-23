@@ -8,9 +8,9 @@ import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 
 import Modal from "~/components/Modal/Modal";
-import IconContact from "./components/IconContact";
+
 import equipo from "~/assets/imgs/contacto/img-formulario.webp";
-import { iconsContact } from "./data/icons";
+import HeaderContact from "./components/HeaderContact";
 
 export const meta = metaFn;
 export const loader = loaderSeoFn("contacto");
@@ -66,51 +66,8 @@ export default function Contacto() {
 
   return (
     <section className="relative pb-20 overflow-hidden pt-30">
-      <section>
-        <div
-          style={{
-            bottom: 0,
-            left: 0,
-            width: "100%",
-            padding: "20px", // Espaciado interno
-            color: "black", // Texto en color blanco
-            textAlign: "center",
-          }}
-        >
-          <div className="relative inline-flex">
-            <span className="absolute inset-x-0 bottom-0 border-b-[14px] border-pink-500"></span>
-            <a href="#formulario">
-              {" "}
-              <h1 className="relative text-4xl font-bold text-whit sm:text-6xl lg:text-7xl ">
-                ¡Contáctanos ahora!
-              </h1>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <div className="max-w-5xl mx-auto mt-8">
-        <div className="grid xl:grid-cols-4 md:grid-cols-2 max-md:grid-cols-1 min-w-0 gap-6 px-8 text-center md:px-0">
-          {iconsContact.map((icon) =>
-            icon?.href ? (
-              <a
-                key={`Icono de ${icon.text}`}
-                href={icon.href}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <IconContact srcImge={icon.icon} text={icon.text} />
-              </a>
-            ) : (
-              <IconContact
-                key={`Icono de ${icon.text}`}
-                srcImge={icon.icon}
-                text={icon.text}
-              />
-            ),
-          )}
-        </div>
-      </div>
+      <HeaderContact />
+  
 
       <div className="gap-4 flex flex-col md:flex-row w-full px-4">
         {/* Sección de formulario */}
@@ -122,8 +79,6 @@ export default function Contacto() {
           <div className="w-full ">
             <div className="mt-6 overflow-hidden border border-pink-500  rounded-xl ">
               <div className="px-6 py-12 sm:p-6">
-             
-
                 {status === "success" && <p>{message}</p>}
 
                 <ContactForm
