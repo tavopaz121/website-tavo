@@ -122,9 +122,7 @@ export default function Contacto() {
           <div className="w-full ">
             <div className="mt-6 overflow-hidden border border-pink-500  rounded-xl ">
               <div className="px-6 py-12 sm:p-6">
-                <h3 className="text-3xl font-semibold text-center text-black-900 pt-6 pb-0">
-                  Envíanos un mensaje
-                </h3>
+             
 
                 {status === "success" && <p>{message}</p>}
 

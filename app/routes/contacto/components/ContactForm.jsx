@@ -1,6 +1,7 @@
+// ContactForm.js
 
 import React from "react";
-import Form from "@remix-run/react";
+import {Form} from "@remix-run/react";
 
 function ContactForm({ isSubmitting, status, handleNameChange, nameWarning }) {
      return (
