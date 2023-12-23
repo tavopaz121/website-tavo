@@ -5,7 +5,7 @@ import ContrataPaquete from "./components/ContrataPaquete";
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 import TePodemosAyudar from "./components/TePodemosAyudar";
-import HeroSection from "./HeroSection";
+import HeroSection from "./components/HeroSection";
 
 export const meta = metaFn;
 export const loader = loaderSeoFn("servicios");
