@@ -7,6 +7,7 @@ import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 import HeroEquipo from "../components/equipo/HeroEquipo";
 import MetodoAgil from "../components/equipo/MetodoAgil";
 import CardsEquipo from "../components/equipo/CardsEquipo";
+import feedbackLoop from "~/assets/imgs/inicio/feedback-loop.webp";
 export const meta = metaFn;
 export const loader = loaderSeoFn("equipo");
 
@@ -23,15 +24,23 @@ export default function Equipo() {
   });
   return (
     <div>
-      <HeroEquipo/>
-      <div className="m-20" data-aos="fade-up" data-aos-delay="400">
+      <HeroEquipo />
+      <div className="mt-20 mb-8 px-4" data-aos="fade-up">
         <h1 className="text-center text-5xl tracking-tight mt-10 mb-10 mx-4 md:text-7xl font-bold">
           <span className="font-heading">Nuestro </span>
           <span className="font-serif italic">Método ágil</span>
         </h1>
+        <img
+          decoding="async"
+          loading="lazy"
+          width="600"
+          className="block rounded-3xl mx-auto"
+          src={feedbackLoop}
+          alt="Ciclo de retroalimentación y adaptaciones"
+        />
       </div>
-      <MetodoAgil/>
-      <CardsEquipo/>
+      <MetodoAgil />
+      <CardsEquipo />
     </div>
   );
 }
