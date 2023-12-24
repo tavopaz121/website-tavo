@@ -38,8 +38,6 @@ export default function ProyectosRoute() {
     });
   });
 
-  console.log(data)
-
   return (
     <div className="flex flex-col min-h-screen overflow-hidde bg-slate-900 pb-48 overflow-hidden">
       <Hero />
