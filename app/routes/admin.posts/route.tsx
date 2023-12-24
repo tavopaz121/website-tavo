@@ -1,4 +1,4 @@
-import { json } from "@remix-run/node";
+import { json, type ActionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
 import { getPosts } from "~/firebase/models/posts.server";

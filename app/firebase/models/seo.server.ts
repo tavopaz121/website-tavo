@@ -23,7 +23,7 @@ export async function getSeo(id: string) {
     metas: [],
   };
 }
-
+ 
 export async function createSeo(seoInfo: Seo) {
   invariant(
     seoInfo?.constructor === {}.constructor,
