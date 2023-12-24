@@ -1,8 +1,9 @@
-import picturejs from "~/assets/imgs/clasesonetoone/picture-js-front.webp";
-import picturejsb from "~/assets/imgs/clasesonetoone/picture-js-back-code.webp";
-import picturehtml5 from "~/assets/imgs/clasesonetoone/picture-html-code.webp";
-import picturecss3 from "~/assets/imgs/clasesonetoone/picture-css-code.webp";
+import pictureagilefed from "~/assets/imgs/clasesonetoone/picture-js-front.webp";
+import picturenjsd from "~/assets/imgs/clasesonetoone/picture-js-back-code.webp";
 import pictureagile from "~/assets/imgs/clasesonetoone/picture-agile-devops.webp";
+import picturehtml5 from "~/assets/imgs/clasesonetoone/picture-html5-code.webp";
+import picturecss3 from "~/assets/imgs/clasesonetoone/picture-css-code.webp";
+import picturejs from "~/assets/imgs/clasesonetoone/picture-javascript-code.webp"
 import { Link } from "@remix-run/react";
 
 import AOS from "aos";
@@ -56,7 +57,7 @@ export default function ListaMentorias() {
                   <div className="pb-5">
                     <img
                       className="mx-auto w-full"
-                      src={picturejs}
+                      src={pictureagilefed}
                       width={210}
                       height={200}
                       alt="JavaScript Frontend"
@@ -93,7 +94,7 @@ export default function ListaMentorias() {
                     <div className="pb-5">
                       <img
                         className="mx-auto w-full"
-                        src={picturejsb}
+                        src={picturenjsd}
                         width={150}
                         height={200}
                         alt="JavaScript Frontend"

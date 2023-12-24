@@ -4,9 +4,9 @@ import { useEffect } from "react";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
-import HeroEquipo from "../components/equipo/HeroEquipo";
-import MetodoAgil from "../components/equipo/MetodoAgil";
-import CardsEquipo from "../components/equipo/CardsEquipo";
+import HeroEquipo from "../equipo/HeroEquipo";
+import MetodoAgil from "../equipo/MetodoAgil";
+import CardsEquipo from "../equipo/CardsEquipo";
 import feedbackLoop from "~/assets/imgs/inicio/feedback-loop.webp";
 export const meta = metaFn;
 export const loader = loaderSeoFn("equipo");
@@ -14,7 +14,7 @@ export const loader = loaderSeoFn("equipo");
 export function links() {
   return [{ rel: "stylesheet", href: aosStyles, content: "text/css" }];
 }
-export default function Equipo() {
+export default function EquipoRoute() {
   useEffect(() => {
     AOS.init({
       once: true,
