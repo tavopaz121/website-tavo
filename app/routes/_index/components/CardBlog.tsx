@@ -3,70 +3,52 @@ import { Link } from "@remix-run/react";
 interface TypeBlog {
   image: string;
   fecha: string;
-  contenido: string;
+  titulo: string;
   anchor: string;
-  delay: number;
+  className: string;
+  isMain: boolean;
 }
 
 export default function Blog({
   image,
   fecha,
-  contenido,
+  titulo,
   anchor,
-  delay,
+  className,
+  isMain,
 }: TypeBlog) {
   return (
-    <div className="py-12 border-t-2 border-gray-100 max-lg:flex justify-center">
-      <div className="flex flex-wrap lg:flex-nowrap items-center max-lg:w-96">
-        <div className="w-full lg:w-auto px-4 mb-8 lg:mb-0 flex flex-col items-center">
-          <img
-            decoding="async"
-            loading="lazy"
-            className="block w-44 h-30 max-lg:w-full max-lg:h-auto"
-            src={image}
-            alt=""
-          />
-        </div>
-        <div className="w-full lg:w-9/12 px-4 mb-10 lg:mb-0">
-          <div className="max-w-2xl">
-            <span className="block text-gray-400 mb-1">{fecha}</span>
-            <p className="text-2xl font-semibold text-gray-900">{contenido}</p>
-          </div>
-        </div>
-        <div className="w-full lg:w-auto px-4 ml-auto text-right">
-          <Link
-            className="inline-flex items-center text-xl font-semibold text-pink-500 hover:text-blue-800"
-            target="_blank"
-            rel="noreferrer"
-            to={anchor}
-          >
-            <span className="mr-2">Leer</span>
-            <svg
-              className="animate-bounce"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1.33301 14.6668L14.6663 1.3335"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              ></path>
-              <path
-                d="M1.33301 1.3335H14.6663V14.6668"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              ></path>
-            </svg>
-          </Link>
+    <Link
+      to={anchor}
+      className={`relative flex items-center flex-wrap ${
+        isMain
+          ? "flex-col h-auto"
+          : "flex-row max-md:flex-col max-md:h-auto h-full"
+      } ${className}`}
+    >
+      <div
+        className={`${
+          isMain ? "" : "w-2/5 max-md:w-full"
+        } overflow-hidden h-full`}
+      >
+        <img
+          decoding="async"
+          loading="lazy"
+          className="h-full w-full object-cover"
+          src={image}
+          alt=""
+        />
+      </div>
+      <div
+        className={`${
+          isMain ? "pt-3" : "w-3/5 max-md:w-full max-md:pt-3 max-md:pl-0 pl-3"
+        } h-full flex items-center`}
+      >
+        <div className="max-w-2xl">
+          <span className="block text-gray-400 mb-1">{fecha}</span>
+          <p className="text-2xl font-semibold text-gray-900">{titulo}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
