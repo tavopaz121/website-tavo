@@ -1,38 +1,8 @@
-import imageBlog from "../imgs/corazon-agilidad.webp";
-import imageBlog2 from "../imgs/individuosEInteracciones.webp";
-import imageBlog3 from "../imgs/Portada-IntroLEanStartup-.webp";
 import { Link } from "@remix-run/react";
-
+import { blogs } from "../data/postsHome";
 import Blog from "./CardBlog";
 
-const blogs = [
-  {
-    image: imageBlog,
-    fecha: "Oct 02, 2019",
-    contenido:
-      "El manifiesto ágil, siempre he pensado que las cosas simples son las mejores.",
-    anchor: "https://pensemosweb-mx.web.app/el-corazon-agil-manifiesto/",
-  },
-  {
-    image: imageBlog2,
-    fecha: "Ago 18, 2019",
-    contenido: "¿CÓMO SURGIÓ EL DESARROLLO ÁGIL? PRINCIPIOS FUNDAMENTALES",
-    anchor:
-      "https://pensemosweb-mx.web.app/como-surgio-el-desarrollo-agil-principios-fundamentales/",
-  },
-  {
-    image: imageBlog3,
-    fecha: "Dic 29, 2018",
-    contenido:
-      "Introducción Lean Startup, utilización del conocimiento y creatividad de los individuos.",
-    anchor: "https://pensemosweb-mx.web.app/introduccion-lean-startup/",
-  },
-];
-
 export default function Blogs() {
-  let delay = 0;
-  let plusDelay = 0;
-
   return (
     <section className="relative py-10 lg:py-20 overflow-hidden  container px-4 mx-auto">
       <div className="relative">
@@ -46,9 +16,16 @@ export default function Blogs() {
           </h2>
         </div>
 
-        <div className={``}>
+        <div
+          className={`grid lg:grid-cols-2 lg:grid-rows-3 md:max-w-none max-w-2xl gap-7 mb-16 items-center justify-center`}
+        >
           {blogs.map((blog, i) => (
-            <Blog key={i} {...blog} delay={(delay += plusDelay)} />
+            <Blog
+              key={i}
+              {...blog}
+              className={i == 0 ? "row-span-2" : ""}
+              isMain={i === 0}
+            />
           ))}
         </div>
 
@@ -83,3 +60,5 @@ export default function Blogs() {
     </section>
   );
 }
+
+// className={i == 0 ? "row-span-2" : ""}
