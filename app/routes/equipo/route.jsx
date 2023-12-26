@@ -23,7 +23,7 @@ export default function EquipoRoute() {
     });
   });
   return (
-    <div className="max-w-7xl overflow-hidden">
+    <div className="max-w-7xl overflow-hidden mx-auto">
       <HeroEquipo />
       <div className="mt-20 mb-8 px-4" data-aos="fade-up">
         <h1 className="text-center text-5xl tracking-tight mt-10 mb-10 mx-4 md:text-7xl font-bold">
