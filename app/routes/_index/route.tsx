@@ -11,6 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import type { LinksFunction } from "@remix-run/node";
 
 import videoPoster from "./imgs/background-video-inicio.webp";
+import stylesBlogCard from "./styles.css";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
@@ -21,6 +22,7 @@ export const loader = loaderSeoFn("inicio");
 export const links: LinksFunction = () => {
   return [
     { rel: "preload", href: videoPoster, as: "image", type: "image/webp" },
+    { rel: "stylesheet", href: stylesBlogCard, content: "text/css" },
   ];
 };
 

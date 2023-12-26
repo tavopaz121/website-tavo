@@ -17,7 +17,7 @@ export default function Blogs() {
         </div>
 
         <div
-          className={`grid lg:grid-cols-2 lg:grid-rows-3 md:max-w-none max-w-2xl gap-7 mb-16 items-center justify-center`}
+          className={`grid lg:grid-cols-2 lg:max-w-none max-w-2xl gap-7 mb-16 items-center justify-center`}
         >
           {blogs.map((blog, i) => (
             <Blog
