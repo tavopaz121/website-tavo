@@ -1,7 +1,8 @@
 import { Link } from "@remix-run/react";
+import PostDate from "~/components/Blog/post-date";
 
 interface TypeBlog {
-  image: string;
+  image: { src: string; alt: string };
   fecha: string;
   titulo: string;
   anchor: string;
@@ -42,8 +43,8 @@ export default function Blog({
           decoding="async"
           loading="lazy"
           className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-lg"
-          src={image}
-          alt=""
+          src={image.src}
+          alt={image.alt}
         />
       </div>
       <div
@@ -54,7 +55,9 @@ export default function Blog({
         } h-full flex items-center group-hover:scale-95 transition-transform duration-300`}
       >
         <div className="max-w-2xl">
-          <span className="block text-gray-400 mb-1">{fecha}</span>
+          <span className="block text-gray-400 mb-1">
+            <PostDate dateString={fecha} />
+          </span>
           <p
             className={`${
               isMain ? "text-2xl" : "text-xl"

@@ -1,8 +1,7 @@
 import { Link } from "@remix-run/react";
-import { blogs } from "../data/postsHome";
 import Blog from "./CardBlog";
 
-export default function Blogs() {
+export default function Blogs({ posts }) {
   return (
     <section className="relative py-10 lg:py-20 overflow-hidden  container px-4 mx-auto">
       <div className="relative">
@@ -19,10 +18,13 @@ export default function Blogs() {
         <div
           className={`grid lg:grid-cols-2 lg:max-w-none max-w-2xl gap-7 mb-16 items-center justify-center`}
         >
-          {blogs.map((blog, i) => (
+          {posts.map((post, i) => (
             <Blog
               key={i}
-              {...blog}
+              titulo={post.title}
+              anchor={post.to}
+              image={post.image}
+              fecha={post.createdAt}
               className={i == 0 ? "row-span-2" : ""}
               isMain={i === 0}
             />
