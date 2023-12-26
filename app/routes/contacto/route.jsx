@@ -67,7 +67,6 @@ export default function Contacto() {
   return (
     <section className="relative pb-20 overflow-hidden pt-30">
       <HeaderContact />
-  
 
       <div className="gap-4 flex flex-col md:flex-row w-full px-4">
         {/* Sección de formulario */}
