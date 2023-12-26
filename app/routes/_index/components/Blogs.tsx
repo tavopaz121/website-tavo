@@ -3,7 +3,7 @@ import Blog from "./CardBlog";
 
 export default function Blogs({ posts }) {
   return (
-    <section className="relative py-10 lg:py-20 overflow-hidden  container px-4 mx-auto">
+    <section className="relative py-10 lg:py-20 overflow-hidden flex flex-col justify-center items-center container px-4 mx-auto">
       <div className="relative">
         <div className="mb-15 text-center">
           <span className="inline-block py-1 px-3 mb-4 text-xs font-semibold text-pink-500 bg-orange-50 rounded-full">
@@ -16,7 +16,7 @@ export default function Blogs({ posts }) {
         </div>
 
         <div
-          className={`grid lg:grid-cols-2 lg:max-w-none max-w-2xl gap-7 mb-16 items-center justify-center`}
+          className={`grid lg:grid-cols-2 items-center lg:grid-rows-3 lg:max-w-none md:max-w-2xl max-w-lg gap-7 mb-16 justify-center`}
         >
           {posts.map((post, i) => (
             <Blog
