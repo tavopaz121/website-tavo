@@ -8,6 +8,7 @@ interface TypeBlog {
   anchor: string;
   className: string;
   isMain: boolean;
+  delay: number;
 }
 
 export default function Blog({
@@ -17,6 +18,7 @@ export default function Blog({
   anchor,
   className,
   isMain,
+  delay,
 }: TypeBlog) {
   return (
     <Link
@@ -25,14 +27,21 @@ export default function Blog({
         isMain
           ? "flex-col h-auto"
           : "flex-row max-md:flex-col max-md:h-auto h-full"
-      } ${className} group border-b-2 border-pink-600 rounded-lg overflow-hidden`}
+      } ${className} group border-b-2 border-r-2 border-pink-600 rounded-lg overflow-hidden motion-safe:animate-fadeInRight`}
+      style={{
+        animationDelay: `${delay}s`,
+        animationFillMode: "both",
+      }}
     >
       {isMain ? (
-        <div className="absolute z-10 sm:top-5 top-0 left-0 bg-pink-500 py-2 px-6 w-4/5 group-hover:-translate-x-4 transition-transform duration-300 pr-20 clip-path-poligon">
-          <p className="xss:text-2xl text-right text-base font-bold italic">
-            <span>Ultimo post</span>
-          </p>
-        </div>
+        <>
+          <div className="absolute z-10 sm:top-5 top-0 left-0 bg-pink-500 py-1 px-6 w-4/5 group-hover:-translate-x-8 transition-transform duration-300 pr-20 clip-path-poligon">
+            <p className="xss:text-2xl text-right text-base font-bold italic">
+              <span>Ultimo post</span>
+            </p>
+          </div>
+          <div className="absolute z-[5] xss:h-12 xxs:h-10 bg-pink-300 sm:top-7 top-0 left-0 py-2 px-6 w-5/6 group-hover:-translate-x-4 transition-transform duration-300 clip-path-poligon" />
+        </>
       ) : null}
       <div
         className={`${

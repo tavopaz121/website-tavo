@@ -1,3 +1,8 @@
 .clip-path-poligon {
   clip-path: polygon(0 0, 100% 0, 93% 100%, 0% 100%);
 }
+
+.bg-clip-path-poligon {
+  background-color: pink;
+  height: 3.5rem;
+}
