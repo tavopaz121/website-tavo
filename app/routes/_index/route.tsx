@@ -8,23 +8,50 @@ import { items, secondaryItems } from "~/data/navItems";
 import Nav from "~/components/Navs/Nav";
 import { useEffect, useRef, useState } from "react";
 
-import type { LinksFunction } from "@remix-run/node";
+import { json, type LinksFunction, type LoaderArgs } from "@remix-run/node";
+import type { Post, FirestorePost } from "~/types/publish";
 
 import videoPoster from "./imgs/background-video-inicio.webp";
+import stylesBlogCard from "./styles.css";
 
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
+import { getPost, getPosts } from "~/firebase/models/posts.server";
+import { useLoaderData } from "@remix-run/react";
+import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
+
+import { blogs } from "./data/postsHome";
 
 export const meta = metaFn;
-export const loader = loaderSeoFn("inicio");
+export const loaderSeo = loaderSeoFn("inicio");
+
+export async function loader({ params }: LoaderArgs) {
+  const posts = [];
+
+  const lastedPost = (await getPosts(1, 1)).posts[0];
+  posts.push(lastedPost);
+
+  for (let i = 0; i < 4; i++) {
+    const post = await getPost(blogs[i].slug);
+
+    posts.push(post);
+  }
+
+  const showPosts = mapPostsToCards(posts);
+
+  return json({ showPosts });
+}
 
 export const links: LinksFunction = () => {
   return [
     { rel: "preload", href: videoPoster, as: "image", type: "image/webp" },
+    { rel: "stylesheet", href: stylesBlogCard, content: "text/css" },
   ];
 };
 
 export default function Index() {
+  const { showPosts } = useLoaderData();
+
   const targetRef = useRef<HTMLElement>(null);
   const [borderClasses, setBorderClasses] = useState<string>("");
 
@@ -77,7 +104,7 @@ export default function Index() {
         <Servicios />
         <Principios hasParticles={true} />
         <Nosotros />
-        <Blogs />
+        <Blogs posts={showPosts} />
         <Contacto />
       </article>
     </>
