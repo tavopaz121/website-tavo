@@ -1,59 +1,49 @@
-import { Form } from "@remix-run/react";
+import { Form, useActionData } from "@remix-run/react";
 import { useState } from "react";
-import TextField from "~/components/AdminPages/TextField/TextField";
-import TextArea from "~/components/AdminPages/TextArea/TextArea";
+import { json, type ActionArgs } from "@remix-run/node";
+import fields from "./data/fields";
+import TextField from "../admin/TextField/TextField";
+import TextArea from "../admin/TextArea/TextArea";
+
+export const action = async ({ request }: ActionArgs) => {
+  const formData = await request.formData();
+  const formDataArray = Array.from(formData.entries());
+  const formDataObject: { [key: string]: string | File } = {};
+  const errors: { [key: string]: string | undefined } = {};
+
+  for (const [name, value] of formDataArray) {
+    if (value instanceof File) {
+      formDataObject[name] = value;
+    } else {
+      const trimmedValue = String(value).trim();
+      formDataObject[name] = trimmedValue;
+
+      if (["title", "description"].includes(name) && !trimmedValue) {
+        // if (!trimmedValue && name !== "files")
+        errors[name] = "Este campo no puede estar vacío";
+      }
+    }
+  }
+
+  if (Object.keys(errors).length > 0) {
+    return json({ errors }, { status: 400 });
+  }
+
+  return json(formDataObject);
+};
 
 export default function CrearPages() {
-  const [metas, setMetas] = useState({
-    openGraph: [
-      {
-        name: "og:locale",
-        content: "es-MX",
-      },
-      {
-        name: "og:type",
-        content: "website",
-      },
-      {
-        name: "og:title",
-        content: "",
-      },
-      {
-        name: "og:description",
-        content: "",
-      },
-      {
-        name: "og:url",
-        content: "",
-      },
-      {
-        name: "og:site_name",
-        content: "",
-      },
-    ],
-    twitter: [
-      {
-        name: "twitter:card",
-        content: "",
-      },
-      {
-        name: "twitter:site",
-        content: "",
-      },
-      {
-        name: "twitter:creator",
-        content: "",
-      },
-      {
-        name: "twitter:title",
-        content: "",
-      },
-      {
-        name: "twitter:description",
-        content: "",
-      },
-    ],
-  });
+  const actionData = useActionData<typeof action>();
+
+  const [metas, setMetas] = useState(fields);
+
+  const textFieldClasses = {
+    label: "block text-gray-200 text-base font-normal mb-1",
+    input:
+      "form-input bg-black autofill:!bg-black p-4 w-full text-white autofill:!text-white focus:outline-none focus:border-[1px] focus:border-pink-600 border-[1px] border-transparent placeholder-slate-400",
+    error: "text-red-500 text-sm mt-2",
+  };
+
   return (
     <section className="grid place-items-center items-start my-10">
       <div className="w-full lg:w-[60%]">
@@ -67,7 +57,7 @@ export default function CrearPages() {
           </div>
         </div>
 
-        <Form>
+        <Form method="POST">
           <div className="py-6">
             <div className="text-lg font-bold text-white mb-5">
               <span className="text-indigo-500">1.</span> Datos generales
@@ -75,19 +65,24 @@ export default function CrearPages() {
             <div className="space-y-4">
               <div className="w-full mb-4 md:mb-0">
                 <TextField
-                  title="Titulo"
-                  name="title"
-                  placeholder="Ingresa el titulo de la página"
+                  label={metas.general[0].label}
+                  customClasses={textFieldClasses}
+                  type="text"
+                  name={metas.general[0].name}
                   required
+                  placeholder={metas.general[0].placeholder}
+                  error={actionData?.errors && actionData.errors.title}
                 />
               </div>
+
               <div className="w-full mb-4 md:mb-0">
                 <TextArea
-                  title="Descripción"
-                  name="description"
-                  placeholder="Ingresa la descripción de la página"
-                  required
+                  title={metas.general[1].label}
+                  name={metas.general[1].name}
                   rows={6}
+                  required
+                  placeholder={metas.general[1].placeholder}
+                  error={actionData?.errors && actionData.errors.description}
                 />
               </div>
             </div>
@@ -101,10 +96,11 @@ export default function CrearPages() {
               {metas.openGraph?.map((meta, index) => (
                 <div className="w-full mb-4 md:mb-0" key={index}>
                   <TextField
-                    title={meta.name}
-                    name="title"
-                    placeholder={`Ingresa el '${meta.name}' de la aplicación`}
-                    value={meta.content}
+                    type="text"
+                    label={meta.label}
+                    customClasses={textFieldClasses}
+                    name={meta.name}
+                    placeholder={meta.placeholder}
                   />
                 </div>
               ))}
@@ -119,10 +115,11 @@ export default function CrearPages() {
               {metas.twitter?.map((meta, index) => (
                 <div className="w-full mb-4 md:mb-0" key={index}>
                   <TextField
-                    title={meta.name}
-                    name="title"
-                    placeholder={`Ingresa el '${meta.name}' de la aplicación`}
-                    value={meta.content}
+                    label={meta.label}
+                    type="text"
+                    customClasses={textFieldClasses}
+                    name={meta.name}
+                    placeholder={meta.placeholder}
                   />
                 </div>
               ))}

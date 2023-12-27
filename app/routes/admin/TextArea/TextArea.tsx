@@ -1,8 +1,9 @@
+import { useId } from "react";
+import { XcircleSolidIcon } from "../Icons";
 import type { TextAreaProps } from "./TextArea.d";
 
 export default function TextArea({
   title,
-  id,
   name,
   error,
   className,
@@ -12,6 +13,9 @@ export default function TextArea({
   value,
   ...moreProps
 }: TextAreaProps) {
+  const id = useId();
+  const ariaId = `${id}-${name}`;
+
   return (
     <>
       {title && (
@@ -19,7 +23,7 @@ export default function TextArea({
           className="block text-gray-200 text-base font-normal mb-1"
           htmlFor={id}
         >
-          {title} {required && <span className="text-red-600">*</span>}
+          {title}
         </label>
       )}
       <textarea
@@ -32,7 +36,16 @@ export default function TextArea({
         placeholder={placeholder}
         {...moreProps}
       ></textarea>
-      {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+      {error && (
+        <div
+          id={ariaId}
+          data-testid="error-text-field"
+          className={`text-red-500 text-sm mt-2 flex items-center gap-1`}
+        >
+          <XcircleSolidIcon />
+          {error}
+        </div>
+      )}
     </>
   );
 }

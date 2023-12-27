@@ -1,4 +1,4 @@
-import PreviwPages from "./Components/PreviwPages";
+import PreviewPages from "./Components/PreviewPages";
 import { Link } from "@remix-run/react";
 
 export default function Pages() {
@@ -27,7 +27,7 @@ export default function Pages() {
           </svg>
         </Link>
       </div>
-      <PreviwPages />
+      <PreviewPages />
     </section>
   );
 }

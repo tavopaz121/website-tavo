@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 
-export default function PreviwPages() {
+export default function PreviewPages() {
   return (
     <div className="col-span-full bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
       <div className="p-3">

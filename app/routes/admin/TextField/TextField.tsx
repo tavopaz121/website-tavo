@@ -22,6 +22,7 @@ function TextField(
     autoComplete,
     error,
     children,
+    customClasses,
     placeholder,
     pattern,
     ...moreProps
@@ -32,14 +33,16 @@ function TextField(
   const ariaId = `${id}-${name}`;
   let inputClassName: string;
 
-  inputClassName = `${inputClassNameDefault} ${icon && "pl-10"}`;
+  inputClassName = `${customClasses?.input || inputClassNameDefault} ${
+    icon && "pl-10"
+  }`;
 
   return (
     <div data-testid="TextField" className="mb-6">
       {label ? (
         <label
           htmlFor={id}
-          className={`${labelClassNameDefault}`}
+          className={`${customClasses?.label || labelClassNameDefault}`}
           data-testid="label-text-field"
         >
           {label}
@@ -71,7 +74,11 @@ function TextField(
       </div>
 
       {error && (
-        <div id={ariaId} data-testid="error-text-field">
+        <div
+          id={ariaId}
+          data-testid="error-text-field"
+          className={`${customClasses?.error} flex items-center gap-1`}
+        >
           <XcircleSolidIcon />
           {error}
         </div>
