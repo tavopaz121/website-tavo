@@ -1,6 +1,5 @@
 import IconContact from "../components/IconContact";
 import ButtonWebsite from "../../../components/Button/ButtonWebsite";
-import { AiFillAliwangwang } from "react-icons/ai";
 
 import { iconsContact } from "../data/icons";
 export default function HeaderContact() {
@@ -28,7 +27,7 @@ export default function HeaderContact() {
           </div>
         </div>
         <div className="flex items-center w-full justify-center">
-          <ButtonWebsite typeHover="pinkBar">Soy un boton grande</ButtonWebsite>
+          <ButtonWebsite>Soy un boton grande</ButtonWebsite>
         </div>
       </section>
 

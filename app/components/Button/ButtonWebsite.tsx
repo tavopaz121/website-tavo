@@ -1,52 +1,38 @@
-type ButtonWebsiteProps = {
-  children: JSX.Element | string;
-  icon?: JSX.Element;
-  rounded: boolean;
-  color?: "white" | "black" | "transparent" | "pink";
-  typeHover?: "pinkBar" | "scaleButton" | "none";
-};
-
-const COLORS = {
-  white: "bg-white text-black border border-gray-800 shadow",
-  black: "bg-gray-900 text-white",
-  transparent: "bg-transparent text-black border border-gray-800",
-  pink: "bg-gradient-pink text-white",
-};
-
-const HOVERS = {
-  pinkBar:
-    "absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-105 transition duration-500",
-  scaleButton: "hover:scale-110 transition duration-100",
-  none: "hover:opacity-80",
-};
+import type { ButtonWebsiteProps } from "./ButtonWebsite.d";
+import { COLORS, HOVERS } from "./ButtonWernsite.style";
 
 export default function ButtonWebsite({
+  className,
   children,
   icon,
   rounded,
+  disabled,
   color,
-  typeHover,
+  typeHover = "none",
 }: ButtonWebsiteProps) {
-  const border = rounded && `rounded-full`;
+  const border = rounded ? `rounded-full` : "rounded-sm";
   const colorButton = COLORS[color || "white"];
 
-  let hoverSytles = "",
-    hoverBar = "";
-  if (typeHover == "pinkBar") {
+  let hoverSytles = "";
+  let hoverBar = "";
+
+  if (typeHover === "pinkBar") {
     hoverBar = HOVERS["pinkBar"];
     hoverSytles = "";
   } else {
     hoverBar = "hidden";
-    hoverSytles = HOVERS[typeHover || "none"];
+    hoverSytles = HOVERS[typeHover];
   }
 
-  const buttonClasname = `relative rounded-sm group inline-block py-4 px-6 font-semibold overflow-hidden ${border} ${colorButton}`;
+  const buttonClasname = `relative group block font-semibold overflow-hidden ${border} ${colorButton} ${
+    className ? className : "py-4 px-6"
+  } ${hoverSytles}`;
 
   return (
-    <button className={`${buttonClasname} ${hoverSytles}`}>
+    <button className={`${buttonClasname}`} disabled={disabled}>
       <div className={`${hoverBar}`} />
       <div className="relative flex items-center justify-center">
-        <span>{children}</span>
+        {children}
         {icon && <span className="ml-4">{icon}</span>}
       </div>
     </button>
