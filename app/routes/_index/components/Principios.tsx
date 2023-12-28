@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import Particles from "~/components/Particles/Particles";
-import ButtonLink from "~/components/Buttons/ButtonLink";
+import ButtonLinkWebsite from "~/components/Button/ButtonLinkWebsite";
+import Mayorque from "~/components/Icons/MayorQue";
 
 import principles from "~/assets/imgs/inicio/principios-1200x740.webp";
 import principlesSmall from "~/assets/imgs/inicio/principios-600x370.webp";
@@ -291,8 +292,16 @@ export default function Principios({
           </div>
         </section>
       </div>
-      <div className="text-center mt-5">
-        <ButtonLink to="/nosotros">Más sobre Principios</ButtonLink>
+      <div className="flex justify-center mt-5">
+        <ButtonLinkWebsite
+          href="/nosotros"
+          color="black"
+          icon={<Mayorque />}
+          typeHover="pinkBar"
+          rounded
+        >
+          Más sobre Principios
+        </ButtonLinkWebsite>
       </div>
     </section>
   );
