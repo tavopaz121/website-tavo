@@ -9,13 +9,11 @@ import Nav from "~/components/Navs/Nav";
 import { useEffect, useRef, useState } from "react";
 
 import { json, type LinksFunction, type LoaderArgs } from "@remix-run/node";
-import type { Post, FirestorePost } from "~/types/publish";
 
 import videoPoster from "./imgs/background-video-inicio.webp";
 import stylesBlogCard from "./styles.css";
 
 import { metaFn } from "~/functions/shared/meta";
-import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 import { getPost, getPosts } from "~/firebase/models/posts.server";
 import { useLoaderData } from "@remix-run/react";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
