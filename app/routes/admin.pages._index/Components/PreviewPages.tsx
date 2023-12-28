@@ -1,6 +1,19 @@
 import { Link } from "@remix-run/react";
 
-export default function PreviewPages() {
+type PreviewPage = {
+  title?: string;
+  description?: {
+    name?: string;
+    content?: string;
+  };
+  id?: string;
+};
+
+type PreviewPagesProps = {
+  pages?: PreviewPage[];
+};
+
+export default function PreviewPages({ pages }: PreviewPagesProps) {
   return (
     <div className="col-span-full bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700">
       <div className="p-3">
@@ -27,29 +40,31 @@ export default function PreviewPages() {
             {/* Table body */}
             <tbody className="text-sm divide-y divide-slate-100 dark:divide-slate-700">
               {/* Row */}
-              <tr>
-                <td className="p-2 whitespace-nowrap">
-                  <div className="flex items-center">
-                    <div className="font-medium text-slate-800 dark:text-slate-100">
-                      Form Builder CP
-                    </div>
-                  </div>
-                </td>
-                <td className="p-2 whitespace-nowrap">
-                  <p>Subscription</p>
-                </td>
-                <td className="p-2 whitespace-nowrap">
-                  <Link to="/">/inicio</Link>
-                </td>
-                <td className="p-2 whitespace-nowrap flex items-center gap-3 lg:gap-5 sm:gap-2">
-                  <Link to="/admin/pages/editar">
-                    <IconEdit title="Icono editar página" />
-                  </Link>
-                  <Link to="/">
-                    <IconDelete title="Icono para eliminar página" />
-                  </Link>
-                </td>
-              </tr>
+              {pages?.map((page, index) => (
+                <tr key={index}>
+                  <td className="p-2 whitespace-nowrap">
+                    <p className="font-medium">{page.title}</p>
+                  </td>
+                  <td className="p-2 whitespace-nowrap">
+                    <p>{page?.description?.content || "Sin descripción"}</p>
+                  </td>
+                  <td className="p-2 whitespace-nowrap">
+                    <Link to={`/${page.title?.toLocaleLowerCase()}`}>
+                      /{page.title?.toLocaleLowerCase()}
+                    </Link>
+                  </td>
+                  <td className="p-2 whitespace-nowrap flex items-center gap-3 lg:gap-5 sm:gap-2">
+                    <Link
+                      to={`/admin/pages/${page.title?.toLocaleLowerCase()}/editar`}
+                    >
+                      <IconEdit title="Icono editar página" />
+                    </Link>
+                    <Link to={`/admin/pages/${page.id}/eliminar`}>
+                      <IconDelete title="Icono para eliminar página" />
+                    </Link>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

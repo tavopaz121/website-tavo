@@ -1,9 +1,21 @@
 import { Form, useActionData } from "@remix-run/react";
-import { useState } from "react";
+import { type ChangeEvent, useState } from "react";
 import { json, type ActionArgs } from "@remix-run/node";
 import fields from "./data/fields";
 import TextField from "../admin/TextField/TextField";
 import TextArea from "../admin/TextArea/TextArea";
+import { createPage } from "~/firebase/models/pages.server";
+
+type MetaObject = {
+  name: string;
+  content: string | File;
+};
+
+type DataObject = {
+  title?: string | File;
+  description?: { name: string; content: string | File };
+  metas?: MetaObject[];
+};
 
 export const action = async ({ request }: ActionArgs) => {
   const formData = await request.formData();
@@ -25,6 +37,26 @@ export const action = async ({ request }: ActionArgs) => {
     }
   }
 
+  const data: DataObject = {
+    title: formDataObject.title,
+    description: { name: "description", content: formDataObject.description },
+    metas: [],
+  };
+
+  for (const key in formDataObject) {
+    if (
+      (formDataObject.hasOwnProperty(key) && key.startsWith("og:")) ||
+      key.startsWith("twitter:")
+    ) {
+      const content: string | File = formDataObject[key] || "";
+      data?.metas?.push({ name: key, content });
+    }
+  }
+
+  const result = await createPage(data);
+
+  console.log(result);
+
   if (Object.keys(errors).length > 0) {
     return json({ errors }, { status: 400 });
   }
@@ -34,8 +66,39 @@ export const action = async ({ request }: ActionArgs) => {
 
 export default function CrearPages() {
   const actionData = useActionData<typeof action>();
-
   const [metas, setMetas] = useState(fields);
+
+  const handleFieldChange = (
+    fieldName: string,
+    value: string | ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
+    const fieldValue = typeof value === "string" ? value : value.target.value;
+
+    setMetas((prevMetas) => {
+      const updatedOpenGraph = prevMetas.openGraph.map((meta) =>
+        meta.name === fieldName ? { ...meta, content: fieldValue } : meta,
+      );
+
+      const updatedOpenGraphWithGeneralValues = updatedOpenGraph.map((meta) =>
+        prevMetas.general.find((generalMeta) => generalMeta.name === meta.name)
+          ? { ...meta, content: fieldValue }
+          : meta,
+      );
+
+      return {
+        ...prevMetas,
+        general: prevMetas.general.map((meta) =>
+          meta.name === fieldName ? { ...meta, content: fieldValue } : meta,
+        ),
+        openGraph: updatedOpenGraphWithGeneralValues,
+        twitter: prevMetas.twitter.map((meta) =>
+          meta.name === fieldName ? { ...meta, content: fieldValue } : meta,
+        ),
+      };
+    });
+  };
+
+  console.log(metas);
 
   const textFieldClasses = {
     label: "block text-gray-200 text-base font-normal mb-1",
@@ -71,7 +134,9 @@ export default function CrearPages() {
                   name={metas.general[0].name}
                   required
                   placeholder={metas.general[0].placeholder}
+                  value={metas.general[0].content}
                   error={actionData?.errors && actionData.errors.title}
+                  onChange={(e) => handleFieldChange(metas.general[0].name, e)}
                 />
               </div>
 
@@ -82,7 +147,9 @@ export default function CrearPages() {
                   rows={6}
                   required
                   placeholder={metas.general[1].placeholder}
+                  value={metas.general[1].content}
                   error={actionData?.errors && actionData.errors.description}
+                  onChange={(e) => handleFieldChange(metas.general[1].name, e)}
                 />
               </div>
             </div>
@@ -96,11 +163,13 @@ export default function CrearPages() {
               {metas.openGraph?.map((meta, index) => (
                 <div className="w-full mb-4 md:mb-0" key={index}>
                   <TextField
+                    value={meta.content}
                     type="text"
                     label={meta.label}
                     customClasses={textFieldClasses}
                     name={meta.name}
                     placeholder={meta.placeholder}
+                    onChange={(e) => handleFieldChange(meta.name, e)}
                   />
                 </div>
               ))}
@@ -115,10 +184,12 @@ export default function CrearPages() {
               {metas.twitter?.map((meta, index) => (
                 <div className="w-full mb-4 md:mb-0" key={index}>
                   <TextField
+                    value={meta.content}
                     label={meta.label}
                     type="text"
                     customClasses={textFieldClasses}
                     name={meta.name}
+                    onChange={(e) => handleFieldChange(meta.name, e)}
                     placeholder={meta.placeholder}
                   />
                 </div>

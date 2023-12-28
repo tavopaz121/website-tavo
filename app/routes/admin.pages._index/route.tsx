@@ -1,7 +1,20 @@
+import { type LoaderArgs, json } from "@remix-run/node";
 import PreviewPages from "./Components/PreviewPages";
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
+import { getPages } from "~/firebase/models/pages.server";
+
+export async function loader({ request }: LoaderArgs) {
+  const res = await getPages();
+
+  return json({ res });
+}
 
 export default function Pages() {
+  const loaderData = useLoaderData();
+  const pagesData = loaderData.res;
+
+  console.log(pagesData);
+
   return (
     <section className="my-10">
       <div className="flex w-full justify-between py-5">
@@ -27,7 +40,7 @@ export default function Pages() {
           </svg>
         </Link>
       </div>
-      <PreviewPages />
+      <PreviewPages pages={pagesData} />
     </section>
   );
 }

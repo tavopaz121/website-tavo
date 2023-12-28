@@ -45,7 +45,7 @@ function TextField(
           className={`${customClasses?.label || labelClassNameDefault}`}
           data-testid="label-text-field"
         >
-          {label}
+          {label} {required && <span className="text-red-500">*</span>}
         </label>
       ) : null}
 

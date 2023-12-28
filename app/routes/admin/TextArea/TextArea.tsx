@@ -9,6 +9,7 @@ export default function TextArea({
   className,
   required,
   rows,
+  onChange,
   placeholder,
   value,
   ...moreProps
@@ -23,7 +24,7 @@ export default function TextArea({
           className="block text-gray-200 text-base font-normal mb-1"
           htmlFor={id}
         >
-          {title}
+          {title} {required && <span className="text-red-500">*</span>}
         </label>
       )}
       <textarea
@@ -31,6 +32,7 @@ export default function TextArea({
         required={required}
         name={name}
         value={value}
+        onChange={onChange}
         rows={rows || 4}
         className={`form-input bg-black autofill:!bg-black p-4 w-full text-white autofill:!text-white focus:outline-none focus:border-[1px] focus:border-pink-600 border-[1px] border-transparent placeholder-slate-400 ${className}`}
         placeholder={placeholder}
