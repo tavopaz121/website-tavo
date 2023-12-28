@@ -5,7 +5,7 @@ import adaptaMejora from "../../assets/imgs/equipo/Unsplash-adapta.webp";
 export default function MetodoAgil(){
     return(
         <section className="max-w-7xl lg:mx-auto px-4">
-        <div data-aos="fade-right" data-aos-delay="1000">
+        <div data-aos="fade-right">
           <div className="pb-4">
             <div className="relative">
               {/* Gray box */}
@@ -47,7 +47,6 @@ export default function MetodoAgil(){
         <div
           className="max-w-7xl mx-4 lg:mx-auto"
           data-aos="fade-left"
-          data-aos-delay="1000"
         >
           <div className="pb-4">
             <div className="relative">
@@ -89,7 +88,6 @@ export default function MetodoAgil(){
         <div
           className="max-w-7xl mx-4 lg:mx-auto"
           data-aos="fade-right"
-          data-aos-delay="800"
         >
           <div className="pb-4">
             <div className="relative">
@@ -131,7 +129,6 @@ export default function MetodoAgil(){
         <div
           className="max-w-7xl mx-4 lg:mx-auto mb-12"
           data-aos="fade-left"
-          data-aos-delay="800"
         >
           <div className="pb-4">
             <div className="relative">

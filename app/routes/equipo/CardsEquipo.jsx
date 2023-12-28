@@ -37,7 +37,7 @@ export default function CardsEquipo(){
                 <span
                   className="font-heading"
                   data-aos="fade-up"
-                  data-aos-delay="800"
+                  data-aos-delay="200"
                 >
                   Conoce nuestro{" "}
                 </span>
@@ -52,7 +52,7 @@ export default function CardsEquipo(){
               <p
                 className="text-xl text-gray-300 pt-5"
                 data-aos="fade-up"
-                data-aos-delay="200"
+                data-aos-delay="800"
               >
                 Permitimos a los desarrolladores crear cosas increibles
               </p>
@@ -73,7 +73,7 @@ export default function CardsEquipo(){
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="400"
+                    data-aos-delay="200"
                   >
                     <img
                       className="w-full h-30 object-cover"
@@ -119,7 +119,7 @@ export default function CardsEquipo(){
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="800"
+                    data-aos-delay="400"
                   >
                     <img
                       className="w-full h-30 object-cover"
@@ -165,7 +165,7 @@ export default function CardsEquipo(){
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="1200"
+                    data-aos-delay="600"
                   >
                     <img
                       className="w-full h-30 object-cover "
@@ -211,7 +211,7 @@ export default function CardsEquipo(){
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="1600"
+                    data-aos-delay="800"
                   >
                     <img
                       className="w-full h-30 object-cover"
@@ -257,7 +257,7 @@ export default function CardsEquipo(){
                     className="text-center"
                     data-aos-anchor="[data-aos-id-cards]"
                     data-aos="fade-down"
-                    data-aos-delay="2000"
+                    data-aos-delay="1000"
                   >
                     <img
                       className="w-full h-30 object-cover"
