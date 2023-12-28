@@ -1,7 +1,7 @@
 import ListServicios from "./ListServicios";
 import { useRef } from "react";
 import ButtonLinkWebsite from "~/components/Button/ButtonLinkWebsite";
-import Mayorque from "~/assets/imgs/MarorQue";
+import MayorQue from "~/components/Icons/MayorQue";
 
 export default function SectionServicios() {
   const titleServicios = useRef(null);
@@ -31,7 +31,7 @@ export default function SectionServicios() {
           href="/servicios"
           color="black"
           typeHover="pinkBar"
-          icon={<Mayorque />}
+          icon={<MayorQue />}
           rounded
         >
           Más sobre Servicios
