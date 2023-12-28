@@ -1,5 +1,5 @@
 import type { ButtonWebsiteProps } from "./ButtonWebsite.d";
-import { COLORS, HOVERS } from "./ButtonWernsite.classNames";
+import { COLORS, HOVERS } from "./ButtonWebsite.classNames";
 
 export default function ButtonWebsite({
   className,

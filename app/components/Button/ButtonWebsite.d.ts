@@ -7,3 +7,8 @@ export interface ButtonWebsiteProps {
   color?: "white" | "black" | "transparent" | "pink";
   typeHover?: "pinkBar" | "scaleButton" | "opacity" | "none";
 }
+
+export interface ButtonLinkWebsiteProps extends ButtonWebsiteProps {
+  href: string;
+  linkClassName?: string;
+}

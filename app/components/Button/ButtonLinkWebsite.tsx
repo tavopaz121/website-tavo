@@ -1,11 +1,6 @@
 import { Link } from "@remix-run/react";
 import ButtonWebsite from "./ButtonWebsite";
-import type { ButtonWebsiteProps } from "./ButtonWebsite.d";
-
-interface ButtonLinkWebsiteProps extends ButtonWebsiteProps {
-  href: string;
-  linkClassName?: string;
-}
+import type { ButtonLinkWebsiteProps } from "./ButtonWebsite.d";
 
 export default function ButtonLinkWebsite({
   href,
