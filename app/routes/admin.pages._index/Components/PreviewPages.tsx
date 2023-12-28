@@ -45,23 +45,27 @@ export default function PreviewPages({ pages }: PreviewPagesProps) {
                   <td className="p-2 whitespace-nowrap">
                     <p className="font-medium">{page.title}</p>
                   </td>
-                  <td className="p-2 whitespace-nowrap">
-                    <p>{page?.description?.content || "Sin descripción"}</p>
+                  <td className="p-2 w-1/2">
+                    <p className="w-auto overflow-hidden line-clamp-3">
+                      {page?.description?.content || "Sin descripción"}
+                    </p>
                   </td>
                   <td className="p-2 whitespace-nowrap">
                     <Link to={`/${page.title?.toLocaleLowerCase()}`}>
                       /{page.title?.toLocaleLowerCase()}
                     </Link>
                   </td>
-                  <td className="p-2 whitespace-nowrap flex items-center gap-3 lg:gap-5 sm:gap-2">
-                    <Link
-                      to={`/admin/pages/${page.title?.toLocaleLowerCase()}/editar`}
-                    >
-                      <IconEdit title="Icono editar página" />
-                    </Link>
-                    <Link to={`/admin/pages/${page.id}/eliminar`}>
-                      <IconDelete title="Icono para eliminar página" />
-                    </Link>
+                  <td className="p-2">
+                    <div className="flex items-center gap-3 lg:gap-5 sm:gap-2 justify-center">
+                      <Link
+                        to={`/admin/pages/${page.title?.toLocaleLowerCase()}/editar`}
+                      >
+                        <IconEdit title="Icono editar página" />
+                      </Link>
+                      <Link to={`/admin/pages/${page.id}/eliminar`}>
+                        <IconDelete title="Icono para eliminar página" />
+                      </Link>
+                    </div>
                   </td>
                 </tr>
               ))}

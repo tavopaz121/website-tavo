@@ -56,7 +56,7 @@ export default {
       label: "Tarjeta/Card",
       name: "twitter:card",
       placeholder: "Ingrese el tipo de tarjeta/card",
-      content: "",
+      content: "summary_large-image",
     },
     {
       label: "Sitio",
