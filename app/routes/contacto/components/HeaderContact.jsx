@@ -1,5 +1,4 @@
 import IconContact from "../components/IconContact";
-import ButtonWebsite from "../../../components/Button/ButtonWebsite";
 
 import { iconsContact } from "../data/icons";
 export default function HeaderContact() {
@@ -25,9 +24,6 @@ export default function HeaderContact() {
               </h1>
             </a>
           </div>
-        </div>
-        <div className="flex items-center w-full justify-center">
-          <ButtonWebsite>Soy un boton grande</ButtonWebsite>
         </div>
       </section>
 
