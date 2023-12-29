@@ -13,8 +13,6 @@ export default function Pages() {
   const loaderData = useLoaderData();
   const pagesData = loaderData.res;
 
-  console.log(pagesData);
-
   return (
     <section className="my-10">
       <div className="flex w-full justify-between py-5">

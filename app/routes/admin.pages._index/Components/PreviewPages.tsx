@@ -51,14 +51,14 @@ export default function PreviewPages({ pages }: PreviewPagesProps) {
                     </p>
                   </td>
                   <td className="p-2 whitespace-nowrap">
-                    <Link to={`/${page.title?.toLocaleLowerCase()}`}>
-                      /{page.title?.toLocaleLowerCase()}
+                    <Link to={`/${page.title?.toLowerCase()}`}>
+                      /{page.title?.toLowerCase()}
                     </Link>
                   </td>
                   <td className="p-2">
                     <div className="flex items-center gap-3 lg:gap-5 sm:gap-2 justify-center">
                       <Link
-                        to={`/admin/pages/${page.title?.toLocaleLowerCase()}/editar`}
+                        to={`/admin/pages/${page.title?.toLowerCase()}/editar`}
                       >
                         <IconEdit title="Icono editar página" />
                       </Link>
