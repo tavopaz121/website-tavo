@@ -50,9 +50,15 @@ export async function createPage(data: any) {
   try {
     const { id, image, ...restOfData } = data;
 
+    let URLImage;
+
+    if (image) {
+      return (URLImage = await createImageInStorage(image));
+    }
+
     const page = await collections.pages().add({
       id,
-      image: await createImageInStorage(image),
+      image: URLImage || null,
       createdAt: Timestamp.now(),
       ...restOfData,
     });
