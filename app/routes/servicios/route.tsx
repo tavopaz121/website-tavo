@@ -6,14 +6,12 @@ import { json, type LoaderArgs } from "@remix-run/node";
 import { metaFn } from "~/functions/shared/meta";
 import TePodemosAyudar from "./components/TePodemosAyudar";
 import HeroSection from "./components/HeroSection";
-import { getPageByTitle } from "~/firebase/models/pages.server";
+import { getPageBySlug } from "~/firebase/models/pages.server";
 
 export const meta = metaFn;
 
 export async function loader({ params }: LoaderArgs) {
-  const seo = await getPageByTitle("servicios");
-
-  console.log(seo);
+  const seo = await getPageBySlug("servicios");
 
   return json({ seo });
 }

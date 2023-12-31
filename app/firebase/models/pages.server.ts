@@ -27,7 +27,7 @@ export async function getPage(id: string) {
   return {};
 }
 
-export async function getPageByTitle(slug: string) {
+export async function getPageBySlug(slug: string) {
   try {
     const querySnapshot = await collections
       .pages()
