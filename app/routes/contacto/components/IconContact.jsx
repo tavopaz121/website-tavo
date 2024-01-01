@@ -1,7 +1,7 @@
 export default function IconContact({
-  srcImge,
+  srcImg,
   text = "Ingrese texto",
-  altImage = "Un icono",
+  altImg = "Un icono",
 }) {
   return (
     <div className="overflow-hidden bg-white rounded-xl">
@@ -15,8 +15,8 @@ export default function IconContact({
               decoding="async"
               loading="lazy"
               className="block mx-auto w-15 h-15 hue-rotate-[310deg] group-hover:brightness-0 group-hover:invert-0"
-              src={srcImge}
-              alt={altImage}
+              src={srcImg}
+              alt={altImg}
             />
           </span>
         </div>
