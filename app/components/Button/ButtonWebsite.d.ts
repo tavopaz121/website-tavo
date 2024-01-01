@@ -8,7 +8,7 @@ export interface ButtonWebsiteProps {
   typeHover?: "pinkBar" | "scaleButton" | "opacity" | "none";
 }
 
-export interface ButtonLinkWebsiteProps extends ButtonWebsiteProps {
+export interface ButtonLinkProps extends ButtonWebsiteProps {
   href: string;
   linkClassName?: string;
 }
