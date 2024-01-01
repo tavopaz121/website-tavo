@@ -1,6 +1,6 @@
 import ListServicios from "./ListServicios";
 import { useRef } from "react";
-import ButtonLinkWebsite from "~/components/Button/ButtonLinkWebsite";
+import ButtonLink from "~/components/Button/ButtonLink";
 import MayorQue from "~/components/Icons/MayorQue";
 
 export default function SectionServicios() {
@@ -27,7 +27,7 @@ export default function SectionServicios() {
       <ListServicios referenceTitle={titleServicios} />
 
       <div className="flex justify-center mt-5">
-        <ButtonLinkWebsite
+        <ButtonLink
           href="/servicios"
           color="black"
           typeHover="pinkBar"
@@ -35,7 +35,7 @@ export default function SectionServicios() {
           rounded
         >
           Más sobre Servicios
-        </ButtonLinkWebsite>
+        </ButtonLink>
       </div>
     </section>
   );
