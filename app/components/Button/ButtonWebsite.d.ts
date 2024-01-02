@@ -7,6 +7,7 @@ export interface ButtonWebsiteProps {
   color?: "white" | "black" | "transparent" | "pink";
   typeHover?: "bottomBar" | "scale" | "opacity" | "none";
   isFullContent?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
 export interface ButtonLinkProps extends ButtonWebsiteProps {

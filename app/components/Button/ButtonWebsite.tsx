@@ -10,6 +10,7 @@ export default function ButtonWebsite({
   color,
   typeHover = "none",
   isFullContent,
+  type,
 }: ButtonWebsiteProps) {
   const border = rounded ? `rounded-full` : "rounded-sm";
   const colorButton = color ? COLORS[color || "white"] : "";
@@ -31,7 +32,7 @@ export default function ButtonWebsite({
   } ${isFullContent ? fullContent : "py-4 px-6"} ${hoverSytles}`;
 
   return (
-    <button className={`${buttonClasname}`} disabled={disabled}>
+    <button className={`${buttonClasname}`} disabled={disabled} type={type}>
       <div className={`${hoverBar}`} />
       <div className="relative flex items-center justify-center">
         {children}
