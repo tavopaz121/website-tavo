@@ -26,6 +26,7 @@ export default function TextArea({
     <>
       {title && (
         <label className={customClasses?.label || labelClassName} htmlFor={id}>
+
           {title} {required && <span className="text-red-500">*</span>}
         </label>
       )}

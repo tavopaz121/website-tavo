@@ -54,6 +54,7 @@ export default function PreviewPages({ pages }: PreviewPagesProps) {
                   <td className="p-2 whitespace-nowrap">
                     <Link to={`/${page.slug}`}>
                       /{page.slug?.toLowerCase()}
+
                     </Link>
                   </td>
                   <td className="p-2">

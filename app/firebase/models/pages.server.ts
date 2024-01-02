@@ -84,6 +84,7 @@ export async function deletePage(id: string) {
   }
 }
 
+
 export async function updatePage(id: string, updatedData: any) {
   try {
     const { image, ...restOfData } = updatedData;
