@@ -9,9 +9,11 @@ export default function ButtonWebsite({
   disabled,
   color,
   typeHover = "none",
+  isFullContent,
 }: ButtonWebsiteProps) {
   const border = rounded ? `rounded-full` : "rounded-sm";
-  const colorButton = COLORS[color || "white"];
+  const colorButton = color ? COLORS[color || "white"] : "";
+  const fullContent = `w-full h-full`;
 
   let hoverSytles = "";
   let hoverBar = "";
@@ -24,9 +26,9 @@ export default function ButtonWebsite({
     hoverSytles = HOVERS[typeHover];
   }
 
-  const buttonClasname = `relative group block font-semibold overflow-hidden ${border} ${colorButton} ${
-    className ? className : "py-4 px-6"
-  } ${hoverSytles}`;
+  const buttonClasname = `relative w-full group inline-block font-semibold overflow-hidden ${border} ${
+    className ? "" : colorButton
+  } ${isFullContent ? fullContent : "py-4 px-6"} ${hoverSytles}`;
 
   return (
     <button className={`${buttonClasname}`} disabled={disabled}>
