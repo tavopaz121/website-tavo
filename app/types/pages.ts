@@ -9,10 +9,14 @@ export type Page =
         order?: number;
         property?: string;
       }>;
-      title: string;
+      title?: string;
+      description?: {
+        name?: string;
+        content?: string;
+      };
     }
   | { [k: string]: FormDataEntryValue };
 
 export type FirestorePage = Page & {
-  createdAt: Timestamp;
+  createdAt?: Timestamp;
 };
