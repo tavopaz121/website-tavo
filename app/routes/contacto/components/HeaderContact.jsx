@@ -37,12 +37,17 @@ export default function HeaderContact() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <IconContact srcImge={icon.icon} text={icon.text} />
+                <IconContact
+                  srcImg={icon.icon}
+                  altImg={icon.altImage}
+                  text={icon.text}
+                />
               </a>
             ) : (
               <IconContact
                 key={`Icono de ${icon.text}`}
-                srcImge={icon.icon}
+                srcImg={icon.icon}
+                altImg={icon.altImage}
                 text={icon.text}
               />
             ),

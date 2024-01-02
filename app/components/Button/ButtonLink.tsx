@@ -1,8 +1,8 @@
 import { Link } from "@remix-run/react";
 import ButtonWebsite from "./ButtonWebsite";
-import type { ButtonLinkWebsiteProps } from "./ButtonWebsite.d";
+import type { ButtonLinkProps } from "./ButtonWebsite.d";
 
-export default function ButtonLinkWebsite({
+export default function ButtonLink({
   href,
   children,
   linkClassName,
@@ -11,7 +11,7 @@ export default function ButtonLinkWebsite({
   color,
   typeHover,
   icon,
-}: ButtonLinkWebsiteProps) {
+}: ButtonLinkProps) {
   const border = rounded ? `rounded-full` : "rounded-sm";
   const style = `${border} ${linkClassName} relative block`;
 

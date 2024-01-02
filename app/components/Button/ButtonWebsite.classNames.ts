@@ -6,9 +6,9 @@ export const COLORS = {
 };
 
 export const HOVERS = {
-  pinkBar:
+  bottomBar:
     "absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-105 transition duration-500",
-  scaleButton: "hover:scale-110 transition duration-100",
+  scale: "hover:scale-110 transition duration-100",
   opacity: "hover:opacity-60",
   none: "",
 };

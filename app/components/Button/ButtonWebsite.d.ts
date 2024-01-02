@@ -5,10 +5,10 @@ export interface ButtonWebsiteProps {
   rounded?: boolean;
   disabled?: boolean;
   color?: "white" | "black" | "transparent" | "pink";
-  typeHover?: "pinkBar" | "scaleButton" | "opacity" | "none";
+  typeHover?: "bottomBar" | "scale" | "opacity" | "none";
 }
 
-export interface ButtonLinkWebsiteProps extends ButtonWebsiteProps {
+export interface ButtonLinkProps extends ButtonWebsiteProps {
   href: string;
   linkClassName?: string;
 }

@@ -16,8 +16,8 @@ export default function ButtonWebsite({
   let hoverSytles = "";
   let hoverBar = "";
 
-  if (typeHover === "pinkBar") {
-    hoverBar = HOVERS["pinkBar"];
+  if (typeHover === "bottomBar") {
+    hoverBar = HOVERS["bottomBar"];
     hoverSytles = "";
   } else {
     hoverBar = "hidden";
