@@ -15,10 +15,12 @@ import { useEffect, useRef } from "react";
 import PostItem from "~/components/Blog/PostItem/post-item";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
 import type { CardProps } from "../blog._index/Card/Card";
+import { getPageBySlug } from "~/firebase/models/pages.server";
 
 export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
   const post: Post = await getPost(slug || "");
+  const seo = await getPageBySlug(slug || "");
 
   const content: string | undefined = post.content as string;
 
@@ -44,6 +46,7 @@ export async function loader({ params }: LoaderArgs) {
     post,
     html: marked(content),
     showPosts,
+    seo,
   });
 }
 
@@ -56,9 +59,11 @@ export function links() {
 }
 
 export function meta({ data, params }: any) {
-  const { title, description, image } = data.post;
+  const { title, image } = data.post;
+  const { metas = [], description } = data?.seo || {};
+
   let metaTitle = "";
-  let metaDescription = "";
+  let metaDescription = `No hay descripción de ${params.slug} 😥`;
 
   if (!title) {
     metaTitle = "Post no disponible - Pensemosweb";
@@ -66,21 +71,20 @@ export function meta({ data, params }: any) {
     metaTitle = title;
   }
 
-  if (!description) {
-    metaDescription = `No hay descripción de ${params.slug} 😥`;
-  } else {
-    metaDescription = description;
-  }
-
   return [
     { title: `${metaTitle} - Pensemosweb` },
-    { name: "description", content: metaDescription },
+    { name: "description", content: description?.content || metaDescription },
     {
       property: "og:title",
       content: title,
     },
+    ...metas,
     {
       property: "og:image",
+      content: image,
+    },
+    {
+      property: "twitter:image",
       content: image,
     },
   ];
