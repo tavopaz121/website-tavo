@@ -46,7 +46,6 @@ export default function CardContact({
             color="black"
             icon={icon}
             typeHover="bottomBar"
-            linkClassName="inline-block"
             rounded
           >
             {isEmail ? "Contáctanos" : "Llama ahora"}
