@@ -1,4 +1,5 @@
 import { UploadIcon } from "../Icons";
+import { type SelectFileProps } from "./SelectFile.d";
 
 export default function SelectFile({
   title,
@@ -6,22 +7,29 @@ export default function SelectFile({
   onChange,
   accept,
   children,
+  name,
   className,
+  customClasses,
   ...moreProps
-}) {
-  return (
-    <div className="w-full mb-4">
-      {title && <p className="block text-lg mb-1 font-medium">{title}</p>}
+}: SelectFileProps) {
+  const defaultClassInput =
+    "flex gap-4 w-full align-middle bg-white border border-black rounded-md";
 
-      <div
-        className={`flex gap-4 w-full align-middle bg-white border border-black rounded-md ${className}`}
-      >
+  return (
+    <div className={`w-full mb-4 ${className}`}>
+      {title && (
+        <p className={`block text-lg mb-1 font-medium ${customClasses?.label}`}>
+          {title}
+        </p>
+      )}
+
+      <div className={`${customClasses?.input || defaultClassInput}`}>
         <label
           data-testid="label-file"
           htmlFor="file"
-          className="w-full flex gap-4 p-3 cursor-pointer"
+          className={`w-full flex gap-4 p-3 cursor-pointer ${customClasses?.label}`}
         >
-          <UploadIcon fill="#262626" />
+          <UploadIcon fill="currentcolor" />
           <span className="mt-1 text-lg font-medium leading-normal text-pw-black">
             {placeholder}
           </span>
@@ -31,6 +39,7 @@ export default function SelectFile({
             data-testid="input-file"
             onChange={onChange}
             type="file"
+            name={name}
             className="hidden"
             {...moreProps}
           />

@@ -7,6 +7,11 @@ export type TextFieldProps = {
   required?: true | false;
   autoFocus?: true | false;
   name: string;
+  customClasses?: {
+    input?: string;
+    label?: string;
+    error?: string;
+  };
   value?: string;
   type: string;
   autoComplete?: string;
