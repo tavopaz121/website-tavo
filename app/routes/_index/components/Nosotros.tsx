@@ -1,6 +1,6 @@
 import feedbackLoop from "~/assets/imgs/inicio/feedback-loop.webp";
 import WorkMetodo from "./WorkNosotros";
-import ButtonLinkWebsite from "~/components/Button/ButtonLinkWebsite";
+import ButtonLink from "~/components/Button/ButtonLink";
 import Mayorque from "~/components/Icons/MayorQue";
 
 import { useRef, useEffect, useState } from "react";
@@ -98,15 +98,15 @@ export default function Nosotros() {
       </div>
 
       <div className="flex justify-center mt-5">
-        <ButtonLinkWebsite
+        <ButtonLink
           icon={<Mayorque />}
           href="/equipo"
           color="black"
-          typeHover="pinkBar"
+          typeHover="bottomBar"
           rounded
         >
           Conócenos
-        </ButtonLinkWebsite>
+        </ButtonLink>
       </div>
     </section>
   );

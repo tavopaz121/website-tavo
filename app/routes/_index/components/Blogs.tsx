@@ -1,7 +1,6 @@
-import { Link } from "@remix-run/react";
 import Blog from "./CardBlog";
 import { useEffect, useRef, useState } from "react";
-import ButtonLinkWebsite from "~/components/Button/ButtonLinkWebsite";
+import ButtonLink from "~/components/Button/ButtonLink";
 import Mayorque from "~/components/Icons/MayorQue";
 
 export default function Blogs({ posts }) {
@@ -75,15 +74,15 @@ export default function Blogs({ posts }) {
         </div>
 
         <div className="flex justify-center">
-          <ButtonLinkWebsite
+          <ButtonLink
             href="/blog"
             color="black"
             icon={<Mayorque />}
-            typeHover="pinkBar"
+            typeHover="bottomBar"
             rounded
           >
             Mira más aquí
-          </ButtonLinkWebsite>
+          </ButtonLink>
         </div>
       </div>
     </section>

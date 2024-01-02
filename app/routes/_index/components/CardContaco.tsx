@@ -1,4 +1,4 @@
-import ButtonLinkWebsite from "~/components/Button/ButtonLinkWebsite";
+import ButtonLink from "~/components/Button/ButtonLink";
 
 export interface PropsCardCotact {
   urlImg: string;
@@ -41,16 +41,16 @@ export default function CardContact({
           </h3>
           <p className="text-gray-600 mb-3">{description}</p>
           <span className="block text-sm text-pink-500 mb-8">{medio}</span>
-          <ButtonLinkWebsite
+          <ButtonLink
             href={anchor}
             color="black"
             icon={icon}
-            typeHover="pinkBar"
+            typeHover="bottomBar"
             linkClassName="inline-block"
             rounded
           >
             {isEmail ? "Contáctanos" : "Llama ahora"}
-          </ButtonLinkWebsite>
+          </ButtonLink>
         </div>
       </div>
     </div>
