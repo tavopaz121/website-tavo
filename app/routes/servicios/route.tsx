@@ -1,14 +1,20 @@
 import CardService from "./CardServices/CardService";
 import { services } from "~/data/services.js";
 import ContrataPaquete from "./components/ContrataPaquete";
+import { json, type LoaderArgs } from "@remix-run/node";
 
 import { metaFn } from "~/functions/shared/meta";
-import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 import TePodemosAyudar from "./components/TePodemosAyudar";
 import HeroSection from "./components/HeroSection";
+import { getPageBySlug } from "~/firebase/models/pages.server";
 
 export const meta = metaFn;
-export const loader = loaderSeoFn("servicios");
+
+export async function loader({ params }: LoaderArgs) {
+  const seo = await getPageBySlug("servicios");
+
+  return json({ seo });
+}
 
 export default function Servicios() {
   return (
