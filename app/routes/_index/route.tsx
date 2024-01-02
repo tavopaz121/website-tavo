@@ -9,23 +9,22 @@ import Nav from "~/components/Navs/Nav";
 import { useEffect, useRef, useState } from "react";
 
 import { json, type LinksFunction, type LoaderArgs } from "@remix-run/node";
-import type { Post, FirestorePost } from "~/types/publish";
 
 import videoPoster from "./imgs/background-video-inicio.webp";
 import stylesBlogCard from "./styles.css";
 
 import { metaFn } from "~/functions/shared/meta";
-import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 import { getPost, getPosts } from "~/firebase/models/posts.server";
 import { useLoaderData } from "@remix-run/react";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
+import { getSeo } from "~/firebase/models/seo.server";
 
 import { blogs } from "./data/postsHome";
 
 export const meta = metaFn;
-export const loaderSeo = loaderSeoFn("inicio");
 
 export async function loader({ params }: LoaderArgs) {
+  const seo = await getSeo("inicio");
   const posts = [];
 
   const lastedPost = (await getPosts(1, 1)).posts[0];
@@ -39,7 +38,7 @@ export async function loader({ params }: LoaderArgs) {
 
   const showPosts = mapPostsToCards(posts);
 
-  return json({ showPosts });
+  return json({ showPosts, seo });
 }
 
 export const links: LinksFunction = () => {
