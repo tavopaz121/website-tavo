@@ -6,9 +6,14 @@ export type TextAreaProps = {
   rows?: number;
   error?: string;
   className?: string;
+  customClasses?: {
+    input?: string;
+    label?: string;
+    error?: string;
+  };
   required?: boolean;
   id?: string;
   placeholder?: string;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
+  onChange?: ChangeEventHandler<HTMLInputElement> | null;
   value?: string;
 };

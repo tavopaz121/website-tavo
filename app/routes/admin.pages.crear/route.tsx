@@ -1,7 +1,7 @@
 import { Form, useActionData } from "@remix-run/react";
 import { useState } from "react";
 import { json, type ActionArgs } from "@remix-run/node";
-import fields from "./data/fields";
+import fieldsSeo from "~/data/fieldsSeo";
 import TextField from "../admin/TextField/TextField";
 import TextArea from "../admin/TextArea/TextArea";
 import { createPage } from "~/firebase/models/pages.server";
@@ -90,7 +90,7 @@ export const action = async ({ request }: ActionArgs) => {
 
 export default function CrearPages() {
   const actionData = useActionData<typeof action>();
-  const [metas, setMetas] = useState(fields);
+  const [metas, setMetas] = useState(fieldsSeo);
   const [srcImage, setSrcImage] = useState(null);
   const status = actionData?.status;
 
