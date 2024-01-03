@@ -1,7 +1,6 @@
 import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
 import { useEffect } from "react";
-
 import { metaFn } from "~/functions/shared/meta";
 import { loaderSeoFn } from "~/functions/shared/loaderSeo";
 import HeroEquipo from "../equipo/HeroEquipo";
@@ -39,8 +38,8 @@ export default function EquipoRoute() {
           alt="Ciclo de retroalimentación y adaptaciones"
         />
       </div>
-      <MetodoAgil />
-      <CardsEquipo />
+      <MetodoAgil/>
+      <CardsEquipo/>
     </div>
   );
 }
