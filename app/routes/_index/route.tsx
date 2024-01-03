@@ -90,11 +90,7 @@ export default function Index() {
           title="¡Desbloquea el Éxito Digital!"
           subtitle="Desarrollo web/app ágil"
           videoPoster={videoPoster}
-          videoSrcs={{
-            mp4: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.mp4?alt=media&token=3e2941d4-1b75-40dc-9ed8-ed4eed6476ef",
-            webm: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.webm?alt=media&token=ec9429ad-0d66-4da2-bafe-4504248a5419",
-            ogv: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.ogv?alt=media&token=eb4e4e9f-7e4a-4157-8f72-515f135045f6",
-          }}
+          altVideoPoster="Fondo electronico con componetes y luces de colores tonalidad ross"
           timing={1}
         />
       </section>

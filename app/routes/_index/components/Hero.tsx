@@ -1,34 +1,27 @@
-import Particles from "~/components/Particles/Particles";
-
 export default function Hero({
   videoSrcs,
+  altVideoPoster,
+  videoPoster,
   preText,
   title,
   subtitle,
-  videoPoster,
   timing = 1,
 }: {
-  videoSrcs: { mp4: string; webm: string; ogv: string };
+  videoSrcs?: { mp4: string; webm: string; ogv: string };
+  altVideoPoster: string;
+  videoPoster: string;
   preText: string;
   title: string;
   subtitle: string;
-  videoPoster?: string;
   timing?: number;
 }) {
   return (
     <>
-      <video
-        autoPlay
-        loop
-        muted
+      <img
+        src={videoPoster}
+        alt={altVideoPoster}
         className="absolute top-0 left-0 w-full h-[100vb] object-cover"
-        poster={videoPoster}
-        preload="auto"
-      >
-        <source src={videoSrcs.mp4} type="video/mp4" />
-        <source src={videoSrcs.webm} type="video/webm" />
-        <source src={videoSrcs.ogv} type="video/ogg" />
-      </video>
+      />
 
       <h1 className="absolute h-[100vb] text-white w-full max-xs:w-[100vi] xl:w-[100vi] flex justify-start sm:justify-center top-40 sm:top-0 items-start flex-col mx-auto">
         <span
@@ -75,7 +68,6 @@ export default function Hero({
           </span>
         </span>
       </h1>
-      <Particles className="absolute inset-0" staticity={1} />
     </>
   );
 }
