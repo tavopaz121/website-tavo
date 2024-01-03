@@ -32,7 +32,6 @@ export async function loader({ params }: LoaderArgs) {
 
   for (let i = 0; i < 4; i++) {
     const post = await getPost(blogs[i].slug);
-
     posts.push(post);
   }
 
@@ -90,7 +89,7 @@ export default function Index() {
           title="¡Desbloquea el Éxito Digital!"
           subtitle="Desarrollo web/app ágil"
           videoPoster={videoPoster}
-          altVideoPoster="Fondo electronico con componetes y luces de colores tonalidad ross"
+          altVideoPoster="Fondo electronico con componetes y luces de colores tonalidades rosa y azul"
           timing={1}
         />
       </section>
