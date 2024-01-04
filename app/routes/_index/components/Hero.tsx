@@ -38,7 +38,7 @@ export default function Hero({
               <span className="absolute z-10 -left-8 sm:-left-12 inset-0 bg-black transform max-xs:w-[100vi] -skew-x-12 sm:-z-20 h-full">
                 {" "}
               </span>
-              <span className="absolute left-0 transform h-full">
+              <span className="absolute z-20 left-0 transform h-full">
                 {subtitle}
               </span>
             </mark>
