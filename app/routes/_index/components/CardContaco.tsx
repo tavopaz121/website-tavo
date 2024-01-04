@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import ButtonLink from "~/components/Button/ButtonLink";
 
 export interface PropsCardCotact {
   urlImg: string;
@@ -41,18 +41,15 @@ export default function CardContact({
           </h3>
           <p className="text-gray-600 mb-3">{description}</p>
           <span className="block text-sm text-pink-500 mb-8">{medio}</span>
-          <Link
-            className="relative group inline-block py-4 px-6 text-white font-semibold bg-gray-900 rounded-full overflow-hidden"
-            to={anchor}
+          <ButtonLink
+            href={anchor}
+            color="black"
+            icon={icon}
+            typeHover="bottomBar"
+            rounded
           >
-            <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
-            <div className="relative flex items-center justify-center">
-              <span className="mr-4">
-                {isEmail ? "Contáctanos" : "Llama ahora"}
-              </span>
-              <span>{icon}</span>
-            </div>
-          </Link>
+            {isEmail ? "Contáctanos" : "Llama ahora"}
+          </ButtonLink>
         </div>
       </div>
     </div>
