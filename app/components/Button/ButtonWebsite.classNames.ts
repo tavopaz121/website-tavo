@@ -1,6 +1,6 @@
 export const COLORS = {
   white: "bg-white text-black border border-gray-800 shadow",
-  black: "bg-gray-900 text-white",
+  black: "bg-black text-white",
   transparent: "bg-transparent text-black border border-gray-800",
   pink: "bg-gradient-pink text-white",
 };
