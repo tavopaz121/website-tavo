@@ -1,15 +1,13 @@
 export default function Hero({
   videoSrcs,
-  altVideoPoster,
-  videoPoster,
+  img,
   preText,
   title,
   subtitle,
   timing = 1,
 }: {
   videoSrcs?: { mp4: string; webm: string; ogv: string };
-  altVideoPoster: string;
-  videoPoster: string;
+  img: { src: string; alt: string };
   preText: string;
   title: string;
   subtitle: string;
@@ -18,8 +16,8 @@ export default function Hero({
   return (
     <>
       <img
-        src={videoPoster}
-        alt={altVideoPoster}
+        src={img.src}
+        alt={img.alt}
         className="absolute top-0 left-0 w-full h-[100vb] object-cover"
       />
 

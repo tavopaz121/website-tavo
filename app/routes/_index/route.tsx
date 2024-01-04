@@ -20,6 +20,10 @@ import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
 import { getSeo } from "~/firebase/models/seo.server";
 
 export const meta = metaFn;
+const imageBanner = {
+  src: videoPoster,
+  alt: "Fondo electronico con componetes y luces de colores tonalidades rosa y azul",
+};
 
 export async function loader({ params }: LoaderArgs) {
   const seo = await getSeo("inicio");
@@ -78,8 +82,7 @@ export default function Index() {
           preText="¿Visibilidad en línea deficiente?"
           title="¡Desbloquea el Éxito Digital!"
           subtitle="Desarrollo web/app ágil"
-          videoPoster={videoPoster}
-          altVideoPoster="Fondo electronico con componetes y luces de colores tonalidades rosa y azul"
+          img={imageBanner}
           timing={1}
         />
       </section>
