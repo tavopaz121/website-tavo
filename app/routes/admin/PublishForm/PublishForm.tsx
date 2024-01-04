@@ -9,6 +9,9 @@ import type { ChangeEvent } from "react";
 import { XcircleSolidIcon, IconClose } from "../Icons";
 import TextField from "../TextField/TextField";
 import SelectFile from "../SelectFile/SelectFile";
+import fieldsSeo from "~/data/fieldsSeo";
+import TextArea from "../TextArea/TextArea";
+import { handleFieldChange } from "~/routes/admin.pages.crear/functions/handleFieldChange";
 
 const inputClassName =
   "w-full rounded border border-gray-500 px-2 py-1 text-lg dark:text-black";
@@ -18,7 +21,8 @@ const errorClassName =
 export default function PublishForm({ mode = "create" }) {
   return function PublishFormInner() {
     const errors = useActionData();
-    const post = useLoaderData();
+    const { post } = useLoaderData();
+    const { page } = useLoaderData();
     const transition = useNavigation();
     const isSubmitting = Boolean(transition.state !== "idle");
     const [title, setTitle] = useState(post?.title || "");
@@ -33,6 +37,10 @@ export default function PublishForm({ mode = "create" }) {
     const summaryRef = useRef<HTMLTextAreaElement>(null);
     const tagsRef = useRef<HTMLInputElement>(null);
     const [srcImage, setSrcImage] = useState(post?.image || null);
+
+    const [metas, setMetas] = useState(fieldsSeo);
+
+    console.log(page);
 
     useEffect(() => {
       if (errors?.title) {
@@ -77,10 +85,23 @@ export default function PublishForm({ mode = "create" }) {
       setSrcImage(null);
     };
 
+    function getFieldValue(fieldName: any, metas: any) {
+      switch (fieldName) {
+        case "og:title":
+        case "twitter:title":
+          return title;
+        case "og:description":
+        case "twitter:description":
+          return summary;
+        default:
+          return null;
+      }
+    }
+
     return (
       <Form
         method="post"
-        className="max-md:col-span-12 md:col-span-6"
+        className="max-md:col-span-12 md:col-span-6 p-4 mt-10"
         encType="multipart/form-data"
       >
         <h1 className="mb-4">{mode === "edit" ? "Editar" : "Publicar"}:</h1>
@@ -217,6 +238,51 @@ export default function PublishForm({ mode = "create" }) {
             </div>
           )}
         </div>
+
+        <h1 className="mb-4">
+          {mode === "edit" ? "Editar seo" : "Agregar seo"}:
+        </h1>
+
+        <TextArea
+          title="Descripción"
+          customClasses={{
+            input: "bg-white border border-black w-full p-2.5",
+            label: "block mb-1",
+          }}
+          required
+          onChange={(e: ChangeEvent<HTMLInputElement>) => {
+            setSummary(e.target.value);
+          }}
+          name="description"
+          value={summary}
+        />
+
+        <h1 className="mb-4">OpenGraph:</h1>
+
+        {metas.openGraph.map((meta, index) => (
+          <TextField
+            type="text"
+            key={index}
+            value={getFieldValue(meta.name, metas) || meta.content}
+            label={meta.label}
+            name={meta.name}
+            onChange={(e) => handleFieldChange(meta.name, setMetas, e)}
+          />
+        ))}
+
+        <h1 className="mb-4">Twitter:</h1>
+
+        {metas.twitter.map((meta, index) => (
+          <TextField
+            type="text"
+            key={index}
+            value={getFieldValue(meta.name, metas) || meta.content}
+            label={meta.label}
+            name={meta.name}
+            onChange={(e) => handleFieldChange(meta.name, setMetas, e)}
+          />
+        ))}
+
         <div className="text-right">
           <button
             type="submit"

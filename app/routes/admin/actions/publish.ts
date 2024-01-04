@@ -2,6 +2,7 @@ import type { ActionArgs } from "@remix-run/node";
 import { createPost, updatePost } from "~/firebase/models/posts.server";
 import { json, redirect } from "@remix-run/node";
 import type { Post } from "~/types/publish";
+import { createPage, updatePage } from "~/firebase/models/pages.server";
 
 type ActionData = {
   title: null | string;
@@ -15,6 +16,8 @@ type ActionData = {
 export function getPublishAction(mode: string) {
   return async function publish({ request }: ActionArgs) {
     const formData = await request.formData();
+    const formDataArray = Array.from(formData.entries());
+    const formDataObject: { [key: string]: string | File } = {};
 
     const id = formData.get("id") as string;
     const title = formData.get("title") as string;
@@ -30,6 +33,15 @@ export function getPublishAction(mode: string) {
       tags: tags ? null : "Tags is required",
       summary: summary ? null : "Summary is required",
     };
+
+    for (const [name, value] of formDataArray) {
+      if (value instanceof File) {
+        formDataObject[name] = value;
+      } else {
+        const trimmedValue = String(value).trim();
+        formDataObject[name] = trimmedValue;
+      }
+    }
 
     const hasErrors = Object.values(errors).some((errMsg) => errMsg);
 
@@ -47,6 +59,26 @@ export function getPublishAction(mode: string) {
       tags: tagList,
     };
 
+    const dataSeo = {
+      title,
+      image,
+      slug,
+      description: {
+        name: "description",
+        content: summary,
+      },
+      metas: [],
+    };
+
+    for (const key in formDataObject) {
+      if (
+        (formDataObject.hasOwnProperty(key) && key.startsWith("og:")) ||
+        key.startsWith("twitter:")
+      ) {
+        const content: string | File = formDataObject[key] || "";
+        dataSeo?.metas?.push({ name: key, content });
+      }
+    }
     const user = {
       displayName: "Jaime Cervantes",
       email: "jaime.cervantes.ve@gmail.com",
@@ -56,6 +88,8 @@ export function getPublishAction(mode: string) {
 
     if (mode === "edit") {
       await updatePost(id, postInfo, image || null, user);
+      await createPage(dataSeo);
+      // await updatePage(slug, dataSeo)
 
       return redirect(`/${slug}`);
     }
@@ -65,6 +99,7 @@ export function getPublishAction(mode: string) {
       image,
       user,
     );
+    await createPage(dataSeo);
 
     return redirect(`/${result.slug}`);
   };

@@ -84,6 +84,35 @@ export async function deletePage(id: string) {
   }
 }
 
+
+export async function updatePage(id: string, updatedData: any) {
+  try {
+    const { image, ...restOfData } = updatedData;
+
+    let URLImage;
+
+    if (image) {
+      const downloadURL = await createImageInStorage(image);
+      URLImage = downloadURL;
+    }
+
+    const updatedPageData = {
+      image: URLImage || null,
+      updatedAt: Timestamp.now(),
+      ...restOfData,
+    };
+
+    await collections.pages().doc(id).update(updatedPageData);
+
+    return { id, ...updatedPageData };
+  } catch (error: any) {
+    return {
+      error,
+      errorMessage: "Algo salió mal al actualizar la página",
+    };
+  }
+}
+
 async function createImageInStorage(image: File) {
   const bucket = getStorage().bucket();
   const buffer = Buffer.from(await image.arrayBuffer());
