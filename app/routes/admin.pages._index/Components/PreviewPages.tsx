@@ -2,6 +2,7 @@ import { Link } from "@remix-run/react";
 
 type PreviewPage = {
   title?: string;
+  slug?: string;
   description?: {
     name?: string;
     content?: string;
@@ -51,8 +52,9 @@ export default function PreviewPages({ pages }: PreviewPagesProps) {
                     </p>
                   </td>
                   <td className="p-2 whitespace-nowrap">
-                    <Link to={`/${page.title?.toLowerCase()}`}>
-                      /{page.title?.toLowerCase()}
+                    <Link to={`/${page.slug}`}>
+                      /{page.slug?.toLowerCase()}
+
                     </Link>
                   </td>
                   <td className="p-2">
