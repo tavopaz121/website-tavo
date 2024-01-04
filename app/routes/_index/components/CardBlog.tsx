@@ -23,11 +23,11 @@ export default function Blog({
   return (
     <Link
       to={anchor}
-      className={`relative flex items-center flex-wrap ${
+      className={`relative flex items-center ${
         isMain
-          ? "flex-col h-auto"
-          : "flex-row max-md:flex-col max-md:h-auto h-full"
-      } ${className} group border border-pink-600 rounded-lg overflow-hidden motion-safe:animate-fadeInRight`}
+          ? "flex-col flex-nowrap"
+          : "flex-row flex-wrap  max-md:flex-col max-md:h-auto"
+      } ${className} group border border-pink-600 rounded-lg overflow-hidden motion-safe:animate-fadeInRight h-full`}
       style={{
         animationDelay: `${delay}s`,
         animationFillMode: "both",
@@ -46,7 +46,7 @@ export default function Blog({
       <div
         className={`${
           isMain
-            ? "max-h-[300px] 2xl:max-h-[500px]"
+            ? "h-3/4 w-full 2xl:max-h-[500px]"
             : "w-2/5 max-md:w-full h-full"
         } overflow-hidden`}
       >
