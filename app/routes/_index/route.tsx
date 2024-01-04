@@ -14,28 +14,18 @@ import videoPoster from "./imgs/background-video-inicio.webp";
 import stylesBlogCard from "./styles.css";
 
 import { metaFn } from "~/functions/shared/meta";
-import { getPost, getPosts } from "~/firebase/models/posts.server";
+import { getPosts } from "~/firebase/models/posts.server";
 import { useLoaderData } from "@remix-run/react";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
 import { getSeo } from "~/firebase/models/seo.server";
-
-import { blogs } from "./data/postsHome";
 
 export const meta = metaFn;
 
 export async function loader({ params }: LoaderArgs) {
   const seo = await getSeo("inicio");
-  const posts = [];
+  const lastedPosts = (await getPosts(1, 5)).posts;
 
-  const lastedPost = (await getPosts(1, 1)).posts[0];
-  posts.push(lastedPost);
-
-  for (let i = 0; i < 4; i++) {
-    const post = await getPost(blogs[i].slug);
-    posts.push(post);
-  }
-
-  const showPosts = mapPostsToCards(posts);
+  const showPosts = mapPostsToCards(lastedPosts);
 
   return json({ showPosts, seo });
 }
