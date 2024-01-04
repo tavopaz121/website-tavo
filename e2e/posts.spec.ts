@@ -38,7 +38,7 @@ test.describe("When user visit a post page", () => {
     page,
   }) => {
     const route = "/introduccion-javascript";
-    const title = "Introducción a Javascript";
+    const title = "Introducción Javascript";
 
     await page.goto(route);
     await expect(page).toHaveURL(route);
