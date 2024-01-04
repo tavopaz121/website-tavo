@@ -30,7 +30,7 @@ export default function SectionServicios() {
         <ButtonLink
           href="/servicios"
           color="black"
-          typeHover="pinkBar"
+          typeHover="bottomBar"
           icon={<MayorQue />}
           rounded
         >

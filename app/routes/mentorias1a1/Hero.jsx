@@ -1,5 +1,5 @@
-import { Link } from "@remix-run/react";
 import BgIllustration from "~/components/BgIlustration/BgIlustration";
+import ButtonLink from "~/components/Button/ButtonLink";
 
 export default function MentoriasHero() {
   return (
@@ -28,21 +28,10 @@ export default function MentoriasHero() {
             </p>
             <div className="flex justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
-                <Link
-                  className="btn rounded-sm text-white bg-gradient-pink hover:scale-110 lg:w-full lg:mb-4 w-auto mb-0"
-                  to="./registro"
-                >
+                <ButtonLink href="./registro" color="pink" typeHover="scale">
                   Registrate
-                </Link>
+                </ButtonLink>
               </div>
-              {/* <div data-aos="fade-up" data-aos-delay="600">
-                  <Link
-                    className="btn text-white bg-gray-700 hover:bg-gray-800 lg:w-full w-auto ml-4"
-                    to="#principios"
-                  >
-                    Información
-                  </Link>
-                </div> */}
             </div>
           </div>
         </div>

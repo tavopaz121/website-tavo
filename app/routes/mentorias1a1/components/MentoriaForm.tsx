@@ -1,5 +1,6 @@
 import { Form } from "@remix-run/react";
 import BgIllustration from "~/components/BgIlustration/BgIlustration";
+import ButtonWebsite from "~/components/Button/ButtonWebsite";
 
 export default function MentoriaForm({ actionData }) {
   return (
@@ -149,12 +150,9 @@ export default function MentoriaForm({ actionData }) {
             </div>
             <div className="flex flex-wrap -mx-3 mt-6">
               <div className="w-full px-3">
-                <button
-                  type="submit"
-                  className="btn text-white bg-gradient-pink hover:opacity-80 w-full mx-auto"
-                >
+                <ButtonWebsite type="submit" color="pink" typeHover="opacity">
                   Enviar
-                </button>
+                </ButtonWebsite>
               </div>
             </div>
           </Form>

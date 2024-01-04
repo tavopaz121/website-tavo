@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "@remix-run/react";
+import ButtonLink from "../../../components/Button/ButtonLink";
+
 const ContrataPaquete = () => {
   return (
     <>
@@ -15,16 +16,15 @@ const ContrataPaquete = () => {
                 más clientes con una nueva página web.
               </p>
 
-              <div className="flex flex-row items-center mt-4 space-x-4 lg:mt-8">
-                <Link
-                  className="relative group inline-block py-2.5 px-6 mt-10 text-white font-semibold bg-black rounded overflow-hidden w-1/2 max-md:w-full"
-                  to="/contacto"
+              <div className="flex flex-row items-center mt-4 space-x-4 lg:mt-8 pt-10">
+                <ButtonLink
+                  className="w-1/2 h-12"
+                  color="black"
+                  href="/contacto"
+                  typeHover="bottomBar"
                 >
-                  <div className="absolute top-0 right-full w-full h-full bg-gradient-pink transform group-hover:translate-x-full group-hover:scale-102 transition duration-500" />
-                  <div className="relative flex items-center justify-center">
-                    <span className="mr-4">Cotiza tu página web</span>
-                  </div>
-                </Link>
+                  Cotiza tu página web
+                </ButtonLink>
               </div>
             </div>
 
