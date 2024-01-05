@@ -8,13 +8,9 @@ export const collections = {
 };
 
 export async function getPages() {
-  const querySnapshot = await collections
-    .pages()
-    .where("status", "==", "published")
-    .get();
-
-  const postData = querySnapshot.docs.map((doc) => {
-    return { id: doc.id, ...doc.data() };
+  const page = await collections.pages().get();
+  const postData = page.docs.map((doc) => {
+    return { ...doc.data(), id: doc.id };
   });
 
   return postData;
@@ -23,12 +19,12 @@ export async function getPages() {
 export async function getPage(id: string) {
   const doc = await collections.pages().doc(id).get();
 
-  if (doc.exists && doc.data()?.status === "published") {
+  if (doc.exists) {
     const data = doc.data();
-    return { id: doc.id, ...data };
+    return data;
   }
 
-  throw new Error(`No published page found with id: ${id}`);
+  return {};
 }
 
 export async function getPageBySlug(slug: string | undefined) {
@@ -40,15 +36,12 @@ export async function getPageBySlug(slug: string | undefined) {
 
     if (!querySnapshot.empty) {
       const data = querySnapshot.docs[0].data();
-
-      if (data.status === "published") {
-        return data;
-      }
+      return data;
     }
 
     return null;
   } catch (error) {
-    console.error("Error fetching published data from Firestore:", error);
+    console.error("Error fetching data from Firestore:", error);
     throw error;
   }
 }
@@ -65,7 +58,6 @@ export async function createPage(data: any) {
 
     const page = await collections.pages().add({
       id,
-      status: "draft",
       image: URLImage || null,
       createdAt: Timestamp.now(),
       ...restOfData,
@@ -91,6 +83,7 @@ export async function deletePage(id: string) {
     };
   }
 }
+
 
 export async function updatePage(id: string, updatedData: any) {
   try {
