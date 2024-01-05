@@ -81,16 +81,16 @@ export default function EditarPage() {
 
   const [title, setTitle] = useState(page?.title || "");
   const [description, setDescription] = useState(
-    page.description.content || "",
+    page?.description?.content || "",
   );
-  const [metas, setMetas] = useState(page.metas || []);
+  const [metas, setMetas] = useState(page?.metas || []);
 
   const status = actionData?.status;
 
   const handleTextFieldChange = (name: string, value: string) => {
     setMetas((prevMetas: any[]) => {
       const updatedMetas = [...prevMetas];
-      const index = updatedMetas.findIndex((meta) => meta.name === name);
+      const index = updatedMetas.findIndex((meta) => meta?.name === name);
       updatedMetas[index] = { ...updatedMetas[index], content: value };
       return updatedMetas;
     });
@@ -110,12 +110,12 @@ export default function EditarPage() {
   }
   return (
     <>
-      <ShowModal status={status} slug={page.slug} />
+      <ShowModal status={status} slug={page?.slug} />
       <section className="grid place-items-center items-start my-10">
         <div className="w-full lg:w-[60%]">
           <div className="w-full">
             <h1 className="text-4xl font-extrabold mb-2 text-white">
-              Editar Página {page.title}
+              Editar Página {page?.title}
             </h1>
             <div className="text-gray-500"></div>
           </div>
@@ -134,7 +134,7 @@ export default function EditarPage() {
 
             <div className="w-full mb-4 md:mb-0">
               <TextArea
-                name={page.description.name}
+                name={page?.description?.name}
                 onChange={(evt) => setDescription(evt.target.value)}
                 title="Descripción"
                 rows={6}
