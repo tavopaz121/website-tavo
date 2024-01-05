@@ -13,6 +13,8 @@ export const meta = metaFn;
 export async function loader({ params }: LoaderArgs) {
   const seo = await getPageBySlug("servicios");
 
+  console.log(seo);
+
   return json({ seo });
 }
 
