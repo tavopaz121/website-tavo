@@ -11,18 +11,20 @@ export default function ButtonLink({
   color,
   typeHover,
   icon,
+  isFullContent,
 }: ButtonLinkProps) {
   const border = rounded ? `rounded-full` : "rounded-sm";
-  const style = `${border} ${linkClassName} relative block`;
+  const finalClassName = `${border} ${className}`;
 
   return (
-    <Link to={href} className={style}>
+    <Link to={href} className={finalClassName}>
       <ButtonWebsite
         rounded={rounded}
         color={color}
         typeHover={typeHover}
         icon={icon}
-        className={className}
+        className={linkClassName}
+        isFullContent={isFullContent}
       >
         {children}
       </ButtonWebsite>

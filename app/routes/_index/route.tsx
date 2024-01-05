@@ -14,29 +14,22 @@ import videoPoster from "./imgs/background-video-inicio.webp";
 import stylesBlogCard from "./styles.css";
 
 import { metaFn } from "~/functions/shared/meta";
-import { getPost, getPosts } from "~/firebase/models/posts.server";
+import { getPosts } from "~/firebase/models/posts.server";
 import { useLoaderData } from "@remix-run/react";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
 import { getSeo } from "~/firebase/models/seo.server";
 
-import { blogs } from "./data/postsHome";
-
 export const meta = metaFn;
+const imageBanner = {
+  src: videoPoster,
+  alt: "Fondo electronico con componetes y luces de colores tonalidades rosa y azul",
+};
 
 export async function loader({ params }: LoaderArgs) {
   const seo = await getSeo("inicio");
-  const posts = [];
+  const lastedPosts = (await getPosts(1, 5)).posts;
 
-  const lastedPost = (await getPosts(1, 1)).posts[0];
-  posts.push(lastedPost);
-
-  for (let i = 0; i < 4; i++) {
-    const post = await getPost(blogs[i].slug);
-
-    posts.push(post);
-  }
-
-  const showPosts = mapPostsToCards(posts);
+  const showPosts = mapPostsToCards(lastedPosts);
 
   return json({ showPosts, seo });
 }
@@ -89,12 +82,7 @@ export default function Index() {
           preText="¿Visibilidad en línea deficiente?"
           title="¡Desbloquea el Éxito Digital!"
           subtitle="Desarrollo web/app ágil"
-          videoPoster={videoPoster}
-          videoSrcs={{
-            mp4: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.mp4?alt=media&token=3e2941d4-1b75-40dc-9ed8-ed4eed6476ef",
-            webm: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.webm?alt=media&token=ec9429ad-0d66-4da2-bafe-4504248a5419",
-            ogv: "https://firebasestorage.googleapis.com/v0/b/pensemosweb-mx.appspot.com/o/videos%2Fbg-inicio-6.4s__.ogv?alt=media&token=eb4e4e9f-7e4a-4157-8f72-515f135045f6",
-          }}
+          img={imageBanner}
           timing={1}
         />
       </section>

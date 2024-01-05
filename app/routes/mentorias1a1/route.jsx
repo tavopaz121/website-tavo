@@ -3,7 +3,10 @@ import dontLoseFocus from "~/assets/svgs/dontLoseFocus.svg";
 import sectionScrum from "~/assets/imgs/clasesonetoone/section_scrum.webp";
 import { items as principles } from "./data/principles.js";
 import { Link, Outlet } from "@remix-run/react";
+
 import ListaMentorias from "./ListaMentorias";
+import ButtonLink from "../../components/Button/ButtonLink";
+import Arrow from "./components/Arrow";
 
 import AOS from "aos";
 import aosStyles from "aos/dist/aos.css";
@@ -114,40 +117,46 @@ export default function MentoriasRoute() {
       </section>
       {/* Enseñanza ágile */}
       <article className="max-w-6xl relative mx-auto px-4 flex flex-col md:flex-row">
-        <div className="w-full md:w-1/2 bg-gray-800 p-8" data-aos="fade-up">
-          <h4 className="text-lg text-white">🌟📚 Enseñanza ágil</h4>
-          <p className="text-lg text-gray-400 mb-5">
-            Descubre la potencia de la enseñanza ágil, este método
-            revolucionario se aplica de manera integral en todos los niveles y
-            áreas de la capacitación, asegurando un aprendizaje completo y
-            efectivo en cada paso del camino.
-          </p>
-          <h4 className="text-lg text-white">👦 Capacitación individual</h4>
-          <p className="text-lg text-gray-400 mb-5">
-            ¡Cada estudiante es único! La formación individual permite un
-            aprendizaje eficaz y enfocado en las necesidades específicas de cada
-            persona.
-          </p>
-          <h4 className="text-lg text-white">👦👩👧 Capacitación en equipo</h4>
-          <p className="text-lg text-gray-400 ">
-            Fortalece la dinámica grupal y el rendimiento colectivo. 1️⃣ + 1️⃣ =
-            3️⃣ o 5️⃣ cuando trabajamos juntos, generando un impacto
-            extraordinario en el funcionamiento general de las organizaciones.
-            ✨🌈🚀. Exacto, es una habilidad real del campo laboral.
-          </p>
-          <Link
-            className="btn-sm text-white bg-gradient-pink hover:scale-110 mt-6"
-            to="./registro"
+        <div
+          className="w-full flex flex-col gap-7 md:w-1/2 bg-gray-800 p-8"
+          data-aos="fade-up"
+        >
+          <div>
+            <h4 className="text-lg text-white">🌟📚 Enseñanza ágil</h4>
+            <p className="text-lg text-gray-400">
+              Descubre la potencia de la enseñanza ágil, este método
+              revolucionario se aplica de manera integral en todos los niveles y
+              áreas de la capacitación, asegurando un aprendizaje completo y
+              efectivo en cada paso del camino.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-lg text-white">👦 Capacitación individual</h4>
+            <p className="text-lg text-gray-400">
+              ¡Cada estudiante es único! La formación individual permite un
+              aprendizaje eficaz y enfocado en las necesidades específicas de
+              cada persona.
+            </p>
+          </div>
+          <div>
+            <h4 className="text-lg text-white">
+              👦👩👧 Capacitación en equipo
+            </h4>
+            <p className="text-lg text-gray-400 ">
+              Fortalece la dinámica grupal y el rendimiento colectivo. 1️⃣ + 1️⃣ =
+              3️⃣ o 5️⃣ cuando trabajamos juntos, generando un impacto
+              extraordinario en el funcionamiento general de las organizaciones.
+              ✨🌈🚀. Exacto, es una habilidad real del campo laboral.
+            </p>
+          </div>
+          <ButtonLink
+            href="./registro"
+            icon={<Arrow />}
+            color="pink"
+            typeHover="scale"
           >
-            <span className="text-sm">Mas información</span>
-            <svg
-              className="w-3 h-3 fill-current text-purple-400 shrink-0 ml-2"
-              viewBox="0 0 12 12"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M6 5H0v2h6v4l6-5-6-5z" />
-            </svg>
-          </Link>
+            Mas información
+          </ButtonLink>
         </div>
         <figure className="w-full md:w-1/2 mt-5 mb-15">
           <img
