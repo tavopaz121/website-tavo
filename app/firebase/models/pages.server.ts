@@ -8,10 +8,7 @@ export const collections = {
 };
 
 export async function getPages() {
-  const querySnapshot = await collections
-    .pages()
-    .where("status", "==", "published")
-    .get();
+  const querySnapshot = await collections.pages().get();
 
   const postData = querySnapshot.docs.map((doc) => {
     return { id: doc.id, ...doc.data() };
