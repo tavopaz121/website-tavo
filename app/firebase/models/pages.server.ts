@@ -54,7 +54,7 @@ export async function createPage(data: any) {
     let URLImage;
 
     if (image) {
-      return (URLImage = await createImageInStorage(image));
+      URLImage = await createImageInStorage(image);
     }
 
     const page = await collections.pages().add({
