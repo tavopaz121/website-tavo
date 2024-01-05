@@ -22,7 +22,6 @@ export default function PublishForm({ mode = "create" }) {
   return function PublishFormInner() {
     const errors = useActionData();
     const { post } = useLoaderData();
-    const { page } = useLoaderData();
     const transition = useNavigation();
     const isSubmitting = Boolean(transition.state !== "idle");
     const [title, setTitle] = useState(post?.title || "");
@@ -39,8 +38,6 @@ export default function PublishForm({ mode = "create" }) {
     const [srcImage, setSrcImage] = useState(post?.image || null);
 
     const [metas, setMetas] = useState(fieldsSeo);
-
-    console.log(page);
 
     useEffect(() => {
       if (errors?.title) {
