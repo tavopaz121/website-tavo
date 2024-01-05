@@ -27,17 +27,16 @@ export async function getPage(id: string) {
   return {};
 }
 
-export async function getPageBySlug(slug: string | undefined) {
+export async function getPageBySlug(slug: string) {
   try {
     const querySnapshot = await collections
       .pages()
-      .where("slug", "==", slug?.toLowerCase())
+      .where("slug", "==", slug.toLowerCase())
       .get();
 
     if (!querySnapshot.empty) {
-      const doc = querySnapshot.docs[0];
-      const data = doc.data();
-      return { id: doc.id, ...data };
+      const data = querySnapshot.docs[0].data();
+      return data;
     }
 
     return null;
@@ -84,6 +83,7 @@ export async function deletePage(id: string) {
     };
   }
 }
+
 
 export async function updatePage(id: string, updatedData: any) {
   try {
