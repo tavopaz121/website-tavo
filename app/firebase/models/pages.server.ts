@@ -31,11 +31,11 @@ export async function getPage(id: string) {
   throw new Error(`No published page found with id: ${id}`);
 }
 
-export async function getPageBySlug(slug: string) {
+export async function getPageBySlug(slug: string | undefined) {
   try {
     const querySnapshot = await collections
       .pages()
-      .where("slug", "==", slug.toLowerCase())
+      .where("slug", "==", slug?.toLowerCase())
       .get();
 
     if (!querySnapshot.empty) {

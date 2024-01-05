@@ -54,13 +54,12 @@ export default function PreviewPages({ pages }: PreviewPagesProps) {
                   <td className="p-2 whitespace-nowrap">
                     <Link to={`/${page.slug}`}>
                       /{page.slug?.toLowerCase()}
-
                     </Link>
                   </td>
                   <td className="p-2">
                     <div className="flex items-center gap-3 lg:gap-5 sm:gap-2 justify-center">
                       <Link
-                        to={`/admin/pages/${page.title?.toLowerCase()}/editar`}
+                        to={`/admin/pages/${page.slug?.toLowerCase()}/editar`}
                       >
                         <IconEdit title="Icono editar página" />
                       </Link>
