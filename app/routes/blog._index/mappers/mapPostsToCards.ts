@@ -5,6 +5,7 @@ export function mapPostsToCards(posts: FirestorePost[]) {
     return {
       id: item.id,
       title: item.title,
+      status: item.status,
       price: item.price,
       description: item.description,
       image: {

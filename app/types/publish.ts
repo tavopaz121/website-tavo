@@ -15,6 +15,7 @@ export type Post =
       summary: string;
       content: string;
       tags: string;
+      status: "published" | "draft";
       slug?: string;
     }
   | { [k: string]: FormDataEntryValue };

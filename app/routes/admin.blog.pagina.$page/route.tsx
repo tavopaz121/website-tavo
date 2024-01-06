@@ -1,6 +1,11 @@
-import { json, redirect, type LoaderArgs } from "@remix-run/node";
+import {
+  json,
+  redirect,
+  type LoaderArgs,
+  type ActionArgs,
+} from "@remix-run/node";
 import ArticlesList from "~/components/Blog/ArticlesList/ArticlesList";
-import { getPosts } from "~/firebase/models/posts.server";
+import { getPosts, updatePostStatus } from "~/firebase/models/posts.server";
 import { mapPostsToCards } from "../blog._index/mappers/mapPostsToCards";
 import { useLoaderData } from "@remix-run/react";
 import PageIllustration from "~/components/Blog/page-illustration";
@@ -8,6 +13,19 @@ import Pagination from "~/components/Blog/Pagination/pagination";
 import PostItem from "~/components/Blog/PostItem/post-item";
 import type { CardProps } from "~/components/Blog/ArticlesList/Card.d";
 import Dropdown from "~/components/Blog/Dropdown/Dropdown";
+import ChangeStatus from "../admin.blog._index/Components/ChangeStatus";
+
+export const action = async ({ request }: ActionArgs) => {
+  const formData = await request.formData();
+  const status = formData.get("status") as string;
+  const id = formData.get("postId") as string;
+
+  const result = await updatePostStatus(id, status);
+
+  console.log(result);
+
+  return { result };
+};
 
 export async function loader({ request }: LoaderArgs) {
   const url = new URL(request.url);
@@ -51,6 +69,7 @@ export default function Posts() {
                   createdAt,
                   user,
                   tags,
+                  status,
                   summary,
                 }: CardProps) => (
                   <PostItem
@@ -65,10 +84,13 @@ export default function Posts() {
                     imageAlt={image.alt}
                     summary={summary}
                   >
-                    <Dropdown
-                      slug={to}
-                      className="absolute right-0 top-0 z-30 p-2"
-                    />
+                    <>
+                      <Dropdown
+                        slug={to}
+                        className="absolute right-0 top-0 z-30 p-2"
+                      />
+                      <ChangeStatus status={status} postId={id} />
+                    </>
                   </PostItem>
                 ),
               )}

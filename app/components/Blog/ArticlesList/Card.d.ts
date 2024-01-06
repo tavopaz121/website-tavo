@@ -4,8 +4,9 @@ export type CardProps = {
   title: string;
   id: string;
   to: string;
+  status: "published" | "draft";
   createdAt: string;
-  user: {photoURL: string, displayName: string}
+  user: { photoURL: string; displayName: string };
   image: { src: string; alt: string };
   tags: string[];
   summary: string;

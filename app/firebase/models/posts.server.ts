@@ -160,6 +160,24 @@ export async function updatePost(
   }
 }
 
+export async function updatePostStatus(id: string, newStatus: string) {
+  invariant(id, "Se requiere el ID del post");
+
+  try {
+    const result = await collections.posts().doc(id).update({
+      status: newStatus,
+      modifiedAt: Timestamp.now(),
+    });
+
+    return result.writeTime;
+  } catch (error: any) {
+    return {
+      error,
+      errorMessage: "Algo salió mal al actualizar el estado del post",
+    };
+  }
+}
+
 export async function createSlug(
   title: string,
   collection: CollectionReference<FirestorePost> = collections.posts(),

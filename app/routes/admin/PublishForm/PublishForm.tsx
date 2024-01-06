@@ -40,8 +40,6 @@ export default function PublishForm({ mode = "create" }) {
 
     const [metas, setMetas] = useState(fieldsSeo);
 
-    console.log(page);
-
     useEffect(() => {
       if (errors?.title) {
         titleRef.current?.focus();
