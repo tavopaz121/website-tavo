@@ -16,7 +16,7 @@ export async function loader({ request }: LoaderArgs) {
 
   const limitPages = Math.ceil(total / 10);
 
-  if (numPage > limitPages) {
+  if (numPage > limitPages || posts.length <= 0) {
     return redirect("/admin/blog");
   }
 

@@ -23,8 +23,6 @@ export async function getPosts(
     query = query.where(by.field, by.operator as WhereFilterOp, by.value);
   }
 
-  const total = (await query.count().get()).data().count;
-
   const posts = await query
     .orderBy("createdAt", "desc")
     .limit(pageSize)
@@ -39,7 +37,6 @@ export async function getPosts(
     posts: postData,
     nextPage: page + 1,
     prevPage: page === firstPage ? firstPage : page - 1,
-    total: total,
   };
 }
 
@@ -109,6 +106,7 @@ export async function createPost(postInfo: Post, image: File, user: PostUser) {
     const post = await collections.posts().add({
       ...postInfo,
       slug,
+      status: "published",
       image: await createImageInStorage(image),
       user,
       createdAt: Timestamp.now(),

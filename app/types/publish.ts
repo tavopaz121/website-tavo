@@ -12,6 +12,7 @@ export type Post =
   | {
       id?: string;
       title: string;
+      status: "published" | "draft";
       summary: string;
       content: string;
       tags: string;

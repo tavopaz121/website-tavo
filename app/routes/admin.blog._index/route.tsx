@@ -12,7 +12,11 @@ import Dropdown from "~/components/Blog/Dropdown/Dropdown";
 export async function loader({ request }: LoaderArgs) {
   const url = new URL(request.url);
   const numPage = Number(url.searchParams.get("pagina"));
-  const { posts, nextPage, prevPage, total } = await getPosts(numPage);
+  const { posts, nextPage, prevPage, total } = await getPosts(numPage, 10, {
+    field: "status",
+    operator: "==",
+    value: "published",
+  });
 
   return json({ posts: mapPostsToCards(posts), nextPage, prevPage, total });
 }
@@ -20,6 +24,7 @@ export async function loader({ request }: LoaderArgs) {
 export default function Posts() {
   const loaderData = useLoaderData();
   const { posts, total } = loaderData;
+
   return (
     <section className="relative bg-gray-900 px-8 max-sm:px-4 overflow-hidden">
       <PageIllustration />
@@ -63,11 +68,13 @@ export default function Posts() {
             </div>
           </ArticlesList>
 
-          <Pagination
-            currentPage={1}
-            startPath="/admin/blog"
-            numPages={total}
-          />
+          {posts.length > 0 && (
+            <Pagination
+              currentPage={1}
+              startPath="/admin/blog"
+              numPages={total}
+            />
+          )}
         </div>
       </div>
     </section>
