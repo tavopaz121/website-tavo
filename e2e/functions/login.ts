@@ -7,5 +7,5 @@ export async function login(page: Page) {
   await page.getByRole("textbox", { name: "Contraseña" }).fill("password");
   await page.getByRole("button", { name: /ingresar/i }).click();
 
-  await expect(page).toHaveURL("/");
+  await expect(page).toHaveURL("/admin");
 }
