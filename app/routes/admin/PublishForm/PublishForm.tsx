@@ -21,8 +21,7 @@ const errorClassName =
 export default function PublishForm({ mode = "create" }) {
   return function PublishFormInner() {
     const errors = useActionData();
-    const { post } = useLoaderData();
-    const { page } = useLoaderData();
+    const post = useLoaderData();
     const transition = useNavigation();
     const isSubmitting = Boolean(transition.state !== "idle");
     const [title, setTitle] = useState(post?.title || "");
@@ -101,6 +100,7 @@ export default function PublishForm({ mode = "create" }) {
         method="post"
         className="max-md:col-span-12 md:col-span-6 p-4 mt-10"
         encType="multipart/form-data"
+        data-testid="publish-form"
       >
         <h1 className="mb-4">{mode === "edit" ? "Editar" : "Publicar"}:</h1>
 
