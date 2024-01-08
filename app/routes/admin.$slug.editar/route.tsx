@@ -10,7 +10,6 @@ export async function loader({ params }: LoaderArgs) {
   const { slug } = params;
 
   const post: Post | FormDataEntryValue = await getPost(slug || "");
-  const page = await getPageBySlug(slug);
 
   const content: string | undefined = post.content as string;
 
@@ -21,7 +20,7 @@ export async function loader({ params }: LoaderArgs) {
     });
   }
 
-  return json({ post, page });
+  return json(post);
 }
 
 export const action = getPublishAction("edit");
