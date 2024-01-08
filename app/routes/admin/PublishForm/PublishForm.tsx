@@ -21,7 +21,7 @@ const errorClassName =
 export default function PublishForm({ mode = "create" }) {
   return function PublishFormInner() {
     const errors = useActionData();
-    const { post } = useLoaderData();
+    const post = useLoaderData();
     const transition = useNavigation();
     const isSubmitting = Boolean(transition.state !== "idle");
     const [title, setTitle] = useState(post?.title || "");
