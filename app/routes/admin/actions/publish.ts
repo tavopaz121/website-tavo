@@ -2,7 +2,7 @@ import type { ActionArgs } from "@remix-run/node";
 import { createPost, updatePost } from "~/firebase/models/posts.server";
 import { json, redirect } from "@remix-run/node";
 import type { Post } from "~/types/publish";
-import { createPage } from "~/firebase/models/pages.server";
+import { createPage, updatePage } from "~/firebase/models/pages.server";
 
 type ActionData = {
   title: null | string;
@@ -88,7 +88,7 @@ export function getPublishAction(mode: string) {
 
     if (mode === "edit") {
       await updatePost(id, postInfo, image || null, user);
-      await createPage(dataSeo);
+      await updatePage(id, dataSeo);
 
       return redirect(`/${slug}`);
     }
@@ -98,6 +98,8 @@ export function getPublishAction(mode: string) {
       image,
       user,
     );
+
+    await createPage(dataSeo);
 
     return redirect(`/${result.slug}`);
   };
