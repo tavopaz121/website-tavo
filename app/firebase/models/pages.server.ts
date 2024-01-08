@@ -27,11 +27,11 @@ export async function getPage(id: string) {
   return {};
 }
 
-export async function getPageBySlug(slug: string | undefined) {
+export async function getPageBySlug(slug: string) {
   try {
     const querySnapshot = await collections
       .pages()
-      .where("slug", "==", slug?.toLowerCase())
+      .where("slug", "==", slug.toLowerCase())
       .get();
 
     if (!querySnapshot.empty) {
