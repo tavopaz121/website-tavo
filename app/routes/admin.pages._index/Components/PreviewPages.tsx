@@ -3,6 +3,7 @@ import { Link } from "@remix-run/react";
 type PreviewPage = {
   title?: string;
   slug?: string;
+  status?: "published" | "draft";
   description?: {
     name?: string;
     content?: string;
@@ -64,7 +65,11 @@ export default function PreviewPages({ pages }: PreviewPagesProps) {
                         <IconEdit title="Icono editar página" />
                       </Link>
                       <Link to={`/admin/pages/${page.id}/eliminar`}>
-                        <IconDelete title="Icono para eliminar página" />
+                        <button>
+                          {page.status === "published"
+                            ? "Borrador"
+                            : "Publicar"}
+                        </button>
                       </Link>
                     </div>
                   </td>

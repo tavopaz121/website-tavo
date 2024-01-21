@@ -3,6 +3,7 @@ import type { Timestamp } from "firebase-admin/firestore";
 export type Page =
   | {
       id?: string;
+      status: "published" | "draft";
       metas: Array<{
         name?: string;
         content: string;
