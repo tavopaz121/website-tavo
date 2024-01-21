@@ -35,8 +35,9 @@ export async function getPageBySlug(slug: string) {
       .get();
 
     if (!querySnapshot.empty) {
-      const data = querySnapshot.docs[0].data();
-      return data;
+      const doc = querySnapshot.docs[0];
+      const data = doc.data();
+      return { id: doc.id, ...data };
     }
 
     return null;
@@ -53,7 +54,7 @@ export async function createPage(data: any) {
     let URLImage;
 
     if (image) {
-      return (URLImage = await createImageInStorage(image));
+      URLImage = await createImageInStorage(image);
     }
 
     const page = await collections.pages().add({
@@ -83,7 +84,6 @@ export async function deletePage(id: string) {
     };
   }
 }
-
 
 export async function updatePage(id: string, updatedData: any) {
   try {

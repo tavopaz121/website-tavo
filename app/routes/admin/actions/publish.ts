@@ -20,6 +20,8 @@ export function getPublishAction(mode: string) {
     const formDataObject: { [key: string]: string | File } = {};
 
     const id = formData.get("id") as string;
+    const pageId = formData.get("idPage") as string;
+
     const title = formData.get("title") as string;
     const slug = formData.get("slug") as string;
     const content = formData.get("content") as string;
@@ -88,8 +90,12 @@ export function getPublishAction(mode: string) {
 
     if (mode === "edit") {
       await updatePost(id, postInfo, image || null, user);
-      await createPage(dataSeo);
-      // await updatePage(slug, dataSeo)
+
+      if (!pageId) {
+        await createPage(dataSeo);
+      } else {
+        await updatePage(pageId, dataSeo);
+      }
 
       return redirect(`/${slug}`);
     }
@@ -99,6 +105,7 @@ export function getPublishAction(mode: string) {
       image,
       user,
     );
+
     await createPage(dataSeo);
 
     return redirect(`/${result.slug}`);
