@@ -2,7 +2,7 @@ import type { ActionArgs } from "@remix-run/node";
 import { createPost, updatePost } from "~/firebase/models/posts.server";
 import { json, redirect } from "@remix-run/node";
 import type { Post } from "~/types/publish";
-import { createPage } from "~/firebase/models/pages.server";
+import { createPage, updatePage } from "~/firebase/models/pages.server";
 
 type ActionData = {
   title: null | string;
@@ -20,6 +20,8 @@ export function getPublishAction(mode: string) {
     const formDataObject: { [key: string]: string | File } = {};
 
     const id = formData.get("id") as string;
+    const pageId = formData.get("idPage") as string;
+
     const title = formData.get("title") as string;
     const slug = formData.get("slug") as string;
     const content = formData.get("content") as string;
@@ -88,7 +90,12 @@ export function getPublishAction(mode: string) {
 
     if (mode === "edit") {
       await updatePost(id, postInfo, image || null, user);
-      await createPage(dataSeo);
+
+      if (!pageId) {
+        await createPage(dataSeo);
+      } else {
+        await updatePage(pageId, dataSeo);
+      }
 
       return redirect(`/${slug}`);
     }
@@ -98,6 +105,8 @@ export function getPublishAction(mode: string) {
       image,
       user,
     );
+
+    await createPage(dataSeo);
 
     return redirect(`/${result.slug}`);
   };
