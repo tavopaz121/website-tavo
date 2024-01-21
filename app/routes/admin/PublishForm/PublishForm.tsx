@@ -9,9 +9,8 @@ import type { ChangeEvent } from "react";
 import { XcircleSolidIcon, IconClose } from "../Icons";
 import TextField from "../TextField/TextField";
 import SelectFile from "../SelectFile/SelectFile";
-import fieldsSeo from "~/data/fieldsSeo";
 import TextArea from "../TextArea/TextArea";
-import { handleFieldChange } from "~/routes/admin.pages.crear/functions/handleFieldChange";
+import { metasSeo } from "./data/metas";
 
 const inputClassName =
   "w-full rounded border border-gray-500 px-2 py-1 text-lg dark:text-black";
@@ -21,7 +20,8 @@ const errorClassName =
 export default function PublishForm({ mode = "create" }) {
   return function PublishFormInner() {
     const errors = useActionData();
-    const post = useLoaderData();
+    const { post, page } = useLoaderData() || {};
+
     const transition = useNavigation();
     const isSubmitting = Boolean(transition.state !== "idle");
     const [title, setTitle] = useState(post?.title || "");
@@ -37,7 +37,7 @@ export default function PublishForm({ mode = "create" }) {
     const tagsRef = useRef<HTMLInputElement>(null);
     const [srcImage, setSrcImage] = useState(post?.image || null);
 
-    const [metas, setMetas] = useState(fieldsSeo);
+    const [metas, setMetas] = useState(page?.metas || metasSeo);
 
     useEffect(() => {
       if (errors?.title) {
@@ -82,7 +82,7 @@ export default function PublishForm({ mode = "create" }) {
       setSrcImage(null);
     };
 
-    function getFieldValue(fieldName: any, metas: any) {
+    function getFieldValue(fieldName: any) {
       switch (fieldName) {
         case "og:title":
         case "twitter:title":
@@ -94,6 +94,13 @@ export default function PublishForm({ mode = "create" }) {
           return null;
       }
     }
+
+    const handleFieldChange = (e, name) => {
+      const updatedMetas = metas.map((meta) =>
+        meta.name === name ? { ...meta, content: e.target.value } : meta,
+      );
+      setMetas(updatedMetas);
+    };
 
     return (
       <Form
@@ -241,6 +248,8 @@ export default function PublishForm({ mode = "create" }) {
           {mode === "edit" ? "Editar seo" : "Agregar seo"}:
         </h1>
 
+        <input type="hidden" name="idPage" value={page?.id} />
+
         <TextArea
           title="Descripción"
           customClasses={{
@@ -255,29 +264,16 @@ export default function PublishForm({ mode = "create" }) {
           value={summary}
         />
 
-        <h1 className="mb-4">OpenGraph:</h1>
+        <h1 className="mb-4">Metas:</h1>
 
-        {metas.openGraph.map((meta, index) => (
+        {metas.map((meta, index) => (
           <TextField
             type="text"
             key={index}
-            value={getFieldValue(meta.name, metas) || meta.content}
-            label={meta.label}
+            value={getFieldValue(meta.name) || meta.content}
+            label={meta.name}
+            onChange={(e) => handleFieldChange(e, meta.name)}
             name={meta.name}
-            onChange={(e) => handleFieldChange(meta.name, setMetas, e)}
-          />
-        ))}
-
-        <h1 className="mb-4">Twitter:</h1>
-
-        {metas.twitter.map((meta, index) => (
-          <TextField
-            type="text"
-            key={index}
-            value={getFieldValue(meta.name, metas) || meta.content}
-            label={meta.label}
-            name={meta.name}
-            onChange={(e) => handleFieldChange(meta.name, setMetas, e)}
           />
         ))}
 
